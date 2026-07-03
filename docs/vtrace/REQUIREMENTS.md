@@ -38,6 +38,7 @@ Repo or feature: `frames-core`
 | REQ-028 | The docs catalog shall include metadata-backed accepted starter entries with lifecycle status, claim strength, risk band, application packs, source family, authority model, transfer strength, and review notes. | NEED-001 / CON-001 / CON-003 | Accepted catalog entries need tool-relevant selection and safety metadata before Rust API migration. | must | FRAMES | inspection | accepted |
 | REQ-029 | The repo shall define role-reviewed promotion decisions for local imports before catalog acceptance. | NEED-001 / CON-003 | Local patterns need explicit promote/hold decisions so draft heuristics do not silently become accepted catalog entries. | must | FRAMES | inspection / role review | accepted |
 | REQ-030 | The repo shall define a dedicated role review for theme swimlanes before leadership-pack or catalog acceptance. | NEED-001 / CON-003 | Theme swimlanes can influence funding, sequencing, and staffing, so they need explicit role gates beyond promotion to draft heuristic. | must | FRAMES | inspection / role review | accepted |
+| REQ-031 | The repo shall define a first empirical validation trial protocol with scenario, comparison condition, response form, scoring rubric, analysis plan, and claim boundary. | NEED-001 / CON-003 | FRAMES needs runnable empirical protocols before upgrading any draft heuristic to an empirically validated claim. | must | FRAMES | inspection | accepted |
 
 ## Requirement Quality Checklist
 

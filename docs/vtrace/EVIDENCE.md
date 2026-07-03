@@ -43,6 +43,7 @@ Repo or feature: `frames-core`
 | EVID-033 | inspection | `docs/frame-catalog.md`, `docs/theory/catalog-metadata-migration-plan.md` | Accepted starter metadata table exists and excludes local draft imports. | pass. | pass |
 | EVID-034 | inspection / role review | `docs/theory/local-import-promotion-review.md` | Local import promotion review exists with promoted draft heuristics and held imports. | pass. | pass |
 | EVID-035 | inspection / role review | `docs/theory/theme-swimlane-role-review.md` | Theme-swimlane role review exists with acceptance decision, role findings, fit score, evidence gates, hard stops, and output template. | pass. | pass |
+| EVID-036 | inspection | `docs/theory/empirical-validation-trial-001-theme-swimlanes.md` | First empirical validation trial protocol exists with scenario, comparison conditions, response form, scoring rubric, analysis plan, report template, hard stops, and no claim upgrade. | pass. | pass |
 
 ## Evidence Rules
 

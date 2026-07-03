@@ -73,6 +73,7 @@ Structured CAREER Gravity frame imports live in [docs/theory/career-gravity-fram
 Theme swimlane extraction lives in [docs/theory/theme-swimlane-extraction.md](docs/theory/theme-swimlane-extraction.md).
 Theme swimlane role review lives in [docs/theory/theme-swimlane-role-review.md](docs/theory/theme-swimlane-role-review.md).
 Empirical validation planning lives in [docs/theory/empirical-validation-plan.md](docs/theory/empirical-validation-plan.md).
+The first empirical validation trial lives in [docs/theory/empirical-validation-trial-001-theme-swimlanes.md](docs/theory/empirical-validation-trial-001-theme-swimlanes.md).
 Catalog metadata migration planning lives in [docs/theory/catalog-metadata-migration-plan.md](docs/theory/catalog-metadata-migration-plan.md).
 AI response contract guidance lives in [docs/theory/ai-response-contract.md](docs/theory/ai-response-contract.md).
 External frame-practitioner benchmarks live in [docs/theory/external-frame-practitioners.md](docs/theory/external-frame-practitioners.md).

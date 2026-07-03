@@ -38,6 +38,7 @@ unless product requirements explicitly define them as user-facing behavior.
 | WP-024 | Add metadata-backed accepted starter catalog. | Accepted starter frames expose docs-level metadata before Rust API migration. | REQ-028 / SPEC-027 / IF-030 | `docs/frame-catalog.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-023 complete and migration plan exists. | Accepted starter metadata table exists, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: catalog structure review before Rust field migration | evidence / trace / review / status rows | complete |
 | WP-025 | Add role-reviewed local import promotion. | Local imports have explicit promote/hold outcomes before catalog acceptance. | REQ-029 / SPEC-028 / IF-031 | `docs/theory/local-import-promotion-review.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-024 complete and local structured imports exist. | Promotion review exists, import statuses updated, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: fit scoring before accepted catalog promotion | evidence / trace / review / status rows | complete |
 | WP-026 | Add theme-swimlane role review. | Theme swimlanes have explicit role gates before leadership-pack or catalog acceptance. | REQ-030 / SPEC-029 / IF-032 | `docs/theory/theme-swimlane-role-review.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-025 complete and theme swimlanes promoted only as draft heuristic. | Role review exists, linked docs updated, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: pilot review before accepted catalog promotion | evidence / trace / review / status rows | complete |
+| WP-027 | Add first empirical validation trial protocol. | Claim upgrades have a concrete comparison protocol before empirical claims are made. | REQ-031 / SPEC-030 / IF-033 | `docs/theory/empirical-validation-trial-001-theme-swimlanes.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-026 complete and validation plan exists. | Trial protocol exists, linked docs updated, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: execute trial before claim-strength upgrade | evidence / trace / review / status rows | complete |
 
 ## Work Package Details
 
@@ -995,3 +996,38 @@ V closure:
 | Implementation | `docs/theory/theme-swimlane-role-review.md` | closed | Acceptance decision, role findings, fit score, gates, hard stops, and template added. |
 | Verification | EVID-035 | closed | Inspection covers theme-swimlane role review. |
 | Validation | VAL-027 | closed | Guide supports pilot-use decisions before catalog acceptance. |
+
+### WP-027: Add first empirical validation trial protocol
+
+Objective: define a concrete comparison protocol for the first FRAMES empirical
+validation trial without upgrading claim strength before data exists.
+
+Parent IDs: REQ-031, SPEC-030, IF-033.
+
+Affected files/modules:
+
+- `docs/theory/empirical-validation-trial-001-theme-swimlanes.md`
+- `docs/theory/empirical-validation-plan.md`
+- `docs/theory/theory-roadmap.md`
+- `README.md`
+- `docs/vtrace/*`
+
+Verification commands:
+
+```powershell
+cargo fmt --check
+cargo test
+cargo run --example lookup
+git diff --check
+cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .
+```
+
+V closure:
+
+| V Area | IDs / Evidence | Status | Notes |
+|---|---|---|---|
+| Requirements | REQ-031 | closed | First empirical validation trial protocol required. |
+| Specification / Interface | SPEC-030, IF-033 | closed | Protocol fields and scoring stability gate defined. |
+| Implementation | `docs/theory/empirical-validation-trial-001-theme-swimlanes.md` | closed | Scenario, comparison, response form, scoring, analysis, hard stops, and report template added. |
+| Verification | EVID-036 | closed | Inspection covers first empirical trial protocol. |
+| Validation | VAL-028 | closed | Protocol supports future data collection without overclaiming. |

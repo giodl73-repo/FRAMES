@@ -35,6 +35,7 @@ Repo or feature: `frames-core`
 | VAL-025 | AI tool builder or catalog maintainer | Inspect accepted starter frames with tool-relevant metadata before Rust migration. | Use `docs/frame-catalog.md` accepted metadata table. | Accepted entries expose status, claim strength, risk band, application packs, source family, authority model, transfer strength, and review note. | EVID-033 | pass |
 | VAL-026 | Methodology maintainer | Decide which local imports can advance without becoming accepted catalog entries. | Apply `local-import-promotion-review.md` to RESONANCE, CAREER, and theme-swimlane imports. | Promoted draft heuristics and held imports are visible with role rationale and next gates. | EVID-034 | pass |
 | VAL-027 | Business leader or methodology maintainer | Decide whether theme swimlanes are ready for leadership-pack pilot use or catalog acceptance. | Apply `theme-swimlane-role-review.md` to a candidate program promise. | Acceptance decision, role findings, fit score, evidence gates, hard stops, output template, and next actions are visible. | EVID-035 | pass |
+| VAL-028 | Methodology maintainer or researcher | Prepare a first empirical trial without overstating claim strength. | Apply `empirical-validation-trial-001-theme-swimlanes.md` before collecting responses. | Scenario, comparison condition, response form, scoring rubric, analysis plan, hard stops, report template, and no-upgrade boundary are visible. | EVID-036 | pass |
 
 ## Deferred Validation
 
