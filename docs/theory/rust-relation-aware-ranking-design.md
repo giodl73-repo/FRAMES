@@ -148,7 +148,9 @@ recommendations.
 ## Compatibility Plan
 
 1. Add private relation metadata and parser-free static tables.
+   Complete for the first fixture IDs.
 2. Add tests that map the fixture package into hand-written Rust scenarios.
+   Complete for the first relation metadata expectations.
 3. Add `search_with_relations` or `rank_with_relations` as a separate method.
 4. Keep `FrameIndex::search` unchanged.
 5. Consider default-search promotion only after relation-aware output passes
@@ -178,5 +180,7 @@ Before implementation can replace or influence default ranking:
   of default search.
 - A parallel relation metadata table is the least disruptive first Rust step.
 - Fixture behavior should drive ranking decisions before numeric score tuning.
-- The next implementation step should add private relation metadata tables and
-  fixture-mapped tests without changing `FrameIndex::search`.
+- Private relation metadata tables now cover the first ranking fixture IDs
+  without changing `FrameIndex::search`.
+- The next implementation step should design or add the separate
+  relation-aware report path while preserving default search.

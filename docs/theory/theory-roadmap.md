@@ -73,12 +73,13 @@ growth gaps, implementation gaps, and deeper theory questions.
 | Relation-aware ranking fixtures | Accepted and review-only search need structural ranking fixtures before scoring moves past metadata filters. | Extend `../eval/starter-fixtures.json` and review-only fixtures |
 | Rust relation-aware ranking design | The crate needs an implementation plan for relation scoring before metadata fields or scoring changes are added. | Start from `transfer-aware-search-design.md` and `../eval/relation-aware-ranking-fixtures.json` |
 | Private relation metadata tables | The crate needs fixture-mapped metadata before relation-aware output can be implemented safely. | Start from `rust-relation-aware-ranking-design.md` |
+| Relation-aware report path | The crate needs a separate report path before relation scoring can affect default search. | Start from private relation metadata tables and ranking fixtures |
 
 ## Priority Order
 
 1. Collect EVT-001 participant responses and score the locked packet.
 2. Pilot the theme-swimlane leadership worksheet and record changed decisions.
-3. Add private relation metadata tables and fixture-mapped tests without changing default search.
+3. Add a separate relation-aware report path without changing default search.
 
 ## Role Guidance
 

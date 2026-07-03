@@ -34,7 +34,8 @@ transfer-aware query filters. Lifecycle report APIs add explicit visibility
 filters, fallbacks, and suppressed-candidate explanations while keeping default
 search accepted-starter only. Review-only catalog helpers and review modes
 expose docs-catalog, held, and anti-pattern rows separately from accepted
-search.
+search. Private relation metadata tables now stage relation-aware ranking
+without changing default search.
 
 ```powershell
 cargo test

@@ -343,6 +343,62 @@ pub struct ReviewFrameEntry {
     pub revisit_trigger: &'static str,
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+enum TargetRelation {
+    PeerTurnTaking,
+    ProtectedPartyDuty,
+    DirectedAuthority,
+    FlowJoining,
+    RequiredGate,
+    ThresholdSignal,
+    PerspectiveRepair,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+enum ConstraintRelation {
+    Coupling,
+    EvidenceMissing,
+    AuthorityMissing,
+    FactsKnown,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+enum ProtectedValue {
+    CustomerSafety,
+    IncidentControl,
+    SystemStability,
+    DecisionQuality,
+    DecisionLegitimacy,
+    RepairAccountability,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+enum TransferStrength {
+    Structural,
+    Partial,
+    Dangerous,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+enum TransferExclusion {
+    PeerTurnsUnderOwnerAuthority,
+    StrongActorDutyShiftedToProtectedParty,
+    SpeedWithoutSafetyGate,
+    StatusWithoutEvidence,
+    UnsupportedAuthorityGate,
+    StoryAfterFactsKnown,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+struct RelationMetadata {
+    frame_id: &'static str,
+    target_relations: &'static [TargetRelation],
+    constraint_relations: &'static [ConstraintRelation],
+    protected_values: &'static [ProtectedValue],
+    transfer_strength: TransferStrength,
+    exclusions: &'static [TransferExclusion],
+}
+
 #[derive(Debug, Clone, PartialEq, Eq, Default)]
 pub struct FrameQuery<'a> {
     pub situation: &'a str,
@@ -866,6 +922,95 @@ impl AcceptedSuppressionRule {
 fn review_entry_by_id(id: &str) -> Option<&'static ReviewFrameEntry> {
     REVIEW_CATALOG.iter().find(|entry| entry.id == id)
 }
+
+#[allow(dead_code)]
+fn relation_metadata_by_id(id: &str) -> Option<&'static RelationMetadata> {
+    RELATION_METADATA
+        .iter()
+        .find(|metadata| metadata.frame_id == id)
+}
+
+#[allow(dead_code)]
+const RELATION_METADATA: &[RelationMetadata] = &[
+    RelationMetadata {
+        frame_id: "four-way-stop",
+        target_relations: &[TargetRelation::PeerTurnTaking],
+        constraint_relations: &[],
+        protected_values: &[],
+        transfer_strength: TransferStrength::Structural,
+        exclusions: &[
+            TransferExclusion::PeerTurnsUnderOwnerAuthority,
+            TransferExclusion::StrongActorDutyShiftedToProtectedParty,
+        ],
+    },
+    RelationMetadata {
+        frame_id: "crosswalk-yield",
+        target_relations: &[TargetRelation::ProtectedPartyDuty],
+        constraint_relations: &[],
+        protected_values: &[ProtectedValue::CustomerSafety],
+        transfer_strength: TransferStrength::Structural,
+        exclusions: &[],
+    },
+    RelationMetadata {
+        frame_id: "merge-lane",
+        target_relations: &[TargetRelation::FlowJoining],
+        constraint_relations: &[],
+        protected_values: &[],
+        transfer_strength: TransferStrength::Partial,
+        exclusions: &[
+            TransferExclusion::PeerTurnsUnderOwnerAuthority,
+            TransferExclusion::SpeedWithoutSafetyGate,
+        ],
+    },
+    RelationMetadata {
+        frame_id: "following-distance",
+        target_relations: &[TargetRelation::FlowJoining],
+        constraint_relations: &[ConstraintRelation::Coupling],
+        protected_values: &[ProtectedValue::SystemStability],
+        transfer_strength: TransferStrength::Structural,
+        exclusions: &[],
+    },
+    RelationMetadata {
+        frame_id: "red-yellow-green",
+        target_relations: &[TargetRelation::ThresholdSignal],
+        constraint_relations: &[ConstraintRelation::EvidenceMissing],
+        protected_values: &[ProtectedValue::DecisionQuality],
+        transfer_strength: TransferStrength::Structural,
+        exclusions: &[TransferExclusion::StatusWithoutEvidence],
+    },
+    RelationMetadata {
+        frame_id: "dashboard-warning-light",
+        target_relations: &[TargetRelation::ThresholdSignal],
+        constraint_relations: &[ConstraintRelation::EvidenceMissing],
+        protected_values: &[ProtectedValue::DecisionQuality],
+        transfer_strength: TransferStrength::Partial,
+        exclusions: &[],
+    },
+    RelationMetadata {
+        frame_id: "veto-rule",
+        target_relations: &[TargetRelation::RequiredGate],
+        constraint_relations: &[ConstraintRelation::AuthorityMissing],
+        protected_values: &[ProtectedValue::DecisionLegitimacy],
+        transfer_strength: TransferStrength::Dangerous,
+        exclusions: &[TransferExclusion::UnsupportedAuthorityGate],
+    },
+    RelationMetadata {
+        frame_id: "bag-of-chips-as-excuse",
+        target_relations: &[TargetRelation::PerspectiveRepair],
+        constraint_relations: &[ConstraintRelation::FactsKnown],
+        protected_values: &[ProtectedValue::RepairAccountability],
+        transfer_strength: TransferStrength::Dangerous,
+        exclusions: &[TransferExclusion::StoryAfterFactsKnown],
+    },
+    RelationMetadata {
+        frame_id: "incident-command",
+        target_relations: &[TargetRelation::DirectedAuthority],
+        constraint_relations: &[],
+        protected_values: &[ProtectedValue::IncidentControl],
+        transfer_strength: TransferStrength::Structural,
+        exclusions: &[],
+    },
+];
 
 const REVIEW_SUPPRESSION_RULES: &[ReviewSuppressionRule] = &[
     ReviewSuppressionRule {
@@ -1594,6 +1739,80 @@ mod tests {
         assert_eq!(docs_report.review_only.len(), 1);
         assert_eq!(docs_report.review_only[0].entry.id, "veto-rule");
         assert!(docs_report.suggestions.is_empty());
+    }
+
+    #[test]
+    fn relation_metadata_covers_ranking_fixture_ids() {
+        let expected_ids = [
+            "crosswalk-yield",
+            "four-way-stop",
+            "merge-lane",
+            "following-distance",
+            "red-yellow-green",
+            "dashboard-warning-light",
+            "veto-rule",
+            "bag-of-chips-as-excuse",
+        ];
+
+        for id in expected_ids {
+            assert!(relation_metadata_by_id(id).is_some(), "{id}");
+        }
+    }
+
+    #[test]
+    fn relation_metadata_maps_first_ranking_fixtures() {
+        let crosswalk = relation_metadata_by_id("crosswalk-yield").unwrap();
+        let four_way = relation_metadata_by_id("four-way-stop").unwrap();
+        assert!(crosswalk
+            .target_relations
+            .contains(&TargetRelation::ProtectedPartyDuty));
+        assert!(crosswalk
+            .protected_values
+            .contains(&ProtectedValue::CustomerSafety));
+        assert!(four_way
+            .target_relations
+            .contains(&TargetRelation::PeerTurnTaking));
+        assert!(four_way
+            .exclusions
+            .contains(&TransferExclusion::StrongActorDutyShiftedToProtectedParty));
+
+        let following_distance = relation_metadata_by_id("following-distance").unwrap();
+        let merge_lane = relation_metadata_by_id("merge-lane").unwrap();
+        assert_eq!(
+            following_distance.transfer_strength,
+            TransferStrength::Structural
+        );
+        assert_eq!(merge_lane.transfer_strength, TransferStrength::Partial);
+        assert!(following_distance
+            .constraint_relations
+            .contains(&ConstraintRelation::Coupling));
+
+        let veto_rule = relation_metadata_by_id("veto-rule").unwrap();
+        let chips = relation_metadata_by_id("bag-of-chips-as-excuse").unwrap();
+        assert_eq!(veto_rule.transfer_strength, TransferStrength::Dangerous);
+        assert!(veto_rule
+            .exclusions
+            .contains(&TransferExclusion::UnsupportedAuthorityGate));
+        assert_eq!(chips.transfer_strength, TransferStrength::Dangerous);
+        assert!(chips
+            .constraint_relations
+            .contains(&ConstraintRelation::FactsKnown));
+    }
+
+    #[test]
+    fn relation_metadata_does_not_change_default_search() {
+        let index = FrameIndex::new();
+        let query = FrameQuery::new("two teams need turn order around constrained attention")
+            .with_kind(FrameKind::Coordination)
+            .with_authority_model(AuthorityModel::Peer)
+            .with_risk_band(RiskBand::Medium)
+            .with_application_pack(ApplicationPack::Product)
+            .with_tags(&["priority"]);
+
+        let results = index.search(&query);
+
+        assert_eq!(results[0].entry.id, "four-way-stop");
+        assert!(relation_metadata_by_id(results[0].entry.id).is_some());
     }
 
     #[test]

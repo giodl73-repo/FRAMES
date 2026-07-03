@@ -75,6 +75,7 @@ Repo or feature: `frames-core`
 | REQ-065 | unit test / example run / inspection | run `cargo test`, examples, and inspect `src/lib.rs` | Explicit review modes populate review-only output and keep review rows out of suggestions. | pass | EVID-070 |
 | REQ-066 | inspection / JSON parse | inspect and parse `docs/eval/relation-aware-ranking-fixtures.json` | Scoring order, required output fields, expected order, demotion, suppression, warning, fallback, and source-doc fields are present. | pass | EVID-071 |
 | REQ-067 | inspection | inspect `docs/theory/rust-relation-aware-ranking-design.md` | Additive API shape, metadata table strategy, scoring procedure, compatibility plan, and acceptance gate are present. | pass | EVID-072 |
+| REQ-068 | unit test / example run / inspection | run `cargo test`, examples, and inspect `src/lib.rs` | Private relation metadata covers ranking fixture IDs, fixture-mapped tests pass, and default search behavior remains unchanged. | pass | EVID-073 |
 
 ## Commands
 
@@ -162,6 +163,7 @@ git diff --check
 | EVID-070 | command output / inspection | `cargo test`, `cargo run --example lookup`, `cargo run --example ai_response_contract`, `src/lib.rs`, `README.md`, `docs/vtrace/INTERFACES.md`, `docs/theory/review-only-catalog-data-model.md`, `docs/theory/rust-lifecycle-filter-api-design.md` | REQ-065, SPEC-064, IF-067, VAL-062 | pass |
 | EVID-071 | inspection / JSON parse | `docs/eval/relation-aware-ranking-fixtures.json`, `docs/eval/README.md`, `docs/theory/evaluation-set-design.md`, `docs/theory/transfer-aware-search-design.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md` | REQ-066, SPEC-065, IF-068, VAL-063 | pass |
 | EVID-072 | inspection | `docs/theory/rust-relation-aware-ranking-design.md`, `docs/theory/transfer-aware-search-design.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md` | REQ-067, SPEC-066, IF-069, VAL-064 | pass |
+| EVID-073 | command output / inspection | `cargo test`, `cargo run --example lookup`, `cargo run --example ai_response_contract`, `src/lib.rs`, `README.md`, `docs/theory/rust-relation-aware-ranking-design.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md` | REQ-068, SPEC-067, IF-070, VAL-065 | pass |
 
 ## Gaps
 

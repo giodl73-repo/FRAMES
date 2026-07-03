@@ -75,6 +75,7 @@ unless product requirements explicitly define them as user-facing behavior.
 | WP-061 | Add catalog review-mode output. | Review-only rows can be listed through explicit lifecycle review modes without becoming recommendations. | REQ-065 / SPEC-064 / IF-067 | `src/lib.rs`, `README.md`, `docs/vtrace/INTERFACES.md`, `docs/theory/review-only-catalog-data-model.md`, `docs/theory/rust-lifecycle-filter-api-design.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `docs/vtrace/*` | WP-060 complete and review-only rows exist. | `FrameSearchReport::review_only` and review-mode constructors exist, tests prove default search does not return review rows, docs and VTRACE pass. | L0: JSON parse; `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: define relation-aware ranking fixtures | evidence / trace / review / status rows | complete |
 | WP-062 | Publish relation-aware ranking fixtures. | Relation-aware scoring expectations are machine-readable before Rust ranking changes. | REQ-066 / SPEC-065 / IF-068 | `docs/eval/relation-aware-ranking-fixtures.json`, `docs/eval/README.md`, `docs/theory/evaluation-set-design.md`, `docs/theory/transfer-aware-search-design.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md`, `docs/vtrace/*` | WP-061 complete and review-mode output exists. | JSON package parses, ranking order and hard-stop fixtures exist, roadmap advances to Rust relation-ranking design, docs and VTRACE pass. | L0: JSON parse; `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: design Rust relation-aware ranking implementation | evidence / trace / review / status rows | complete |
 | WP-063 | Define Rust relation-aware ranking design. | Relation-aware ranking implementation has an additive API and metadata plan before Rust scoring changes. | REQ-067 / SPEC-066 / IF-069 | `docs/theory/rust-relation-aware-ranking-design.md`, `docs/theory/transfer-aware-search-design.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md`, `docs/vtrace/*` | WP-062 complete and ranking fixtures exist. | Design doc exists, links fixtures, preserves default search, defines metadata and report strategy, docs and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: add private relation metadata tables and fixture-mapped tests | evidence / trace / review / status rows | complete |
+| WP-064 | Add private relation metadata tables. | Relation fixture IDs have compile-time metadata before public relation scoring APIs. | REQ-068 / SPEC-067 / IF-070 | `src/lib.rs`, `README.md`, `docs/theory/rust-relation-aware-ranking-design.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `docs/vtrace/*` | WP-063 complete and implementation design exists. | Private metadata rows and fixture-mapped tests exist, default search remains unchanged, examples and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: add separate relation-aware report path | evidence / trace / review / status rows | complete |
 
 ## Work Package Details
 
@@ -2455,3 +2456,41 @@ V closure:
 | Implementation | `docs/theory/rust-relation-aware-ranking-design.md` | closed | Implementation design added and linked from roadmap and migration docs. |
 | Verification | EVID-072 | closed | Inspection covers design and no current Rust behavior change. |
 | Validation | VAL-064 | closed | API maintainers can plan relation-aware ranking from fixture-backed design. |
+
+### WP-064: Add private relation metadata tables
+
+Objective: add private relation metadata and fixture-mapped tests before any
+public relation-aware scoring API.
+
+Parent IDs: REQ-068, SPEC-067, IF-070.
+
+Affected files/modules:
+
+- `src/lib.rs`
+- `README.md`
+- `docs/theory/rust-relation-aware-ranking-design.md`
+- `docs/theory/catalog-metadata-migration-plan.md`
+- `docs/theory/theory-gap-audit.md`
+- `docs/theory/theory-roadmap.md`
+- `docs/vtrace/*`
+
+Verification commands:
+
+```powershell
+cargo fmt --check
+cargo test
+cargo run --example lookup
+cargo run --example ai_response_contract
+git diff --check
+cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .
+```
+
+V closure:
+
+| V Area | IDs / Evidence | Status | Notes |
+|---|---|---|---|
+| Requirements | REQ-068 | closed | Private relation metadata must cover fixture IDs without changing search behavior. |
+| Specification / Interface | SPEC-067, IF-070 | closed | Private metadata rows and fixture-mapped tests exist while public API remains unchanged. |
+| Implementation | `src/lib.rs` | closed | Private relation metadata covers accepted and review-only fixture IDs. |
+| Verification | EVID-073 | closed | Unit tests and examples prove metadata coverage and unchanged default search. |
+| Validation | VAL-065 | closed | API maintainers can prepare relation-aware output from private metadata safely. |
