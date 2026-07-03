@@ -52,6 +52,7 @@ Repo or feature: `frames-core`
 | REQ-042 | unit test / example run / inspection | `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; inspect `src/lib.rs` | Search supports strict authority, risk, and application-pack filters before lexical scoring. | pass | EVID-047 |
 | REQ-043 | inspection | inspect `docs/validation/evt-001-theme-swimlanes-runbook.md`, `docs/validation/evt-001-response-and-scoring-sheet.md`, and `docs/validation/evt-001-theme-swimlanes-results.md` | EVT-001 has a locked execution packet, response/scoring sheet, and empty results ledger before collection. | pass | EVID-048 |
 | REQ-044 | inspection | inspect `docs/theory/frame-ontology.md` | Ontology rule, entity types, controlled terms, tag rules, term admission, review checklist, and design consequences are present. | pass | EVID-049 |
+| REQ-045 | inspection | inspect `docs/frame-catalog.md`, `docs/theory/evaluation-set-design.md`, and `docs/theory/frame-ontology.md` | Accepted starter rows and fixture backlog use controlled ontology terms. | pass | EVID-050 |
 
 ## Commands
 
@@ -116,6 +117,7 @@ git diff --check
 | EVID-047 | command output / inspection | `cargo test`, `cargo run --example lookup`, `cargo run --example ai_response_contract`, `src/lib.rs` | REQ-042, SPEC-041, IF-044, VAL-039 | pass |
 | EVID-048 | inspection | `docs/validation/evt-001-theme-swimlanes-runbook.md`, `docs/validation/evt-001-response-and-scoring-sheet.md`, `docs/validation/evt-001-theme-swimlanes-results.md` | REQ-043, SPEC-042, IF-045, VAL-040 | pass |
 | EVID-049 | inspection | `docs/theory/frame-ontology.md` | REQ-044, SPEC-043, IF-046, VAL-041 | pass |
+| EVID-050 | inspection | `docs/frame-catalog.md`, `docs/theory/evaluation-set-design.md`, `docs/theory/frame-ontology.md` | REQ-045, SPEC-044, IF-047, VAL-042 | pass |
 
 ## Gaps
 

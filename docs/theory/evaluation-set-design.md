@@ -43,6 +43,9 @@ target_situation:
 audience:
 application_pack:
 risk_band:
+frame_job:
+relation_term:
+authority_term:
 expected_primary:
 acceptable_alternates:
 must_not_return:
@@ -63,6 +66,9 @@ review_status:
 | `fixture_type` | Positive, near-miss, hard-stop, anti-pattern, relation behavior, evidence boundary, or audience transfer. |
 | `target_situation` | The input scenario given to a tool or reviewer. |
 | `audience` | Intended reader or user context. |
+| `frame_job` | Controlled job from `frame-ontology.md`. |
+| `relation_term` | Controlled relation term from `frame-ontology.md`. |
+| `authority_term` | Controlled authority term from `frame-ontology.md`. |
 | `expected_primary` | Frame ID expected as first choice, or `none` when no frame should be primary. |
 | `acceptable_alternates` | Accepted frame IDs that can pass when justified. |
 | `must_not_return` | Frame IDs, draft frames, anti-patterns, or source patterns that should be suppressed. |
@@ -75,18 +81,18 @@ review_status:
 
 ## Starter Fixture Backlog
 
-| ID | Fixture Type | Target Situation | Expected Behavior |
-|---|---|---|---|
-| EVAL-TRAFFIC-001 | Positive | Peer teams need turn order around constrained attention. | Recommend `four-way-stop`; show authority boundary. |
-| EVAL-TRAFFIC-002 | Hard stop | One party owns an incident response decision. | Suppress `four-way-stop`; prefer command or plain language. |
-| EVAL-TRAFFIC-003 | Relation behavior | Peer turn-taking and incident command both match words in the query. | Mark conflict; do not blend. |
-| EVAL-RISK-001 | Evidence boundary | Status is called green but no threshold is named. | Require threshold evidence; do not accept green as proof. |
-| EVAL-ANTI-001 | Anti-pattern | A query says another team is a roadblock. | Suppress people-as-obstacles; return dependency/ownership fallback. |
-| EVAL-THEME-001 | Positive | Program leader wants three contribution lanes under one customer promise. | Recommend theme swimlanes only as draft/pilot unless accepted-catalog review passes. |
-| EVAL-THEME-002 | Near-miss | Three slogans exist but no owner, measure, or customer promise exists. | Hold or fallback; warn about slogan compression. |
-| EVAL-STORY-001 | Anti-pattern | Bag-of-chips story is used after facts establish harm. | Warn empathy eraser; require repair and ownership language. |
-| EVAL-REL-001 | Relation behavior | Run Fast is suggested for a risky customer migration. | Prefer `safer_fallback` to Run Fast / Run Safe or plain language. |
-| EVAL-AUD-001 | Audience transfer | Driving frame for non-driver or non-US audience. | Prefer queue/walking/plain-language alternate. |
+| ID | Fixture Type | Ontology Terms | Target Situation | Expected Behavior |
+|---|---|---|---|---|
+| EVAL-TRAFFIC-001 | Positive | coordination / peer_turn_taking / peer | Peer teams need turn order around constrained attention. | Recommend `four-way-stop`; show authority boundary. |
+| EVAL-TRAFFIC-002 | Hard stop | coordination / peer_turn_taking / owner | One party owns an incident response decision. | Suppress `four-way-stop`; prefer command or plain language. |
+| EVAL-TRAFFIC-003 | Relation behavior | coordination / peer_turn_taking / mixed | Peer turn-taking and incident command both match words in the query. | Mark conflict; do not blend. |
+| EVAL-RISK-001 | Evidence boundary | status / threshold_signal / operator | Status is called green but no threshold is named. | Require threshold evidence; do not accept green as proof. |
+| EVAL-ANTI-001 | Anti-pattern | coordination / dependency_integrity / owner | A query says another team is a roadblock. | Suppress people-as-obstacles; return dependency/ownership fallback. |
+| EVAL-THEME-001 | Positive | priority / route_adjustment / steward | Program leader wants three contribution lanes under one customer promise. | Recommend theme swimlanes only as draft/pilot unless accepted-catalog review passes. |
+| EVAL-THEME-002 | Near-miss | priority / route_adjustment / mixed | Three slogans exist but no owner, measure, or customer promise exists. | Hold or fallback; warn about slogan compression. |
+| EVAL-STORY-001 | Anti-pattern | trust / perspective_repair / peer | Bag-of-chips story is used after facts establish harm. | Warn empathy eraser; require repair and ownership language. |
+| EVAL-REL-001 | Relation behavior | risk / pace_adjustment / steward | Run Fast is suggested for a risky customer migration. | Prefer `safer_fallback` to Run Fast / Run Safe or plain language. |
+| EVAL-AUD-001 | Audience transfer | learning / route_adjustment / unknown | Driving frame for non-driver or non-US audience. | Prefer queue/walking/plain-language alternate. |
 
 ## Scoring Dimensions
 

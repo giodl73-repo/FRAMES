@@ -61,10 +61,15 @@ Use relation terms to describe why a frame fits structurally.
 | `protected_party_duty` | One actor should absorb delay or cost to protect another. | Crosswalk yield | Treats protection as optional courtesy. |
 | `threshold_signal` | A visible state indicates when action should change. | Red / yellow / green | Status label replaces evidence. |
 | `flow_joining` | Work must enter an active stream without disrupting it. | Merge lane | Approval gates are hidden. |
+| `route_adjustment` | Destination stays stable while the path changes. | Detour | The destination is no longer valid. |
 | `pace_adjustment` | The right move is to slow, recover, or downshift. | Downshift | Slowness becomes avoidance. |
+| `recovery_pause` | A planned stop preserves future performance. | Rest stop | Pause has no restart condition. |
+| `stabilization_reentry` | Work leaves the main flow briefly to stabilize and return. | Shoulder / pull-off | Stop becomes abandonment. |
+| `buffer_spacing` | A gap protects dependent actors from reaction-time risk. | Following distance | Buffer becomes slack without named risk. |
 | `dependency_integrity` | A structural support should not be changed casually. | Load-bearing wall | All change is treated as dangerous. |
 | `attention_limit` | Actors need to respect finite attention or visibility. | Blind spot | Responsibility is shifted away from the operator. |
 | `reserve_tracking` | Remaining capacity should guide timing and commitment. | Fuel gauge | Numeric display implies false precision. |
+| `perspective_repair` | New evidence changes an actor's interpretation of conflict or ownership. | Bag-of-chips story | Empathy erases accountability after harm is known. |
 
 ## Authority Vocabulary
 
@@ -159,4 +164,3 @@ Before accepting or importing a frame, ask:
   and change tool behavior.
 - Rejected-candidate reporting should name ontology mismatches, not just low
   score.
-

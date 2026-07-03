@@ -46,12 +46,13 @@
 | REQ-042 | NEED-001 | CON-001 / CON-003 | Add strict transfer-aware search filters. | SPEC-041 | DES-005 | CR-006 | WP-038 | `src/lib.rs`, `examples/lookup.rs`, `examples/ai_response_contract.rs`, `docs/theory/transfer-aware-search-design.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/ai-response-contract.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md` | VER-040 unit test / example run / inspection | VAL-039 | EVID-047 | validated |
 | REQ-043 | NEED-001 | CON-003 | Add locked EVT-001 execution packet. | SPEC-042 | DES-005 | n/a | WP-039 | `docs/validation/evt-001-theme-swimlanes-runbook.md`, `docs/validation/evt-001-response-and-scoring-sheet.md`, `docs/validation/evt-001-theme-swimlanes-results.md`, `docs/theory/empirical-validation-trial-001-theme-swimlanes.md`, `docs/theory/empirical-validation-plan.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md` | VER-041 inspection | VAL-040 | EVID-048 | validated |
 | REQ-044 | NEED-001 | CON-001 / CON-003 | Define controlled frame ontology. | SPEC-043 | DES-005 | n/a | WP-040 | `docs/theory/frame-ontology.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md` | VER-042 inspection | VAL-041 | EVID-049 | validated |
+| REQ-045 | NEED-001 | CON-001 / CON-003 | Apply ontology terms to catalog and fixtures. | SPEC-044 | DES-005 | n/a | WP-041 | `docs/frame-catalog.md`, `docs/theory/evaluation-set-design.md`, `docs/theory/frame-ontology.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md` | VER-043 inspection | VAL-042 | EVID-050 | validated |
 
 ## ID Legend
 
 - NEED-001: mission need in `MISSION.md`.
 - CON-001..CON-003: operating scenarios in `CONOPS.md`.
-- SPEC-001..SPEC-043: specification baseline.
+- SPEC-001..SPEC-044: specification baseline.
 - DES-001..DES-005: design elements.
 - CR-001..CR-006: code-rigor constraints.
 - WP-001: frame index crate work package.
@@ -94,4 +95,5 @@
 - WP-038: transfer-aware search filters work package.
 - WP-039: EVT-001 execution packet work package.
 - WP-040: frame ontology work package.
+- WP-041: ontology application work package.
 - EVID-* evidence: `EVIDENCE.md` and `VERIFICATION.md`.

@@ -52,6 +52,7 @@ unless product requirements explicitly define them as user-facing behavior.
 | WP-038 | Add transfer-aware search filters. | AI/tool users can filter accepted starter search by authority, risk, and application context. | REQ-042 / SPEC-041 / IF-044 | `src/lib.rs`, `examples/*`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-037 complete and accepted starter metadata exists. | Authority, risk, and application-pack filters exist, examples run, docs and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: run evaluation fixtures before relation-aware ranking | evidence / trace / review / status rows | complete |
 | WP-039 | Add EVT-001 execution packet. | Theme Swimlanes empirical validation can collect responses against locked prompts, scoring, and report shape. | REQ-043 / SPEC-042 / IF-045 | `docs/validation/*`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-038 complete and EVT-001 protocol exists. | Runbook, response sheet, empty results ledger, docs, and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: collect and score participant responses | evidence / trace / review / status rows | complete |
 | WP-040 | Add frame ontology. | Catalog growth uses controlled jobs, relations, authority, risk, and tag families. | REQ-044 / SPEC-043 / IF-046 | `docs/theory/frame-ontology.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-039 complete and gap audit identifies ontology drift risk. | Ontology exists, roadmap/gap audit updated, docs and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: apply ontology terms to catalog rows and fixtures | evidence / trace / review / status rows | complete |
+| WP-041 | Apply ontology to catalog and fixtures. | Accepted starter rows and evaluation fixtures use controlled ontology terms. | REQ-045 / SPEC-044 / IF-047 | `docs/frame-catalog.md`, `docs/theory/evaluation-set-design.md`, `docs/theory/frame-ontology.md`, `docs/theory/*`, `docs/vtrace/*` | WP-040 complete and ontology terms defined. | Catalog and fixture backlog use controlled terms, roadmap/gap audit updated, docs and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: apply accepted-catalog review to promoted candidates | evidence / trace / review / status rows | complete |
 
 ## Work Package Details
 
@@ -1534,3 +1535,40 @@ V closure:
 | Implementation | `docs/theory/frame-ontology.md` | closed | Jobs, relations, authority, risk, tag rules, and checklist added. |
 | Verification | EVID-049 | closed | Inspection covers ontology artifact. |
 | Validation | VAL-041 | closed | Catalog reviewers can prevent term drift. |
+
+### WP-041: Apply ontology to catalog and fixtures
+
+Objective: make the controlled ontology visible in accepted starter metadata and
+evaluation fixture planning.
+
+Parent IDs: REQ-045, SPEC-044, IF-047.
+
+Affected files/modules:
+
+- `docs/frame-catalog.md`
+- `docs/theory/evaluation-set-design.md`
+- `docs/theory/frame-ontology.md`
+- `docs/theory/theory-gap-audit.md`
+- `docs/theory/theory-roadmap.md`
+- `docs/vtrace/*`
+
+Verification commands:
+
+```powershell
+cargo fmt --check
+cargo test
+cargo run --example lookup
+cargo run --example ai_response_contract
+git diff --check
+cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .
+```
+
+V closure:
+
+| V Area | IDs / Evidence | Status | Notes |
+|---|---|---|---|
+| Requirements | REQ-045 | closed | Ontology terms required in catalog and fixture planning. |
+| Specification / Interface | SPEC-044, IF-047 | closed | Catalog columns and fixture fields use controlled terms. |
+| Implementation | `docs/frame-catalog.md`, `docs/theory/evaluation-set-design.md` | closed | Authority, relation, and job terms applied. |
+| Verification | EVID-050 | closed | Inspection covers catalog and fixture ontology usage. |
+| Validation | VAL-042 | closed | Reviewers can use ontology terms in catalog and fixture review. |
