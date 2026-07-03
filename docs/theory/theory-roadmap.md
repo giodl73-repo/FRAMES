@@ -60,11 +60,13 @@ growth gaps, implementation gaps, and deeper theory questions.
 | AI response contract | Tool callers need a safe output shape for suggestions, alternates, scores, warnings, and evidence boundaries. | `ai-response-contract.md` |
 | Metadata-backed catalog | Accepted starter frames need docs-level status, claim strength, risk band, application pack, authority, and transfer metadata. | `../frame-catalog.md` |
 | Local import promotion | Local imports need role-reviewed promotion decisions before catalog acceptance. | `local-import-promotion-review.md` |
+| Frame acquisition method | New frame candidates need a repeatable intake, screening, and promotion path. | `frame-acquisition-method.md` |
 
 ## Priority Order
 
 1. Collect EVT-001 participant responses and score the locked packet.
 2. Pilot the theme-swimlane leadership worksheet and record changed decisions.
+3. Define domain pack strategy.
 
 ## Role Guidance
 
