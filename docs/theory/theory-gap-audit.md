@@ -50,8 +50,8 @@ These gaps block reliable tool behavior.
 | Gap | Risk | First Artifact |
 |---|---|---|
 | Relation-aware ranking | Authority, risk, and application-pack filters exist, but target-relation and protected-value ranking are not implemented. | Relation metadata plus evaluation-backed ranking design. |
-| Rejected-candidate reporting | Tools cannot yet explain why a tempting frame was rejected. | Theory, fixtures, and Rust API design exist; implementation remains. |
-| Lifecycle filtering | Draft, held, deprecated, and accepted states cannot be filtered in code. | Theory, fixtures, and Rust API design exist; implementation remains. |
+| Rejected-candidate reporting | First fixture-backed reports exist, but broader review-only catalog rows are not loaded. | Expand suppressed report coverage after review-only data model exists. |
+| Lifecycle filtering | `search_with_lifecycle` exists, but draft, held, deprecated, docs-catalog, and rejected rows are not loaded as catalogs. | Add review-only data model before broader status filtering. |
 
 ## Deep Theory Gaps
 
@@ -72,7 +72,7 @@ methodology rather than a useful catalog.
 
 1. Collect EVT-001 participant responses and score the locked packet without upgrading claim strength prematurely.
 2. Pilot the theme-swimlane leadership worksheet and record changed decisions.
-3. Implement Rust lifecycle filters and suppressed-candidate result classes without changing default accepted-starter search.
+3. Design review-only catalog data model for docs-catalog, draft, held, deprecated, rejected, and anti-pattern rows.
 
 This sequence keeps tool safety ahead of catalog growth.
 
@@ -86,8 +86,9 @@ This sequence keeps tool safety ahead of catalog growth.
   is run.
 - Do not encode every theory field in Rust before accepted catalog rows prove
   the values are stable.
-- Do not promote local imports into default search until lifecycle filtering
-  exists.
+- Do not promote local imports into default search until review-only catalog
+  loading and display rules prove they cannot become recommendations by
+  accident.
 
 ## Decision
 

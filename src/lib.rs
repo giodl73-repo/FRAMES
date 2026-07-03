@@ -15,12 +15,26 @@ pub enum FrameKind {
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum FrameStatus {
     Accepted,
+    AcceptedWithCaveat,
+    Candidate,
+    Draft,
+    Held,
+    Deprecated,
+    Rejected,
+    AntiPattern,
 }
 
 impl FrameStatus {
     pub const fn as_str(self) -> &'static str {
         match self {
             Self::Accepted => "accepted",
+            Self::AcceptedWithCaveat => "accepted_with_caveat",
+            Self::Candidate => "candidate",
+            Self::Draft => "draft",
+            Self::Held => "held",
+            Self::Deprecated => "deprecated",
+            Self::Rejected => "rejected",
+            Self::AntiPattern => "anti_pattern",
         }
     }
 }
@@ -98,6 +112,116 @@ impl ApplicationPack {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum VisibilityMode {
+    DefaultSearch,
+    CatalogReview,
+    AntiPatternReview,
+    DocsCatalogPreview,
+    ExplanationMode,
+}
+
+impl VisibilityMode {
+    pub const fn as_str(self) -> &'static str {
+        match self {
+            Self::DefaultSearch => "default_search",
+            Self::CatalogReview => "catalog_review",
+            Self::AntiPatternReview => "anti_pattern_review",
+            Self::DocsCatalogPreview => "docs_catalog_preview",
+            Self::ExplanationMode => "explanation_mode",
+        }
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct LifecycleFilter<'a> {
+    pub mode: VisibilityMode,
+    pub allowed_statuses: &'a [FrameStatus],
+    pub include_docs_catalog: bool,
+    pub include_draft: bool,
+    pub include_held: bool,
+    pub include_rejected: bool,
+    pub explain_suppressed: bool,
+}
+
+const ACCEPTED_ONLY: &[FrameStatus] = &[FrameStatus::Accepted];
+
+impl<'a> LifecycleFilter<'a> {
+    pub const fn default_search() -> Self {
+        Self {
+            mode: VisibilityMode::DefaultSearch,
+            allowed_statuses: ACCEPTED_ONLY,
+            include_docs_catalog: false,
+            include_draft: false,
+            include_held: false,
+            include_rejected: false,
+            explain_suppressed: false,
+        }
+    }
+
+    pub const fn explanation_mode() -> Self {
+        Self {
+            mode: VisibilityMode::ExplanationMode,
+            allowed_statuses: ACCEPTED_ONLY,
+            include_docs_catalog: false,
+            include_draft: false,
+            include_held: false,
+            include_rejected: false,
+            explain_suppressed: true,
+        }
+    }
+}
+
+impl Default for LifecycleFilter<'_> {
+    fn default() -> Self {
+        Self::default_search()
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum ResultClass {
+    Suggested,
+    Alternate,
+    Fallback,
+    Suppressed,
+    ReviewOnly,
+}
+
+impl ResultClass {
+    pub const fn as_str(self) -> &'static str {
+        match self {
+            Self::Suggested => "suggested",
+            Self::Alternate => "alternate",
+            Self::Fallback => "fallback",
+            Self::Suppressed => "suppressed",
+            Self::ReviewOnly => "review_only",
+        }
+    }
+
+    pub const fn is_recommendation(self) -> bool {
+        matches!(self, Self::Suggested | Self::Alternate | Self::Fallback)
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum DisplayRule {
+    SuppressByDefault,
+    ExplainWhenRequested,
+    ReviewOnly,
+    DocsOnly,
+}
+
+impl DisplayRule {
+    pub const fn as_str(self) -> &'static str {
+        match self {
+            Self::SuppressByDefault => "suppress_by_default",
+            Self::ExplainWhenRequested => "explain_when_requested",
+            Self::ReviewOnly => "review_only",
+            Self::DocsOnly => "docs_only",
+        }
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct FrameEntry {
     pub id: &'static str,
     pub name: &'static str,
@@ -169,6 +293,27 @@ pub struct FrameCandidate<'a> {
     pub entry: &'a FrameEntry,
     pub score: u16,
     pub match_notes: MatchNotes,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct SuppressedCandidate<'a> {
+    pub candidate_id: &'a str,
+    pub candidate_name: &'a str,
+    pub status: FrameStatus,
+    pub matched_reason: &'a str,
+    pub rejection_class: &'a str,
+    pub violated_boundary: &'a str,
+    pub safer_frame: Option<&'a str>,
+    pub plain_language_fallback: &'a str,
+    pub source_docs: &'a [&'a str],
+    pub display_rule: DisplayRule,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, Default)]
+pub struct FrameSearchReport<'a> {
+    pub suggestions: Vec<FrameCandidate<'a>>,
+    pub fallbacks: Vec<&'a str>,
+    pub suppressed: Vec<SuppressedCandidate<'a>>,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -285,6 +430,32 @@ impl FrameIndex {
     pub fn search_top(&self, query: &FrameQuery<'_>, limit: usize) -> Vec<FrameCandidate<'static>> {
         self.search(query).into_iter().take(limit).collect()
     }
+
+    pub fn search_with_lifecycle(
+        &self,
+        query: &FrameQuery<'_>,
+        lifecycle: &LifecycleFilter<'_>,
+    ) -> FrameSearchReport<'static> {
+        let suggestions = if lifecycle.allowed_statuses.contains(&FrameStatus::Accepted) {
+            self.search(query)
+        } else {
+            Vec::new()
+        };
+
+        let matched_suppressed = suppressed_for_query(query);
+        let fallbacks = unique_fallbacks(&matched_suppressed);
+        let suppressed = if lifecycle.explain_suppressed || lifecycle.include_rejected {
+            matched_suppressed
+        } else {
+            Vec::new()
+        };
+
+        FrameSearchReport {
+            suggestions,
+            fallbacks,
+            suppressed,
+        }
+    }
 }
 
 fn score_entry(
@@ -369,6 +540,179 @@ fn text_overlaps(left: &str, right: &str) -> bool {
         .map(str::to_ascii_lowercase)
         .any(|word| right.contains(&word))
 }
+
+fn unique_fallbacks(suppressed: &[SuppressedCandidate<'static>]) -> Vec<&'static str> {
+    let mut fallbacks = Vec::new();
+    for candidate in suppressed {
+        if !fallbacks.contains(&candidate.plain_language_fallback) {
+            fallbacks.push(candidate.plain_language_fallback);
+        }
+    }
+    fallbacks
+}
+
+fn suppressed_for_query(query: &FrameQuery<'_>) -> Vec<SuppressedCandidate<'static>> {
+    SUPPRESSED_FIXTURES
+        .iter()
+        .filter(|fixture| fixture.matches(query))
+        .map(|fixture| fixture.report)
+        .collect()
+}
+
+#[derive(Debug, Clone, Copy)]
+struct SuppressedFixture {
+    terms: &'static [&'static str],
+    authority_model: Option<AuthorityModel>,
+    application_pack: Option<ApplicationPack>,
+    report: SuppressedCandidate<'static>,
+}
+
+impl SuppressedFixture {
+    fn matches(self, query: &FrameQuery<'_>) -> bool {
+        if self
+            .authority_model
+            .is_some_and(|model| query.authority_model != Some(model))
+        {
+            return false;
+        }
+
+        if self
+            .application_pack
+            .is_some_and(|pack| query.application_pack != Some(pack))
+        {
+            return false;
+        }
+
+        self.terms
+            .iter()
+            .any(|term| contains_word(query.situation, term))
+    }
+}
+
+const SUPPRESSED_FIXTURES: &[SuppressedFixture] = &[
+    SuppressedFixture {
+        terms: &[
+            "privacy approval",
+            "required approval",
+            "approval is missing",
+        ],
+        authority_model: Some(AuthorityModel::Reviewer),
+        application_pack: Some(ApplicationPack::Product),
+        report: SuppressedCandidate {
+            candidate_id: "veto-rule",
+            candidate_name: "Veto Rule",
+            status: FrameStatus::AcceptedWithCaveat,
+            matched_reason: "required approval gate matches the query",
+            rejection_class: "docs_catalog_not_default_search",
+            violated_boundary: "lifecycle status",
+            safer_frame: None,
+            plain_language_fallback:
+                "The launch is blocked until the required approval is cleared or waived.",
+            source_docs: &[
+                "docs/theory/accepted-catalog-review-veto-rule.md",
+                "docs/frame-catalog.md",
+            ],
+            display_rule: DisplayRule::SuppressByDefault,
+        },
+    },
+    SuppressedFixture {
+        terms: &["vetoed", "veto"],
+        authority_model: None,
+        application_pack: Some(ApplicationPack::Leadership),
+        report: SuppressedCandidate {
+            candidate_id: "veto-rule",
+            candidate_name: "Veto Rule",
+            status: FrameStatus::AcceptedWithCaveat,
+            matched_reason: "veto wording and required-gate relation match the query",
+            rejection_class: "false_authority_transfer",
+            violated_boundary: "authority and evidence",
+            safer_frame: None,
+            plain_language_fallback: "This is an unresolved preference or decision-rights issue.",
+            source_docs: &["docs/theory/frame-antipattern-application-veto-rule.md"],
+            display_rule: DisplayRule::ExplainWhenRequested,
+        },
+    },
+    SuppressedFixture {
+        terms: &["roadblock"],
+        authority_model: Some(AuthorityModel::Owner),
+        application_pack: Some(ApplicationPack::Operations),
+        report: SuppressedCandidate {
+            candidate_id: "team-as-roadblock",
+            candidate_name: "Team as roadblock",
+            status: FrameStatus::AntiPattern,
+            matched_reason: "roadblock wording directly matches the query",
+            rejection_class: "people_as_obstacles",
+            violated_boundary: "human safety and ownership",
+            safer_frame: Some("load-bearing-wall"),
+            plain_language_fallback:
+                "The dependency is blocked by unresolved ownership or a decision path.",
+            source_docs: &[
+                "docs/theory/frame-antipattern-taxonomy.md",
+                "docs/theory/related-frame-application-starter.md",
+            ],
+            display_rule: DisplayRule::ExplainWhenRequested,
+        },
+    },
+    SuppressedFixture {
+        terms: &["veto rule", "requirement authority"],
+        authority_model: None,
+        application_pack: Some(ApplicationPack::AiAgent),
+        report: SuppressedCandidate {
+            candidate_id: "veto-rule",
+            candidate_name: "Veto Rule",
+            status: FrameStatus::AcceptedWithCaveat,
+            matched_reason: "required-gate relation and veto wording match the query",
+            rejection_class: "rejected_near_miss",
+            violated_boundary: "authority and evidence",
+            safer_frame: None,
+            plain_language_fallback:
+                "Name the decision owner, tradeoff, and evidence before treating this as blocking.",
+            source_docs: &[
+                "docs/theory/related-frame-application-starter.md",
+                "docs/theory/frame-antipattern-application-veto-rule.md",
+            ],
+            display_rule: DisplayRule::ExplainWhenRequested,
+        },
+    },
+    SuppressedFixture {
+        terms: &["incident response", "direct the next action"],
+        authority_model: Some(AuthorityModel::Owner),
+        application_pack: Some(ApplicationPack::Operations),
+        report: SuppressedCandidate {
+            candidate_id: "four-way-stop",
+            candidate_name: "Four-way stop",
+            status: FrameStatus::Accepted,
+            matched_reason: "turn-order wording matches the query",
+            rejection_class: "false_authority_transfer",
+            violated_boundary: "authority",
+            safer_frame: None,
+            plain_language_fallback:
+                "The incident owner should state the decision path and next action.",
+            source_docs: &[
+                "docs/theory/related-frame-taxonomy.md",
+                "docs/theory/transfer-aware-search-design.md",
+            ],
+            display_rule: DisplayRule::ExplainWhenRequested,
+        },
+    },
+    SuppressedFixture {
+        terms: &["bag-of-chips", "facts establish harm"],
+        authority_model: Some(AuthorityModel::Peer),
+        application_pack: Some(ApplicationPack::Leadership),
+        report: SuppressedCandidate {
+            candidate_id: "bag-of-chips-as-excuse",
+            candidate_name: "Bag-of-chips story as excuse",
+            status: FrameStatus::AntiPattern,
+            matched_reason: "story source and conflict-empathy job match the query",
+            rejection_class: "empathy_eraser",
+            violated_boundary: "repair and accountability",
+            safer_frame: None,
+            plain_language_fallback: "Facts are now known; name harm, repair, and ownership.",
+            source_docs: &["docs/theory/frame-antipattern-taxonomy.md"],
+            display_rule: DisplayRule::ExplainWhenRequested,
+        },
+    },
+];
 
 pub const STARTER_CATALOG: &[FrameEntry] = &[
     FrameEntry {
@@ -742,6 +1086,74 @@ mod tests {
             index.with_application_pack(ApplicationPack::AiAgent).len(),
             7
         );
+    }
+
+    #[test]
+    fn lifecycle_default_search_matches_existing_search() {
+        let index = FrameIndex::new();
+        let query = FrameQuery::new("two teams need turn order around constrained attention")
+            .with_kind(FrameKind::Coordination)
+            .with_authority_model(AuthorityModel::Peer)
+            .with_risk_band(RiskBand::Medium)
+            .with_application_pack(ApplicationPack::Product)
+            .with_tags(&["priority"]);
+
+        let normal = index.search(&query);
+        let report = index.search_with_lifecycle(&query, &LifecycleFilter::default_search());
+
+        assert_eq!(report.suggestions, normal);
+        assert!(report.suppressed.is_empty());
+    }
+
+    #[test]
+    fn lifecycle_default_search_hides_suppressed_candidates() {
+        let index = FrameIndex::new();
+        let query =
+            FrameQuery::new("Launch scores are strong overall, but privacy approval is missing.")
+                .with_authority_model(AuthorityModel::Reviewer)
+                .with_application_pack(ApplicationPack::Product)
+                .with_risk_band(RiskBand::Medium);
+
+        let report = index.search_with_lifecycle(&query, &LifecycleFilter::default_search());
+
+        assert!(report
+            .suggestions
+            .iter()
+            .all(|candidate| candidate.entry.id != "veto-rule"));
+        assert!(report.suppressed.is_empty());
+        assert_eq!(
+            report.fallbacks,
+            vec!["The launch is blocked until the required approval is cleared or waived."]
+        );
+    }
+
+    #[test]
+    fn lifecycle_explanation_mode_reports_suppressed_candidates() {
+        let index = FrameIndex::new();
+        let query = FrameQuery::new("A query says another team is a roadblock.")
+            .with_authority_model(AuthorityModel::Owner)
+            .with_application_pack(ApplicationPack::Operations)
+            .with_risk_band(RiskBand::Medium);
+
+        let report = index.search_with_lifecycle(&query, &LifecycleFilter::explanation_mode());
+
+        assert!(report.suggestions.is_empty());
+        assert_eq!(report.suppressed.len(), 1);
+        let suppressed = report.suppressed[0];
+        assert_eq!(suppressed.candidate_id, "team-as-roadblock");
+        assert_eq!(suppressed.status, FrameStatus::AntiPattern);
+        assert_eq!(suppressed.rejection_class, "people_as_obstacles");
+        assert_eq!(suppressed.display_rule, DisplayRule::ExplainWhenRequested);
+        assert_eq!(suppressed.safer_frame, Some("load-bearing-wall"));
+    }
+
+    #[test]
+    fn result_classes_mark_only_recommendation_outputs() {
+        assert!(ResultClass::Suggested.is_recommendation());
+        assert!(ResultClass::Alternate.is_recommendation());
+        assert!(ResultClass::Fallback.is_recommendation());
+        assert!(!ResultClass::Suppressed.is_recommendation());
+        assert!(!ResultClass::ReviewOnly.is_recommendation());
     }
 
     #[test]

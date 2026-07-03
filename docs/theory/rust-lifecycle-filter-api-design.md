@@ -1,9 +1,10 @@
 # Rust Lifecycle Filter API Design
 
 This design translates lifecycle filtering and rejected-candidate reporting into
-a future `frames-core` API shape. It is not an implementation change. The
-current crate should continue to search only accepted starter entries until a
-separate implementation work package adds tests and code.
+the `frames-core` API shape. The first implementation is additive: default
+search still returns accepted starter entries, while `search_with_lifecycle`
+returns a report with suggestions, fallbacks, and opt-in suppressed-candidate
+explanations.
 
 ## Design Rule
 
@@ -16,16 +17,17 @@ silently expanding `FrameIndex::search`.
 
 `frames-core` currently has:
 
-- `FrameStatus::Accepted`;
+- `FrameStatus` values for accepted entries and suppressed/report-only cases;
 - accepted starter entries only;
 - `FrameQuery` filters for authority model, risk band, application pack, kind,
   and tags;
 - `FrameCandidate` for suggested accepted entries;
-- no loaded draft, held, docs-catalog, deprecated, rejected, or anti-pattern
-  entries.
+- `LifecycleFilter`, `VisibilityMode`, `ResultClass`, `DisplayRule`,
+  `SuppressedCandidate`, and `FrameSearchReport`;
+- fixture-backed suppressed reports for selected rejected/docs-catalog cases.
 
-This boundary is correct. The next API should add expression power before
-catalog breadth.
+This boundary is correct. The API adds expression power before catalog breadth.
+Review-only rows still do not live in `STARTER_CATALOG`.
 
 ## Future Types
 
@@ -148,7 +150,7 @@ pub fn search(&self, query: &FrameQuery<'_>) -> Vec<FrameCandidate<'static>>;
 pub fn search_top(&self, query: &FrameQuery<'_>, limit: usize) -> Vec<FrameCandidate<'static>>;
 ```
 
-Add new APIs only after fixtures have tests:
+The additive lifecycle API is:
 
 ```rust
 pub fn search_with_lifecycle(
@@ -168,9 +170,9 @@ pub struct FrameSearchReport<'a> {
 }
 ```
 
-The existing `search` remains the stable default-search helper. It should call
-or behave like `search_with_lifecycle(query, LifecycleFilter::default_search())`
-only after the new path is proven equivalent by tests.
+The existing `search` remains the stable default-search helper. Tests prove
+`search_with_lifecycle(query, LifecycleFilter::default_search())` preserves its
+suggestion behavior.
 
 ## Data Loading Boundary
 
@@ -192,15 +194,17 @@ same shape as accepted suggestions.
 
 1. Add tests that parse `docs/eval/lifecycle-rejection-fixtures.json`.
 2. Add `DisplayRule`, `ResultClass`, and report structs without changing
-   `search`.
+   `search`. Complete.
 3. Add `LifecycleFilter::default_search()` and tests proving default output is
-   unchanged.
-4. Add `search_with_lifecycle` for accepted entries only.
+   unchanged. Complete.
+4. Add `search_with_lifecycle` for accepted entries only. Complete.
 5. Add suppressed-candidate reports from fixture-backed rejected examples.
+   Complete for first lifecycle fixtures.
 6. Add docs-catalog or review-only rows only after display rules prevent
    recommendation.
 7. Consider expanding `FrameStatus` in public API only when review rows are
-   actually represented.
+   actually represented. Complete for report statuses; review rows remain out
+   of `STARTER_CATALOG`.
 
 ## Fixture Coverage
 
@@ -229,10 +233,9 @@ Implementation tests should cover:
 
 ## Design Consequences
 
-- The next Rust work should be additive and preserve existing examples.
-- The first code change should prove default-search equivalence before adding
-  suppressed reports.
+- Rust lifecycle work is additive and preserves existing examples.
+- The first code change proves default-search equivalence and adds
+  fixture-backed suppressed reports.
 - Rejected-candidate reporting is a separate output channel from suggestions.
 - Lifecycle filters should be tested from fixtures before broader catalog rows
   are loaded.
-

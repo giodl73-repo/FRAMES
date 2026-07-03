@@ -68,6 +68,7 @@ unless product requirements explicitly define them as user-facing behavior.
 | WP-054 | Define lifecycle filtering and rejection reporting. | Non-accepted and rejected frames have visibility, suppression, and explanation rules before tool suggestions expand. | REQ-058 / SPEC-057 / IF-060 | `docs/theory/lifecycle-filtering-and-rejection-reporting.md`, `docs/theory/frame-lifecycle.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md`, `docs/vtrace/*` | WP-053 complete and lifecycle, anti-pattern, relation, fallback, and fixture docs exist. | Design exists, linked docs updated, implementation gap advances to machine-readable lifecycle/rejection fixtures, docs and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: add machine-readable lifecycle and rejected-candidate fixtures | evidence / trace / review / status rows | complete |
 | WP-055 | Publish lifecycle and rejected-candidate fixtures. | Lifecycle filter and suppressed-candidate expectations are machine-readable before Rust implementation. | REQ-059 / SPEC-058 / IF-061 | `docs/eval/lifecycle-rejection-fixtures.json`, `docs/eval/README.md`, `docs/theory/lifecycle-filtering-and-rejection-reporting.md`, `docs/theory/evaluation-set-design.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md`, `docs/vtrace/*` | WP-054 complete and starter fixture package exists. | JSON package parses, suppression examples link to starter fixtures, roadmap advances to Rust design, docs and VTRACE pass. | L0: JSON parse; `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: design Rust lifecycle filters and suppressed-candidate result classes | evidence / trace / review / status rows | complete |
 | WP-056 | Define Rust lifecycle filter API design. | Rust lifecycle filtering has an additive API target before implementation. | REQ-060 / SPEC-059 / IF-062 | `docs/theory/rust-lifecycle-filter-api-design.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/ai-response-contract.md`, `docs/theory/lifecycle-filtering-and-rejection-reporting.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md`, `docs/vtrace/*` | WP-055 complete and lifecycle/rejection fixtures exist. | API design exists, linked docs updated, implementation gap advances to Rust code, docs and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: implement Rust lifecycle filters and suppressed-candidate result classes | evidence / trace / review / status rows | complete |
+| WP-057 | Add Rust lifecycle report API. | Lifecycle-aware reports expose suggestions, fallbacks, and suppressed candidates without changing default search. | REQ-061 / SPEC-060 / IF-063 | `src/lib.rs`, `README.md`, `docs/vtrace/INTERFACES.md`, `docs/theory/rust-lifecycle-filter-api-design.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/ai-response-contract.md`, `docs/theory/lifecycle-filtering-and-rejection-reporting.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `docs/vtrace/*` | WP-056 complete and API design exists. | New lifecycle API types and tests exist, examples still run, docs updated, default search preserved, VTRACE passes. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: design review-only catalog data model | evidence / trace / review / status rows | complete |
 
 ## Work Package Details
 
@@ -2169,3 +2170,45 @@ V closure:
 | Implementation | `docs/theory/rust-lifecycle-filter-api-design.md` | closed | API design artifact added and linked from migration, response, lifecycle, roadmap, and README. |
 | Verification | EVID-065 | closed | Inspection covers the API design and default-search boundary. |
 | Validation | VAL-057 | closed | Rust API maintainers can plan implementation without changing accepted-starter default search. |
+
+### WP-057: Add Rust lifecycle report API
+
+Objective: implement additive lifecycle-aware report APIs that expose
+suggestions, fallbacks, and suppressed candidates as separate channels while
+preserving existing accepted-starter default search behavior.
+
+Parent IDs: REQ-061, SPEC-060, IF-063.
+
+Affected files/modules:
+
+- `src/lib.rs`
+- `README.md`
+- `docs/vtrace/INTERFACES.md`
+- `docs/theory/rust-lifecycle-filter-api-design.md`
+- `docs/theory/catalog-metadata-migration-plan.md`
+- `docs/theory/ai-response-contract.md`
+- `docs/theory/lifecycle-filtering-and-rejection-reporting.md`
+- `docs/theory/theory-gap-audit.md`
+- `docs/theory/theory-roadmap.md`
+- `docs/vtrace/*`
+
+Verification commands:
+
+```powershell
+cargo fmt --check
+cargo test
+cargo run --example lookup
+cargo run --example ai_response_contract
+git diff --check
+cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .
+```
+
+V closure:
+
+| V Area | IDs / Evidence | Status | Notes |
+|---|---|---|---|
+| Requirements | REQ-061 | closed | Lifecycle reports required without expanding default search. |
+| Specification / Interface | SPEC-060, IF-063 | closed | Lifecycle statuses, visibility modes, filters, result classes, display rules, suppressed reports, and report shape implemented additively. |
+| Implementation | `src/lib.rs` | closed | `search_with_lifecycle` returns suggestions, fallbacks, and suppressed candidates separately. |
+| Verification | EVID-066 | closed | Unit tests prove default search equivalence and suppressed report separation; interface summary updated; examples still run. |
+| Validation | VAL-058 | closed | Tool callers can request lifecycle reports without changing ordinary accepted-frame lookup. |

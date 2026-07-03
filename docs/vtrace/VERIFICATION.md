@@ -68,6 +68,7 @@ Repo or feature: `frames-core`
 | REQ-058 | inspection | inspect `docs/theory/lifecycle-filtering-and-rejection-reporting.md` | Visibility modes, status filters, result classes, rejected-candidate report shape, default behavior, fixture gates, Rust migration gates, and design consequences are present. | pass | EVID-063 |
 | REQ-059 | inspection / JSON parse | inspect and parse `docs/eval/lifecycle-rejection-fixtures.json` | Default visibility rule, report shape, query filters, expected suppressed reports, fallbacks, display rules, linked fixture IDs, and source docs are present. | pass | EVID-064 |
 | REQ-060 | inspection | inspect `docs/theory/rust-lifecycle-filter-api-design.md` | Future status values, visibility modes, lifecycle filter shape, result classes, suppressed-candidate report fields, display rules, search report shape, data loading boundary, migration steps, fixture coverage, and compatibility rules are present. | pass | EVID-065 |
+| REQ-061 | unit test / example run | run `cargo test`, `cargo run --example lookup`, and `cargo run --example ai_response_contract` | Lifecycle API tests pass, default search behavior is preserved, suppressed candidates are separate from suggestions, and existing examples still run. | pass | EVID-066 |
 
 ## Commands
 
@@ -148,6 +149,7 @@ git diff --check
 | EVID-063 | inspection | `docs/theory/lifecycle-filtering-and-rejection-reporting.md`, `docs/theory/frame-lifecycle.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md` | REQ-058, SPEC-057, IF-060, VAL-055 | pass |
 | EVID-064 | inspection / JSON parse | `docs/eval/lifecycle-rejection-fixtures.json`, `docs/eval/README.md`, `docs/theory/lifecycle-filtering-and-rejection-reporting.md`, `docs/theory/evaluation-set-design.md` | REQ-059, SPEC-058, IF-061, VAL-056 | pass |
 | EVID-065 | inspection | `docs/theory/rust-lifecycle-filter-api-design.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/ai-response-contract.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md` | REQ-060, SPEC-059, IF-062, VAL-057 | pass |
+| EVID-066 | command output / inspection | `cargo test`, `cargo run --example lookup`, `cargo run --example ai_response_contract`, `src/lib.rs`, `docs/vtrace/INTERFACES.md`, `docs/theory/rust-lifecycle-filter-api-design.md` | REQ-061, SPEC-060, IF-063, VAL-058 | pass |
 
 ## Gaps
 

@@ -30,7 +30,9 @@ software that need a structured frame index. It provides a starter catalog,
 query types, ranked candidates, related-frame lookup, action cues, and failure
 mode warnings. Accepted starter entries also expose compact metadata for status,
 claim strength, authority model, risk band, application packs, and first
-transfer-aware query filters.
+transfer-aware query filters. Lifecycle report APIs add explicit visibility
+filters, fallbacks, and suppressed-candidate explanations while keeping default
+search accepted-starter only.
 
 ```powershell
 cargo test
@@ -49,6 +51,19 @@ let query = FrameQuery::new("two teams need turn order around constrained attent
     .with_tags(&["priority"]);
 
 let candidates = index.search_top(&query, 3);
+```
+
+Lifecycle-aware lookup:
+
+```rust
+use frames_core::{ApplicationPack, AuthorityModel, FrameIndex, FrameQuery, LifecycleFilter, RiskBand};
+
+let index = FrameIndex::new();
+let query = FrameQuery::new("another team is a roadblock")
+    .with_authority_model(AuthorityModel::Owner)
+    .with_risk_band(RiskBand::Medium)
+    .with_application_pack(ApplicationPack::Operations);
+let report = index.search_with_lifecycle(&query, &LifecycleFilter::explanation_mode());
 ```
 
 ## First Catalog

@@ -194,7 +194,7 @@ not as the decision basis.
 - Suppressed candidates should use a separate report channel from
   recommendations, following
   [rust-lifecycle-filter-api-design.md](rust-lifecycle-filter-api-design.md)
-  when promoted into Rust.
+  through `FrameIndex::search_with_lifecycle`.
 - Examples should test that every suggested frame displays action cue, evidence
   boundary, and misuse warning together.
 
