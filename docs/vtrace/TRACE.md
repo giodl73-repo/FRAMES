@@ -64,12 +64,13 @@
 | REQ-060 | NEED-001 | CON-001 / CON-002 / CON-003 | Define Rust lifecycle filter API design. | SPEC-059 | DES-003 / DES-005 | n/a | WP-056 | `docs/theory/rust-lifecycle-filter-api-design.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/ai-response-contract.md`, `docs/theory/lifecycle-filtering-and-rejection-reporting.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md` | VER-058 inspection | VAL-057 | EVID-065 | validated |
 | REQ-061 | NEED-001 | CON-001 / CON-002 / CON-003 | Add Rust lifecycle report API. | SPEC-060 | DES-003 / DES-005 | CR-006 | WP-057 | `src/lib.rs`, `README.md`, `docs/vtrace/INTERFACES.md`, `docs/theory/rust-lifecycle-filter-api-design.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/ai-response-contract.md`, `docs/theory/lifecycle-filtering-and-rejection-reporting.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md` | VER-059 unit test / example run | VAL-058 | EVID-066 | validated |
 | REQ-062 | NEED-001 | CON-001 / CON-002 / CON-003 | Define review-only catalog data model. | SPEC-061 | DES-003 / DES-005 | n/a | WP-058 | `docs/theory/review-only-catalog-data-model.md`, `docs/theory/rust-lifecycle-filter-api-design.md`, `docs/frame-catalog.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md` | VER-060 inspection | VAL-059 | EVID-067 | validated |
+| REQ-063 | NEED-001 | CON-001 / CON-002 / CON-003 | Publish review-only catalog fixtures. | SPEC-062 | DES-003 / DES-005 | n/a | WP-059 | `docs/eval/review-only-catalog-fixtures.json`, `docs/eval/README.md`, `docs/theory/review-only-catalog-data-model.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md` | VER-061 inspection / JSON parse | VAL-060 | EVID-068 | validated |
 
 ## ID Legend
 
 - NEED-001: mission need in `MISSION.md`.
 - CON-001..CON-003: operating scenarios in `CONOPS.md`.
-- SPEC-001..SPEC-061: specification baseline.
+- SPEC-001..SPEC-062: specification baseline.
 - DES-001..DES-005: design elements.
 - CR-001..CR-006: code-rigor constraints.
 - WP-001: frame index crate work package.
@@ -130,4 +131,5 @@
 - WP-056: Rust lifecycle filter API design work package.
 - WP-057: Rust lifecycle report API work package.
 - WP-058: review-only catalog data model work package.
+- WP-059: review-only catalog fixture work package.
 - EVID-* evidence: `EVIDENCE.md` and `VERIFICATION.md`.

@@ -67,12 +67,13 @@ growth gaps, implementation gaps, and deeper theory questions.
 | Lifecycle filtering and rejection reporting | Tools need explicit visibility modes, status filters, suppressed-candidate explanations, and fixtures before non-accepted frames enter tool behavior. | `lifecycle-filtering-and-rejection-reporting.md`, `../eval/lifecycle-rejection-fixtures.json` |
 | Rust lifecycle filter API | The crate needs additive lifecycle report behavior before review-only rows can be loaded safely. | `rust-lifecycle-filter-api-design.md` |
 | Review-only catalog data model | Docs-catalog, draft, held, deprecated, rejected, and anti-pattern rows need a separate data model before they enter the crate. | `review-only-catalog-data-model.md` |
+| Review-only catalog fixtures | The review-only data model needs machine-readable rows before Rust loads them. | `../eval/review-only-catalog-fixtures.json` |
 
 ## Priority Order
 
 1. Collect EVT-001 participant responses and score the locked packet.
 2. Pilot the theme-swimlane leadership worksheet and record changed decisions.
-3. Publish a machine-readable review-only catalog fixture before adding review-only Rust rows.
+3. Add Rust review-only rows and convert them into suppressed reports without changing default search.
 
 ## Role Guidance
 

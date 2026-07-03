@@ -67,6 +67,7 @@ Repo or feature: `frames-core`
 | VAL-057 | Rust API maintainer or AI tool builder | Plan lifecycle filtering implementation without changing accepted-starter default search. | Apply `rust-lifecycle-filter-api-design.md`. | Future status values, visibility modes, filters, result classes, suppressed reports, migration steps, and compatibility rules are explicit. | EVID-065 | pass |
 | VAL-058 | Rust API maintainer or AI tool builder | Request lifecycle-aware reports without changing ordinary accepted-frame lookup. | Use `search_with_lifecycle` with default and explanation filters. | Existing search behavior is preserved; fallbacks and suppressed candidates are separate output channels. | EVID-066 | pass |
 | VAL-059 | Catalog structure reviewer or Rust API maintainer | Decide how a non-default row may be loaded for review or suppression without becoming a recommendation. | Apply `review-only-catalog-data-model.md`. | Row family, required fields, display rule, conversion rule, matching rule, and promotion gate are explicit. | EVID-067 | pass |
+| VAL-060 | Catalog structure reviewer or Rust API maintainer | Check review-only row examples before Rust review catalog loading. | Parse and inspect `docs/eval/review-only-catalog-fixtures.json`. | Docs-catalog, anti-pattern, and held rows have required fields, display rules, fallbacks, source docs, and revisit triggers. | EVID-068 | pass |
 
 ## Deferred Validation
 

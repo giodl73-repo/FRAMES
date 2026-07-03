@@ -179,7 +179,8 @@ Review-only matching should be simpler and stricter than accepted search:
 ## Migration Steps
 
 1. Define `ReviewFamily` and `ReviewFrameEntry` in docs.
-2. Add a machine-readable review-only catalog fixture.
+2. Add a machine-readable review-only catalog fixture. Complete in
+   [../eval/review-only-catalog-fixtures.json](../eval/review-only-catalog-fixtures.json).
 3. Add Rust static review rows for the first small set.
 4. Convert review rows to `SuppressedCandidate` in `search_with_lifecycle`.
 5. Add catalog review mode output only after suppressed behavior is tested.
@@ -206,4 +207,3 @@ A review-only row can become a default-search candidate only when:
   promoted.
 - The next implementation step should publish a machine-readable review-only
   catalog fixture before adding `ReviewFrameEntry` to Rust.
-
