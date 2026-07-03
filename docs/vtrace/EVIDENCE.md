@@ -56,6 +56,7 @@ Repo or feature: `frames-core`
 | EVID-046 | inspection | `docs/theory/theme-swimlane-leadership-worksheet.md` | Theme-swimlane leadership worksheet exists with use criteria, promise capture, lane table, work mapping, decision log, risk review, role gate, worked example, pilot closeout, and design consequences. | pass. | pass |
 | EVID-047 | command / inspection | `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; inspect `src/lib.rs` | Transfer-aware filters gate search by authority model, risk band, and application pack; examples display authority model. | pass. | pass |
 | EVID-048 | inspection | `docs/validation/evt-001-theme-swimlanes-runbook.md`, `docs/validation/evt-001-response-and-scoring-sheet.md`, `docs/validation/evt-001-theme-swimlanes-results.md` | EVT-001 execution packet and empty results ledger exist with locked scoring, condition assignment, no-response status, and no claim upgrade. | pass. | pass |
+| EVID-049 | inspection | `docs/theory/frame-ontology.md` | Frame ontology exists with controlled entity, job, relation, authority, risk, tag, term-admission, review, and design-consequence guidance. | pass. | pass |
 
 ## Evidence Rules
 

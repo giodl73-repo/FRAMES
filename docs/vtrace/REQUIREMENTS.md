@@ -51,6 +51,7 @@ Repo or feature: `frames-core`
 | REQ-041 | The repo shall define a theme-swimlane leadership worksheet before pilot use or accepted-catalog review for theme swimlanes. | NEED-001 / CON-003 | Leadership-pack use needs a practical artifact that captures promises, lanes, measures, decisions, risks, and pilot closeout without promoting the frame by default. | must | FRAMES | inspection | accepted |
 | REQ-042 | Accepted starter frame search shall support strict transfer-aware filters for authority model, risk band, and application pack. | NEED-001 / CON-001 / CON-003 | AI/tool callers need to avoid obvious authority, risk, or context mismatches before richer relation-aware ranking exists. | must | FRAMES | unit test / example run / inspection | accepted |
 | REQ-043 | The repo shall provide a locked EVT-001 execution packet and empty results ledger before collecting participant responses. | NEED-001 / CON-003 | Empirical trial execution needs stable prompts, condition assignment, scoring, and report shape before data collection to avoid post-hoc claim inflation. | must | FRAMES | inspection | accepted |
+| REQ-044 | The repo shall define a controlled frame ontology before further catalog growth or relation-aware metadata expansion. | NEED-001 / CON-001 / CON-003 | Tags, jobs, relation names, authority terms, and risk labels need controlled meanings so review, search, and future API fields do not drift. | must | FRAMES | inspection | accepted |
 
 ## Requirement Quality Checklist
 

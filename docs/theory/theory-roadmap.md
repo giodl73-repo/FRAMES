@@ -30,6 +30,7 @@ growth gaps, implementation gaps, and deeper theory questions.
 | Audience transfer | Familiarity differs by role, region, culture, expertise, and mobility. | `audience-transfer.md` |
 | Cultural portability | Everyday sources need explicit region, language, mobility, accessibility, and authority checks. | `cultural-portability.md` |
 | Frame lifecycle | Frames should move from candidate to accepted, revised, deprecated, or rejected. | `frame-lifecycle.md` |
+| Frame ontology | Tags, jobs, relations, authority terms, and risk terms need controlled vocabulary before catalog growth. | `frame-ontology.md` |
 | Accepted-catalog review | Draft heuristics need a repeatable gate before accepted catalog or default search. | `accepted-catalog-review-process.md` |
 | Frame anti-pattern taxonomy | Bad frames need reusable rejection classes before rejected examples and evaluation sets expand. | `frame-antipattern-taxonomy.md` |
 | Composition | Some situations need two frames; some frames conflict. | `composition-and-conflict.md` |
@@ -63,6 +64,7 @@ growth gaps, implementation gaps, and deeper theory questions.
 ## Priority Order
 
 1. Collect EVT-001 participant responses and score the locked packet.
+2. Apply frame ontology terms to accepted catalog rows and evaluation fixtures.
 
 ## Role Guidance
 
