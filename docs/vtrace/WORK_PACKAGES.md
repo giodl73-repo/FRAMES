@@ -46,6 +46,7 @@ unless product requirements explicitly define them as user-facing behavior.
 | WP-032 | Add accepted-catalog review process. | Draft heuristics have a repeatable gate before accepted catalog or default search. | REQ-036 / SPEC-035 / IF-038 | `docs/theory/accepted-catalog-review-process.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-031 complete and lifecycle/promotion docs exist. | Process exists, linked docs updated, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: apply process to first promoted candidate | evidence / trace / review / status rows | complete |
 | WP-033 | Add frame anti-pattern taxonomy. | Bad frames have reusable rejection classes before rejected examples or evaluation sets expand. | REQ-037 / SPEC-036 / IF-039 | `docs/theory/frame-antipattern-taxonomy.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-032 complete and hard-stop/review docs exist. | Taxonomy exists, linked docs updated, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: apply taxonomy to evaluation fixtures and rejected-candidate reporting | evidence / trace / review / status rows | complete |
 | WP-034 | Add related-frame relation taxonomy. | Related links have stable meanings before typed metadata or relation-aware evaluation sets. | REQ-038 / SPEC-037 / IF-040 | `docs/theory/related-frame-taxonomy.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-033 complete and composition/search docs exist. | Taxonomy exists, linked docs updated, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: apply relation taxonomy to catalog rows and evaluation fixtures | evidence / trace / review / status rows | complete |
+| WP-035 | Add evaluation-set design. | Frame selection behavior has fixture rules before semantic search or draft-frame inclusion. | REQ-039 / SPEC-038 / IF-041 | `docs/theory/evaluation-set-design.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-034 complete and anti-pattern/relation taxonomies exist. | Evaluation design exists, linked docs updated, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: populate first machine-readable fixtures | evidence / trace / review / status rows | complete |
 
 ## Work Package Details
 
@@ -1297,3 +1298,41 @@ V closure:
 | Implementation | `docs/theory/related-frame-taxonomy.md` | closed | Taxonomy, examples, catalog field shape, and design consequences added. |
 | Verification | EVID-043 | closed | Inspection covers related-frame taxonomy. |
 | Validation | VAL-035 | closed | Taxonomy supports alternate, fallback, sequence, conflict, and suppression decisions. |
+
+### WP-035: Add evaluation-set design
+
+Objective: define fixture structure and review rules for testing selection,
+suppression, warnings, fallbacks, and related-frame behavior before semantic
+search or broad catalog expansion.
+
+Parent IDs: REQ-039, SPEC-038, IF-041.
+
+Affected files/modules:
+
+- `docs/theory/evaluation-set-design.md`
+- `docs/theory/accepted-catalog-review-process.md`
+- `docs/theory/theory-gap-audit.md`
+- `docs/theory/theory-roadmap.md`
+- `README.md`
+- `docs/vtrace/*`
+
+Verification commands:
+
+```powershell
+cargo fmt --check
+cargo test
+cargo run --example lookup
+cargo run --example ai_response_contract
+git diff --check
+cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .
+```
+
+V closure:
+
+| V Area | IDs / Evidence | Status | Notes |
+|---|---|---|---|
+| Requirements | REQ-039 | closed | Evaluation-set design required. |
+| Specification / Interface | SPEC-038, IF-041 | closed | Fixture types, fields, pass bands, and expected decisions defined. |
+| Implementation | `docs/theory/evaluation-set-design.md` | closed | Evaluation jobs, starter backlog, scoring, review procedure, and non-goals added. |
+| Verification | EVID-044 | closed | Inspection covers evaluation-set design. |
+| Validation | VAL-036 | closed | Design supports future selection, suppression, warning, fallback, and relation-behavior fixtures. |

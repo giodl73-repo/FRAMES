@@ -156,7 +156,9 @@ before accepted catalog use.
 - Frame anti-pattern taxonomy is defined in
   [frame-antipattern-taxonomy.md](frame-antipattern-taxonomy.md) and should be
   applied before rejected examples are expanded.
-- Evaluation sets should include accepted, revise, hold, reject, near-miss, and
-  hard-stop examples.
+- Evaluation sets should follow
+  [evaluation-set-design.md](evaluation-set-design.md) and include accepted,
+  revise, hold, reject, near-miss, hard-stop, anti-pattern, and relation-behavior
+  examples.
 - Accepted-catalog review is the next gate before adding local imports to the
   catalog or index.

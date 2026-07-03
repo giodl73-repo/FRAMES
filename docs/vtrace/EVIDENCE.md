@@ -51,6 +51,7 @@ Repo or feature: `frames-core`
 | EVID-041 | inspection | `docs/theory/accepted-catalog-review-process.md` | Accepted-catalog review process exists with review inputs, board lenses, decision bands, hard stops, acceptance procedure, metadata requirements, review template, and local-import promotion rule. | pass. | pass |
 | EVID-042 | inspection | `docs/theory/frame-antipattern-taxonomy.md` | Frame anti-pattern taxonomy exists with detection rule, reusable failure classes, review procedure, dispositions, evaluation-set implications, AI/tool implications, examples, and design consequences. | pass. | pass |
 | EVID-043 | inspection | `docs/theory/related-frame-taxonomy.md` | Related-frame relation taxonomy exists with relation rule, relation types, direction rules, selection implications, examples, review procedure, catalog field shape, AI/tool implications, and design consequences. | pass. | pass |
+| EVID-044 | inspection | `docs/theory/evaluation-set-design.md` | Evaluation-set design exists with evaluation jobs, fixture types, fixture shape, required fields, starter backlog, scoring dimensions, pass bands, review procedure, non-goals, AI/tool implications, and design consequences. | pass. | pass |
 
 ## Evidence Rules
 

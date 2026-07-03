@@ -20,6 +20,7 @@ sets, governance, and acceptance decisions.
 | Application packs | Separates product, operations, leadership, learning, and AI-agent use. |
 | Anti-pattern taxonomy | Gives bad frames reusable rejection classes instead of one-off warnings. |
 | Related-frame taxonomy | Separates alternates, fallbacks, conflicts, sequences, and rejected near-misses. |
+| Evaluation-set design | Defines fixture types, expected behavior, pass bands, and review procedure. |
 | Empirical protocol | Gives a path to test narrow claims instead of relying on author confidence. |
 | Metadata migration | Keeps Rust API changes behind docs-level proof. |
 
@@ -32,7 +33,7 @@ These gaps can cause wrong recommendations or premature catalog acceptance.
 | Controlled frame ontology | Tags and relation names drift as the catalog grows. | `frame-ontology.md` |
 | Anti-pattern taxonomy application | Bad-frame classes now need to be applied to accepted-catalog reviews, evaluation sets, and rejected-candidate reporting. | `frame-antipattern-taxonomy.md` |
 | Acceptance review board | Promoted draft heuristics need the accepted-catalog gate applied before default search. | `accepted-catalog-review-process.md` |
-| Evaluation set | Search and AI outputs cannot be compared against known good/bad examples. | `evaluation-set-design.md` |
+| Evaluation-set application | Fixtures now need to be populated and used as gates before semantic search or draft-frame inclusion. | `evaluation-set-design.md` |
 | Related-frame relation application | Typed related-frame relations need to be applied to catalog rows, evaluation sets, and future Rust metadata. | `related-frame-taxonomy.md` |
 
 ## Growth Gaps
@@ -81,7 +82,7 @@ methodology rather than a useful catalog.
 3. Apply the accepted-catalog review process to first promoted candidates.
 4. Apply frame anti-pattern taxonomy to first promoted candidates and evaluation fixtures.
 5. Apply related-frame relation taxonomy to catalog examples and evaluation fixtures.
-6. Define evaluation-set design with positive, near-miss, hard-stop, anti-pattern, and relation-behavior cases.
+6. Populate first evaluation fixtures for traffic, anti-pattern, relation, theme-swimlane, and audience-transfer cases.
 7. Define cultural portability guidance.
 8. Define frame acquisition method.
 

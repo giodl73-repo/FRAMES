@@ -46,6 +46,7 @@ Repo or feature: `frames-core`
 | REQ-036 | inspection | inspect `docs/theory/accepted-catalog-review-process.md` and linked lifecycle/promotion docs | Review inputs, board lenses, decision bands, hard stops, procedure, metadata requirements, template, promotion rule, and design consequences are present. | pass | EVID-041 |
 | REQ-037 | inspection | inspect `docs/theory/frame-antipattern-taxonomy.md` and linked review docs | Detection rule, failure classes, review procedure, dispositions, evaluation-set implications, AI/tool implications, examples, and design consequences are present. | pass | EVID-042 |
 | REQ-038 | inspection | inspect `docs/theory/related-frame-taxonomy.md` and linked composition/search docs | Relation rule, relation types, direction rules, selection implications, examples, review procedure, catalog field shape, AI/tool implications, and design consequences are present. | pass | EVID-043 |
+| REQ-039 | inspection | inspect `docs/theory/evaluation-set-design.md` and linked review docs | Evaluation jobs, fixture types, fixture shape, required fields, starter backlog, scoring dimensions, pass bands, review procedure, non-goals, AI/tool implications, and design consequences are present. | pass | EVID-044 |
 
 ## Commands
 
@@ -104,6 +105,7 @@ git diff --check
 | EVID-041 | inspection | `docs/theory/accepted-catalog-review-process.md` | REQ-036, SPEC-035, IF-038, VAL-033 | pass |
 | EVID-042 | inspection | `docs/theory/frame-antipattern-taxonomy.md` | REQ-037, SPEC-036, IF-039, VAL-034 | pass |
 | EVID-043 | inspection | `docs/theory/related-frame-taxonomy.md` | REQ-038, SPEC-037, IF-040, VAL-035 | pass |
+| EVID-044 | inspection | `docs/theory/evaluation-set-design.md` | REQ-039, SPEC-038, IF-041, VAL-036 | pass |
 
 ## Gaps
 

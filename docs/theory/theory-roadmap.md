@@ -38,6 +38,7 @@ growth gaps, implementation gaps, and deeper theory questions.
 | Relational transfer fields | Frames need explicit source-target relation maps, exclusions, and transfer strength. | `relational-transfer-fields.md` |
 | Transfer-aware search design | Search needs to rank structural fit above surface wording before catalog growth. | `transfer-aware-search-design.md` |
 | Related-frame relation taxonomy | Related links need typed meanings such as alternate, safer fallback, conflict, sequence, and rejected near-miss. | `related-frame-taxonomy.md` |
+| Evaluation-set design | Search and AI outputs need curated fixtures before semantic search or broad catalog growth. | `evaluation-set-design.md` |
 | Role-reviewed domain examples | Theory needs concrete role-reviewed examples before broader catalog expansion. | `role-reviewed-domain-examples.md` |
 | Application packs | Product, operations, leadership, learning, and AI-agent packs need different defaults. | `application-pack-templates.md` |
 | Perspective metadata | Frames assign listener roles, agency, duty, and authority assumptions. | `perspective-metadata.md` |
@@ -59,11 +60,10 @@ growth gaps, implementation gaps, and deeper theory questions.
 
 ## Priority Order
 
-1. Evaluation-set design.
-2. Cultural portability guidance.
-3. Leadership-pack worksheet for theme swimlanes.
-4. Transfer-aware search filters.
-5. Run EVT-001 and record results.
+1. Cultural portability guidance.
+2. Leadership-pack worksheet for theme swimlanes.
+3. Transfer-aware search filters.
+4. Run EVT-001 and record results.
 
 ## Role Guidance
 
