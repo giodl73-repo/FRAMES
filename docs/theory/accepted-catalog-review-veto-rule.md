@@ -18,7 +18,7 @@ or Rust index.
 | Claim strength | heuristic |
 | Risk band | medium |
 | Transfer strength | structural when a dimension is truly required; partial otherwise |
-| Decision | Revise |
+| Decision | Accepted with caveat for docs catalog; not yet default Rust search |
 | Index behavior | Docs only; do not include in default Rust search |
 
 ## Frame Shape
@@ -41,12 +41,32 @@ Positive examples:
 |---|---|
 | Product launch has great adoption signals, but privacy review is not passed. | Treat privacy approval as a required lock before launch. |
 | Migration plan is fast and cheap, but rollback is impossible. | Treat rollback as a binding launch condition unless risk is explicitly accepted by the owner. |
+| AI agent output passes style and speed checks, but fails a required safety policy. | Treat policy failure as a required gate; do not average it away with strong non-safety scores. |
 
 Near-miss / hard-stop example:
 
 | Situation | Expected Decision |
 |---|---|
 | A stakeholder dislikes the design but no requirement, policy, safety, or customer outcome is blocked. | Do not call it a veto. Name preference, tradeoff, or decision ownership directly. |
+| One metric is weak but the accountable owner explicitly accepts the tradeoff and no hard requirement is violated. | Do not call it a veto; record accepted risk and monitor the metric. |
+
+## Stop Condition And Fallback
+
+Stop using Veto Rule when:
+
+- the required dimension is satisfied;
+- the accountable owner explicitly waives the requirement;
+- the requirement expires or no longer applies;
+- evidence shows the dimension was preferred, not required;
+- the frame is being used to hide bias, moving goalposts, or unowned authority.
+
+Plain-language fallback for high-stakes or contested authority use:
+
+```text
+This decision has a possible blocking requirement. Before calling it a veto,
+name the requirement, the accountable owner, the evidence that it is required,
+and the condition that would clear or waive it.
+```
 
 ## Fit Score
 
@@ -58,9 +78,9 @@ Near-miss / hard-stop example:
 | Action cue | 2 | Find the binding lock before optimizing other dimensions. |
 | Evidence boundary | 2 | Required-vs-preferred check is explicit. |
 | Human safety | 1 | Can be misused to launder bias, moving goalposts, or hidden authority. |
-| Stop condition | 1 | Needs clearer stop when the blocker becomes negotiable, expired, or owner-accepted. |
+| Stop condition | 2 | Stop, waiver, expiry, and preferred-vs-required boundaries are explicit. |
 
-Total: 11. Decision band: revise.
+Total: 12. Decision band: accepted with caveat.
 
 ## Role Findings
 
@@ -68,27 +88,29 @@ Total: 11. Decision band: revise.
 |---|---|
 | Frame Fit Reviewer | Pass with gate: useful for required-dimension decisions, but relation must be limited to true hard requirements. |
 | Evidence Boundary Reviewer | Pass: required-vs-preferred evidence boundary is strong and testable. |
-| Misuse Risk Reviewer | Revise: add bias, moving-goalpost, and false-veto safeguards before catalog acceptance. |
+| Misuse Risk Reviewer | Pass with caveat: bias, moving-goalpost, and false-veto safeguards must display with the frame. |
 | Audience Transfer Reviewer | Pass with setup: gate/lock source is broadly understandable but not universal. |
 | Business Leader | Pass: clarifies why averages can hide launch, policy, safety, or customer-risk blockers. |
-| Novice Reader | Revise: needs a short definition of "binding lock" and examples before use. |
+| Novice Reader | Pass with setup: define binding lock as a required condition that blocks progress until cleared or waived. |
 | Journeyman Practitioner | Pass with gate: useful in planning and review meetings if owner and requirement are named. |
-| Catalog Structure Reviewer | Revise: add evaluation fixtures and accepted-catalog metadata before default search. |
+| Catalog Structure Reviewer | Pass with caveat: docs catalog candidate is ready after fixtures; Rust default search waits for lifecycle filtering. |
 
 ## Decision
 
-Decision: revise.
+Decision: accepted with caveat for docs catalog. Do not add to default Rust
+search until lifecycle filtering and draft/local import indexing rules exist.
 
-Required revision before accepted catalog:
+Revision items closed:
 
-1. Add an evaluation fixture where `Veto Rule` should be recommended.
-2. Add a near-miss fixture where a preference is falsely called a veto.
-3. Add a stop condition: the frame ends when the requirement is satisfied,
-   waived by the accountable owner, expires, or is shown to be preferred rather
-   than required.
-4. Add a plain-language fallback for high-stakes or contested authority use.
+1. Added evaluation fixture where `Veto Rule` should be recommended:
+   `EVAL-VETO-001`.
+2. Added near-miss fixture where a preference is falsely called a veto:
+   `EVAL-VETO-002`.
+3. Added stop condition for satisfied, waived, expired, or non-required
+   dimensions.
+4. Added plain-language fallback for high-stakes or contested authority use.
 
-Catalog metadata if revised successfully:
+Catalog metadata for future docs row:
 
 | Field | Candidate Value |
 |---|---|
@@ -102,4 +124,4 @@ Catalog metadata if revised successfully:
 | `relation_term` | required_gate |
 | `transfer_strength` | structural for true required dimensions |
 
-Next review: after fixtures and stop condition are added.
+Next review: before adding a docs catalog row or Rust index entry.

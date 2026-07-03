@@ -54,6 +54,7 @@ unless product requirements explicitly define them as user-facing behavior.
 | WP-040 | Add frame ontology. | Catalog growth uses controlled jobs, relations, authority, risk, and tag families. | REQ-044 / SPEC-043 / IF-046 | `docs/theory/frame-ontology.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-039 complete and gap audit identifies ontology drift risk. | Ontology exists, roadmap/gap audit updated, docs and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: apply ontology terms to catalog rows and fixtures | evidence / trace / review / status rows | complete |
 | WP-041 | Apply ontology to catalog and fixtures. | Accepted starter rows and evaluation fixtures use controlled ontology terms. | REQ-045 / SPEC-044 / IF-047 | `docs/frame-catalog.md`, `docs/theory/evaluation-set-design.md`, `docs/theory/frame-ontology.md`, `docs/theory/*`, `docs/vtrace/*` | WP-040 complete and ontology terms defined. | Catalog and fixture backlog use controlled terms, roadmap/gap audit updated, docs and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: apply accepted-catalog review to promoted candidates | evidence / trace / review / status rows | complete |
 | WP-042 | Apply accepted-catalog review to Veto Rule. | The first promoted local candidate has a recorded review decision before catalog/index promotion. | REQ-046 / SPEC-045 / IF-048 | `docs/theory/accepted-catalog-review-veto-rule.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-041 complete and Veto Rule is promoted draft heuristic. | Veto Rule review records revise decision, revision items, and no default search promotion; docs and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: add fixtures and stop condition before catalog acceptance | evidence / trace / review / status rows | complete |
+| WP-043 | Close Veto Rule revision items. | Veto Rule has fixtures, stop condition, fallback language, and a docs-only accepted-with-caveat boundary. | REQ-047 / SPEC-046 / IF-049 | `docs/theory/accepted-catalog-review-veto-rule.md`, `docs/theory/evaluation-set-design.md`, `docs/theory/*`, `docs/vtrace/*` | WP-042 complete and revision items identified. | Revision items closed, roadmap updated, docs and VTRACE pass, default Rust search unchanged. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: add docs catalog row when catalog scope expands | evidence / trace / review / status rows | complete |
 
 ## Work Package Details
 
@@ -1612,3 +1613,41 @@ V closure:
 | Implementation | `docs/theory/accepted-catalog-review-veto-rule.md` | closed | Fit score, role findings, revise decision, and revision items recorded. |
 | Verification | EVID-051 | closed | Inspection covers Veto Rule review record. |
 | Validation | VAL-043 | closed | Maintainers can continue from revision items before acceptance. |
+
+### WP-043: Close Veto Rule revision items
+
+Objective: close the revision items from the Veto Rule accepted-catalog review
+without adding it to default Rust search.
+
+Parent IDs: REQ-047, SPEC-046, IF-049.
+
+Affected files/modules:
+
+- `docs/theory/accepted-catalog-review-veto-rule.md`
+- `docs/theory/evaluation-set-design.md`
+- `docs/theory/accepted-catalog-review-process.md`
+- `docs/theory/local-import-promotion-review.md`
+- `docs/theory/theory-gap-audit.md`
+- `docs/theory/theory-roadmap.md`
+- `docs/vtrace/*`
+
+Verification commands:
+
+```powershell
+cargo fmt --check
+cargo test
+cargo run --example lookup
+cargo run --example ai_response_contract
+git diff --check
+cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .
+```
+
+V closure:
+
+| V Area | IDs / Evidence | Status | Notes |
+|---|---|---|---|
+| Requirements | REQ-047 | closed | Veto Rule revision items required closure before promotion. |
+| Specification / Interface | SPEC-046, IF-049 | closed | Caveat and no-default-search boundary defined. |
+| Implementation | `docs/theory/accepted-catalog-review-veto-rule.md`, `docs/theory/evaluation-set-design.md` | closed | Fixtures, stop conditions, fallback, and caveat status added. |
+| Verification | EVID-052 | closed | Inspection covers revision closure. |
+| Validation | VAL-044 | closed | Maintainers can add a docs catalog row later without changing default search. |

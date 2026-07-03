@@ -59,6 +59,7 @@ Repo or feature: `frames-core`
 | EVID-049 | inspection | `docs/theory/frame-ontology.md` | Frame ontology exists with controlled entity, job, relation, authority, risk, tag, term-admission, review, and design-consequence guidance. | pass. | pass |
 | EVID-050 | inspection | `docs/frame-catalog.md`, `docs/theory/evaluation-set-design.md`, `docs/theory/frame-ontology.md` | Accepted starter rows and evaluation fixture backlog apply controlled ontology authority, relation, and job terms. | pass. | pass |
 | EVID-051 | inspection | `docs/theory/accepted-catalog-review-veto-rule.md`, `docs/theory/accepted-catalog-review-process.md`, `docs/theory/local-import-promotion-review.md` | First promoted local candidate review exists; Veto Rule is recorded as revise with required revision items and no default search promotion. | pass. | pass |
+| EVID-052 | inspection | `docs/theory/accepted-catalog-review-veto-rule.md`, `docs/theory/evaluation-set-design.md`, `docs/theory/theory-roadmap.md` | Veto Rule revision items are closed with fixtures, stop condition, fallback, accepted-with-caveat docs decision, and no default Rust search promotion. | pass. | pass |
 
 ## Evidence Rules
 

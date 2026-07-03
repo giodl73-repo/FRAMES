@@ -158,14 +158,14 @@ Acceptance review process lives in
 First applied accepted-catalog review:
 
 - [accepted-catalog-review-veto-rule.md](accepted-catalog-review-veto-rule.md)
-  keeps `Veto Rule` in revise status until fixtures and stop conditions are
-  added.
+  closes `Veto Rule` revision items and records it as accepted with caveat for
+  docs catalog, but not default Rust search.
 
 ## Next Catalog Candidates
 
 Recommended order for future accepted-catalog review:
 
-1. Close Veto Rule revision items.
+1. Add Veto Rule docs catalog row when catalog scope expands beyond starter entries.
 2. Board Session.
 3. Momentum State.
 4. Portability Index.
