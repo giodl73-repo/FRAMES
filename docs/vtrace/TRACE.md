@@ -68,12 +68,13 @@
 | REQ-064 | NEED-001 | CON-001 / CON-002 / CON-003 | Add Rust review-only catalog rows. | SPEC-063 | DES-003 / DES-005 | CR-006 | WP-060 | `src/lib.rs`, `README.md`, `docs/vtrace/INTERFACES.md`, `docs/theory/review-only-catalog-data-model.md`, `docs/theory/rust-lifecycle-filter-api-design.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md` | VER-062 unit test / example run / inspection | VAL-061 | EVID-069 | validated |
 | REQ-065 | NEED-001 | CON-001 / CON-002 / CON-003 | Add catalog review-mode output. | SPEC-064 | DES-003 / DES-005 | CR-006 | WP-061 | `src/lib.rs`, `README.md`, `docs/vtrace/INTERFACES.md`, `docs/theory/review-only-catalog-data-model.md`, `docs/theory/rust-lifecycle-filter-api-design.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md` | VER-063 unit test / example run / inspection | VAL-062 | EVID-070 | validated |
 | REQ-066 | NEED-001 | CON-001 / CON-002 / CON-003 | Publish relation-aware ranking fixtures. | SPEC-065 | DES-003 / DES-005 | n/a | WP-062 | `docs/eval/relation-aware-ranking-fixtures.json`, `docs/eval/README.md`, `docs/theory/evaluation-set-design.md`, `docs/theory/transfer-aware-search-design.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md` | VER-064 inspection / JSON parse | VAL-063 | EVID-071 | validated |
+| REQ-067 | NEED-001 | CON-001 / CON-002 / CON-003 | Define Rust relation-aware ranking design. | SPEC-066 | DES-003 / DES-005 | n/a | WP-063 | `docs/theory/rust-relation-aware-ranking-design.md`, `docs/theory/transfer-aware-search-design.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md` | VER-065 inspection | VAL-064 | EVID-072 | validated |
 
 ## ID Legend
 
 - NEED-001: mission need in `MISSION.md`.
 - CON-001..CON-003: operating scenarios in `CONOPS.md`.
-- SPEC-001..SPEC-065: specification baseline.
+- SPEC-001..SPEC-066: specification baseline.
 - DES-001..DES-005: design elements.
 - CR-001..CR-006: code-rigor constraints.
 - WP-001: frame index crate work package.
@@ -138,4 +139,5 @@
 - WP-060: Rust review-only catalog row work package.
 - WP-061: catalog review-mode output work package.
 - WP-062: relation-aware ranking fixture work package.
+- WP-063: Rust relation-aware ranking design work package.
 - EVID-* evidence: `EVIDENCE.md` and `VERIFICATION.md`.

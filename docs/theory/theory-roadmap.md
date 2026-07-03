@@ -72,12 +72,13 @@ growth gaps, implementation gaps, and deeper theory questions.
 | Catalog review mode output | Review-only rows need explicit listing behavior before broader non-default catalog use. | Start from `rust-lifecycle-filter-api-design.md` and `review-only-catalog-data-model.md` |
 | Relation-aware ranking fixtures | Accepted and review-only search need structural ranking fixtures before scoring moves past metadata filters. | Extend `../eval/starter-fixtures.json` and review-only fixtures |
 | Rust relation-aware ranking design | The crate needs an implementation plan for relation scoring before metadata fields or scoring changes are added. | Start from `transfer-aware-search-design.md` and `../eval/relation-aware-ranking-fixtures.json` |
+| Private relation metadata tables | The crate needs fixture-mapped metadata before relation-aware output can be implemented safely. | Start from `rust-relation-aware-ranking-design.md` |
 
 ## Priority Order
 
 1. Collect EVT-001 participant responses and score the locked packet.
 2. Pilot the theme-swimlane leadership worksheet and record changed decisions.
-3. Design the Rust relation-aware ranking implementation against the ranking fixtures.
+3. Add private relation metadata tables and fixture-mapped tests without changing default search.
 
 ## Role Guidance
 

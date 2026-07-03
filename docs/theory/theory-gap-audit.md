@@ -49,7 +49,7 @@ These gaps block reliable tool behavior.
 
 | Gap | Risk | First Artifact |
 |---|---|---|
-| Relation-aware ranking | Authority, risk, and application-pack filters exist, and ranking fixtures now define target-relation/protected-value expectations, but scoring is not implemented. | Rust relation-ranking implementation design. |
+| Relation-aware ranking | Authority, risk, and application-pack filters exist, and ranking fixtures plus Rust design now define target-relation/protected-value expectations, but scoring is not implemented. | Private relation metadata tables and fixture-mapped tests. |
 | Rejected-candidate reporting | First review-only rows back suppressed reports and explicit review modes, but broader rejected-candidate scoring is not implemented. | Use relation-aware ranking fixtures before expanding rows. |
 | Lifecycle filtering | `search_with_lifecycle` separates suggestions, fallbacks, suppressed reports, and review-only rows, but relation-aware review ordering is not implemented. | Implement relation-aware ordering only after fixture-backed design. |
 
@@ -72,7 +72,7 @@ methodology rather than a useful catalog.
 
 1. Collect EVT-001 participant responses and score the locked packet without upgrading claim strength prematurely.
 2. Pilot the theme-swimlane leadership worksheet and record changed decisions.
-3. Design the Rust relation-aware ranking implementation against the new ranking fixtures.
+3. Add private relation metadata tables and fixture-mapped tests without changing default search.
 
 This sequence keeps tool safety ahead of catalog growth.
 

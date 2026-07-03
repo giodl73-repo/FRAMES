@@ -112,6 +112,8 @@ Add transfer metadata only after at least one catalog pack uses it consistently.
 
 The search design lives in
 [transfer-aware-search-design.md](transfer-aware-search-design.md).
+The Rust implementation design lives in
+[rust-relation-aware-ranking-design.md](rust-relation-aware-ranking-design.md).
 
 Candidate additions:
 
@@ -129,6 +131,10 @@ Search scoring can then prefer:
 5. tags.
 
 Do not rank by vividness, story appeal, or source-family familiarity alone.
+
+Current status: relation-aware ranking fixtures and Rust implementation design
+exist. The next Rust step should use a parallel relation metadata table before
+adding required fields to `FrameEntry`.
 
 ### Stage 4: Validation Scope
 
@@ -173,6 +179,7 @@ Do not promote a field when:
 | M6 | Add authority, risk, and application-pack query filters plus authority model metadata. | Let AI/tool callers avoid authority, risk, or pack mismatches. | Complete. |
 | M7 | Design lifecycle filters and suppressed-candidate result classes before adding review-only rows. | Preserve default accepted search while preparing safe explanation modes. | Complete. |
 | M8 | Add first lifecycle filter and suppressed-candidate report API. | Let tool callers request explicit lifecycle reports without changing default search. | Complete. |
+| M9 | Publish relation-aware ranking fixtures and Rust implementation design. | Keep scoring changes fixture-backed and additive. | Complete. |
 
 ## Starter Catalog Migration Target
 

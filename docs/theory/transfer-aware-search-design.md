@@ -11,6 +11,8 @@ nonbreaking transfer-aware filters over accepted starter metadata:
 ranking remains deferred until enough accepted catalog entries have stable
 relation metadata. The first machine-readable ranking expectations live in
 [../eval/relation-aware-ranking-fixtures.json](../eval/relation-aware-ranking-fixtures.json).
+The first Rust implementation plan lives in
+[rust-relation-aware-ranking-design.md](rust-relation-aware-ranking-design.md).
 
 ## Current Search Shape
 
@@ -137,7 +139,9 @@ instead of returning a bare metaphor name.
    gates before lexical scoring.
 4. Add relation-aware ranking only after accepted entries have enough stable
    relation metadata and ranking fixtures.
-5. Keep draft, held, and local-import frames out of default search until
+5. Start with a separate relation-aware report path before changing
+   `FrameIndex::search`.
+6. Keep draft, held, and local-import frames out of default search until
    lifecycle filtering exists.
 
 ## Open Design Questions
@@ -156,6 +160,8 @@ instead of returning a bare metaphor name.
   and `authority_model`; full relation scoring remains deferred.
 - Relation-aware ranking fixtures now define expected order, demotion, and
   suppression before the crate changes scoring.
+- Rust relation-aware ranking design defines the additive API and metadata
+  migration path before implementation.
 - Accepted catalog rows need stable transfer metadata before the crate can rank
   by transfer fit.
 - Related-frame lookup should eventually use
