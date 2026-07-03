@@ -37,6 +37,7 @@ Repo or feature: `frames-core`
 | VAL-027 | Business leader or methodology maintainer | Decide whether theme swimlanes are ready for leadership-pack pilot use or catalog acceptance. | Apply `theme-swimlane-role-review.md` to a candidate program promise. | Acceptance decision, role findings, fit score, evidence gates, hard stops, output template, and next actions are visible. | EVID-035 | pass |
 | VAL-028 | Methodology maintainer or researcher | Prepare a first empirical trial without overstating claim strength. | Apply `empirical-validation-trial-001-theme-swimlanes.md` before collecting responses. | Scenario, comparison condition, response form, scoring rubric, analysis plan, hard stops, report template, and no-upgrade boundary are visible. | EVID-036 | pass |
 | VAL-029 | AI tool builder or methodology maintainer | Decide how future search should rank structural fit safely. | Apply `transfer-aware-search-design.md` before Rust ranking changes. | Query inputs, metadata gates, scoring order, hard stops, output notes, migration path, and no-immediate-API-change boundary are visible. | EVID-037 | pass |
+| VAL-030 | Methodology maintainer | Decide what theory is still missing before scaling catalog growth or AI selection. | Apply `theory-gap-audit.md` to roadmap planning. | Current strengths, blocking gaps, growth gaps, implementation gaps, deep theory gaps, recommended sequence, and non-goals are visible. | EVID-038 | pass |
 
 ## Deferred Validation
 

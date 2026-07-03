@@ -40,6 +40,7 @@ unless product requirements explicitly define them as user-facing behavior.
 | WP-026 | Add theme-swimlane role review. | Theme swimlanes have explicit role gates before leadership-pack or catalog acceptance. | REQ-030 / SPEC-029 / IF-032 | `docs/theory/theme-swimlane-role-review.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-025 complete and theme swimlanes promoted only as draft heuristic. | Role review exists, linked docs updated, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: pilot review before accepted catalog promotion | evidence / trace / review / status rows | complete |
 | WP-027 | Add first empirical validation trial protocol. | Claim upgrades have a concrete comparison protocol before empirical claims are made. | REQ-031 / SPEC-030 / IF-033 | `docs/theory/empirical-validation-trial-001-theme-swimlanes.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-026 complete and validation plan exists. | Trial protocol exists, linked docs updated, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: execute trial before claim-strength upgrade | evidence / trace / review / status rows | complete |
 | WP-028 | Add transfer-aware search design. | Future search ranks structural fit before surface wording or vivid source scenes. | REQ-032 / SPEC-031 / IF-034 | `docs/theory/transfer-aware-search-design.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-027 complete and relational transfer fields exist. | Search design exists, linked docs updated, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: API review before Rust ranking changes | evidence / trace / review / status rows | complete |
+| WP-029 | Add theory gap audit. | Remaining theory gaps are visible before catalog growth or AI selection scale. | REQ-033 / SPEC-032 / IF-035 | `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md`, `docs/vtrace/*` | WP-028 complete and current theory set inspected. | Gap audit exists, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: role review before major roadmap pivot | evidence / trace / review / status rows | complete |
 
 ## Work Package Details
 
@@ -1068,3 +1069,37 @@ V closure:
 | Implementation | `docs/theory/transfer-aware-search-design.md` | closed | Query inputs, entry metadata, scoring, hard stops, output notes, and migration path added. |
 | Verification | EVID-037 | closed | Inspection covers transfer-aware search design. |
 | Validation | VAL-029 | closed | Design supports future Rust ranking without premature API churn. |
+
+### WP-029: Add theory gap audit
+
+Objective: identify what theory FRAMES still lacks after the foundation work,
+before scaling catalog growth or AI selection behavior.
+
+Parent IDs: REQ-033, SPEC-032, IF-035.
+
+Affected files/modules:
+
+- `docs/theory/theory-gap-audit.md`
+- `docs/theory/theory-roadmap.md`
+- `README.md`
+- `docs/vtrace/*`
+
+Verification commands:
+
+```powershell
+cargo fmt --check
+cargo test
+cargo run --example lookup
+git diff --check
+cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .
+```
+
+V closure:
+
+| V Area | IDs / Evidence | Status | Notes |
+|---|---|---|---|
+| Requirements | REQ-033 | closed | Current theory gap audit required. |
+| Specification / Interface | SPEC-032, IF-035 | closed | Gap categories and roadmap priority stability defined. |
+| Implementation | `docs/theory/theory-gap-audit.md` | closed | Strengths, blocking gaps, growth gaps, implementation gaps, deep questions, sequence, and non-goals added. |
+| Verification | EVID-038 | closed | Inspection covers theory gap audit. |
+| Validation | VAL-030 | closed | Audit supports roadmap planning before catalog or AI-selection scale. |

@@ -17,11 +17,16 @@ frame index rather than a growing metaphor list.
 - selection procedure,
 - design consequences for `frames-core`.
 
+The current theory gap audit lives in
+[theory-gap-audit.md](theory-gap-audit.md). It now separates blocking gaps,
+growth gaps, implementation gaps, and deeper theory questions.
+
 ## Needed Theory
 
 | Area | Why It Matters | First Artifact |
 |---|---|---|
 | Fit scoring | Catalog entries need comparable readiness, not just prose review. | `fit-rubric.md` |
+| Theory gap audit | The project needs a current account of what is still missing after the baseline theory is in place. | `theory-gap-audit.md` |
 | Audience transfer | Familiarity differs by role, region, culture, expertise, and mobility. | `audience-transfer.md` |
 | Frame lifecycle | Frames should move from candidate to accepted, revised, deprecated, or rejected. | `frame-lifecycle.md` |
 | Composition | Some situations need two frames; some frames conflict. | `composition-and-conflict.md` |
@@ -53,10 +58,13 @@ frame index rather than a growing metaphor list.
 
 1. AI response contract examples in Rust.
 2. First Rust metadata migration.
-3. Accepted-catalog review for promoted imports.
-4. Leadership-pack worksheet for theme swimlanes.
-5. Run EVT-001 and record results.
-6. Relation-aware related-frame design.
+3. Accepted-catalog review process.
+4. Frame anti-pattern taxonomy.
+5. Related-frame relation taxonomy.
+6. Evaluation-set design.
+7. Cultural portability guidance.
+8. Leadership-pack worksheet for theme swimlanes.
+9. Run EVT-001 and record results.
 
 ## Role Guidance
 

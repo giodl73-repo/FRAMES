@@ -45,6 +45,7 @@ Repo or feature: `frames-core`
 | EVID-035 | inspection / role review | `docs/theory/theme-swimlane-role-review.md` | Theme-swimlane role review exists with acceptance decision, role findings, fit score, evidence gates, hard stops, and output template. | pass. | pass |
 | EVID-036 | inspection | `docs/theory/empirical-validation-trial-001-theme-swimlanes.md` | First empirical validation trial protocol exists with scenario, comparison conditions, response form, scoring rubric, analysis plan, report template, hard stops, and no claim upgrade. | pass. | pass |
 | EVID-037 | inspection | `docs/theory/transfer-aware-search-design.md` | Transfer-aware search design exists with query inputs, metadata gates, scoring order, hard stops, output notes, migration path, and no immediate Rust API change. | pass. | pass |
+| EVID-038 | inspection | `docs/theory/theory-gap-audit.md` | Theory gap audit exists with current strengths, blocking gaps, growth gaps, implementation gaps, deep theory gaps, recommended sequence, non-goals, and decision statement. | pass. | pass |
 
 ## Evidence Rules
 
