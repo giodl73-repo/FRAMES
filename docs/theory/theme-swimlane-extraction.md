@@ -39,7 +39,10 @@ that the lanes clarify real tradeoffs, owners, measures, and customer outcomes.
 | Failure mode | Can become slogan grouping if lanes do not change sequencing, funding, measures, or customer outcomes. |
 | Transfer exclusions | A lane label does not prove priority, eliminate dependencies, or replace product strategy. |
 | Application pack | Leadership / product / operations. |
-| Draft status | Revise toward role-reviewed heuristic. |
+| Draft status | Promoted draft heuristic; needs fit score before catalog acceptance. |
+
+Promotion review lives in
+[local-import-promotion-review.md](local-import-promotion-review.md).
 
 ## Local Variants
 

@@ -15,10 +15,13 @@ boundaries.
 | Candidate | Source Pointer | Import Status | Claim Strength | Next Gate |
 |---|---|---|---|---|
 | Phantom Dissonance | `01-chips.md` | imported draft | `locally_observed` | Conflict-repair workflow review. |
-| Board Session | `02-nobody-likes-to-be-told.md` | imported draft | `locally_observed` | Coordination fit score. |
+| Board Session | `02-nobody-likes-to-be-told.md` | promoted draft heuristic | `heuristic` | Fit score before catalog acceptance. |
 | Advocacy Baseline | `03-your-people.md` | imported draft | `locally_observed` | Feedback/learning role review. |
 | Off-Axis Contact | `05-the-friction.md` | imported draft | `locally_observed` | Misuse and authority review. |
-| Contact Structure | `09-the-org-chart.md` | imported draft | `locally_observed` | Leadership/operations pack review. |
+| Contact Structure | `09-the-org-chart.md` | promoted draft heuristic | `heuristic` | Privacy/purpose review before catalog acceptance. |
+
+Promotion review lives in
+[local-import-promotion-review.md](local-import-promotion-review.md).
 
 ## Phantom Dissonance
 

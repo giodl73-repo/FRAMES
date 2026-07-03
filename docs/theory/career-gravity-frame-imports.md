@@ -14,12 +14,15 @@ until FRAMES scores and role-reviews them for broader use.
 
 | Candidate | Source Pointer | Import Status | Claim Strength | Next Gate |
 |---|---|---|---|---|
-| Veto Rule | `patterns.md` | imported draft | `locally_observed` | Risk/priority fit score. |
+| Veto Rule | `patterns.md` | promoted draft heuristic | `heuristic` | Fit score before catalog acceptance. |
 | Reset Tax | `new-job-risk.md` | imported draft | `locally_observed` | Move/stay decision review. |
 | Mentor vs. Sponsor | `calibration.md` | imported draft | `locally_observed` | Evidence-boundary review. |
-| Portability Index | `new-job-risk.md` | imported draft | `locally_observed` | Audience-transfer review. |
-| Momentum State | `momentum.md` | imported draft | `locally_observed` | Momentum-pack review. |
+| Portability Index | `new-job-risk.md` | promoted draft heuristic | `heuristic` | Category examples before catalog acceptance. |
+| Momentum State | `momentum.md` | promoted draft heuristic | `heuristic` | Status/momentum fit score. |
 | Advocacy Bandwidth | `managers/06-advocacy.md` | imported draft | `locally_observed` | Leadership pack review. |
+
+Promotion review lives in
+[local-import-promotion-review.md](local-import-promotion-review.md).
 
 ## Veto Rule
 

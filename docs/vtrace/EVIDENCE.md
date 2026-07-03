@@ -41,6 +41,7 @@ Repo or feature: `frames-core`
 | EVID-031 | inspection | `docs/theory/catalog-metadata-migration-plan.md`, `src/lib.rs` | Catalog metadata migration plan exists and reflects the current indexed shape. | pass. | pass |
 | EVID-032 | inspection | `docs/theory/ai-response-contract.md` | AI response contract exists with required fields, scoring distinction, gates, language rules, and examples. | pass. | pass |
 | EVID-033 | inspection | `docs/frame-catalog.md`, `docs/theory/catalog-metadata-migration-plan.md` | Accepted starter metadata table exists and excludes local draft imports. | pass. | pass |
+| EVID-034 | inspection / role review | `docs/theory/local-import-promotion-review.md` | Local import promotion review exists with promoted draft heuristics and held imports. | pass. | pass |
 
 ## Evidence Rules
 
