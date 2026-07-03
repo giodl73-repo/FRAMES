@@ -144,6 +144,17 @@ pub struct LifecycleFilter<'a> {
 }
 
 const ACCEPTED_ONLY: &[FrameStatus] = &[FrameStatus::Accepted];
+const REVIEW_STATUSES: &[FrameStatus] = &[
+    FrameStatus::AcceptedWithCaveat,
+    FrameStatus::Candidate,
+    FrameStatus::Draft,
+    FrameStatus::Held,
+    FrameStatus::Deprecated,
+    FrameStatus::Rejected,
+    FrameStatus::AntiPattern,
+];
+const ANTI_PATTERN_ONLY: &[FrameStatus] = &[FrameStatus::AntiPattern];
+const DOCS_CATALOG_PREVIEW_STATUSES: &[FrameStatus] = &[FrameStatus::AcceptedWithCaveat];
 
 impl<'a> LifecycleFilter<'a> {
     pub const fn default_search() -> Self {
@@ -163,6 +174,42 @@ impl<'a> LifecycleFilter<'a> {
             mode: VisibilityMode::ExplanationMode,
             allowed_statuses: ACCEPTED_ONLY,
             include_docs_catalog: false,
+            include_draft: false,
+            include_held: false,
+            include_rejected: false,
+            explain_suppressed: true,
+        }
+    }
+
+    pub const fn catalog_review() -> Self {
+        Self {
+            mode: VisibilityMode::CatalogReview,
+            allowed_statuses: REVIEW_STATUSES,
+            include_docs_catalog: true,
+            include_draft: true,
+            include_held: true,
+            include_rejected: true,
+            explain_suppressed: true,
+        }
+    }
+
+    pub const fn anti_pattern_review() -> Self {
+        Self {
+            mode: VisibilityMode::AntiPatternReview,
+            allowed_statuses: ANTI_PATTERN_ONLY,
+            include_docs_catalog: false,
+            include_draft: false,
+            include_held: false,
+            include_rejected: true,
+            explain_suppressed: true,
+        }
+    }
+
+    pub const fn docs_catalog_preview() -> Self {
+        Self {
+            mode: VisibilityMode::DocsCatalogPreview,
+            allowed_statuses: DOCS_CATALOG_PREVIEW_STATUSES,
+            include_docs_catalog: true,
             include_draft: false,
             include_held: false,
             include_rejected: false,
@@ -365,11 +412,18 @@ pub struct SuppressedCandidate<'a> {
     pub display_rule: DisplayRule,
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct ReviewCandidate<'a> {
+    pub entry: &'a ReviewFrameEntry,
+    pub result_class: ResultClass,
+}
+
 #[derive(Debug, Clone, PartialEq, Eq, Default)]
 pub struct FrameSearchReport<'a> {
     pub suggestions: Vec<FrameCandidate<'a>>,
     pub fallbacks: Vec<&'a str>,
     pub suppressed: Vec<SuppressedCandidate<'a>>,
+    pub review_only: Vec<ReviewCandidate<'a>>,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -520,11 +574,13 @@ impl FrameIndex {
         } else {
             Vec::new()
         };
+        let review_only = review_entries_for_lifecycle(query, lifecycle);
 
         FrameSearchReport {
             suggestions,
             fallbacks,
             suppressed,
+            review_only,
         }
     }
 }
@@ -620,6 +676,87 @@ fn unique_fallbacks(suppressed: &[SuppressedCandidate<'static>]) -> Vec<&'static
         }
     }
     fallbacks
+}
+
+fn review_entries_for_lifecycle(
+    query: &FrameQuery<'_>,
+    lifecycle: &LifecycleFilter<'_>,
+) -> Vec<ReviewCandidate<'static>> {
+    if matches!(
+        lifecycle.mode,
+        VisibilityMode::DefaultSearch | VisibilityMode::ExplanationMode
+    ) {
+        return Vec::new();
+    }
+
+    REVIEW_CATALOG
+        .iter()
+        .filter(|entry| review_entry_allowed(entry, lifecycle))
+        .filter(|entry| review_entry_matches_query(entry, query))
+        .map(|entry| ReviewCandidate {
+            entry,
+            result_class: ResultClass::ReviewOnly,
+        })
+        .collect()
+}
+
+fn review_entry_allowed(entry: &ReviewFrameEntry, lifecycle: &LifecycleFilter<'_>) -> bool {
+    match lifecycle.mode {
+        VisibilityMode::CatalogReview => lifecycle.allowed_statuses.contains(&entry.status),
+        VisibilityMode::AntiPatternReview => entry.review_family == ReviewFamily::AntiPattern,
+        VisibilityMode::DocsCatalogPreview => {
+            entry.review_family == ReviewFamily::DocsCatalogCandidate
+                && lifecycle.allowed_statuses.contains(&entry.status)
+        }
+        VisibilityMode::DefaultSearch | VisibilityMode::ExplanationMode => false,
+    }
+}
+
+fn review_entry_matches_query(entry: &ReviewFrameEntry, query: &FrameQuery<'_>) -> bool {
+    if query
+        .authority_model
+        .is_some_and(|model| entry.authority_model != Some(model))
+    {
+        return false;
+    }
+
+    if query
+        .risk_band
+        .is_some_and(|risk_band| entry.risk_band != Some(risk_band))
+    {
+        return false;
+    }
+
+    if query
+        .application_pack
+        .is_some_and(|pack| !entry.application_packs.contains(&pack))
+    {
+        return false;
+    }
+
+    if query
+        .tags
+        .iter()
+        .any(|tag| !contains_ignore_ascii_case(entry.tags, tag))
+    {
+        return false;
+    }
+
+    let situation = query.situation.trim();
+    if situation.is_empty() {
+        return true;
+    }
+
+    contains_word(situation, entry.id)
+        || contains_word(situation, entry.name)
+        || entry
+            .matched_terms
+            .iter()
+            .any(|term| contains_word(situation, term))
+        || entry
+            .target_situations
+            .iter()
+            .any(|target| text_overlaps(situation, target))
 }
 
 fn suppressed_for_query(query: &FrameQuery<'_>) -> Vec<SuppressedCandidate<'static>> {
@@ -1415,6 +1552,51 @@ mod tests {
     }
 
     #[test]
+    fn catalog_review_mode_lists_review_rows_only() {
+        let index = FrameIndex::new();
+        let report =
+            index.search_with_lifecycle(&FrameQuery::new(""), &LifecycleFilter::catalog_review());
+
+        assert!(report.suggestions.is_empty());
+        assert!(report.suppressed.is_empty());
+        assert_eq!(report.review_only.len(), 4);
+        assert!(report
+            .review_only
+            .iter()
+            .all(|candidate| candidate.result_class == ResultClass::ReviewOnly));
+        assert!(report
+            .review_only
+            .iter()
+            .any(|candidate| candidate.entry.id == "theme-swimlanes"));
+    }
+
+    #[test]
+    fn review_modes_filter_by_family_and_query_metadata() {
+        let index = FrameIndex::new();
+        let anti_pattern_report = index.search_with_lifecycle(
+            &FrameQuery::new("").with_application_pack(ApplicationPack::Leadership),
+            &LifecycleFilter::anti_pattern_review(),
+        );
+
+        assert_eq!(anti_pattern_report.review_only.len(), 2);
+        assert!(anti_pattern_report
+            .review_only
+            .iter()
+            .all(|candidate| candidate.entry.review_family == ReviewFamily::AntiPattern));
+
+        let docs_report = index.search_with_lifecycle(
+            &FrameQuery::new("required approval is missing")
+                .with_authority_model(AuthorityModel::Reviewer)
+                .with_application_pack(ApplicationPack::Product),
+            &LifecycleFilter::docs_catalog_preview(),
+        );
+
+        assert_eq!(docs_report.review_only.len(), 1);
+        assert_eq!(docs_report.review_only[0].entry.id, "veto-rule");
+        assert!(docs_report.suggestions.is_empty());
+    }
+
+    #[test]
     fn lifecycle_default_search_matches_existing_search() {
         let index = FrameIndex::new();
         let query = FrameQuery::new("two teams need turn order around constrained attention")
@@ -1429,6 +1611,7 @@ mod tests {
 
         assert_eq!(report.suggestions, normal);
         assert!(report.suppressed.is_empty());
+        assert!(report.review_only.is_empty());
     }
 
     #[test]

@@ -72,6 +72,7 @@ Repo or feature: `frames-core`
 | REQ-062 | inspection | inspect `docs/theory/review-only-catalog-data-model.md` | Row families, minimal row shape, required fields by status, display rules, Rust loading boundary, review family enum, conversion rules, matching rules, first rows to model, migration steps, acceptance gate, and design consequences are present. | pass | EVID-067 |
 | REQ-063 | inspection / JSON parse | inspect and parse `docs/eval/review-only-catalog-fixtures.json` | Default loading rule, row shape, docs-catalog candidate row, anti-pattern rows, held row, display rules, matched terms, source docs, fallback text, review status, and revisit triggers are present. | pass | EVID-068 |
 | REQ-064 | unit test / example run / inspection | run `cargo test`, examples, and inspect `src/lib.rs` | Review-only rows are loaded separately, review helpers expose them, suppressed reports derive from review rows, and default search remains accepted-only. | pass | EVID-069 |
+| REQ-065 | unit test / example run / inspection | run `cargo test`, examples, and inspect `src/lib.rs` | Explicit review modes populate review-only output and keep review rows out of suggestions. | pass | EVID-070 |
 
 ## Commands
 
@@ -156,6 +157,7 @@ git diff --check
 | EVID-067 | inspection | `docs/theory/review-only-catalog-data-model.md`, `docs/theory/rust-lifecycle-filter-api-design.md`, `docs/frame-catalog.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md` | REQ-062, SPEC-061, IF-064, VAL-059 | pass |
 | EVID-068 | inspection / JSON parse | `docs/eval/review-only-catalog-fixtures.json`, `docs/eval/README.md`, `docs/theory/review-only-catalog-data-model.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md` | REQ-063, SPEC-062, IF-065, VAL-060 | pass |
 | EVID-069 | command output / inspection | `cargo test`, `cargo run --example lookup`, `cargo run --example ai_response_contract`, `src/lib.rs`, `docs/vtrace/INTERFACES.md`, `docs/theory/review-only-catalog-data-model.md`, `docs/theory/rust-lifecycle-filter-api-design.md` | REQ-064, SPEC-063, IF-066, VAL-061 | pass |
+| EVID-070 | command output / inspection | `cargo test`, `cargo run --example lookup`, `cargo run --example ai_response_contract`, `src/lib.rs`, `README.md`, `docs/vtrace/INTERFACES.md`, `docs/theory/review-only-catalog-data-model.md`, `docs/theory/rust-lifecycle-filter-api-design.md` | REQ-065, SPEC-064, IF-067, VAL-062 | pass |
 
 ## Gaps
 

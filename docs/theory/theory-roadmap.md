@@ -70,12 +70,13 @@ growth gaps, implementation gaps, and deeper theory questions.
 | Review-only catalog fixtures | The review-only data model needs machine-readable rows before Rust loads them. | `../eval/review-only-catalog-fixtures.json` |
 | Rust review-only catalog rows | The crate needs separate review rows before catalog review modes can list non-default entries safely. | `../src/lib.rs` |
 | Catalog review mode output | Review-only rows need explicit listing behavior before broader non-default catalog use. | Start from `rust-lifecycle-filter-api-design.md` and `review-only-catalog-data-model.md` |
+| Relation-aware ranking fixtures | Accepted and review-only search need structural ranking fixtures before scoring moves past metadata filters. | Extend `../eval/starter-fixtures.json` and review-only fixtures |
 
 ## Priority Order
 
 1. Collect EVT-001 participant responses and score the locked packet.
 2. Pilot the theme-swimlane leadership worksheet and record changed decisions.
-3. Add catalog review mode output for review-only rows without changing default search.
+3. Define relation-aware ranking fixtures before scoring accepted or review-only rows beyond metadata filters.
 
 ## Role Guidance
 

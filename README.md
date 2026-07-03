@@ -32,8 +32,9 @@ mode warnings. Accepted starter entries also expose compact metadata for status,
 claim strength, authority model, risk band, application packs, and first
 transfer-aware query filters. Lifecycle report APIs add explicit visibility
 filters, fallbacks, and suppressed-candidate explanations while keeping default
-search accepted-starter only. Review-only catalog helpers expose docs-catalog,
-held, and anti-pattern rows separately from accepted search.
+search accepted-starter only. Review-only catalog helpers and review modes
+expose docs-catalog, held, and anti-pattern rows separately from accepted
+search.
 
 ```powershell
 cargo test
@@ -65,6 +66,16 @@ let query = FrameQuery::new("another team is a roadblock")
     .with_risk_band(RiskBand::Medium)
     .with_application_pack(ApplicationPack::Operations);
 let report = index.search_with_lifecycle(&query, &LifecycleFilter::explanation_mode());
+```
+
+Review-only catalog lookup:
+
+```rust
+use frames_core::{FrameIndex, FrameQuery, LifecycleFilter};
+
+let index = FrameIndex::new();
+let report = index.search_with_lifecycle(&FrameQuery::new(""), &LifecycleFilter::catalog_review());
+let review_rows = report.review_only;
 ```
 
 ## First Catalog

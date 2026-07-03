@@ -187,6 +187,7 @@ Review-only matching should be simpler and stricter than accepted search:
    Complete for the first suppression examples, with wrong-authority accepted
    frames remaining separate.
 5. Add catalog review mode output only after suppressed behavior is tested.
+   Complete for first Rust review rows.
 6. Keep `STARTER_CATALOG` accepted-only.
 
 ## Acceptance Gate
@@ -208,5 +209,5 @@ A review-only row can become a default-search candidate only when:
   them suggestions.
 - Default search remains accepted-starter only until a row is explicitly
   promoted.
-- The next implementation step should add catalog review mode output for
-  `REVIEW_CATALOG` rows without changing default search.
+- The next implementation step should add relation-aware ranking or typed review
+  scoring only after review-mode output has evaluation coverage.

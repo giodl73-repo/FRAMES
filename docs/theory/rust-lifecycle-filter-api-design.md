@@ -28,6 +28,8 @@ silently expanding `FrameIndex::search`.
   the first review-only rows;
 - review-catalog-backed suppressed reports for selected rejected/docs-catalog
   cases, plus a separate accepted-frame wrong-authority suppression rule.
+- `ReviewCandidate` and `FrameSearchReport::review_only` for explicit catalog,
+  anti-pattern, and docs-catalog review modes.
 
 This boundary is correct. The API adds expression power before catalog breadth.
 Review-only rows still do not live in `STARTER_CATALOG`.
@@ -170,6 +172,7 @@ pub struct FrameSearchReport<'a> {
     pub suggestions: Vec<FrameCandidate<'a>>,
     pub fallbacks: Vec<&'a str>,
     pub suppressed: Vec<SuppressedCandidate<'a>>,
+    pub review_only: Vec<ReviewCandidate<'a>>,
 }
 ```
 
@@ -213,6 +216,9 @@ The review-only row model is defined in
 7. Consider expanding `FrameStatus` in public API only when review rows are
    actually represented. Complete for report statuses and first review rows;
    review rows remain out of `STARTER_CATALOG`.
+8. Add explicit review-mode output only after review rows are separate from
+   default search. Complete for first catalog, anti-pattern, and docs-catalog
+   preview modes.
 
 ## Fixture Coverage
 
@@ -238,6 +244,7 @@ Implementation tests should cover:
   mode is explicit.
 - Do not let `accepted_with_caveat` enter default search unless caveat display
   is guaranteed.
+- Do not treat `review_only` results as recommendations.
 
 ## Design Consequences
 
