@@ -17,6 +17,10 @@ Use these roles before expanding the catalog or marking a frame pack ready.
 | `parliament/evidence-boundary-reviewer.md` | Evidence Boundary Reviewer | Helpful explanation vs. replacing evidence |
 | `parliament/misuse-risk-reviewer.md` | Misuse Risk Reviewer | Clear action cue vs. manipulation or dehumanizing labels |
 | `parliament/catalog-structure-reviewer.md` | Catalog Structure Reviewer | Reusable schema vs. loose metaphor collection |
+| `parliament/expert-storyteller.md` | Expert Storyteller | Memorable narrative vs. overworked analogy |
+| `parliament/novice-reader.md` | Novice Reader | Immediate comprehension vs. hidden expertise |
+| `parliament/journeyman-practitioner.md` | Journeyman Practitioner | Practical reuse vs. theory-only framing |
+| `parliament/business-leader.md` | Business Leader | Executive clarity vs. vague metaphor |
 
 ## Review Protocol
 
@@ -25,4 +29,5 @@ Use these roles before expanding the catalog or marking a frame pack ready.
 3. Verify the mapping names what transfers and what does not.
 4. Reject frames that turn people into obstacles or hide accountability.
 5. Keep catalog entries structured enough for later comparison.
-
+6. Check novice, practitioner, storyteller, and business-leader readability
+   before calling a frame pack ready.
