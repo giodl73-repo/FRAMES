@@ -17,6 +17,7 @@ Repo or feature: `frames-core`
 | REQ-007 | unit test / inspection | `cargo test`; inspect traffic docs and `STARTER_CATALOG` | New traffic frames are present in docs and index. | pass | EVID-008 / EVID-009 |
 | REQ-008 | inspection / role review | inspect `docs/theory/*` | Theory defines frame jobs, fit tests, evidence boundaries, misuse patterns, and role review. | pass | EVID-010 / EVID-011 |
 | REQ-009 | inspection | inspect `docs/theory/fit-rubric.md` and `docs/theory/theory-roadmap.md` | Rubric and roadmap are present and usable. | pass | EVID-012 / EVID-013 |
+| REQ-010 | inspection | inspect `docs/theory/audience-transfer.md` | Audience transfer dimensions, bands, tests, alternates, and future fields are present. | pass | EVID-014 |
 
 ## Commands
 
@@ -44,6 +45,7 @@ git diff --check
 | EVID-011 | role review | `docs/theory/role-review-2026-07-03.md` | REQ-008, VAL-005 | pass |
 | EVID-012 | inspection | `docs/theory/fit-rubric.md` | REQ-009, SPEC-008, VAL-006 | pass |
 | EVID-013 | inspection | `docs/theory/theory-roadmap.md` | REQ-009, VAL-006 | pass |
+| EVID-014 | inspection | `docs/theory/audience-transfer.md` | REQ-010, SPEC-009, VAL-007 | pass |
 
 ## Gaps
 

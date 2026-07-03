@@ -17,6 +17,7 @@ Repo or feature: `frames-core`
 | REQ-007 | Traffic frame docs and starter index entries shall stay aligned for accepted traffic-pack frames. | NEED-001 / CON-001 / CON-003 | AI/tool lookup should reflect the documented frame pack. | must | FRAMES | unit test / inspection | accepted |
 | REQ-008 | The repo shall define role-reviewed theory for frame jobs, fit tests, evidence boundaries, and misuse patterns before broad catalog expansion. | NEED-001 / CON-003 | Catalog growth needs selection theory, not just examples. | must | FRAMES | inspection / role review | accepted |
 | REQ-009 | The repo shall define a scored fit rubric and theory roadmap for prioritizing future theory work. | NEED-001 / CON-003 | Frames need comparable readiness decisions and a clear theory backlog. | must | FRAMES | inspection | accepted |
+| REQ-010 | The repo shall define audience transfer guidance for role, expertise, region, culture, mobility, stakes, and power differences. | NEED-001 / CON-003 | Frames can fail when source familiarity or authority assumptions do not transfer. | must | FRAMES | inspection | accepted |
 
 ## Requirement Quality Checklist
 

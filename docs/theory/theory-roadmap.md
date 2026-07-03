@@ -21,7 +21,7 @@ frame index rather than a growing metaphor list.
 | Area | Why It Matters | First Artifact |
 |---|---|---|
 | Fit scoring | Catalog entries need comparable readiness, not just prose review. | `fit-rubric.md` |
-| Audience transfer | Familiarity differs by role, region, culture, expertise, and mobility. | audience-transfer guide |
+| Audience transfer | Familiarity differs by role, region, culture, expertise, and mobility. | `audience-transfer.md` |
 | Frame lifecycle | Frames should move from candidate to accepted, revised, deprecated, or rejected. | lifecycle/status model |
 | Composition | Some situations need two frames; some frames conflict. | composition and conflict rules |
 | Evidence schema | `frames-core` currently stores failure mode but not evidence boundary. | crate schema extension |
@@ -33,9 +33,9 @@ frame index rather than a growing metaphor list.
 
 1. Fit scoring.
 2. Evidence-boundary schema.
-3. Audience transfer.
-4. Frame lifecycle.
-5. Composition and conflict.
+3. Frame lifecycle.
+4. Composition and conflict.
+5. Evidence-boundary schema.
 6. Application-pack templates.
 7. Research grounding for public claims.
 
@@ -50,4 +50,3 @@ frame index rather than a growing metaphor list.
 | Evidence Boundary Reviewer | Keep frames from replacing proof. |
 | Misuse Risk Reviewer | Reject people-as-obstacles and coercive framing. |
 | Catalog Structure Reviewer | Keep theory reflected in catalog shape and `frames-core`. |
-

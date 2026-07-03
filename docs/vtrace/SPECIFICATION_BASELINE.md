@@ -16,6 +16,7 @@ Repo or feature: `frames-core`
 | SPEC-006 | REQ-007 | catalog / docs | target | Accepted traffic-pack frames are represented in both docs and the starter Rust index. | unit test / inspection | VAL-003 / VAL-004 | FRAMES | low | accepted |
 | SPEC-007 | REQ-008 | theory / docs | target | Frame theory defines core parts, jobs, fit tests, audience levels, evidence boundaries, misuse patterns, and selection procedure. | inspection / role review | VAL-005 | FRAMES | low | accepted |
 | SPEC-008 | REQ-009 | theory / docs | target | Fit rubric scores recognition, target specificity, transfer clarity, action cue, evidence boundary, human safety, and stop condition; roadmap prioritizes remaining theory. | inspection | VAL-006 | FRAMES | low | accepted |
+| SPEC-009 | REQ-010 | theory / docs | target | Audience transfer guide defines transfer dimensions, bands, tests, alternates, and future catalog fields. | inspection | VAL-007 | FRAMES | low | accepted |
 
 ## Contract Table
 
@@ -27,3 +28,4 @@ Repo or feature: `frames-core`
 | IF-009 | SPEC-006 | Traffic frame IDs | Traffic-pack additions get stable IDs before tool use. | Adding, renaming, or removing traffic-pack IDs. | EVID-008 |
 | IF-010 | SPEC-007 | Theory terms | Theory terms should remain consistent with catalog and `frames-core` vocabulary. | Renaming frame jobs or core parts. | EVID-010 |
 | IF-011 | SPEC-008 | Rubric dimensions | Rubric dimensions should stay stable enough for catalog decisions. | Adding/removing dimensions or changing decision bands. | EVID-012 |
+| IF-012 | SPEC-009 | Audience transfer terms | Audience bands and transfer dimensions should stay stable enough for catalog review. | Adding/removing audience bands or transfer dimensions. | EVID-014 |

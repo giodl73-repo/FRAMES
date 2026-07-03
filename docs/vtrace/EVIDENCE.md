@@ -21,6 +21,7 @@ Repo or feature: `frames-core`
 | EVID-011 | role review | `docs/theory/role-review-2026-07-03.md` | Role panel review completed. | pass. | pass |
 | EVID-012 | inspection | `docs/theory/fit-rubric.md` | Scored accept/revise/hold/reject rubric exists. | pass. | pass |
 | EVID-013 | inspection | `docs/theory/theory-roadmap.md` | Remaining theory work is prioritized. | pass. | pass |
+| EVID-014 | inspection | `docs/theory/audience-transfer.md` | Audience transfer guide exists. | pass. | pass |
 
 ## Evidence Rules
 
