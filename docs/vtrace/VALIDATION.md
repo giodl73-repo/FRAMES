@@ -47,6 +47,7 @@ Repo or feature: `frames-core`
 | VAL-037 | Methodology maintainer or AI tool builder | Decide whether an everyday source frame can travel across mixed, unknown, regional, language, mobility, accessibility, or authority contexts. | Apply `cultural-portability.md` before accepting broad catalog use or default AI suggestion. | Portability band, portability risks, safer alternate, fallback, catalog fields, and evaluation implications are visible. | EVID-045 | pass |
 | VAL-038 | Business leader or methodology maintainer | Prepare a theme-swimlane leadership pilot without accepted-catalog promotion. | Apply `theme-swimlane-leadership-worksheet.md` to a program promise. | Promise, lanes, owners, measures, exclusions, decisions, risks, role gates, and pilot closeout are visible. | EVID-046 | pass |
 | VAL-039 | AI tool builder | Filter accepted starter search by transfer-relevant metadata before recommending a frame. | Build `FrameQuery` with authority model, risk band, or application pack filters. | Search excludes mismatched frames and examples display the selected frame authority model. | EVID-047 | pass |
+| VAL-040 | Methodology maintainer or researcher | Prepare EVT-001 for participant collection without changing scoring after the fact. | Use the runbook, response sheet, and empty results ledger before collection. | Participant screen, condition assignment, scoring lock, report shape, and no-upgrade boundary are explicit. | EVID-048 | pass |
 
 ## Deferred Validation
 

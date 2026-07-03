@@ -16,8 +16,14 @@ collected, scored, and reviewed against the reporting shape below.
 | Context | Multi-team planning for one customer or operating promise. |
 | Task | Assign work to lanes, reject work that does not fit, and explain evidence boundaries. |
 | Comparison | Plain priority-list explanation vs. theme-swimlane explanation. |
-| Current result | Not run. |
+| Current result | Ready to run; no participant responses collected. |
 | Claim strength after protocol | Still `heuristic`; no empirical upgrade. |
+
+Execution packet and empty results ledger:
+
+- `../validation/evt-001-theme-swimlanes-runbook.md`
+- `../validation/evt-001-response-and-scoring-sheet.md`
+- `../validation/evt-001-theme-swimlanes-results.md`
 
 ## Hypothesis
 

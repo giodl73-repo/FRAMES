@@ -77,7 +77,7 @@ methodology rather than a useful catalog.
 
 ## Recommended Sequence
 
-1. Run EVT-001 and record results without upgrading claim strength prematurely.
+1. Collect EVT-001 participant responses and score the locked packet without upgrading claim strength prematurely.
 2. Apply the accepted-catalog review process to first promoted candidates.
 3. Apply frame anti-pattern taxonomy to first promoted candidates and evaluation fixtures.
 4. Apply related-frame relation taxonomy to catalog examples and evaluation fixtures.

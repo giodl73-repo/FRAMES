@@ -44,12 +44,13 @@
 | REQ-040 | NEED-001 | CON-003 | Define cultural portability guidance. | SPEC-039 | DES-005 | n/a | WP-036 | `docs/theory/cultural-portability.md`, `docs/theory/audience-transfer.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md` | VER-038 inspection | VAL-037 | EVID-045 | validated |
 | REQ-041 | NEED-001 | CON-003 | Define theme-swimlane leadership worksheet. | SPEC-040 | DES-005 | n/a | WP-037 | `docs/theory/theme-swimlane-leadership-worksheet.md`, `docs/theory/theme-swimlane-extraction.md`, `docs/theory/theme-swimlane-role-review.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md` | VER-039 inspection | VAL-038 | EVID-046 | validated |
 | REQ-042 | NEED-001 | CON-001 / CON-003 | Add strict transfer-aware search filters. | SPEC-041 | DES-005 | CR-006 | WP-038 | `src/lib.rs`, `examples/lookup.rs`, `examples/ai_response_contract.rs`, `docs/theory/transfer-aware-search-design.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/ai-response-contract.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md` | VER-040 unit test / example run / inspection | VAL-039 | EVID-047 | validated |
+| REQ-043 | NEED-001 | CON-003 | Add locked EVT-001 execution packet. | SPEC-042 | DES-005 | n/a | WP-039 | `docs/validation/evt-001-theme-swimlanes-runbook.md`, `docs/validation/evt-001-response-and-scoring-sheet.md`, `docs/validation/evt-001-theme-swimlanes-results.md`, `docs/theory/empirical-validation-trial-001-theme-swimlanes.md`, `docs/theory/empirical-validation-plan.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md` | VER-041 inspection | VAL-040 | EVID-048 | validated |
 
 ## ID Legend
 
 - NEED-001: mission need in `MISSION.md`.
 - CON-001..CON-003: operating scenarios in `CONOPS.md`.
-- SPEC-001..SPEC-041: specification baseline.
+- SPEC-001..SPEC-042: specification baseline.
 - DES-001..DES-005: design elements.
 - CR-001..CR-006: code-rigor constraints.
 - WP-001: frame index crate work package.
@@ -90,4 +91,5 @@
 - WP-036: cultural portability guidance work package.
 - WP-037: theme-swimlane leadership worksheet work package.
 - WP-038: transfer-aware search filters work package.
+- WP-039: EVT-001 execution packet work package.
 - EVID-* evidence: `EVIDENCE.md` and `VERIFICATION.md`.

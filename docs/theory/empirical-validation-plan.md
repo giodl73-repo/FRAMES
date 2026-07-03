@@ -128,7 +128,8 @@ dehumanizing transfer, or high-stakes overclaim.
 
 The first concrete protocol is
 [empirical-validation-trial-001-theme-swimlanes.md](empirical-validation-trial-001-theme-swimlanes.md).
-It is not yet executed and does not upgrade claim strength.
+It has a locked execution packet and empty results ledger in
+`../validation/`. It is not yet executed and does not upgrade claim strength.
 
 Every validation report should use this shape:
 

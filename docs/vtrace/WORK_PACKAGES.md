@@ -50,6 +50,7 @@ unless product requirements explicitly define them as user-facing behavior.
 | WP-036 | Add cultural portability guidance. | Everyday source frames have portability checks before broad catalog or AI use. | REQ-040 / SPEC-039 / IF-042 | `docs/theory/cultural-portability.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-035 complete and audience-transfer docs exist. | Portability guide exists, linked docs updated, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: apply portability bands to catalog rows and evaluation fixtures | evidence / trace / review / status rows | complete |
 | WP-037 | Add theme-swimlane leadership worksheet. | Theme Swimlanes have a leadership-pack pilot artifact before catalog acceptance. | REQ-041 / SPEC-040 / IF-043 | `docs/theory/theme-swimlane-leadership-worksheet.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-036 complete and theme-swimlane role review exists. | Worksheet exists, linked docs updated, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: run a real pilot and record changed decisions | evidence / trace / review / status rows | complete |
 | WP-038 | Add transfer-aware search filters. | AI/tool users can filter accepted starter search by authority, risk, and application context. | REQ-042 / SPEC-041 / IF-044 | `src/lib.rs`, `examples/*`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-037 complete and accepted starter metadata exists. | Authority, risk, and application-pack filters exist, examples run, docs and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: run evaluation fixtures before relation-aware ranking | evidence / trace / review / status rows | complete |
+| WP-039 | Add EVT-001 execution packet. | Theme Swimlanes empirical validation can collect responses against locked prompts, scoring, and report shape. | REQ-043 / SPEC-042 / IF-045 | `docs/validation/*`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-038 complete and EVT-001 protocol exists. | Runbook, response sheet, empty results ledger, docs, and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: collect and score participant responses | evidence / trace / review / status rows | complete |
 
 ## Work Package Details
 
@@ -1456,3 +1457,43 @@ V closure:
 | Implementation | `src/lib.rs`, `examples/*` | closed | Filters gate authority, risk, and application pack before lexical scoring. |
 | Verification | EVID-047 | closed | Tests and examples cover filter behavior and display. |
 | Validation | VAL-039 | closed | Tool builders can avoid obvious authority, risk, and context mismatches. |
+
+### WP-039: Add EVT-001 execution packet
+
+Objective: prepare EVT-001 for participant collection with locked prompts,
+condition assignment, scoring, and report shape.
+
+Parent IDs: REQ-043, SPEC-042, IF-045.
+
+Affected files/modules:
+
+- `docs/validation/evt-001-theme-swimlanes-runbook.md`
+- `docs/validation/evt-001-response-and-scoring-sheet.md`
+- `docs/validation/evt-001-theme-swimlanes-results.md`
+- `docs/theory/empirical-validation-trial-001-theme-swimlanes.md`
+- `docs/theory/empirical-validation-plan.md`
+- `docs/theory/theory-gap-audit.md`
+- `docs/theory/theory-roadmap.md`
+- `README.md`
+- `docs/vtrace/*`
+
+Verification commands:
+
+```powershell
+cargo fmt --check
+cargo test
+cargo run --example lookup
+cargo run --example ai_response_contract
+git diff --check
+cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .
+```
+
+V closure:
+
+| V Area | IDs / Evidence | Status | Notes |
+|---|---|---|---|
+| Requirements | REQ-043 | closed | Locked EVT-001 execution packet required before collection. |
+| Specification / Interface | SPEC-042, IF-045 | closed | Prompts, assignment, scoring, and report shape are locked. |
+| Implementation | `docs/validation/*` | closed | Runbook, response sheet, and empty results ledger added. |
+| Verification | EVID-048 | closed | Inspection covers execution packet and no-response status. |
+| Validation | VAL-040 | closed | Maintainers can collect responses without post-hoc scoring changes. |
