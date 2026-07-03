@@ -60,6 +60,7 @@ Repo or feature: `frames-core`
 | REQ-050 | inspection | inspect `docs/theory/related-frame-application-starter.md`, `docs/theory/related-frame-taxonomy.md`, `docs/theory/evaluation-set-design.md`, and `docs/frame-catalog.md` | Starter related-frame links are typed at docs level and relation behavior fixtures are present. | pass | EVID-055 |
 | REQ-051 | inspection / JSON parse | parse `docs/eval/starter-fixtures.json` and inspect fixture fields | First fixture package covers starter categories and required expected-behavior fields. | pass | EVID-056 |
 | REQ-052 | inspection / JSON parse | parse `docs/eval/starter-fixtures.json` and inspect portability profiles plus `docs/theory/cultural-portability-application-fixtures.md` | Starter fixtures have portability band profiles and safer fallbacks. | pass | EVID-057 |
+| REQ-053 | inspection | inspect `docs/validation/theme-swimlane-leadership-pilot-ledger.md` and linked theme-swimlane docs | Pilot ledger defines record shape, dry-run boundary, and no-evidence status. | pass | EVID-058 |
 
 ## Commands
 
@@ -132,6 +133,7 @@ git diff --check
 | EVID-055 | inspection | `docs/theory/related-frame-application-starter.md`, `docs/theory/related-frame-taxonomy.md`, `docs/theory/evaluation-set-design.md`, `docs/frame-catalog.md` | REQ-050, SPEC-049, IF-052, VAL-047 | pass |
 | EVID-056 | inspection / JSON parse | `docs/eval/starter-fixtures.json`, `docs/eval/README.md`, `docs/theory/evaluation-set-design.md` | REQ-051, SPEC-050, IF-053, VAL-048 | pass |
 | EVID-057 | inspection / JSON parse | `docs/eval/starter-fixtures.json`, `docs/theory/cultural-portability-application-fixtures.md`, `docs/theory/cultural-portability.md` | REQ-052, SPEC-051, IF-054, VAL-049 | pass |
+| EVID-058 | inspection | `docs/validation/theme-swimlane-leadership-pilot-ledger.md`, `docs/theory/theme-swimlane-leadership-worksheet.md`, `docs/theory/theme-swimlane-role-review.md`, `docs/theory/theme-swimlane-extraction.md` | REQ-053, SPEC-052, IF-055, VAL-050 | pass |
 
 ## Gaps
 

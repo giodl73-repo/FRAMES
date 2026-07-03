@@ -47,6 +47,8 @@ role review lives in
 [theme-swimlane-role-review.md](theme-swimlane-role-review.md).
 Leadership-pack pilot use should apply
 [theme-swimlane-leadership-worksheet.md](theme-swimlane-leadership-worksheet.md).
+Pilot records should be captured in
+[../validation/theme-swimlane-leadership-pilot-ledger.md](../validation/theme-swimlane-leadership-pilot-ledger.md).
 
 ## Local Variants
 

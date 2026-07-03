@@ -90,6 +90,7 @@ Structured CAREER Gravity frame imports live in [docs/theory/career-gravity-fram
 Theme swimlane extraction lives in [docs/theory/theme-swimlane-extraction.md](docs/theory/theme-swimlane-extraction.md).
 Theme swimlane role review lives in [docs/theory/theme-swimlane-role-review.md](docs/theory/theme-swimlane-role-review.md).
 Theme swimlane leadership worksheet lives in [docs/theory/theme-swimlane-leadership-worksheet.md](docs/theory/theme-swimlane-leadership-worksheet.md).
+Theme swimlane leadership pilot ledger lives in [docs/validation/theme-swimlane-leadership-pilot-ledger.md](docs/validation/theme-swimlane-leadership-pilot-ledger.md).
 Empirical validation planning lives in [docs/theory/empirical-validation-plan.md](docs/theory/empirical-validation-plan.md).
 The first empirical validation trial lives in [docs/theory/empirical-validation-trial-001-theme-swimlanes.md](docs/theory/empirical-validation-trial-001-theme-swimlanes.md).
 Its execution packet and empty results ledger live in [docs/validation](docs/validation).

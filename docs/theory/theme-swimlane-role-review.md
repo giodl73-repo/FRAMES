@@ -130,7 +130,8 @@ Review date:
 
 - Use [theme-swimlane-leadership-worksheet.md](theme-swimlane-leadership-worksheet.md)
   for leadership-pack pilot use.
-- Run one pilot on a real program plan and record the changed decisions.
+- Run one pilot on a real program plan and record the changed decisions in
+  [../validation/theme-swimlane-leadership-pilot-ledger.md](../validation/theme-swimlane-leadership-pilot-ledger.md).
 - Add a short empirical validation trial comparing lane framing against a
   plain priority list.
 - Keep theme swimlanes out of accepted starter catalog and default Rust search

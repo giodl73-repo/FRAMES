@@ -60,6 +60,7 @@ unless product requirements explicitly define them as user-facing behavior.
 | WP-046 | Apply related-frame taxonomy to starter links. | Starter related IDs have docs-level relation types and fixture backlog coverage. | REQ-050 / SPEC-049 / IF-052 | `docs/theory/related-frame-application-starter.md`, `docs/theory/related-frame-taxonomy.md`, `docs/theory/evaluation-set-design.md`, `docs/frame-catalog.md`, `README.md`, `docs/vtrace/*` | WP-045 complete and related-frame taxonomy exists. | Applied relation map exists, fixture backlog updated, roadmap updated, Rust API unchanged, docs and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: populate first machine-readable evaluation fixtures | evidence / trace / review / status rows | complete |
 | WP-047 | Publish starter evaluation fixture package. | The starter fixture backlog is available as a parseable docs-level package. | REQ-051 / SPEC-050 / IF-053 | `docs/eval/*`, `docs/theory/evaluation-set-design.md`, `README.md`, `docs/vtrace/*` | WP-046 complete and fixture backlog categories are stable. | JSON fixture package parses, covers starter categories, roadmap updated, docs and VTRACE pass. | L0: JSON parse; `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: add fixture runner only after package shape stabilizes | evidence / trace / review / status rows | complete |
 | WP-048 | Apply portability bands to starter fixtures. | Starter fixtures carry portability bands and safer fallbacks. | REQ-052 / SPEC-051 / IF-054 | `docs/eval/starter-fixtures.json`, `docs/theory/cultural-portability-application-fixtures.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-047 complete and cultural portability taxonomy exists. | Portability profiles cover all starter fixtures, applied review exists, roadmap updated, docs and VTRACE pass. | L0: JSON parse; `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: theme-swimlane worksheet pilot or frame acquisition method | evidence / trace / review / status rows | complete |
+| WP-049 | Add theme-swimlane leadership pilot ledger. | Real Theme Swimlane worksheet pilots have a ledger before evidence claims. | REQ-053 / SPEC-052 / IF-055 | `docs/validation/theme-swimlane-leadership-pilot-ledger.md`, `docs/theory/theme-swimlane-*`, `README.md`, `docs/vtrace/*` | WP-048 complete and worksheet exists. | Pilot ledger exists, dry-run is marked not evidence, linked docs updated, docs and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: run a real pilot and record changed decisions | evidence / trace / review / status rows | complete |
 
 ## Work Package Details
 
@@ -1855,3 +1856,40 @@ V closure:
 | Implementation | `docs/eval/starter-fixtures.json` | closed | Portability profiles added for all starter fixtures. |
 | Verification | EVID-057 | closed | JSON parse and inspection cover portability profiles. |
 | Validation | VAL-049 | closed | Audience-transfer reviewers can identify bounded, limited, unknown, and unsafe cases. |
+
+### WP-049: Add theme-swimlane leadership pilot ledger
+
+Objective: create the ledger that will record real Theme Swimlane worksheet
+pilots and changed decisions without treating dry runs as evidence.
+
+Parent IDs: REQ-053, SPEC-052, IF-055.
+
+Affected files/modules:
+
+- `docs/validation/theme-swimlane-leadership-pilot-ledger.md`
+- `docs/theory/theme-swimlane-leadership-worksheet.md`
+- `docs/theory/theme-swimlane-role-review.md`
+- `docs/theory/theme-swimlane-extraction.md`
+- `README.md`
+- `docs/vtrace/*`
+
+Verification commands:
+
+```powershell
+cargo fmt --check
+cargo test
+cargo run --example lookup
+cargo run --example ai_response_contract
+git diff --check
+cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .
+```
+
+V closure:
+
+| V Area | IDs / Evidence | Status | Notes |
+|---|---|---|---|
+| Requirements | REQ-053 | closed | Pilot ledger required before counting worksheet pilots as evidence. |
+| Specification / Interface | SPEC-052, IF-055 | closed | Record template, dry-run boundary, closeout rule, and promotion guard defined. |
+| Implementation | `docs/validation/theme-swimlane-leadership-pilot-ledger.md` | closed | Empty real-pilot ledger and local dry-run example added. |
+| Verification | EVID-058 | closed | Inspection covers ledger and linked theme-swimlane docs. |
+| Validation | VAL-050 | closed | Leaders can prepare a real pilot without overstating evidence. |

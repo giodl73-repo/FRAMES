@@ -127,6 +127,9 @@ measure would move. If it improves no lane, it is outside this promise.
 
 ## Pilot Closeout
 
+Pilot closeouts should be recorded in
+[../validation/theme-swimlane-leadership-pilot-ledger.md](../validation/theme-swimlane-leadership-pilot-ledger.md).
+
 ```text
 Pilot program:
 Date:

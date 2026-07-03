@@ -54,12 +54,13 @@
 | REQ-050 | NEED-001 | CON-001 / CON-002 / CON-003 | Apply related-frame taxonomy to starter catalog links. | SPEC-049 | DES-003 / DES-005 | n/a | WP-046 | `docs/theory/related-frame-application-starter.md`, `docs/theory/related-frame-taxonomy.md`, `docs/theory/evaluation-set-design.md`, `docs/frame-catalog.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md` | VER-048 inspection | VAL-047 | EVID-055 | validated |
 | REQ-051 | NEED-001 | CON-001 / CON-002 / CON-003 | Publish first machine-readable evaluation fixture package. | SPEC-050 | DES-005 | n/a | WP-047 | `docs/eval/starter-fixtures.json`, `docs/eval/README.md`, `docs/theory/evaluation-set-design.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md` | VER-049 inspection / JSON parse | VAL-048 | EVID-056 | validated |
 | REQ-052 | NEED-001 | CON-001 / CON-003 | Apply cultural portability bands to starter fixtures. | SPEC-051 | DES-005 | n/a | WP-048 | `docs/eval/starter-fixtures.json`, `docs/eval/README.md`, `docs/theory/cultural-portability-application-fixtures.md`, `docs/theory/cultural-portability.md`, `docs/theory/evaluation-set-design.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md` | VER-050 inspection / JSON parse | VAL-049 | EVID-057 | validated |
+| REQ-053 | NEED-001 | CON-003 | Add theme-swimlane leadership pilot ledger. | SPEC-052 | DES-005 | n/a | WP-049 | `docs/validation/theme-swimlane-leadership-pilot-ledger.md`, `docs/theory/theme-swimlane-leadership-worksheet.md`, `docs/theory/theme-swimlane-role-review.md`, `docs/theory/theme-swimlane-extraction.md`, `README.md` | VER-051 inspection | VAL-050 | EVID-058 | validated |
 
 ## ID Legend
 
 - NEED-001: mission need in `MISSION.md`.
 - CON-001..CON-003: operating scenarios in `CONOPS.md`.
-- SPEC-001..SPEC-051: specification baseline.
+- SPEC-001..SPEC-052: specification baseline.
 - DES-001..DES-005: design elements.
 - CR-001..CR-006: code-rigor constraints.
 - WP-001: frame index crate work package.
@@ -110,4 +111,5 @@
 - WP-046: starter related-frame application work package.
 - WP-047: starter evaluation fixture package work package.
 - WP-048: starter fixture portability application work package.
+- WP-049: theme-swimlane leadership pilot ledger work package.
 - EVID-* evidence: `EVIDENCE.md` and `VERIFICATION.md`.
