@@ -3,6 +3,10 @@
 Audience transfer is the question: will this frame survive contact with the
 people who need to use it?
 
+Use [cultural-portability.md](cultural-portability.md) when the audience is
+unknown, mixed, global, non-driver, accessibility-sensitive, or outside the
+source scene's home assumptions.
+
 A frame can be strong in one audience and weak in another. FRAMES should record
 that openly instead of pretending an everyday scene is universal.
 
@@ -124,4 +128,3 @@ Near-term:
 - prefer related frames that can act as alternates,
 - do not rank a local or fragile frame above a broad frame without an explicit
   query tag.
-

@@ -47,6 +47,7 @@ unless product requirements explicitly define them as user-facing behavior.
 | WP-033 | Add frame anti-pattern taxonomy. | Bad frames have reusable rejection classes before rejected examples or evaluation sets expand. | REQ-037 / SPEC-036 / IF-039 | `docs/theory/frame-antipattern-taxonomy.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-032 complete and hard-stop/review docs exist. | Taxonomy exists, linked docs updated, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: apply taxonomy to evaluation fixtures and rejected-candidate reporting | evidence / trace / review / status rows | complete |
 | WP-034 | Add related-frame relation taxonomy. | Related links have stable meanings before typed metadata or relation-aware evaluation sets. | REQ-038 / SPEC-037 / IF-040 | `docs/theory/related-frame-taxonomy.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-033 complete and composition/search docs exist. | Taxonomy exists, linked docs updated, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: apply relation taxonomy to catalog rows and evaluation fixtures | evidence / trace / review / status rows | complete |
 | WP-035 | Add evaluation-set design. | Frame selection behavior has fixture rules before semantic search or draft-frame inclusion. | REQ-039 / SPEC-038 / IF-041 | `docs/theory/evaluation-set-design.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-034 complete and anti-pattern/relation taxonomies exist. | Evaluation design exists, linked docs updated, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: populate first machine-readable fixtures | evidence / trace / review / status rows | complete |
+| WP-036 | Add cultural portability guidance. | Everyday source frames have portability checks before broad catalog or AI use. | REQ-040 / SPEC-039 / IF-042 | `docs/theory/cultural-portability.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-035 complete and audience-transfer docs exist. | Portability guide exists, linked docs updated, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: apply portability bands to catalog rows and evaluation fixtures | evidence / trace / review / status rows | complete |
 
 ## Work Package Details
 
@@ -1336,3 +1337,41 @@ V closure:
 | Implementation | `docs/theory/evaluation-set-design.md` | closed | Evaluation jobs, starter backlog, scoring, review procedure, and non-goals added. |
 | Verification | EVID-044 | closed | Inspection covers evaluation-set design. |
 | Validation | VAL-036 | closed | Design supports future selection, suppression, warning, fallback, and relation-behavior fixtures. |
+
+### WP-036: Add cultural portability guidance
+
+Objective: define how everyday source frames travel across region, language,
+mobility, accessibility, authority, professional culture, and institutional
+trust differences.
+
+Parent IDs: REQ-040, SPEC-039, IF-042.
+
+Affected files/modules:
+
+- `docs/theory/cultural-portability.md`
+- `docs/theory/audience-transfer.md`
+- `docs/theory/theory-gap-audit.md`
+- `docs/theory/theory-roadmap.md`
+- `README.md`
+- `docs/vtrace/*`
+
+Verification commands:
+
+```powershell
+cargo fmt --check
+cargo test
+cargo run --example lookup
+cargo run --example ai_response_contract
+git diff --check
+cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .
+```
+
+V closure:
+
+| V Area | IDs / Evidence | Status | Notes |
+|---|---|---|---|
+| Requirements | REQ-040 | closed | Cultural portability guidance required. |
+| Specification / Interface | SPEC-039, IF-042 | closed | Portability bands, dimensions, fields, and fallback obligations defined. |
+| Implementation | `docs/theory/cultural-portability.md` | closed | Rule, dimensions, bands, source guidance, examples, and implications added. |
+| Verification | EVID-045 | closed | Inspection covers cultural portability guide. |
+| Validation | VAL-037 | closed | Guide supports broad, bounded, limited, unknown, and unsafe portability decisions. |

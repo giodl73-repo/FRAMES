@@ -28,6 +28,7 @@ growth gaps, implementation gaps, and deeper theory questions.
 | Fit scoring | Catalog entries need comparable readiness, not just prose review. | `fit-rubric.md` |
 | Theory gap audit | The project needs a current account of what is still missing after the baseline theory is in place. | `theory-gap-audit.md` |
 | Audience transfer | Familiarity differs by role, region, culture, expertise, and mobility. | `audience-transfer.md` |
+| Cultural portability | Everyday sources need explicit region, language, mobility, accessibility, and authority checks. | `cultural-portability.md` |
 | Frame lifecycle | Frames should move from candidate to accepted, revised, deprecated, or rejected. | `frame-lifecycle.md` |
 | Accepted-catalog review | Draft heuristics need a repeatable gate before accepted catalog or default search. | `accepted-catalog-review-process.md` |
 | Frame anti-pattern taxonomy | Bad frames need reusable rejection classes before rejected examples and evaluation sets expand. | `frame-antipattern-taxonomy.md` |
@@ -60,10 +61,9 @@ growth gaps, implementation gaps, and deeper theory questions.
 
 ## Priority Order
 
-1. Cultural portability guidance.
-2. Leadership-pack worksheet for theme swimlanes.
-3. Transfer-aware search filters.
-4. Run EVT-001 and record results.
+1. Leadership-pack worksheet for theme swimlanes.
+2. Transfer-aware search filters.
+3. Run EVT-001 and record results.
 
 ## Role Guidance
 

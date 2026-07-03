@@ -47,6 +47,7 @@ Repo or feature: `frames-core`
 | REQ-037 | The repo shall define a frame anti-pattern taxonomy before expanding rejected examples or evaluation sets. | NEED-001 / CON-003 | Bad frames need reusable failure classes so rejection, review, and future tool reporting are consistent. | must | FRAMES | inspection | accepted |
 | REQ-038 | The repo shall define a related-frame relation taxonomy before typed related-frame metadata or relation-aware evaluation sets. | NEED-001 / CON-001 / CON-003 | Related links need stable meanings such as alternate, safer fallback, conflict, sequence, and rejected near-miss before tool behavior depends on them. | must | FRAMES | inspection | accepted |
 | REQ-039 | The repo shall define evaluation-set design before semantic search, draft-frame inclusion, or relation-aware tool behavior. | NEED-001 / CON-001 / CON-003 | Search and AI outputs need curated fixtures with expected selection, suppression, warning, fallback, and relation behavior. | must | FRAMES | inspection | accepted |
+| REQ-040 | The repo shall define cultural portability guidance before broadening everyday source domains or assuming traffic/status/story frames transfer across audiences. | NEED-001 / CON-003 | Frames can fail across region, language, mobility, accessibility, authority, and institutional-trust differences. | must | FRAMES | inspection | accepted |
 
 ## Requirement Quality Checklist
 
