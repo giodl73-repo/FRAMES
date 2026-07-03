@@ -66,6 +66,7 @@ Repo or feature: `frames-core`
 | REQ-056 | inspection | inspect `docs/theory/plain-language-fallbacks.md` and linked response/evaluation docs | Fallback rule, shape, types, examples, selection procedure, tool behavior, evaluation implications, and design consequences are present. | pass | EVID-061 |
 | REQ-057 | inspection | inspect `docs/theory/learning-progression.md` | Learner levels, paths, teaching anti-patterns, release criteria, and design consequences are present. | pass | EVID-062 |
 | REQ-058 | inspection | inspect `docs/theory/lifecycle-filtering-and-rejection-reporting.md` | Visibility modes, status filters, result classes, rejected-candidate report shape, default behavior, fixture gates, Rust migration gates, and design consequences are present. | pass | EVID-063 |
+| REQ-059 | inspection / JSON parse | inspect and parse `docs/eval/lifecycle-rejection-fixtures.json` | Default visibility rule, report shape, query filters, expected suppressed reports, fallbacks, display rules, linked fixture IDs, and source docs are present. | pass | EVID-064 |
 
 ## Commands
 
@@ -144,6 +145,7 @@ git diff --check
 | EVID-061 | inspection | `docs/theory/plain-language-fallbacks.md`, `docs/theory/ai-response-contract.md`, `docs/theory/evaluation-set-design.md`, `docs/theory/frame-acquisition-method.md` | REQ-056, SPEC-055, IF-058, VAL-053 | pass |
 | EVID-062 | inspection | `docs/theory/learning-progression.md`, `docs/theory/application-pack-templates.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md` | REQ-057, SPEC-056, IF-059, VAL-054 | pass |
 | EVID-063 | inspection | `docs/theory/lifecycle-filtering-and-rejection-reporting.md`, `docs/theory/frame-lifecycle.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md` | REQ-058, SPEC-057, IF-060, VAL-055 | pass |
+| EVID-064 | inspection / JSON parse | `docs/eval/lifecycle-rejection-fixtures.json`, `docs/eval/README.md`, `docs/theory/lifecycle-filtering-and-rejection-reporting.md`, `docs/theory/evaluation-set-design.md` | REQ-059, SPEC-058, IF-061, VAL-056 | pass |
 
 ## Gaps
 

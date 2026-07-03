@@ -66,6 +66,7 @@ unless product requirements explicitly define them as user-facing behavior.
 | WP-052 | Define plain-language fallback theory. | High-risk and low-transfer frame uses have direct non-metaphor fallback rules. | REQ-056 / SPEC-055 / IF-058 | `docs/theory/plain-language-fallbacks.md`, `docs/theory/ai-response-contract.md`, `docs/theory/evaluation-set-design.md`, `docs/theory/frame-acquisition-method.md`, `README.md`, `docs/vtrace/*` | WP-051 complete and fallback expectations exist in response/eval docs. | Fallback theory exists, linked docs updated, growth gap audit advances, docs and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: define teaching progression | evidence / trace / review / status rows | complete |
 | WP-053 | Define learning progression. | Novice, journeyman, expert, and AI-tool users have staged learning paths. | REQ-057 / SPEC-056 / IF-059 | `docs/theory/learning-progression.md`, `docs/theory/application-pack-templates.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md`, `docs/vtrace/*` | WP-052 complete and learning pack exists. | Learning progression exists, linked docs updated, growth gap audit advances, docs and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: plan lifecycle filtering and rejected-candidate reporting | evidence / trace / review / status rows | complete |
 | WP-054 | Define lifecycle filtering and rejection reporting. | Non-accepted and rejected frames have visibility, suppression, and explanation rules before tool suggestions expand. | REQ-058 / SPEC-057 / IF-060 | `docs/theory/lifecycle-filtering-and-rejection-reporting.md`, `docs/theory/frame-lifecycle.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md`, `docs/vtrace/*` | WP-053 complete and lifecycle, anti-pattern, relation, fallback, and fixture docs exist. | Design exists, linked docs updated, implementation gap advances to machine-readable lifecycle/rejection fixtures, docs and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: add machine-readable lifecycle and rejected-candidate fixtures | evidence / trace / review / status rows | complete |
+| WP-055 | Publish lifecycle and rejected-candidate fixtures. | Lifecycle filter and suppressed-candidate expectations are machine-readable before Rust implementation. | REQ-059 / SPEC-058 / IF-061 | `docs/eval/lifecycle-rejection-fixtures.json`, `docs/eval/README.md`, `docs/theory/lifecycle-filtering-and-rejection-reporting.md`, `docs/theory/evaluation-set-design.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md`, `docs/vtrace/*` | WP-054 complete and starter fixture package exists. | JSON package parses, suppression examples link to starter fixtures, roadmap advances to Rust design, docs and VTRACE pass. | L0: JSON parse; `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: design Rust lifecycle filters and suppressed-candidate result classes | evidence / trace / review / status rows | complete |
 
 ## Work Package Details
 
@@ -2085,3 +2086,45 @@ V closure:
 | Implementation | `docs/theory/lifecycle-filtering-and-rejection-reporting.md` | closed | Design artifact added and linked from lifecycle, roadmap, gap audit, and README. |
 | Verification | EVID-063 | closed | Inspection covers lifecycle/rejection design and accepted-starter default boundary. |
 | Validation | VAL-055 | closed | Tool builders and catalog reviewers can decide whether a non-accepted candidate is shown, suppressed, or explained. |
+
+### WP-055: Publish lifecycle and rejected-candidate fixtures
+
+Objective: publish machine-readable fixtures for lifecycle visibility,
+allowed-status filters, opt-in suppressed-candidate explanations, display
+rules, and plain-language fallback behavior before Rust lifecycle filtering is
+implemented.
+
+Parent IDs: REQ-059, SPEC-058, IF-061.
+
+Affected files/modules:
+
+- `docs/eval/lifecycle-rejection-fixtures.json`
+- `docs/eval/README.md`
+- `docs/theory/lifecycle-filtering-and-rejection-reporting.md`
+- `docs/theory/evaluation-set-design.md`
+- `docs/theory/theory-gap-audit.md`
+- `docs/theory/theory-roadmap.md`
+- `README.md`
+- `docs/vtrace/*`
+
+Verification commands:
+
+```powershell
+Get-Content docs\eval\lifecycle-rejection-fixtures.json -Raw | ConvertFrom-Json | Out-Null
+cargo fmt --check
+cargo test
+cargo run --example lookup
+cargo run --example ai_response_contract
+git diff --check
+cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .
+```
+
+V closure:
+
+| V Area | IDs / Evidence | Status | Notes |
+|---|---|---|---|
+| Requirements | REQ-059 | closed | Machine-readable lifecycle and rejected-candidate fixtures required before Rust filter/report types. |
+| Specification / Interface | SPEC-058, IF-061 | closed | Fixture package shape covers default visibility, query filters, suppressed reports, fallbacks, display rules, linked fixture IDs, and source docs. |
+| Implementation | `docs/eval/lifecycle-rejection-fixtures.json` | closed | Lifecycle/rejection fixture package added and linked. |
+| Verification | EVID-064 | closed | JSON parse and inspection cover the fixture package and linked docs. |
+| Validation | VAL-056 | closed | AI tool builders can check lifecycle/suppression behavior before Rust implementation. |

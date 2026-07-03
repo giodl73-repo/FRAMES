@@ -71,6 +71,7 @@ Repo or feature: `frames-core`
 | EVID-061 | inspection | `docs/theory/plain-language-fallbacks.md`, `docs/theory/ai-response-contract.md`, `docs/theory/evaluation-set-design.md`, `docs/theory/frame-acquisition-method.md` | Plain-language fallback theory exists and is linked from response, evaluation, and acquisition guidance. | pass. | pass |
 | EVID-062 | inspection | `docs/theory/learning-progression.md`, `docs/theory/application-pack-templates.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md` | Learning progression exists with staged paths for novice, journeyman, expert, and AI-tool users; learning-pack docs link it. | pass. | pass |
 | EVID-063 | inspection | `docs/theory/lifecycle-filtering-and-rejection-reporting.md`, `docs/theory/frame-lifecycle.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md` | Lifecycle filtering and rejected-candidate reporting design exists and keeps default Rust search accepted-starter only until fixtures and filters exist. | pass. | pass |
+| EVID-064 | inspection / JSON parse | `docs/eval/lifecycle-rejection-fixtures.json`, `docs/eval/README.md`, `docs/theory/lifecycle-filtering-and-rejection-reporting.md`, `docs/theory/evaluation-set-design.md` | Lifecycle rejection fixture package exists, parses as JSON, links to starter fixtures, and defines allowed-status plus suppressed-candidate expectations without changing Rust search. | pass. | pass |
 
 ## Evidence Rules
 

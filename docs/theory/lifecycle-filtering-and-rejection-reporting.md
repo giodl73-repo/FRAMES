@@ -134,6 +134,11 @@ until machine-readable fixtures cover at least:
 Each fixture should include query fields, allowed statuses, expected
 suggestions, expected suppressed candidates, safer fallback, and source docs.
 
+The first machine-readable package for this gate lives in
+[../eval/lifecycle-rejection-fixtures.json](../eval/lifecycle-rejection-fixtures.json).
+It links suppression behavior back to the starter evaluation package without
+changing default Rust search.
+
 ## Rust Migration Gate
 
 Do not expand the Rust lifecycle enum or default search behavior until:
@@ -170,4 +175,3 @@ while the filtering machinery proves its boundaries.
 | Business Leader | Does the output help a decision-maker choose a safer action, not just understand why a phrase was blocked? |
 | AI Tool Builder | Can the model distinguish suggestions from suppressed explanations? |
 | Novice Reader | Is rejected-candidate language clear without requiring taxonomy expertise? |
-

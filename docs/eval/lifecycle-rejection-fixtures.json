@@ -1,0 +1,230 @@
+{
+  "package_id": "frames-lifecycle-rejection-fixtures-001",
+  "review_status": "role-reviewed",
+  "source_design": "docs/theory/lifecycle-filtering-and-rejection-reporting.md",
+  "default_visibility_rule": {
+    "mode": "default_search",
+    "allowed_statuses": ["accepted"],
+    "include_docs_catalog": false,
+    "include_draft": false,
+    "include_held": false,
+    "include_rejected": false,
+    "explain_suppressed": false,
+    "result_classes_allowed": ["suggested", "alternate", "fallback"]
+  },
+  "report_shape": [
+    "candidate_id",
+    "candidate_name",
+    "status",
+    "matched_reason",
+    "rejection_class",
+    "violated_boundary",
+    "safer_frame",
+    "plain_language_fallback",
+    "source_docs",
+    "display_rule"
+  ],
+  "fixtures": [
+    {
+      "id": "LIFE-DEFAULT-001",
+      "linked_eval_fixture": "EVAL-VETO-001",
+      "title": "Docs-catalog candidate is hidden from default search",
+      "mode": "default_search",
+      "query": {
+        "target_situation": "Launch scores are strong overall, but privacy approval is missing.",
+        "allowed_statuses": ["accepted"],
+        "include_docs_catalog": false,
+        "include_rejected": false,
+        "explain_suppressed": false,
+        "application_pack": "product",
+        "authority_model": "reviewer",
+        "risk_band": "medium"
+      },
+      "expected_suggestions": [],
+      "expected_fallback": "The launch is blocked until the required approval is cleared or waived.",
+      "expected_suppressed": [
+        {
+          "candidate_id": "veto-rule",
+          "candidate_name": "Veto Rule",
+          "status": "accepted_with_caveat",
+          "matched_reason": "required approval gate matches the query",
+          "rejection_class": "docs_catalog_not_default_search",
+          "violated_boundary": "lifecycle status",
+          "safer_frame": null,
+          "plain_language_fallback": "The launch is blocked until the required approval is cleared or waived.",
+          "source_docs": ["docs/theory/accepted-catalog-review-veto-rule.md", "docs/frame-catalog.md"],
+          "display_rule": "suppress_by_default"
+        }
+      ],
+      "must_not_recommend": ["veto-rule"],
+      "review_status": "accepted-fixture"
+    },
+    {
+      "id": "LIFE-EXPLAIN-001",
+      "linked_eval_fixture": "EVAL-VETO-003",
+      "title": "Unsupported veto can be explained only as suppressed",
+      "mode": "explanation_mode",
+      "query": {
+        "target_situation": "A senior stakeholder says an option is vetoed but names no requirement, evidence, or accountable owner.",
+        "allowed_statuses": ["accepted"],
+        "include_docs_catalog": false,
+        "include_rejected": false,
+        "explain_suppressed": true,
+        "application_pack": "leadership",
+        "authority_model": "mixed",
+        "risk_band": "medium"
+      },
+      "expected_suggestions": [],
+      "expected_fallback": "This is an unresolved preference or decision-rights issue.",
+      "expected_suppressed": [
+        {
+          "candidate_id": "veto-rule",
+          "candidate_name": "Veto Rule",
+          "status": "accepted_with_caveat",
+          "matched_reason": "veto wording and required-gate relation match the query",
+          "rejection_class": "false_authority_transfer",
+          "violated_boundary": "authority and evidence",
+          "safer_frame": null,
+          "plain_language_fallback": "This is an unresolved preference or decision-rights issue.",
+          "source_docs": ["docs/theory/frame-antipattern-application-veto-rule.md"],
+          "display_rule": "explain_when_requested"
+        }
+      ],
+      "must_not_recommend": ["veto-rule"],
+      "review_status": "accepted-fixture"
+    },
+    {
+      "id": "LIFE-ANTI-001",
+      "linked_eval_fixture": "EVAL-ANTI-001",
+      "title": "People-as-obstacles match is rejected by default",
+      "mode": "explanation_mode",
+      "query": {
+        "target_situation": "A query says another team is a roadblock.",
+        "allowed_statuses": ["accepted"],
+        "include_rejected": false,
+        "explain_suppressed": true,
+        "application_pack": "operations",
+        "authority_model": "owner",
+        "risk_band": "medium"
+      },
+      "expected_suggestions": [],
+      "expected_fallback": "The dependency is blocked by unresolved ownership or a decision path.",
+      "expected_suppressed": [
+        {
+          "candidate_id": "team-as-roadblock",
+          "candidate_name": "Team as roadblock",
+          "status": "anti_pattern",
+          "matched_reason": "roadblock wording directly matches the query",
+          "rejection_class": "people_as_obstacles",
+          "violated_boundary": "human safety and ownership",
+          "safer_frame": "load-bearing-wall",
+          "plain_language_fallback": "The dependency is blocked by unresolved ownership or a decision path.",
+          "source_docs": ["docs/theory/frame-antipattern-taxonomy.md", "docs/theory/related-frame-application-starter.md"],
+          "display_rule": "explain_when_requested"
+        }
+      ],
+      "must_not_recommend": ["team-as-roadblock"],
+      "review_status": "accepted-fixture"
+    },
+    {
+      "id": "LIFE-REL-001",
+      "linked_eval_fixture": "EVAL-REL-004",
+      "title": "Rejected near-miss relation stays out of alternates",
+      "mode": "explanation_mode",
+      "query": {
+        "target_situation": "Veto Rule is suggested but requirement authority and evidence are missing.",
+        "allowed_statuses": ["accepted"],
+        "include_docs_catalog": false,
+        "include_rejected": false,
+        "explain_suppressed": true,
+        "application_pack": "AI-agent",
+        "authority_model": "mixed",
+        "risk_band": "medium"
+      },
+      "expected_suggestions": [],
+      "expected_fallback": "Name the decision owner, tradeoff, and evidence before treating this as blocking.",
+      "expected_suppressed": [
+        {
+          "candidate_id": "veto-rule",
+          "candidate_name": "Veto Rule",
+          "status": "accepted_with_caveat",
+          "matched_reason": "required-gate relation and veto wording match the query",
+          "rejection_class": "rejected_near_miss",
+          "violated_boundary": "authority and evidence",
+          "safer_frame": null,
+          "plain_language_fallback": "Name the decision owner, tradeoff, and evidence before treating this as blocking.",
+          "source_docs": ["docs/theory/related-frame-application-starter.md", "docs/theory/frame-antipattern-application-veto-rule.md"],
+          "display_rule": "explain_when_requested"
+        }
+      ],
+      "must_not_recommend": ["veto-rule"],
+      "review_status": "accepted-fixture"
+    },
+    {
+      "id": "LIFE-TRAFFIC-001",
+      "linked_eval_fixture": "EVAL-TRAFFIC-002",
+      "title": "Owner authority suppresses peer turn-taking frame",
+      "mode": "explanation_mode",
+      "query": {
+        "target_situation": "One party owns an incident response decision and must direct the next action.",
+        "allowed_statuses": ["accepted"],
+        "include_rejected": false,
+        "explain_suppressed": true,
+        "application_pack": "operations",
+        "authority_model": "owner",
+        "risk_band": "medium"
+      },
+      "expected_suggestions": [],
+      "expected_fallback": "The incident owner should state the decision path and next action.",
+      "expected_suppressed": [
+        {
+          "candidate_id": "four-way-stop",
+          "candidate_name": "Four-way stop",
+          "status": "accepted",
+          "matched_reason": "turn-order wording matches the query",
+          "rejection_class": "false_authority_transfer",
+          "violated_boundary": "authority",
+          "safer_frame": null,
+          "plain_language_fallback": "The incident owner should state the decision path and next action.",
+          "source_docs": ["docs/theory/related-frame-taxonomy.md", "docs/theory/transfer-aware-search-design.md"],
+          "display_rule": "explain_when_requested"
+        }
+      ],
+      "must_not_recommend": ["four-way-stop"],
+      "review_status": "accepted-fixture"
+    },
+    {
+      "id": "LIFE-STORY-001",
+      "linked_eval_fixture": "EVAL-STORY-001",
+      "title": "Empathy story falls back after facts establish harm",
+      "mode": "explanation_mode",
+      "query": {
+        "target_situation": "A bag-of-chips conflict story is used after facts establish harm.",
+        "allowed_statuses": ["accepted"],
+        "include_rejected": false,
+        "explain_suppressed": true,
+        "application_pack": "leadership",
+        "authority_model": "peer",
+        "risk_band": "medium"
+      },
+      "expected_suggestions": [],
+      "expected_fallback": "Facts are now known; name harm, repair, and ownership.",
+      "expected_suppressed": [
+        {
+          "candidate_id": "bag-of-chips-as-excuse",
+          "candidate_name": "Bag-of-chips story as excuse",
+          "status": "anti_pattern",
+          "matched_reason": "story source and conflict-empathy job match the query",
+          "rejection_class": "empathy_eraser",
+          "violated_boundary": "repair and accountability",
+          "safer_frame": null,
+          "plain_language_fallback": "Facts are now known; name harm, repair, and ownership.",
+          "source_docs": ["docs/theory/frame-antipattern-taxonomy.md"],
+          "display_rule": "explain_when_requested"
+        }
+      ],
+      "must_not_recommend": ["bag-of-chips-as-excuse"],
+      "review_status": "accepted-fixture"
+    }
+  ]
+}

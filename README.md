@@ -80,6 +80,7 @@ Related-frame relation taxonomy lives in [docs/theory/related-frame-taxonomy.md]
 The first applied related-frame map lives in [docs/theory/related-frame-application-starter.md](docs/theory/related-frame-application-starter.md).
 Evaluation-set design lives in [docs/theory/evaluation-set-design.md](docs/theory/evaluation-set-design.md).
 The first machine-readable evaluation package lives in [docs/eval/starter-fixtures.json](docs/eval/starter-fixtures.json).
+Lifecycle and rejection-reporting fixtures live in [docs/eval/lifecycle-rejection-fixtures.json](docs/eval/lifecycle-rejection-fixtures.json).
 Role-reviewed domain examples live in [docs/theory/role-reviewed-domain-examples.md](docs/theory/role-reviewed-domain-examples.md).
 Application pack templates live in [docs/theory/application-pack-templates.md](docs/theory/application-pack-templates.md).
 Domain pack roadmap lives in [docs/theory/domain-pack-roadmap.md](docs/theory/domain-pack-roadmap.md).

@@ -86,6 +86,8 @@ The first machine-readable fixture package lives in
 is the readable backlog view of that package. Portability bands for these
 fixtures are applied in
 [cultural-portability-application-fixtures.md](cultural-portability-application-fixtures.md).
+Lifecycle and rejected-candidate reporting fixtures live in
+[../eval/lifecycle-rejection-fixtures.json](../eval/lifecycle-rejection-fixtures.json).
 
 | ID | Fixture Type | Ontology Terms | Target Situation | Expected Behavior |
 |---|---|---|---|---|
@@ -153,6 +155,9 @@ Evaluation results should score behavior, not just frame ID match:
 
 - Future tool tests should check selected frame IDs, suppressed frames, warning
   fields, evidence boundary, fallback text, and relation behavior separately.
+- Lifecycle/rejection fixtures should check allowed statuses, opt-in
+  suppressed explanations, result classes, and display rules separately from
+  ordinary recommendation fixtures.
 - Search score should not be treated as fit score in evaluation reports.
 - Rejected-candidate reporting should be evaluated only in opt-in modes until
   default search has lifecycle and rejection filters.
