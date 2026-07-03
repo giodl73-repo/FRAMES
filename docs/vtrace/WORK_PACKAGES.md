@@ -49,6 +49,7 @@ unless product requirements explicitly define them as user-facing behavior.
 | WP-035 | Add evaluation-set design. | Frame selection behavior has fixture rules before semantic search or draft-frame inclusion. | REQ-039 / SPEC-038 / IF-041 | `docs/theory/evaluation-set-design.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-034 complete and anti-pattern/relation taxonomies exist. | Evaluation design exists, linked docs updated, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: populate first machine-readable fixtures | evidence / trace / review / status rows | complete |
 | WP-036 | Add cultural portability guidance. | Everyday source frames have portability checks before broad catalog or AI use. | REQ-040 / SPEC-039 / IF-042 | `docs/theory/cultural-portability.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-035 complete and audience-transfer docs exist. | Portability guide exists, linked docs updated, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: apply portability bands to catalog rows and evaluation fixtures | evidence / trace / review / status rows | complete |
 | WP-037 | Add theme-swimlane leadership worksheet. | Theme Swimlanes have a leadership-pack pilot artifact before catalog acceptance. | REQ-041 / SPEC-040 / IF-043 | `docs/theory/theme-swimlane-leadership-worksheet.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-036 complete and theme-swimlane role review exists. | Worksheet exists, linked docs updated, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: run a real pilot and record changed decisions | evidence / trace / review / status rows | complete |
+| WP-038 | Add transfer-aware search filters. | AI/tool users can filter accepted starter search by authority, risk, and application context. | REQ-042 / SPEC-041 / IF-044 | `src/lib.rs`, `examples/*`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-037 complete and accepted starter metadata exists. | Authority, risk, and application-pack filters exist, examples run, docs and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: run evaluation fixtures before relation-aware ranking | evidence / trace / review / status rows | complete |
 
 ## Work Package Details
 
@@ -1414,3 +1415,44 @@ V closure:
 | Implementation | `docs/theory/theme-swimlane-leadership-worksheet.md` | closed | Worksheet, worked example, risk review, and pilot closeout added. |
 | Verification | EVID-046 | closed | Inspection covers worksheet. |
 | Validation | VAL-038 | closed | Worksheet supports leadership pilot use without accepted-catalog promotion. |
+
+### WP-038: Add transfer-aware search filters
+
+Objective: add the first strict transfer-aware Rust filters without changing
+the existing deterministic lexical scoring.
+
+Parent IDs: REQ-042, SPEC-041, IF-044.
+
+Affected files/modules:
+
+- `src/lib.rs`
+- `examples/lookup.rs`
+- `examples/ai_response_contract.rs`
+- `docs/theory/transfer-aware-search-design.md`
+- `docs/theory/catalog-metadata-migration-plan.md`
+- `docs/theory/ai-response-contract.md`
+- `docs/theory/theory-gap-audit.md`
+- `docs/theory/theory-roadmap.md`
+- `README.md`
+- `docs/vtrace/*`
+
+Verification commands:
+
+```powershell
+cargo fmt --check
+cargo test
+cargo run --example lookup
+cargo run --example ai_response_contract
+git diff --check
+cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .
+```
+
+V closure:
+
+| V Area | IDs / Evidence | Status | Notes |
+|---|---|---|---|
+| Requirements | REQ-042 | closed | Strict transfer-aware filters required. |
+| Specification / Interface | SPEC-041, IF-044 | closed | Authority model and query filter APIs defined. |
+| Implementation | `src/lib.rs`, `examples/*` | closed | Filters gate authority, risk, and application pack before lexical scoring. |
+| Verification | EVID-047 | closed | Tests and examples cover filter behavior and display. |
+| Validation | VAL-039 | closed | Tool builders can avoid obvious authority, risk, and context mismatches. |

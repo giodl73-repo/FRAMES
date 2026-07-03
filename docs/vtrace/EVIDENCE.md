@@ -54,6 +54,7 @@ Repo or feature: `frames-core`
 | EVID-044 | inspection | `docs/theory/evaluation-set-design.md` | Evaluation-set design exists with evaluation jobs, fixture types, fixture shape, required fields, starter backlog, scoring dimensions, pass bands, review procedure, non-goals, AI/tool implications, and design consequences. | pass. | pass |
 | EVID-045 | inspection | `docs/theory/cultural-portability.md` | Cultural portability guide exists with portability rule, dimensions, bands, source-specific guidance, decision procedure, examples, catalog fields, evaluation implications, AI/tool implications, and design consequences. | pass. | pass |
 | EVID-046 | inspection | `docs/theory/theme-swimlane-leadership-worksheet.md` | Theme-swimlane leadership worksheet exists with use criteria, promise capture, lane table, work mapping, decision log, risk review, role gate, worked example, pilot closeout, and design consequences. | pass. | pass |
+| EVID-047 | command / inspection | `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; inspect `src/lib.rs` | Transfer-aware filters gate search by authority model, risk band, and application pack; examples display authority model. | pass. | pass |
 
 ## Evidence Rules
 

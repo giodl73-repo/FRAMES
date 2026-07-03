@@ -18,6 +18,7 @@ fit scoring, and real lookup needs.
 | `kind` | stable | Current frame job enum: status, coordination, momentum, risk. |
 | `status` | stable | Accepted starter entries currently expose `FrameStatus::Accepted`. |
 | `claim_strength` | stable | Accepted starter entries currently expose `ClaimStrength::Heuristic`. |
+| `authority_model` | stable | Peer, steward, operator, protected-party, owner, and reviewer metadata for transfer-aware filtering. |
 | `risk_band` | stable | Low or medium risk band for accepted starter entries. |
 | `application_packs` | stable | Product, operations, leadership, learning, or AI-agent display/filter metadata. |
 | `everyday_source` | stable | Short source scene. |
@@ -88,12 +89,13 @@ Candidate additions:
 ```rust
 pub enum FrameStatus { Accepted, Revised }
 pub enum ClaimStrength { Heuristic, RoleReviewed, EmpiricallyValidated }
+pub enum AuthorityModel { Peer, Steward, Operator, ProtectedParty, Owner, Reviewer }
 pub enum RiskBand { Low, Medium, High }
 pub enum ApplicationPack { Product, Operations, Leadership, Learning, AiAgent }
 ```
 
 Current status: first accepted-starter migration complete for `FrameStatus`,
-`ClaimStrength`, `RiskBand`, and `ApplicationPack`.
+`ClaimStrength`, `AuthorityModel`, `RiskBand`, and `ApplicationPack`.
 
 Nonbreaking approach:
 
@@ -166,7 +168,7 @@ Do not promote a field when:
 | M3 | Add docs catalog column for transfer strength. | Separate structural frames from illustrative stories. | Fit rubric review. |
 | M4 | Add docs catalog column for application pack. | Support product, operations, leadership, learning, and AI-agent defaults. | Application-pack review. |
 | M5 | Add `FrameStatus`, `ClaimStrength`, `RiskBand`, and `ApplicationPack` to Rust only for accepted starter entries. | Improve display safety for tool callers. | Complete. |
-| M6 | Add transfer-aware search filters. | Let AI/tool callers avoid authority or risk mismatches. | Transfer metadata stable. |
+| M6 | Add authority, risk, and application-pack query filters plus authority model metadata. | Let AI/tool callers avoid authority, risk, or pack mismatches. | Complete. |
 
 ## Starter Catalog Migration Target
 
@@ -182,10 +184,12 @@ Suggested first fields:
 |---|---|
 | `status` | Starter index should imply accepted use only. |
 | `claim_strength` | Prevents heuristic entries from sounding validated. |
+| `authority_model` | Lets callers filter peer, protected-party, operator, steward, owner, and reviewer assumptions. |
 | `risk_band` | Helps AI/tool callers avoid high-stakes overuse. |
 | `application_packs` | Supports context-specific suggestions. |
 
 These fields are now exposed by `FrameEntry` for accepted starter entries.
+Authority, risk, and application-pack filters are also exposed on `FrameQuery`.
 
 Deferred fields:
 
@@ -217,5 +221,6 @@ These are too detailed or too unstable for the first API migration.
   review.
 - The AI response contract should drive which fields are promoted first, because
   tool callers need display safety before richer ranking.
-- Transfer-aware search should remain design-only until accepted starter entries
-  have stable authority, risk, application-pack, and transfer metadata.
+- Full relation-aware search should remain design-only until accepted starter
+  entries have stable relation, protected-value, exclusion, and transfer-strength
+  metadata. Authority, risk, and application-pack filters are implemented.

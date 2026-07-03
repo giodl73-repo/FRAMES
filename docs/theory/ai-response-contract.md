@@ -70,6 +70,7 @@ alternate frame or a plain-language fallback.
     "evidence_boundary": "Check whether parties are peers or one owner has authority.",
     "misuse_warning": "Breaks when authority, urgency, or safety rules are not equal.",
     "authority_check": "Use only for peer coordination.",
+    "authority_model": "peer",
     "risk_band": "medium",
     "plain_language_fallback": "The teams need an explicit turn order before work proceeds.",
     "do_not_use_when": [
@@ -181,8 +182,8 @@ not as the decision basis.
 
 ## Implementation Implications
 
-- `frames-core` should eventually expose metadata needed by this contract:
-  status, claim strength, risk band, application packs, and authority model.
+- `frames-core` exposes the first metadata needed by this contract: status,
+  claim strength, authority model, risk band, and application packs.
 - Search APIs should distinguish retrieval score from fit score.
 - Tool callers should be able to request accepted-only results.
 - Draft/local imports should not appear in default search until lifecycle and
@@ -192,5 +193,6 @@ not as the decision basis.
 
 The first runnable example is `examples/ai_response_contract.rs`. It wraps the
 current `FrameIndex` output into the contract shape and reads status, claim
-strength, risk band, and application pack metadata from `FrameEntry`. Fields not
-yet represented in the API stay explicit instead of being inferred.
+strength, authority model, risk band, and application pack metadata from
+`FrameEntry`. The example uses the first transfer-aware query filters. Fields
+not yet represented in the API stay explicit instead of being inferred.

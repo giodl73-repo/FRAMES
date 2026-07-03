@@ -29,7 +29,8 @@ FRAMES also includes `frames-core`, a small Rust library for AI tools and other
 software that need a structured frame index. It provides a starter catalog,
 query types, ranked candidates, related-frame lookup, action cues, and failure
 mode warnings. Accepted starter entries also expose compact metadata for status,
-claim strength, risk band, and application packs.
+claim strength, authority model, risk band, application packs, and first
+transfer-aware query filters.
 
 ```powershell
 cargo test
@@ -38,11 +39,13 @@ cargo test
 Example lookup:
 
 ```rust
-use frames_core::{FrameIndex, FrameKind, FrameQuery};
+use frames_core::{ApplicationPack, AuthorityModel, FrameIndex, FrameKind, FrameQuery};
 
 let index = FrameIndex::new();
 let query = FrameQuery::new("two teams need turn order around constrained attention")
     .with_kind(FrameKind::Coordination)
+    .with_authority_model(AuthorityModel::Peer)
+    .with_application_pack(ApplicationPack::Product)
     .with_tags(&["priority"]);
 
 let candidates = index.search_top(&query, 3);

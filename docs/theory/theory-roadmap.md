@@ -62,8 +62,7 @@ growth gaps, implementation gaps, and deeper theory questions.
 
 ## Priority Order
 
-1. Transfer-aware search filters.
-2. Run EVT-001 and record results.
+1. Run EVT-001 and record results.
 
 ## Role Guidance
 

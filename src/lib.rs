@@ -54,6 +54,29 @@ impl RiskBand {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum AuthorityModel {
+    Peer,
+    Steward,
+    Operator,
+    ProtectedParty,
+    Owner,
+    Reviewer,
+}
+
+impl AuthorityModel {
+    pub const fn as_str(self) -> &'static str {
+        match self {
+            Self::Peer => "peer",
+            Self::Steward => "steward",
+            Self::Operator => "operator",
+            Self::ProtectedParty => "protected party",
+            Self::Owner => "owner",
+            Self::Reviewer => "reviewer",
+        }
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum ApplicationPack {
     Product,
     Operations,
@@ -82,6 +105,7 @@ pub struct FrameEntry {
     pub status: FrameStatus,
     pub claim_strength: ClaimStrength,
     pub risk_band: RiskBand,
+    pub authority_model: AuthorityModel,
     pub application_packs: &'static [ApplicationPack],
     pub everyday_source: &'static str,
     pub target_situations: &'static [&'static str],
@@ -96,6 +120,9 @@ pub struct FrameEntry {
 pub struct FrameQuery<'a> {
     pub situation: &'a str,
     pub desired_kind: Option<FrameKind>,
+    pub authority_model: Option<AuthorityModel>,
+    pub risk_band: Option<RiskBand>,
+    pub application_pack: Option<ApplicationPack>,
     pub tags: &'a [&'a str],
 }
 
@@ -104,12 +131,30 @@ impl<'a> FrameQuery<'a> {
         Self {
             situation,
             desired_kind: None,
+            authority_model: None,
+            risk_band: None,
+            application_pack: None,
             tags: &[],
         }
     }
 
     pub const fn with_kind(mut self, kind: FrameKind) -> Self {
         self.desired_kind = Some(kind);
+        self
+    }
+
+    pub const fn with_authority_model(mut self, authority_model: AuthorityModel) -> Self {
+        self.authority_model = Some(authority_model);
+        self
+    }
+
+    pub const fn with_risk_band(mut self, risk_band: RiskBand) -> Self {
+        self.risk_band = Some(risk_band);
+        self
+    }
+
+    pub const fn with_application_pack(mut self, application_pack: ApplicationPack) -> Self {
+        self.application_pack = Some(application_pack);
         self
     }
 
@@ -195,6 +240,13 @@ impl FrameIndex {
             .collect()
     }
 
+    pub fn by_authority_model(&self, authority_model: AuthorityModel) -> Vec<&'static FrameEntry> {
+        self.entries
+            .iter()
+            .filter(|entry| entry.authority_model == authority_model)
+            .collect()
+    }
+
     pub fn with_application_pack(&self, pack: ApplicationPack) -> Vec<&'static FrameEntry> {
         self.entries
             .iter()
@@ -239,6 +291,27 @@ fn score_entry(
     entry: &'static FrameEntry,
     query: &FrameQuery<'_>,
 ) -> Option<FrameCandidate<'static>> {
+    if query
+        .authority_model
+        .is_some_and(|model| entry.authority_model != model)
+    {
+        return None;
+    }
+
+    if query
+        .risk_band
+        .is_some_and(|risk_band| entry.risk_band != risk_band)
+    {
+        return None;
+    }
+
+    if query
+        .application_pack
+        .is_some_and(|pack| !entry.application_packs.contains(&pack))
+    {
+        return None;
+    }
+
     let mut score = 0;
     let mut notes = MatchNotes::default();
 
@@ -305,6 +378,7 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         status: FrameStatus::Accepted,
         claim_strength: ClaimStrength::Heuristic,
         risk_band: RiskBand::Medium,
+        authority_model: AuthorityModel::Operator,
         application_packs: &[
             ApplicationPack::Product,
             ApplicationPack::Operations,
@@ -326,6 +400,7 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         status: FrameStatus::Accepted,
         claim_strength: ClaimStrength::Heuristic,
         risk_band: RiskBand::Medium,
+        authority_model: AuthorityModel::Peer,
         application_packs: &[
             ApplicationPack::Product,
             ApplicationPack::Operations,
@@ -350,6 +425,7 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         status: FrameStatus::Accepted,
         claim_strength: ClaimStrength::Heuristic,
         risk_band: RiskBand::Medium,
+        authority_model: AuthorityModel::ProtectedParty,
         application_packs: &[
             ApplicationPack::Product,
             ApplicationPack::Operations,
@@ -370,6 +446,7 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         status: FrameStatus::Accepted,
         claim_strength: ClaimStrength::Heuristic,
         risk_band: RiskBand::Medium,
+        authority_model: AuthorityModel::Peer,
         application_packs: &[
             ApplicationPack::Product,
             ApplicationPack::Operations,
@@ -393,6 +470,7 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         status: FrameStatus::Accepted,
         claim_strength: ClaimStrength::Heuristic,
         risk_band: RiskBand::Medium,
+        authority_model: AuthorityModel::Operator,
         application_packs: &[
             ApplicationPack::Product,
             ApplicationPack::Operations,
@@ -414,6 +492,7 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         status: FrameStatus::Accepted,
         claim_strength: ClaimStrength::Heuristic,
         risk_band: RiskBand::Low,
+        authority_model: AuthorityModel::Operator,
         application_packs: &[
             ApplicationPack::Product,
             ApplicationPack::Operations,
@@ -434,6 +513,7 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         status: FrameStatus::Accepted,
         claim_strength: ClaimStrength::Heuristic,
         risk_band: RiskBand::Low,
+        authority_model: AuthorityModel::Steward,
         application_packs: &[
             ApplicationPack::Operations,
             ApplicationPack::Learning,
@@ -454,6 +534,7 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         status: FrameStatus::Accepted,
         claim_strength: ClaimStrength::Heuristic,
         risk_band: RiskBand::Low,
+        authority_model: AuthorityModel::Operator,
         application_packs: &[
             ApplicationPack::Product,
             ApplicationPack::Learning,
@@ -474,6 +555,7 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         status: FrameStatus::Accepted,
         claim_strength: ClaimStrength::Heuristic,
         risk_band: RiskBand::Medium,
+        authority_model: AuthorityModel::Reviewer,
         application_packs: &[
             ApplicationPack::Product,
             ApplicationPack::Operations,
@@ -499,6 +581,7 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         status: FrameStatus::Accepted,
         claim_strength: ClaimStrength::Heuristic,
         risk_band: RiskBand::Medium,
+        authority_model: AuthorityModel::Operator,
         application_packs: &[
             ApplicationPack::Operations,
             ApplicationPack::Product,
@@ -519,6 +602,7 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         status: FrameStatus::Accepted,
         claim_strength: ClaimStrength::Heuristic,
         risk_band: RiskBand::Low,
+        authority_model: AuthorityModel::Operator,
         application_packs: &[
             ApplicationPack::Product,
             ApplicationPack::Operations,
@@ -540,6 +624,7 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         status: FrameStatus::Accepted,
         claim_strength: ClaimStrength::Heuristic,
         risk_band: RiskBand::Medium,
+        authority_model: AuthorityModel::Steward,
         application_packs: &[
             ApplicationPack::Product,
             ApplicationPack::Operations,
@@ -560,6 +645,7 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         status: FrameStatus::Accepted,
         claim_strength: ClaimStrength::Heuristic,
         risk_band: RiskBand::Medium,
+        authority_model: AuthorityModel::Operator,
         application_packs: &[ApplicationPack::Operations, ApplicationPack::Product],
         everyday_source: "Safe roadside stop",
         target_situations: &["temporary pause outside the main flow", "stabilization"],
@@ -576,6 +662,7 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         status: FrameStatus::Accepted,
         claim_strength: ClaimStrength::Heuristic,
         risk_band: RiskBand::Medium,
+        authority_model: AuthorityModel::Operator,
         application_packs: &[
             ApplicationPack::Product,
             ApplicationPack::Operations,
@@ -596,6 +683,7 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         status: FrameStatus::Accepted,
         claim_strength: ClaimStrength::Heuristic,
         risk_band: RiskBand::Medium,
+        authority_model: AuthorityModel::Owner,
         application_packs: &[
             ApplicationPack::Product,
             ApplicationPack::Operations,
@@ -649,10 +737,37 @@ mod tests {
         assert_eq!(index.by_status(FrameStatus::Accepted).len(), 15);
         assert_eq!(index.by_claim_strength(ClaimStrength::Heuristic).len(), 15);
         assert_eq!(index.by_risk_band(RiskBand::Low).len(), 4);
+        assert_eq!(index.by_authority_model(AuthorityModel::Peer).len(), 2);
         assert_eq!(
             index.with_application_pack(ApplicationPack::AiAgent).len(),
             7
         );
+    }
+
+    #[test]
+    fn search_filters_by_transfer_metadata() {
+        let index = FrameIndex::new();
+        let peer_results = index.search(
+            &FrameQuery::new("two teams need turn order around constrained attention")
+                .with_kind(FrameKind::Coordination)
+                .with_authority_model(AuthorityModel::Peer)
+                .with_risk_band(RiskBand::Medium)
+                .with_application_pack(ApplicationPack::Product)
+                .with_tags(&["priority"]),
+        );
+
+        assert_eq!(peer_results[0].entry.id, "four-way-stop");
+        assert!(peer_results
+            .iter()
+            .all(|candidate| candidate.entry.authority_model == AuthorityModel::Peer));
+
+        let protected_results = index.search(
+            &FrameQuery::new("stronger actor should slow down for vulnerable users")
+                .with_kind(FrameKind::Coordination)
+                .with_authority_model(AuthorityModel::ProtectedParty),
+        );
+
+        assert_eq!(protected_results[0].entry.id, "crosswalk-yield");
     }
 
     #[test]
@@ -693,6 +808,9 @@ mod tests {
         let results = index.search(&FrameQuery {
             situation: "unmatched",
             desired_kind: None,
+            authority_model: None,
+            risk_band: None,
+            application_pack: None,
             tags: &[],
         });
 

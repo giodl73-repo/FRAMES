@@ -49,6 +49,7 @@ Repo or feature: `frames-core`
 | REQ-039 | inspection | inspect `docs/theory/evaluation-set-design.md` and linked review docs | Evaluation jobs, fixture types, fixture shape, required fields, starter backlog, scoring dimensions, pass bands, review procedure, non-goals, AI/tool implications, and design consequences are present. | pass | EVID-044 |
 | REQ-040 | inspection | inspect `docs/theory/cultural-portability.md` and linked audience-transfer docs | Portability rule, dimensions, bands, source-specific guidance, decision procedure, examples, catalog fields, evaluation implications, AI/tool implications, and design consequences are present. | pass | EVID-045 |
 | REQ-041 | inspection | inspect `docs/theory/theme-swimlane-leadership-worksheet.md` and linked theme-swimlane docs | Use criteria, promise capture, lane table, work mapping, decision log, risk review, role gate, worked example, pilot closeout, and design consequences are present. | pass | EVID-046 |
+| REQ-042 | unit test / example run / inspection | `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; inspect `src/lib.rs` | Search supports strict authority, risk, and application-pack filters before lexical scoring. | pass | EVID-047 |
 
 ## Commands
 
@@ -110,6 +111,7 @@ git diff --check
 | EVID-044 | inspection | `docs/theory/evaluation-set-design.md` | REQ-039, SPEC-038, IF-041, VAL-036 | pass |
 | EVID-045 | inspection | `docs/theory/cultural-portability.md` | REQ-040, SPEC-039, IF-042, VAL-037 | pass |
 | EVID-046 | inspection | `docs/theory/theme-swimlane-leadership-worksheet.md` | REQ-041, SPEC-040, IF-043, VAL-038 | pass |
+| EVID-047 | command output / inspection | `cargo test`, `cargo run --example lookup`, `cargo run --example ai_response_contract`, `src/lib.rs` | REQ-042, SPEC-041, IF-044, VAL-039 | pass |
 
 ## Gaps
 

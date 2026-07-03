@@ -5,10 +5,11 @@ asks whether the source relation, target relation, authority model, constraint,
 protected value, and exclusions fit the situation before rewarding a familiar or
 vivid metaphor.
 
-This is a design artifact, not a Rust API change. The current `frames-core`
-search remains deterministic lexical lookup over kind, target situations, tags,
-and name. Transfer-aware search should be added only after enough accepted
-catalog entries have stable transfer metadata.
+This began as a design artifact. `frames-core` now implements the first
+nonbreaking transfer-aware filters over accepted starter metadata:
+`authority_model`, `risk_band`, and `application_pack`. Full relation-aware
+ranking remains deferred until enough accepted catalog entries have stable
+relation metadata.
 
 ## Current Search Shape
 
@@ -17,6 +18,9 @@ catalog entries have stable transfer metadata.
 | Signal | Current Source | Strength | Limitation |
 |---|---|---|---|
 | Frame kind | `FrameQuery::desired_kind` | Strong deterministic filter/rank signal. | Does not distinguish authority or risk fit. |
+| Authority model | `FrameQuery::authority_model` and `FrameEntry::authority_model` | Strong deterministic filter signal. | Does not yet score partial authority fit. |
+| Risk band | `FrameQuery::risk_band` and `FrameEntry::risk_band` | Strong deterministic filter signal. | Does not yet model risk tolerance above accepted starter bands. |
+| Application pack | `FrameQuery::application_pack` and `FrameEntry::application_packs` | Strong deterministic filter signal. | Does not yet encode relation fit inside a pack. |
 | Target text overlap | `FrameEntry::target_situations` | Useful for simple lookup. | Can match words without matching relations. |
 | Tags | `FrameEntry::tags` and query tags | Flexible bridge metadata. | Tags can become vague or overloaded. |
 | Name hit | `FrameEntry::name` | Helps direct lookup. | Rewards remembered names even when transfer is wrong. |
@@ -39,16 +43,17 @@ Avoid: Four-way stop, because the parties are not peers.
 
 ## Query Inputs
 
-Add these inputs only after docs metadata is stable:
+The first implemented query filters are authority model, risk band, and
+application pack. The remaining inputs should wait for stable docs metadata:
 
 | Input | Meaning | Why It Matters |
 |---|---|---|
 | Target relation | The relation the user needs clarified: peer coordination, protected-party duty, threshold status, structural dependency, etc. | Prevents source-scene word matching from driving selection. |
-| Authority relation | Peer, owner, steward, operator, protected party, command, reviewer, or mixed. | Blocks frames that import the wrong power model. |
+| Authority relation | Peer, owner, steward, operator, protected party, command, reviewer, or mixed. | Blocks frames that import the wrong power model. Implemented as `AuthorityModel` for accepted starter entries. |
 | Constraint | Time, capacity, safety, budget, attention, dependency, trust, or uncertainty. | Helps distinguish pace, risk, and coordination frames. |
 | Protected value | What must not be sacrificed. | Keeps optimization frames from overriding safety, fairness, trust, or accountability. |
-| Risk tolerance | Low, medium, or high. | Raises evidence and fallback requirements. |
-| Application pack | Product, operations, leadership, learning, or AI-agent. | Applies context-specific defaults and rejection rules. |
+| Risk tolerance | Low, medium, or high. | Raises evidence and fallback requirements. Implemented as `RiskBand` filtering for accepted starter entries. |
+| Application pack | Product, operations, leadership, learning, or AI-agent. | Applies context-specific defaults and rejection rules. Implemented as `ApplicationPack` filtering for accepted starter entries. |
 | Excluded transfers | Relations the caller explicitly does not want. | Lets users reject blame, command, competition, or people-as-obstacle patterns. |
 
 ## Entry Metadata
@@ -59,13 +64,13 @@ Transfer-aware ranking needs compact metadata derived from
 | Entry Field | Source Theory | API Timing |
 |---|---|---|
 | `transfer_strength` | Structural, partial, illustrative, decorative, dangerous. | Docs now, API after accepted entries are populated. |
-| `authority_model` | Peer, owner, steward, operator, protected party, command, reviewer, mixed. | Candidate for early API metadata. |
+| `authority_model` | Peer, owner, steward, operator, protected party, command, reviewer, mixed. | Implemented for accepted starter entries. |
 | `target_relation` | The relation clarified by the frame. | Keep docs-only until value set stabilizes. |
 | `constraint_relation` | The main constraint the frame handles. | Keep docs-only or tag-backed initially. |
 | `protected_value` | The value the frame must preserve. | Docs first; display field before ranking field. |
 | `transfer_exclusions` | What must not carry over. | Display field before scoring field. |
-| `risk_band` | Low, medium, high. | Candidate for early API metadata. |
-| `application_packs` | Contexts where the frame is usually useful. | Candidate for early API metadata. |
+| `risk_band` | Low, medium, high. | Implemented for accepted starter entries. |
+| `application_packs` | Contexts where the frame is usually useful. | Implemented for accepted starter entries. |
 
 Do not encode full prose transfer maps into the first Rust search update.
 Prefer compact enums and short display fields.
@@ -124,14 +129,14 @@ instead of returning a bare metaphor name.
 
 ## Migration Path
 
-1. Keep current Rust search unchanged.
-2. Normalize docs-level `authority_model`, `risk_band`, `transfer_strength`, and
-   `application_packs` for accepted starter frames.
-3. Add Rust display metadata for accepted frames before ranking changes.
-4. Add query filters for authority, risk, and application pack.
-5. Add relation-aware ranking only after accepted entries have enough stable
+1. Keep deterministic lexical scoring unchanged.
+2. Normalize docs-level `transfer_strength` and relation fields for accepted
+   starter frames.
+3. Use the implemented authority, risk, and application-pack filters as strict
+   gates before lexical scoring.
+4. Add relation-aware ranking only after accepted entries have enough stable
    relation metadata.
-6. Keep draft, held, and local-import frames out of default search until
+5. Keep draft, held, and local-import frames out of default search until
    lifecycle filtering exists.
 
 ## Open Design Questions
@@ -146,8 +151,8 @@ instead of returning a bare metaphor name.
 
 ## Design Consequences
 
-- The next Rust metadata migration should prioritize `risk_band`,
-  `application_packs`, and `authority_model` before full relation scoring.
+- The first Rust filter migration now covers `risk_band`, `application_packs`,
+  and `authority_model`; full relation scoring remains deferred.
 - Accepted catalog rows need stable transfer metadata before the crate can rank
   by transfer fit.
 - Related-frame lookup should eventually use

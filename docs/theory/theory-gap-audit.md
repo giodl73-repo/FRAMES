@@ -56,9 +56,7 @@ These gaps block reliable tool behavior.
 
 | Gap | Risk | First Artifact |
 |---|---|---|
-| AI response examples in Rust | The contract exists in docs but not in runnable example shape. | Rust example using `FrameIndex` output fields. |
-| First Rust metadata migration | Accepted docs metadata is not yet tool-readable. | Add compact metadata fields after API review. |
-| Transfer-aware query API | Search design exists but query filters are not implemented. | Nonbreaking query filter design. |
+| Relation-aware ranking | Authority, risk, and application-pack filters exist, but target-relation and protected-value ranking are not implemented. | Relation metadata plus evaluation-backed ranking design. |
 | Rejected-candidate reporting | Tools cannot yet explain why a tempting frame was rejected. | Rejection result shape. |
 | Lifecycle filtering | Draft, held, deprecated, and accepted states cannot be filtered in code. | Status metadata and filters. |
 
@@ -79,15 +77,14 @@ methodology rather than a useful catalog.
 
 ## Recommended Sequence
 
-1. Add AI response contract examples in Rust.
-2. Add first Rust metadata migration for accepted starter entries.
-3. Apply the accepted-catalog review process to first promoted candidates.
-4. Apply frame anti-pattern taxonomy to first promoted candidates and evaluation fixtures.
-5. Apply related-frame relation taxonomy to catalog examples and evaluation fixtures.
-6. Populate first evaluation fixtures for traffic, anti-pattern, relation, theme-swimlane, and audience-transfer cases.
-7. Apply cultural portability bands to traffic, status, story, and theme-swimlane fixtures.
-8. Pilot the theme-swimlane leadership worksheet and record changed decisions.
-9. Define frame acquisition method.
+1. Run EVT-001 and record results without upgrading claim strength prematurely.
+2. Apply the accepted-catalog review process to first promoted candidates.
+3. Apply frame anti-pattern taxonomy to first promoted candidates and evaluation fixtures.
+4. Apply related-frame relation taxonomy to catalog examples and evaluation fixtures.
+5. Populate first evaluation fixtures for traffic, anti-pattern, relation, theme-swimlane, and audience-transfer cases.
+6. Apply cultural portability bands to traffic, status, story, and theme-swimlane fixtures.
+7. Pilot the theme-swimlane leadership worksheet and record changed decisions.
+8. Define frame acquisition method.
 
 This sequence keeps tool safety ahead of catalog growth.
 

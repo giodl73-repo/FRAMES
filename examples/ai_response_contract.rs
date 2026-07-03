@@ -1,9 +1,13 @@
-use frames_core::{FrameCandidate, FrameIndex, FrameKind, FrameQuery};
+use frames_core::{
+    ApplicationPack, AuthorityModel, FrameCandidate, FrameIndex, FrameKind, FrameQuery,
+};
 
 fn main() {
     let target_situation = "two peer teams need turn order around constrained attention";
     let query = FrameQuery::new(target_situation)
         .with_kind(FrameKind::Coordination)
+        .with_authority_model(AuthorityModel::Peer)
+        .with_application_pack(ApplicationPack::Product)
         .with_tags(&["priority"]);
 
     let index = FrameIndex::new();
@@ -35,7 +39,11 @@ fn print_contract_response(
     println!("  action_cue: {}", entry.action_cue);
     println!("  evidence_boundary: {}", entry.evidence_boundary);
     println!("  misuse_warning: {}", entry.failure_mode);
-    println!("  authority_check: verify that peer coordination applies");
+    println!("  authority_model: {}", entry.authority_model.as_str());
+    println!(
+        "  authority_check: verify that {} coordination applies",
+        entry.authority_model.as_str()
+    );
     println!("  risk_band: {}", entry.risk_band.as_str());
     println!(
         "  plain_language_fallback: The teams need an explicit turn order before work proceeds."
