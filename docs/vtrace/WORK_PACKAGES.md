@@ -16,6 +16,7 @@ unless product requirements explicitly define them as user-facing behavior.
 | WP-002 | Add ergonomic lookup helpers and example. | AI/tool users can construct common frame-index queries and inspect results quickly. | REQ-006 / SPEC-005 / IF-007 / IF-008 / DES-005 / CR-006 | `src/lib.rs`, `examples/lookup.rs`, `README.md`, `context/waves/*`, `docs/vtrace/*` | WP-001 complete and helper API target accepted. | Helper tests pass, example runs, docs and VTRACE checks pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: role review if publishing API | evidence / trace / review / status rows | complete |
 | WP-003 | Expand traffic frame pack. | Accepted traffic frame docs and indexed entries stay aligned. | REQ-007 / SPEC-006 / IF-009 | `docs/frame-catalog.md`, `docs/examples/traffic-and-motion.md`, `src/lib.rs`, `context/waves/*`, `docs/vtrace/*` | WP-001 complete and traffic-pack candidates accepted. | Traffic docs include added frames, Rust index tests pass, VTRACE validates. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: role review if publishing catalog | evidence / trace / review / status rows | complete |
 | WP-004 | Add role-reviewed frame theory baseline. | Frame expansion uses explicit theory for fit, action, evidence, and misuse. | REQ-008 / SPEC-007 / IF-010 | `docs/theory/*`, `README.md`, `PRODUCT_PLAN.md`, `context/waves/*`, `docs/vtrace/*` | Role panel exists and traffic/frame-index foundation is complete. | Theory docs and role review exist, docs checks pass, VTRACE validates. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: research review before public cognitive-science claims | evidence / trace / review / status rows | complete |
+| WP-005 | Add fit rubric and theory roadmap. | Frame candidates can be scored before catalog/index acceptance, and future theory work is prioritized. | REQ-009 / SPEC-008 / IF-011 | `docs/theory/*`, `README.md`, `context/waves/*`, `docs/vtrace/*` | WP-004 complete. | Fit rubric and roadmap exist, pulse 04 closed, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: role review before publishing rubric as stable | evidence / trace / review / status rows | complete |
 
 ## Work Package Details
 
@@ -180,3 +181,38 @@ V closure:
 | Implementation | `docs/theory/*` | closed | Theory and role review added. |
 | Verification | EVID-010, EVID-011 | closed | Inspection and role review cover theory readiness. |
 | Validation | VAL-005 | closed | Theory can guide future frame-pack selection. |
+
+### WP-005: Add fit rubric and theory roadmap
+
+Objective: make frame readiness comparable and identify remaining theory work.
+
+Parent IDs: REQ-009, SPEC-008, IF-011.
+
+Affected files/modules:
+
+- `docs/theory/fit-rubric.md`
+- `docs/theory/theory-roadmap.md`
+- `docs/theory/frame-theory.md`
+- `README.md`
+- `context/waves/2026-07-03-foundation/*`
+- `docs/vtrace/*`
+
+Verification commands:
+
+```powershell
+cargo fmt --check
+cargo test
+cargo run --example lookup
+git diff --check
+cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .
+```
+
+V closure:
+
+| V Area | IDs / Evidence | Status | Notes |
+|---|---|---|---|
+| Requirements | REQ-009 | closed | Scored rubric and roadmap required. |
+| Specification / Interface | SPEC-008, IF-011 | closed | Rubric dimensions and decision bands defined. |
+| Implementation | `docs/theory/fit-rubric.md`, `docs/theory/theory-roadmap.md` | closed | Theory roadmap and scoring rubric added. |
+| Verification | EVID-012, EVID-013 | closed | Inspection covers rubric and roadmap. |
+| Validation | VAL-006 | closed | Rubric supports accept/revise/hold/reject decisions. |

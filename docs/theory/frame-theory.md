@@ -51,6 +51,8 @@ A frame is fit for use when it passes these checks:
 
 If a frame fails recognition, use a simpler source. If it fails decision value,
 say the direct sentence instead. If it fails human safety, rewrite or reject it.
+Use [fit-rubric.md](fit-rubric.md) when a frame needs a scored accept, revise,
+hold, or reject decision.
 
 ## Audience Levels
 
@@ -112,4 +114,3 @@ The Rust index should stay close to this theory:
 - Every indexed entry should preserve `failure_mode`.
 - Future scoring should reward action-cue and evidence-boundary alignment before
   source-domain similarity.
-

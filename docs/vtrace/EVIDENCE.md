@@ -19,6 +19,8 @@ Repo or feature: `frames-core`
 | EVID-009 | inspection | `docs/frame-catalog.md`, `docs/examples/traffic-and-motion.md`, `src/lib.rs` | Traffic frame docs and index entries are aligned. | pass. | pass |
 | EVID-010 | inspection | `docs/theory/frame-theory.md` | Frame theory covers core parts, jobs, fit tests, evidence boundaries, and misuse patterns. | pass. | pass |
 | EVID-011 | role review | `docs/theory/role-review-2026-07-03.md` | Role panel review completed. | pass. | pass |
+| EVID-012 | inspection | `docs/theory/fit-rubric.md` | Scored accept/revise/hold/reject rubric exists. | pass. | pass |
+| EVID-013 | inspection | `docs/theory/theory-roadmap.md` | Remaining theory work is prioritized. | pass. | pass |
 
 ## Evidence Rules
 

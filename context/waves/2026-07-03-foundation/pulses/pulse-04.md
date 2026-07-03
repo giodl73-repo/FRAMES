@@ -14,9 +14,12 @@ Create a simple rubric for choosing, rejecting, and revising frames.
 
 ## Validation
 
+- `cargo fmt --check`
+- `cargo test`
+- `cargo run --example lookup`
 - `git diff --check`
+- `cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .`
 
 ## Status
 
-Pending.
-
+Complete.

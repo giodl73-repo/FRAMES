@@ -15,6 +15,7 @@ Repo or feature: `frames-core`
 | SPEC-005 | REQ-006 | API / behavior | target | Query builder helpers, top-N search, kind filtering, and tag filtering support common lookup flows. | unit test / example run | VAL-001 / VAL-002 | FRAMES | low | accepted |
 | SPEC-006 | REQ-007 | catalog / docs | target | Accepted traffic-pack frames are represented in both docs and the starter Rust index. | unit test / inspection | VAL-003 / VAL-004 | FRAMES | low | accepted |
 | SPEC-007 | REQ-008 | theory / docs | target | Frame theory defines core parts, jobs, fit tests, audience levels, evidence boundaries, misuse patterns, and selection procedure. | inspection / role review | VAL-005 | FRAMES | low | accepted |
+| SPEC-008 | REQ-009 | theory / docs | target | Fit rubric scores recognition, target specificity, transfer clarity, action cue, evidence boundary, human safety, and stop condition; roadmap prioritizes remaining theory. | inspection | VAL-006 | FRAMES | low | accepted |
 
 ## Contract Table
 
@@ -25,3 +26,4 @@ Repo or feature: `frames-core`
 | IF-003 | SPEC-005 | Rust helper API | Helper names should remain frame-index oriented and deterministic. | Renaming/removing helpers or adding nondeterministic behavior. | EVID-006 |
 | IF-009 | SPEC-006 | Traffic frame IDs | Traffic-pack additions get stable IDs before tool use. | Adding, renaming, or removing traffic-pack IDs. | EVID-008 |
 | IF-010 | SPEC-007 | Theory terms | Theory terms should remain consistent with catalog and `frames-core` vocabulary. | Renaming frame jobs or core parts. | EVID-010 |
+| IF-011 | SPEC-008 | Rubric dimensions | Rubric dimensions should stay stable enough for catalog decisions. | Adding/removing dimensions or changing decision bands. | EVID-012 |

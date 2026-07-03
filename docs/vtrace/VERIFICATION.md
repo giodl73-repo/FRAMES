@@ -16,6 +16,7 @@ Repo or feature: `frames-core`
 | REQ-006 | unit test / example run | `cargo test`; `cargo run --example lookup` | Helpers construct queries, limit results, filter entries, and run in example form. | pass | EVID-006 / EVID-007 |
 | REQ-007 | unit test / inspection | `cargo test`; inspect traffic docs and `STARTER_CATALOG` | New traffic frames are present in docs and index. | pass | EVID-008 / EVID-009 |
 | REQ-008 | inspection / role review | inspect `docs/theory/*` | Theory defines frame jobs, fit tests, evidence boundaries, misuse patterns, and role review. | pass | EVID-010 / EVID-011 |
+| REQ-009 | inspection | inspect `docs/theory/fit-rubric.md` and `docs/theory/theory-roadmap.md` | Rubric and roadmap are present and usable. | pass | EVID-012 / EVID-013 |
 
 ## Commands
 
@@ -41,6 +42,8 @@ git diff --check
 | EVID-009 | inspection | `docs/frame-catalog.md`, `docs/examples/traffic-and-motion.md`, `src/lib.rs` | REQ-007, VAL-003 | pass |
 | EVID-010 | inspection | `docs/theory/frame-theory.md` | REQ-008, SPEC-007, VAL-005 | pass |
 | EVID-011 | role review | `docs/theory/role-review-2026-07-03.md` | REQ-008, VAL-005 | pass |
+| EVID-012 | inspection | `docs/theory/fit-rubric.md` | REQ-009, SPEC-008, VAL-006 | pass |
+| EVID-013 | inspection | `docs/theory/theory-roadmap.md` | REQ-009, VAL-006 | pass |
 
 ## Gaps
 
