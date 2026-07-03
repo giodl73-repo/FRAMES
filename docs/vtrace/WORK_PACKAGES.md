@@ -39,6 +39,7 @@ unless product requirements explicitly define them as user-facing behavior.
 | WP-025 | Add role-reviewed local import promotion. | Local imports have explicit promote/hold outcomes before catalog acceptance. | REQ-029 / SPEC-028 / IF-031 | `docs/theory/local-import-promotion-review.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-024 complete and local structured imports exist. | Promotion review exists, import statuses updated, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: fit scoring before accepted catalog promotion | evidence / trace / review / status rows | complete |
 | WP-026 | Add theme-swimlane role review. | Theme swimlanes have explicit role gates before leadership-pack or catalog acceptance. | REQ-030 / SPEC-029 / IF-032 | `docs/theory/theme-swimlane-role-review.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-025 complete and theme swimlanes promoted only as draft heuristic. | Role review exists, linked docs updated, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: pilot review before accepted catalog promotion | evidence / trace / review / status rows | complete |
 | WP-027 | Add first empirical validation trial protocol. | Claim upgrades have a concrete comparison protocol before empirical claims are made. | REQ-031 / SPEC-030 / IF-033 | `docs/theory/empirical-validation-trial-001-theme-swimlanes.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-026 complete and validation plan exists. | Trial protocol exists, linked docs updated, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: execute trial before claim-strength upgrade | evidence / trace / review / status rows | complete |
+| WP-028 | Add transfer-aware search design. | Future search ranks structural fit before surface wording or vivid source scenes. | REQ-032 / SPEC-031 / IF-034 | `docs/theory/transfer-aware-search-design.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-027 complete and relational transfer fields exist. | Search design exists, linked docs updated, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: API review before Rust ranking changes | evidence / trace / review / status rows | complete |
 
 ## Work Package Details
 
@@ -1031,3 +1032,39 @@ V closure:
 | Implementation | `docs/theory/empirical-validation-trial-001-theme-swimlanes.md` | closed | Scenario, comparison, response form, scoring, analysis, hard stops, and report template added. |
 | Verification | EVID-036 | closed | Inspection covers first empirical trial protocol. |
 | Validation | VAL-028 | closed | Protocol supports future data collection without overclaiming. |
+
+### WP-028: Add transfer-aware search design
+
+Objective: define how future search should rank structural transfer fit before
+surface wording, vividness, or source-scene familiarity.
+
+Parent IDs: REQ-032, SPEC-031, IF-034.
+
+Affected files/modules:
+
+- `docs/theory/transfer-aware-search-design.md`
+- `docs/theory/relational-transfer-fields.md`
+- `docs/theory/catalog-metadata-migration-plan.md`
+- `docs/theory/theory-roadmap.md`
+- `README.md`
+- `docs/vtrace/*`
+
+Verification commands:
+
+```powershell
+cargo fmt --check
+cargo test
+cargo run --example lookup
+git diff --check
+cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .
+```
+
+V closure:
+
+| V Area | IDs / Evidence | Status | Notes |
+|---|---|---|---|
+| Requirements | REQ-032 | closed | Transfer-aware search design required. |
+| Specification / Interface | SPEC-031, IF-034 | closed | Scoring order, hard stops, and metadata gates defined. |
+| Implementation | `docs/theory/transfer-aware-search-design.md` | closed | Query inputs, entry metadata, scoring, hard stops, output notes, and migration path added. |
+| Verification | EVID-037 | closed | Inspection covers transfer-aware search design. |
+| Validation | VAL-029 | closed | Design supports future Rust ranking without premature API churn. |

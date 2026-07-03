@@ -29,6 +29,7 @@ frame index rather than a growing metaphor list.
 | Claim-strength labels | Public claims need to distinguish illustration, heuristic, theory support, local observation, role review, and validation. | `claim-strength-labels.md` |
 | Source-domain taxonomy | Everyday domains need controlled names and risks. | `source-domain-taxonomy.md` |
 | Relational transfer fields | Frames need explicit source-target relation maps, exclusions, and transfer strength. | `relational-transfer-fields.md` |
+| Transfer-aware search design | Search needs to rank structural fit above surface wording before catalog growth. | `transfer-aware-search-design.md` |
 | Role-reviewed domain examples | Theory needs concrete role-reviewed examples before broader catalog expansion. | `role-reviewed-domain-examples.md` |
 | Application packs | Product, operations, leadership, learning, and AI-agent packs need different defaults. | `application-pack-templates.md` |
 | Perspective metadata | Frames assign listener roles, agency, duty, and authority assumptions. | `perspective-metadata.md` |
@@ -50,12 +51,12 @@ frame index rather than a growing metaphor list.
 
 ## Priority Order
 
-1. Transfer-aware search design.
-2. AI response contract examples in Rust.
-3. First Rust metadata migration.
-4. Accepted-catalog review for promoted imports.
-5. Leadership-pack worksheet for theme swimlanes.
-6. Run EVT-001 and record results.
+1. AI response contract examples in Rust.
+2. First Rust metadata migration.
+3. Accepted-catalog review for promoted imports.
+4. Leadership-pack worksheet for theme swimlanes.
+5. Run EVT-001 and record results.
+6. Relation-aware related-frame design.
 
 ## Role Guidance
 

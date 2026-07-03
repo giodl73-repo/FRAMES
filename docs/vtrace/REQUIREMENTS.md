@@ -39,6 +39,7 @@ Repo or feature: `frames-core`
 | REQ-029 | The repo shall define role-reviewed promotion decisions for local imports before catalog acceptance. | NEED-001 / CON-003 | Local patterns need explicit promote/hold decisions so draft heuristics do not silently become accepted catalog entries. | must | FRAMES | inspection / role review | accepted |
 | REQ-030 | The repo shall define a dedicated role review for theme swimlanes before leadership-pack or catalog acceptance. | NEED-001 / CON-003 | Theme swimlanes can influence funding, sequencing, and staffing, so they need explicit role gates beyond promotion to draft heuristic. | must | FRAMES | inspection / role review | accepted |
 | REQ-031 | The repo shall define a first empirical validation trial protocol with scenario, comparison condition, response form, scoring rubric, analysis plan, and claim boundary. | NEED-001 / CON-003 | FRAMES needs runnable empirical protocols before upgrading any draft heuristic to an empirically validated claim. | must | FRAMES | inspection | accepted |
+| REQ-032 | The repo shall define transfer-aware search design before adding relation-aware Rust ranking. | NEED-001 / CON-001 / CON-003 | Search needs to prefer structural relation, authority fit, protected value, and exclusions over surface wording or vivid source scenes. | must | FRAMES | inspection | accepted |
 
 ## Requirement Quality Checklist
 

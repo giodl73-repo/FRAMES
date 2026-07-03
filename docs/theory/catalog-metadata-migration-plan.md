@@ -99,6 +99,9 @@ Nonbreaking approach:
 
 Add transfer metadata only after at least one catalog pack uses it consistently.
 
+The search design lives in
+[transfer-aware-search-design.md](transfer-aware-search-design.md).
+
 Candidate additions:
 
 - transfer strength,
@@ -205,3 +208,5 @@ These are too detailed or too unstable for the first API migration.
   review.
 - The AI response contract should drive which fields are promoted first, because
   tool callers need display safety before richer ranking.
+- Transfer-aware search should remain design-only until accepted starter entries
+  have stable authority, risk, application-pack, and transfer metadata.

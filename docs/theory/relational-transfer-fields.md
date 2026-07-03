@@ -131,6 +131,8 @@ Any dangerous transfer strength is a hard stop.
   adding richer narrative fields.
 - AI-agent lookup should rank frames by relation fit before source-domain
   familiarity.
+- Transfer-aware search design lives in
+  [transfer-aware-search-design.md](transfer-aware-search-design.md).
 - `related` frames should prefer adjacent relational structure, not just shared
   source family.
 - High-stakes application packs should require explicit authority relation,

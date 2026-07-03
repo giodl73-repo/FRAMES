@@ -33,12 +33,13 @@
 | REQ-029 | NEED-001 | CON-003 | Define role-reviewed local import promotion. | SPEC-028 | DES-005 | n/a | WP-025 | `docs/theory/local-import-promotion-review.md`, `docs/theory/resonance-manage-frame-imports.md`, `docs/theory/career-gravity-frame-imports.md`, `docs/theory/theme-swimlane-extraction.md` | VER-027 inspection / role review | VAL-026 | EVID-034 | validated |
 | REQ-030 | NEED-001 | CON-003 | Define dedicated theme-swimlane role review. | SPEC-029 | DES-005 | n/a | WP-026 | `docs/theory/theme-swimlane-role-review.md`, `docs/theory/theme-swimlane-extraction.md`, `docs/theory/local-import-promotion-review.md`, `docs/theory/theory-roadmap.md` | VER-028 inspection / role review | VAL-027 | EVID-035 | validated |
 | REQ-031 | NEED-001 | CON-003 | Define first empirical validation trial protocol. | SPEC-030 | DES-005 | n/a | WP-027 | `docs/theory/empirical-validation-trial-001-theme-swimlanes.md`, `docs/theory/empirical-validation-plan.md`, `docs/theory/theory-roadmap.md` | VER-029 inspection | VAL-028 | EVID-036 | validated |
+| REQ-032 | NEED-001 | CON-001 / CON-003 | Define transfer-aware search design. | SPEC-031 | DES-005 | n/a | WP-028 | `docs/theory/transfer-aware-search-design.md`, `docs/theory/relational-transfer-fields.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/theory-roadmap.md` | VER-030 inspection | VAL-029 | EVID-037 | validated |
 
 ## ID Legend
 
 - NEED-001: mission need in `MISSION.md`.
 - CON-001..CON-003: operating scenarios in `CONOPS.md`.
-- SPEC-001..SPEC-030: specification baseline.
+- SPEC-001..SPEC-031: specification baseline.
 - DES-001..DES-005: design elements.
 - CR-001..CR-006: code-rigor constraints.
 - WP-001: frame index crate work package.
@@ -68,4 +69,5 @@
 - WP-025: role-reviewed local import promotion work package.
 - WP-026: theme-swimlane role review work package.
 - WP-027: empirical validation trial protocol work package.
+- WP-028: transfer-aware search design work package.
 - EVID-* evidence: `EVIDENCE.md` and `VERIFICATION.md`.

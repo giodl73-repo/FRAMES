@@ -39,6 +39,7 @@ Repo or feature: `frames-core`
 | REQ-029 | inspection / role review | inspect `docs/theory/local-import-promotion-review.md` and local import docs | Promotion outcomes, promoted heuristics, held imports, promotion rules, and next catalog candidates are present. | pass | EVID-034 |
 | REQ-030 | inspection / role review | inspect `docs/theory/theme-swimlane-role-review.md` and linked theme-swimlane docs | Acceptance decision, role findings, fit score, evidence gates, hard stops, output template, and next actions are present. | pass | EVID-035 |
 | REQ-031 | inspection | inspect `docs/theory/empirical-validation-trial-001-theme-swimlanes.md` and validation plan link | Trial summary, hypothesis, scenario material, comparison conditions, response form, scoring rubric, analysis plan, report template, hard stops, and claim boundary are present. | pass | EVID-036 |
+| REQ-032 | inspection | inspect `docs/theory/transfer-aware-search-design.md` and linked transfer/migration docs | Current search limits, query inputs, entry metadata, scoring order, hard stops, output notes, migration path, open questions, and design consequences are present. | pass | EVID-037 |
 
 ## Commands
 
@@ -89,6 +90,7 @@ git diff --check
 | EVID-034 | inspection / role review | `docs/theory/local-import-promotion-review.md` | REQ-029, SPEC-028, IF-031, VAL-026 | pass |
 | EVID-035 | inspection / role review | `docs/theory/theme-swimlane-role-review.md` | REQ-030, SPEC-029, IF-032, VAL-027 | pass |
 | EVID-036 | inspection | `docs/theory/empirical-validation-trial-001-theme-swimlanes.md` | REQ-031, SPEC-030, IF-033, VAL-028 | pass |
+| EVID-037 | inspection | `docs/theory/transfer-aware-search-design.md` | REQ-032, SPEC-031, IF-034, VAL-029 | pass |
 
 ## Gaps
 

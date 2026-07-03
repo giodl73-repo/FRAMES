@@ -38,6 +38,7 @@ Repo or feature: `frames-core`
 | SPEC-028 | REQ-029 | theory / docs | target | Local import promotion review defines promotion outcomes, promoted heuristic candidates, held imports, confirmed promotion rules, and next catalog candidates. | inspection / role review | VAL-026 | FRAMES | medium | accepted |
 | SPEC-029 | REQ-030 | theory / docs | target | Theme swimlane role review defines review target, acceptance decision, role findings, fit score, evidence gates, hard stops, output template, and next actions. | inspection / role review | VAL-027 | FRAMES | medium | accepted |
 | SPEC-030 | REQ-031 | theory / docs | target | Empirical validation trial 001 defines trial summary, hypothesis, scenario material, comparison conditions, response form, scoring rubric, analysis plan, report template, hard stops, and expected claim boundaries. | inspection | VAL-028 | FRAMES | medium | accepted |
+| SPEC-031 | REQ-032 | theory / design | target | Transfer-aware search design defines current search limits, query inputs, entry metadata, scoring order, hard stops, output notes, migration path, open questions, and design consequences. | inspection | VAL-029 | FRAMES | medium | accepted |
 
 ## Contract Table
 
@@ -71,3 +72,4 @@ Repo or feature: `frames-core`
 | IF-031 | SPEC-028 | Local import promotion statuses | Promote/hold status terms and promoted-candidate criteria should remain stable enough for catalog acceptance review. | Changing promotion outcome labels or bypassing held-import gates. | EVID-034 |
 | IF-032 | SPEC-029 | Theme-swimlane review gates | Role-review gates and output-template fields should remain stable enough for leadership-pack pilot use. | Adding/removing acceptance gates, hard stops, or output-template fields. | EVID-035 |
 | IF-033 | SPEC-030 | Empirical trial protocol fields | Trial summary, comparison conditions, scoring rubric, hard stops, and report template should remain stable between pre-registration and scoring. | Changing protocol fields or scoring rubric after collecting responses. | EVID-036 |
+| IF-034 | SPEC-031 | Transfer-aware search scoring order | Hard stops, authority fit, target relation, protected value, and transfer-strength order should remain stable enough to guide future Rust ranking. | Changing transfer-aware scoring order, hard stops, or metadata gates before Rust implementation. | EVID-037 |
