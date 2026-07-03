@@ -59,6 +59,9 @@ These should become first-class FRAMES entries before the broader MANAGE set:
 5. **Contact Structure**: strong candidate for leadership and operations packs
    because it separates reporting lines from information flow.
 
+The first structured draft imports are in
+[resonance-manage-frame-imports.md](resonance-manage-frame-imports.md).
+
 ## Import Rules
 
 - Preserve the pattern name only when it is structurally useful.

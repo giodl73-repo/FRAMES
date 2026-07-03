@@ -29,6 +29,7 @@ Repo or feature: `frames-core`
 | REQ-019 | The repo shall define relational transfer fields for source-target relation mapping, transfer exclusions, and transfer strength. | NEED-001 / CON-003 | Frame selection needs to prefer relational structure over surface similarity. | must | FRAMES | inspection | accepted |
 | REQ-020 | The repo shall define claim-strength labels for frame claims, practitioner observations, local observations, role review, and empirical validation. | NEED-001 / CON-003 | Public and AI-facing frame guidance needs to avoid overstating evidence. | must | FRAMES | inspection | accepted |
 | REQ-021 | The repo shall define role-reviewed domain examples before broader catalog expansion. | NEED-001 / CON-003 | Theory needs concrete reviewed examples that show how roles accept, revise, hold, or reject frame patterns. | must | FRAMES | inspection / role review | accepted |
+| REQ-022 | The repo shall define structured RESONANCE MANAGE frame imports with provenance, claim strength, transfer boundaries, evidence boundaries, and draft status. | NEED-001 / CON-003 | Local management patterns need controlled import before becoming catalog or index entries. | must | FRAMES | inspection | accepted |
 
 ## Requirement Quality Checklist
 

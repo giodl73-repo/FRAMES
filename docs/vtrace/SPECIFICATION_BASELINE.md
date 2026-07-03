@@ -28,6 +28,7 @@ Repo or feature: `frames-core`
 | SPEC-018 | REQ-019 | theory / docs | target | Relational transfer guide defines source relation, target relation, actor roles, authority, constraints, signals, thresholds, sequence, feedback, protected value, exclusions, distortion risk, transfer strength, examples, and design consequences. | inspection | VAL-016 | FRAMES | medium | accepted |
 | SPEC-019 | REQ-020 | theory / docs | target | Claim-strength guide defines labels, default assignments, promotion rules, required claim shape, hard stops, integration points, and design consequences. | inspection | VAL-017 | FRAMES | medium | accepted |
 | SPEC-020 | REQ-021 | theory / docs | target | Role-reviewed domain examples define review shape, domain examples, role pressure, review outcomes, and method lessons. | inspection / role review | VAL-018 | FRAMES | medium | accepted |
+| SPEC-021 | REQ-022 | theory / docs | target | RESONANCE MANAGE frame imports define import status, draft entries, action cues, evidence boundaries, transfer exclusions, failure modes, application packs, and promotion criteria. | inspection | VAL-019 | FRAMES | medium | accepted |
 
 ## Contract Table
 
@@ -51,3 +52,4 @@ Repo or feature: `frames-core`
 | IF-021 | SPEC-018 | Relational transfer terms | Transfer fields and strength labels should remain stable enough for catalog review and future metadata. | Adding/removing transfer fields or strength labels. | EVID-024 |
 | IF-022 | SPEC-019 | Claim-strength labels | Claim-strength label names and promotion rules should remain stable enough for public docs and future metadata. | Adding/removing labels or changing promotion requirements. | EVID-025 |
 | IF-023 | SPEC-020 | Role-reviewed example shape | Review fields and outcome labels should remain stable enough for comparing domain examples. | Adding/removing review fields or outcome categories. | EVID-026 |
+| IF-024 | SPEC-021 | Local import draft shape | Import-status, draft-entry, and promotion-criteria fields should remain stable enough for local source imports. | Adding/removing import draft fields or promotion criteria fields. | EVID-027 |

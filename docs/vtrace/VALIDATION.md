@@ -26,6 +26,7 @@ Repo or feature: `frames-core`
 | VAL-016 | Methodology maintainer or AI tool builder | Check whether a frame transfers by structure rather than surface similarity. | Apply `relational-transfer-fields.md` before scoring transfer clarity. | Source relation, target relation, actor roles, authority, constraints, signals, thresholds, exclusions, distortion risk, and transfer strength are visible. | EVID-024 | pass |
 | VAL-017 | Methodology maintainer or public writer | Check whether a frame claim overstates its evidence. | Apply `claim-strength-labels.md` before publishing or agent output. | Label, applies-when scope, evidence, boundary, and risk are visible. | EVID-025 | pass |
 | VAL-018 | Methodology maintainer | Test whether the theory produces usable domain decisions. | Apply role-reviewed examples before catalog expansion. | Concrete examples produce accept, revise, hold, or reject outcomes with role pressure visible. | EVID-026 | pass |
+| VAL-019 | Methodology maintainer | Import local management patterns without overclaiming them. | Apply RESONANCE MANAGE structured imports before catalog expansion. | Each imported candidate has provenance, claim strength, transfer boundary, evidence boundary, failure mode, draft status, and promotion criteria. | EVID-027 | pass |
 
 ## Deferred Validation
 

@@ -34,6 +34,7 @@ frame index rather than a growing metaphor list.
 | Perspective metadata | Frames assign listener roles, agency, duty, and authority assumptions. | `perspective-metadata.md` |
 | Story-job taxonomy | Frames need to declare what their narrative layer is doing for the audience. | `story-job-taxonomy.md` |
 | Internal source import | Local RESONANCE MANAGE patterns need structured import before catalog expansion. | `resonance-manage-import-map.md` |
+| RESONANCE structured imports | High-value MANAGE candidates need FRAMES-native draft entries before catalog acceptance. | `resonance-manage-frame-imports.md` |
 | Career source import | Local CAREER Gravity patterns need structured import before catalog expansion. | `career-gravity-import-map.md` |
 | External practitioners | Successful public frame/story writers should be benchmarked for reusable design lessons. | `external-frame-practitioners.md` |
 | Research grounding | Public claims about cognition, metaphor, or pedagogy need citations and claim-strength limits. | `research-grounding.md` |
@@ -41,12 +42,12 @@ frame index rather than a growing metaphor list.
 
 ## Priority Order
 
-1. RESONANCE MANAGE frame imports.
-2. CAREER Gravity frame imports.
-3. Theme swimlane extraction.
-4. Empirical validation plan.
-5. Catalog metadata migration plan.
-6. AI response contract for frame suggestions.
+1. CAREER Gravity frame imports.
+2. Theme swimlane extraction.
+3. Empirical validation plan.
+4. Catalog metadata migration plan.
+5. AI response contract for frame suggestions.
+6. First metadata-backed catalog migration.
 
 ## Role Guidance
 

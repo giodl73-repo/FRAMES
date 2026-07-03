@@ -29,6 +29,7 @@ unless product requirements explicitly define them as user-facing behavior.
 | WP-015 | Add relational transfer fields. | Frame selection maps source-target relations, exclusions, and transfer strength before catalog acceptance. | REQ-019 / SPEC-018 / IF-021 | `docs/theory/relational-transfer-fields.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-014 complete. | Relational transfer guide exists, fit-rubric integration exists, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: role review before encoding transfer fields in crate metadata | evidence / trace / review / status rows | complete |
 | WP-016 | Add claim-strength labels. | Frame claims declare whether they are illustrative, heuristic, theory-informed, observed, reviewed, validated, or anti-patterns. | REQ-020 / SPEC-019 / IF-022 | `docs/theory/claim-strength-labels.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-015 complete. | Claim-strength guide exists, research-grounding integration exists, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: role review before encoding claim strength in crate metadata | evidence / trace / review / status rows | complete |
 | WP-017 | Add role-reviewed domain examples. | Concrete domains are reviewed through role lenses before broader catalog expansion. | REQ-021 / SPEC-020 / IF-023 | `docs/theory/role-reviewed-domain-examples.md`, `.roles/*`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-016 complete. | Role-reviewed examples exist, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: role review before catalog expansion | evidence / trace / review / status rows | complete |
+| WP-018 | Add structured RESONANCE MANAGE imports. | High-value local management patterns are converted into FRAMES-native draft entries. | REQ-022 / SPEC-021 / IF-024 | `docs/theory/resonance-manage-frame-imports.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-017 complete and import map exists. | Structured imports exist, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: role review before catalog acceptance | evidence / trace / review / status rows | complete |
 
 ## Work Package Details
 
@@ -658,3 +659,41 @@ V closure:
 | Implementation | `docs/theory/role-reviewed-domain-examples.md` | closed | Domain examples and role pressure added. |
 | Verification | EVID-026 | closed | Inspection covers examples and role alignment. |
 | Validation | VAL-018 | closed | Examples demonstrate concrete theory decisions. |
+
+### WP-018: Add structured RESONANCE MANAGE imports
+
+Objective: convert high-value RESONANCE MANAGE patterns into FRAMES-native draft
+entries without overclaiming their evidence status.
+
+Parent IDs: REQ-022, SPEC-021, IF-024.
+
+Affected files/modules:
+
+- `docs/theory/resonance-manage-frame-imports.md`
+- `docs/theory/resonance-manage-import-map.md`
+- `docs/theory/claim-strength-labels.md`
+- `docs/theory/relational-transfer-fields.md`
+- `docs/theory/frame-theory.md`
+- `docs/theory/theory-roadmap.md`
+- `README.md`
+- `docs/vtrace/*`
+
+Verification commands:
+
+```powershell
+cargo fmt --check
+cargo test
+cargo run --example lookup
+git diff --check
+cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .
+```
+
+V closure:
+
+| V Area | IDs / Evidence | Status | Notes |
+|---|---|---|---|
+| Requirements | REQ-022 | closed | Structured RESONANCE MANAGE imports required. |
+| Specification / Interface | SPEC-021, IF-024 | closed | Import draft shape and promotion criteria defined. |
+| Implementation | `docs/theory/resonance-manage-frame-imports.md` | closed | Five high-value local patterns imported as draft entries. |
+| Verification | EVID-027 | closed | Inspection covers structured imports. |
+| Validation | VAL-019 | closed | Imports preserve provenance, boundaries, and draft status. |

@@ -34,6 +34,7 @@ Repo or feature: `frames-core`
 | EVID-024 | inspection | `docs/theory/relational-transfer-fields.md`, `docs/theory/fit-rubric.md` | Relational transfer fields and fit-rubric integration exist. | pass. | pass |
 | EVID-025 | inspection | `docs/theory/claim-strength-labels.md`, `docs/theory/research-grounding.md` | Claim-strength labels and research-grounding integration exist. | pass. | pass |
 | EVID-026 | inspection / role review | `docs/theory/role-reviewed-domain-examples.md`, `.roles/ROLE.md` | Role-reviewed domain examples exist for traffic coordination, status signals, conflict repair, and theme swimlanes. | pass. | pass |
+| EVID-027 | inspection | `docs/theory/resonance-manage-frame-imports.md`, `docs/theory/resonance-manage-import-map.md` | Structured RESONANCE MANAGE imports exist for high-value local patterns. | pass. | pass |
 
 ## Evidence Rules
 
