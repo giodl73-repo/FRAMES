@@ -64,6 +64,7 @@ Application pack templates live in [docs/theory/application-pack-templates.md](d
 Perspective metadata guidance lives in [docs/theory/perspective-metadata.md](docs/theory/perspective-metadata.md).
 The local RESONANCE MANAGE import map lives in [docs/theory/resonance-manage-import-map.md](docs/theory/resonance-manage-import-map.md).
 The local CAREER Gravity import map lives in [docs/theory/career-gravity-import-map.md](docs/theory/career-gravity-import-map.md).
+External frame-practitioner benchmarks live in [docs/theory/external-frame-practitioners.md](docs/theory/external-frame-practitioners.md).
 Project review roles live in [.roles/ROLE.md](.roles/ROLE.md).
 
 ## Frame Shape
