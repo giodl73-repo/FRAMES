@@ -41,7 +41,7 @@ These gaps limit expansion into broader users, domains, and public use.
 
 | Gap | Risk | First Artifact |
 |---|---|---|
-| Teaching progression | Novice, journeyman, and expert use needs a learning path, not just docs. | `learning-progression.md` |
+| Public learning path | FRAMES needs a reader-facing path before broad public onboarding. | Start from `learning-progression.md` and package it later. |
 
 ## Implementation Gaps
 
@@ -72,7 +72,7 @@ methodology rather than a useful catalog.
 
 1. Collect EVT-001 participant responses and score the locked packet without upgrading claim strength prematurely.
 2. Pilot the theme-swimlane leadership worksheet and record changed decisions.
-3. Define teaching progression for novice, journeyman, and expert use.
+3. Plan lifecycle filtering and rejected-candidate reporting.
 
 This sequence keeps tool safety ahead of catalog growth.
 

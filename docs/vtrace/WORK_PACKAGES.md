@@ -64,6 +64,7 @@ unless product requirements explicitly define them as user-facing behavior.
 | WP-050 | Define frame acquisition method. | New frame candidates have intake and screening gates before catalog growth. | REQ-054 / SPEC-053 / IF-056 | `docs/theory/frame-acquisition-method.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md`, `docs/vtrace/*` | WP-049 complete or external pilot blocked. | Acquisition method exists, roadmap updated, docs and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: define domain pack strategy and plain-language fallback theory | evidence / trace / review / status rows | complete |
 | WP-051 | Define domain pack roadmap. | Application packs have expansion order, coverage goals, and hold conditions. | REQ-055 / SPEC-054 / IF-057 | `docs/theory/domain-pack-roadmap.md`, `docs/theory/application-pack-templates.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md`, `docs/vtrace/*` | WP-050 complete and application-pack templates exist. | Roadmap exists, pack templates link it, growth gap audit advances, docs and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: define plain-language fallback theory | evidence / trace / review / status rows | complete |
 | WP-052 | Define plain-language fallback theory. | High-risk and low-transfer frame uses have direct non-metaphor fallback rules. | REQ-056 / SPEC-055 / IF-058 | `docs/theory/plain-language-fallbacks.md`, `docs/theory/ai-response-contract.md`, `docs/theory/evaluation-set-design.md`, `docs/theory/frame-acquisition-method.md`, `README.md`, `docs/vtrace/*` | WP-051 complete and fallback expectations exist in response/eval docs. | Fallback theory exists, linked docs updated, growth gap audit advances, docs and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: define teaching progression | evidence / trace / review / status rows | complete |
+| WP-053 | Define learning progression. | Novice, journeyman, expert, and AI-tool users have staged learning paths. | REQ-057 / SPEC-056 / IF-059 | `docs/theory/learning-progression.md`, `docs/theory/application-pack-templates.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md`, `docs/vtrace/*` | WP-052 complete and learning pack exists. | Learning progression exists, linked docs updated, growth gap audit advances, docs and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: plan lifecycle filtering and rejected-candidate reporting | evidence / trace / review / status rows | complete |
 
 ## Work Package Details
 
@@ -2008,3 +2009,40 @@ V closure:
 | Implementation | `docs/theory/plain-language-fallbacks.md` | closed | Plain-language fallback theory added and linked. |
 | Verification | EVID-061 | closed | Inspection covers fallback theory and linked guidance. |
 | Validation | VAL-053 | closed | Reviewers can replace risky frames with direct accountable language. |
+
+### WP-053: Define learning progression
+
+Objective: define staged learning paths for novice, journeyman, expert, and
+AI-tool frame use without requiring every user to learn the full theory stack.
+
+Parent IDs: REQ-057, SPEC-056, IF-059.
+
+Affected files/modules:
+
+- `docs/theory/learning-progression.md`
+- `docs/theory/application-pack-templates.md`
+- `docs/theory/theory-gap-audit.md`
+- `docs/theory/theory-roadmap.md`
+- `README.md`
+- `docs/vtrace/*`
+
+Verification commands:
+
+```powershell
+cargo fmt --check
+cargo test
+cargo run --example lookup
+cargo run --example ai_response_contract
+git diff --check
+cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .
+```
+
+V closure:
+
+| V Area | IDs / Evidence | Status | Notes |
+|---|---|---|---|
+| Requirements | REQ-057 | closed | Learning progression required before broad public onboarding. |
+| Specification / Interface | SPEC-056, IF-059 | closed | Learner levels, paths, anti-patterns, release criteria, and views defined. |
+| Implementation | `docs/theory/learning-progression.md` | closed | Learning progression added and linked. |
+| Verification | EVID-062 | closed | Inspection covers learning progression and roadmap updates. |
+| Validation | VAL-054 | closed | Maintainers can teach frame use at the right depth for the user's role. |

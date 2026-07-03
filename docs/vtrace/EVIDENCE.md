@@ -69,6 +69,7 @@ Repo or feature: `frames-core`
 | EVID-059 | inspection | `docs/theory/frame-acquisition-method.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md` | Frame acquisition method exists with intake, screening, promotion, lifecycle, and backlog guidance; growth gap audit advances to domain pack strategy. | pass. | pass |
 | EVID-060 | inspection | `docs/theory/domain-pack-roadmap.md`, `docs/theory/application-pack-templates.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md` | Domain pack roadmap exists with expansion order, coverage goals, hold conditions, drift warnings, and links from application-pack templates. | pass. | pass |
 | EVID-061 | inspection | `docs/theory/plain-language-fallbacks.md`, `docs/theory/ai-response-contract.md`, `docs/theory/evaluation-set-design.md`, `docs/theory/frame-acquisition-method.md` | Plain-language fallback theory exists and is linked from response, evaluation, and acquisition guidance. | pass. | pass |
+| EVID-062 | inspection | `docs/theory/learning-progression.md`, `docs/theory/application-pack-templates.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md` | Learning progression exists with staged paths for novice, journeyman, expert, and AI-tool users; learning-pack docs link it. | pass. | pass |
 
 ## Evidence Rules
 

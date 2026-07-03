@@ -170,3 +170,5 @@ defaults into catalog or crate metadata.
 
 Pack expansion order and coverage gates live in
 [domain-pack-roadmap.md](domain-pack-roadmap.md).
+Learning-pack progression guidance lives in
+[learning-progression.md](learning-progression.md).

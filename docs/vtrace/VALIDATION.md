@@ -61,6 +61,7 @@ Repo or feature: `frames-core`
 | VAL-051 | Methodology maintainer or catalog reviewer | Capture a new frame candidate without prematurely adding it to catalog or search. | Apply `frame-acquisition-method.md` to a proposed candidate. | Source channel, intake fields, screening gates, candidate state, next gate, and promotion path are explicit. | EVID-059 | pass |
 | VAL-052 | Methodology maintainer or catalog reviewer | Decide which application pack should expand next without opportunistic catalog growth. | Apply `domain-pack-roadmap.md`. | Pack priority, coverage goal, required fixtures, hold condition, and drift warning are explicit. | EVID-060 | pass |
 | VAL-053 | Methodology maintainer, misuse reviewer, or AI tool builder | Replace a risky frame with direct language without losing action or accountability. | Apply `plain-language-fallbacks.md`. | Fallback names situation, action, owner/authority, evidence, boundary, and revisit trigger when needed. | EVID-061 | pass |
+| VAL-054 | Methodology maintainer or learning-pack reviewer | Teach frame use at the right depth for a learner's role. | Apply `learning-progression.md`. | Novice, journeyman, expert, and AI-tool paths have distinct skills, anti-patterns, and release checks. | EVID-062 | pass |
 
 ## Deferred Validation
 
