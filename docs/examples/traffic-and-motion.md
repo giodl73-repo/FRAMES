@@ -94,3 +94,55 @@ moving from broad exploration to one smaller buildable slice.
 Failure mode: downshifting is not stopping. If the work is blocked, use red
 light, road closed, or pit stop instead.
 
+## Speed Limit
+
+Use when a team needs an explicit upper bound on pace because the environment,
+quality bar, or review capacity cannot absorb unlimited speed.
+
+Useful mapping:
+
+| Road behavior | Work mapping |
+|---|---|
+| Posted limit reflects road conditions | Pace should reflect constraints, not ambition alone. |
+| Going faster raises stopping distance | Higher speed reduces correction time. |
+| Limits can change by zone | Different work modes can have different caps. |
+
+Action cue: set the maximum safe pace before speed creates hidden risk.
+
+Failure mode: speed limit is not a target speed. It can be misused to punish
+teams for going slower when the road conditions are bad.
+
+## Shoulder / Pull-Off
+
+Use when work needs to leave the main flow temporarily without being abandoned.
+
+Useful mapping:
+
+| Road behavior | Work mapping |
+|---|---|
+| Move out of the active lane | Stop blocking the main workflow. |
+| Stabilize before re-entering | Resolve the immediate issue before resuming. |
+| Re-enter with signal and speed match | Make the return visible and coordinated. |
+
+Action cue: pause outside the main flow, stabilize, and plan re-entry.
+
+Failure mode: pulling off without a re-entry plan can become indefinite parking.
+
+## Following Distance
+
+Use when dependent work items are moving close enough that a change in one lane
+can cause a collision in another.
+
+Useful mapping:
+
+| Road behavior | Work mapping |
+|---|---|
+| Keep enough gap to brake | Preserve reaction time for downstream teams. |
+| Increase distance in bad weather | Add buffer under uncertainty or fragility. |
+| Tailgating raises stress and risk | Over-tight coupling makes ordinary changes dangerous. |
+
+Action cue: add buffer where coupling or uncertainty would otherwise amplify
+small mistakes.
+
+Failure mode: following distance should name the specific risk. Otherwise it can
+sound like generic slack.

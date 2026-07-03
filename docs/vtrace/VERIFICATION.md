@@ -14,6 +14,7 @@ Repo or feature: `frames-core`
 | REQ-004 | inspection | inspect `STARTER_CATALOG` and docs catalog | Failure modes are present. | pass | EVID-004 |
 | REQ-005 | inspection / command | inspect `Cargo.toml`; `cargo test` | No third-party dependencies are required. | pass | EVID-001 / EVID-005 |
 | REQ-006 | unit test / example run | `cargo test`; `cargo run --example lookup` | Helpers construct queries, limit results, filter entries, and run in example form. | pass | EVID-006 / EVID-007 |
+| REQ-007 | unit test / inspection | `cargo test`; inspect traffic docs and `STARTER_CATALOG` | New traffic frames are present in docs and index. | pass | EVID-008 / EVID-009 |
 
 ## Commands
 
@@ -35,6 +36,8 @@ git diff --check
 | EVID-005 | inspection | `Cargo.toml`, `Cargo.lock` | REQ-005 | pass |
 | EVID-006 | command output | `cargo test` | REQ-006, SPEC-005, CR-006 | pass |
 | EVID-007 | command output | `cargo run --example lookup` | REQ-006, VAL-001, VAL-004 | pass |
+| EVID-008 | command output | `cargo test` | REQ-007, SPEC-006 | pass |
+| EVID-009 | inspection | `docs/frame-catalog.md`, `docs/examples/traffic-and-motion.md`, `src/lib.rs` | REQ-007, VAL-003 | pass |
 
 ## Gaps
 

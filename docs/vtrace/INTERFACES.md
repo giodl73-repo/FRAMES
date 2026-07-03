@@ -16,6 +16,7 @@ Repo or feature: `frames-core`
 | IF-006 | `FrameIndex::related_to` | Related-frame lookup by stable ID. | target |
 | IF-007 | `FrameQuery::new`, `with_kind`, `with_tags` | Ergonomic query construction. | target |
 | IF-008 | `FrameIndex::search_top`, `by_kind`, `with_tag` | Common lookup and filtering helpers. | target |
+| IF-009 | Traffic frame IDs | Stable IDs for accepted traffic-pack frames. | target |
 
 ## Non-Interfaces
 

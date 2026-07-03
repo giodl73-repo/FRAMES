@@ -17,7 +17,7 @@ the repo does not become a loose metaphor list.
 | Pulse | Title | Status | Outcome |
 |------:|---|---|---|
 | 01 | Workspace foundation | complete | Created repo skeleton, docs, skills, and validation contract. |
-| 02 | Traffic frame pack | pending | Expand driving examples into reusable status, coordination, and risk frames. |
+| 02 | Traffic frame pack | complete | Expanded driving examples and indexed traffic frames for status, coordination, momentum, and risk. |
 | 03 | Walking frame pack | pending | Add pace, footing, crowding, fatigue, and wayfinding frames. |
 | 04 | Fit rubric | pending | Score frame clarity, action cue quality, audience fit, and misuse risk. |
 | 05 | Frame index crate | complete | Added dependency-free Rust frame index with search and related-frame lookup. |

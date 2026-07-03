@@ -15,6 +15,8 @@ Repo or feature: `frames-core`
 | EVID-005 | inspection | `Cargo.toml`, `Cargo.lock` | No third-party dependencies in first crate. | pass. | pass |
 | EVID-006 | command | `cargo test` | Helper tests pass. | pass. | pass |
 | EVID-007 | command | `cargo run --example lookup` | Lookup example runs and prints candidates with warnings. | pass. | pass |
+| EVID-008 | command | `cargo test` | Traffic-pack alignment tests pass. | pass. | pass |
+| EVID-009 | inspection | `docs/frame-catalog.md`, `docs/examples/traffic-and-motion.md`, `src/lib.rs` | Traffic frame docs and index entries are aligned. | pass. | pass |
 
 ## Evidence Rules
 

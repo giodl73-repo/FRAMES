@@ -14,6 +14,7 @@ unless product requirements explicitly define them as user-facing behavior.
 |---|---|---|---|---|---|---|---|---|---|
 | WP-001 | Add dependency-free Rust frame index. | AI/tool users can search structured analogy frames like a thesaurus. | REQ-001 / REQ-002 / REQ-003 / REQ-004 / REQ-005 / SPEC-001 / SPEC-002 / SPEC-003 / SPEC-004 | `Cargo.toml`, `Cargo.lock`, `src/lib.rs`, `README.md`, `PRODUCT_PLAN.md`, `context/waves/*`, `docs/vtrace/*` | Requirements and public API target accepted. | Rust tests pass, docs checks pass, trace/evidence/review are recorded. | L0: `cargo test`; `git diff --check` / L1: VTRACE validate / L2: role review for public API readiness | evidence / trace / review / status rows | complete |
 | WP-002 | Add ergonomic lookup helpers and example. | AI/tool users can construct common frame-index queries and inspect results quickly. | REQ-006 / SPEC-005 / IF-007 / IF-008 / DES-005 / CR-006 | `src/lib.rs`, `examples/lookup.rs`, `README.md`, `context/waves/*`, `docs/vtrace/*` | WP-001 complete and helper API target accepted. | Helper tests pass, example runs, docs and VTRACE checks pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: role review if publishing API | evidence / trace / review / status rows | complete |
+| WP-003 | Expand traffic frame pack. | Accepted traffic frame docs and indexed entries stay aligned. | REQ-007 / SPEC-006 / IF-009 | `docs/frame-catalog.md`, `docs/examples/traffic-and-motion.md`, `src/lib.rs`, `context/waves/*`, `docs/vtrace/*` | WP-001 complete and traffic-pack candidates accepted. | Traffic docs include added frames, Rust index tests pass, VTRACE validates. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: role review if publishing catalog | evidence / trace / review / status rows | complete |
 
 ## Work Package Details
 
@@ -109,3 +110,37 @@ V closure:
 | Implementation | `src/lib.rs`, `examples/lookup.rs` | closed | Helpers and example added. |
 | Verification | EVID-006, EVID-007 | closed | Tests and example run pass. |
 | Validation | VAL-001, VAL-002, VAL-004 | closed | Query and related lookup flows easier to execute. |
+
+### WP-003: Expand traffic frame pack
+
+Objective: add traffic-pack frames to docs and the starter index.
+
+Parent IDs: REQ-007, SPEC-006, IF-009.
+
+Affected files/modules:
+
+- `docs/frame-catalog.md`
+- `docs/examples/traffic-and-motion.md`
+- `src/lib.rs`
+- `context/waves/2026-07-03-foundation/*`
+- `docs/vtrace/*`
+
+Verification commands:
+
+```powershell
+cargo fmt --check
+cargo test
+cargo run --example lookup
+git diff --check
+cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .
+```
+
+V closure:
+
+| V Area | IDs / Evidence | Status | Notes |
+|---|---|---|---|
+| Requirements | REQ-007 | closed | Traffic docs and starter index alignment required. |
+| Specification / Interface | SPEC-006, IF-009 | closed | Stable IDs added for new traffic frames. |
+| Implementation | `docs/frame-catalog.md`, `docs/examples/traffic-and-motion.md`, `src/lib.rs` | closed | Speed limit, shoulder/pull-off, and following distance added. |
+| Verification | EVID-008, EVID-009 | closed | Unit tests and inspection cover alignment. |
+| Validation | VAL-003, VAL-004 | closed | Warnings visible in docs and index. |

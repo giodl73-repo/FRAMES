@@ -14,6 +14,7 @@ Repo or feature: `frames-core`
 | REQ-004 | The starter catalog shall preserve misuse or failure-mode warnings for every indexed frame. | NEED-001 / CON-003 | Frame suggestions must not hide analogy limits. | must | FRAMES | inspection / unit test | accepted |
 | REQ-005 | The first crate shall remain dependency-free. | NEED-001 | Keeps the index easy to audit and embed. | should | FRAMES | inspection / cargo test | accepted |
 | REQ-006 | The library shall provide ergonomic query and filtering helpers for common AI/tool lookup flows. | NEED-001 / CON-001 / CON-002 | Callers should not need to construct every query and filter manually. | should | FRAMES | unit test / example run | accepted |
+| REQ-007 | Traffic frame docs and starter index entries shall stay aligned for accepted traffic-pack frames. | NEED-001 / CON-001 / CON-003 | AI/tool lookup should reflect the documented frame pack. | must | FRAMES | unit test / inspection | accepted |
 
 ## Requirement Quality Checklist
 

@@ -19,9 +19,12 @@ Turn traffic and driving examples into a fuller reusable frame pack.
 
 ## Validation
 
+- `cargo fmt --check`
+- `cargo test`
+- `cargo run --example lookup`
 - `git diff --check`
+- `cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .`
 
 ## Status
 
-Pending.
-
+Complete.

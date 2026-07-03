@@ -211,7 +211,7 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         tags: &["status", "readiness", "progress", "gate"],
         action_cue: "Stop, watch, or proceed.",
         failure_mode: "Hides why status changed unless paired with evidence.",
-        related: &["dashboard-warning-light", "fuel-gauge"],
+        related: &["dashboard-warning-light", "fuel-gauge", "speed-limit"],
     },
     FrameEntry {
         id: "four-way-stop",
@@ -250,7 +250,7 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         tags: &["coordination", "integration", "timing", "handoff"],
         action_cue: "Match speed, signal intent, find a gap, and join predictably.",
         failure_mode: "Can understate the need for explicit approval gates.",
-        related: &["four-way-stop", "crosswalk-yield"],
+        related: &["four-way-stop", "crosswalk-yield", "following-distance"],
     },
     FrameEntry {
         id: "detour",
@@ -261,7 +261,7 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         tags: &["momentum", "planning", "route", "adaptation"],
         action_cue: "Preserve the destination, change the route, and mark the cost.",
         failure_mode: "Can hide whether the destination is still valid.",
-        related: &["downshift", "rest-stop"],
+        related: &["downshift", "rest-stop", "shoulder-pull-off"],
     },
     FrameEntry {
         id: "downshift",
@@ -272,7 +272,7 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         tags: &["momentum", "scope", "control", "load"],
         action_cue: "Trade top speed for control and torque.",
         failure_mode: "Can sound like failure unless framed as control.",
-        related: &["detour", "rest-stop"],
+        related: &["detour", "rest-stop", "speed-limit"],
     },
     FrameEntry {
         id: "rest-stop",
@@ -283,7 +283,7 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         tags: &["momentum", "recovery", "fatigue", "pace"],
         action_cue: "Pause deliberately before fatigue causes mistakes.",
         failure_mode: "Can be mistaken for loss of commitment.",
-        related: &["walking-pace", "downshift"],
+        related: &["walking-pace", "downshift", "shoulder-pull-off"],
     },
     FrameEntry {
         id: "walking-pace",
@@ -305,7 +305,11 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         tags: &["risk", "visibility", "dependency", "stakeholder"],
         action_cue: "Check before changing lanes.",
         failure_mode: "Can blame individuals for system visibility gaps.",
-        related: &["dashboard-warning-light", "load-bearing-wall"],
+        related: &[
+            "dashboard-warning-light",
+            "load-bearing-wall",
+            "following-distance",
+        ],
     },
     FrameEntry {
         id: "dashboard-warning-light",
@@ -328,6 +332,39 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         action_cue: "Refill, reduce consumption, or plan a stop.",
         failure_mode: "Can imply a single resource when many constraints matter.",
         related: &["red-yellow-green", "rest-stop"],
+    },
+    FrameEntry {
+        id: "speed-limit",
+        name: "Speed limit",
+        kind: FrameKind::Status,
+        everyday_source: "Posted road limit",
+        target_situations: &["execution pace under constraints", "maximum safe pace"],
+        tags: &["status", "pace", "constraint", "safety"],
+        action_cue: "Set an upper bound before speed becomes unsafe.",
+        failure_mode: "Can be misused as a universal cap instead of a context rule.",
+        related: &["downshift", "red-yellow-green", "following-distance"],
+    },
+    FrameEntry {
+        id: "shoulder-pull-off",
+        name: "Shoulder / pull-off",
+        kind: FrameKind::Momentum,
+        everyday_source: "Safe roadside stop",
+        target_situations: &["temporary pause outside the main flow", "stabilization"],
+        tags: &["momentum", "pause", "stabilize", "reentry"],
+        action_cue: "Leave the lane, stabilize, and re-enter deliberately.",
+        failure_mode: "Can normalize stopping without a re-entry plan.",
+        related: &["detour", "rest-stop", "merge-lane"],
+    },
+    FrameEntry {
+        id: "following-distance",
+        name: "Following distance",
+        kind: FrameKind::Risk,
+        everyday_source: "Safe gap between vehicles",
+        target_situations: &["buffer between dependent work items", "reaction time"],
+        tags: &["risk", "buffer", "dependency", "coupling"],
+        action_cue: "Create enough space to react without collision.",
+        failure_mode: "Can be read as slack for its own sake if risk is not named.",
+        related: &["blind-spot", "merge-lane", "speed-limit"],
     },
     FrameEntry {
         id: "load-bearing-wall",
@@ -369,8 +406,18 @@ mod tests {
         );
 
         assert_eq!(results.len(), 1);
-        assert_eq!(index.by_kind(FrameKind::Status).len(), 2);
+        assert_eq!(index.by_kind(FrameKind::Status).len(), 3);
         assert_eq!(index.with_tag("priority").len(), 2);
+    }
+
+    #[test]
+    fn traffic_pack_entries_are_indexed() {
+        let index = FrameIndex::new();
+
+        assert!(index.get("speed-limit").is_some());
+        assert!(index.get("shoulder-pull-off").is_some());
+        assert!(index.get("following-distance").is_some());
+        assert_eq!(index.by_kind(FrameKind::Status).len(), 3);
     }
 
     #[test]
@@ -379,7 +426,10 @@ mod tests {
         let related = index.related_to("red-yellow-green");
         let ids: Vec<_> = related.iter().map(|entry| entry.id).collect();
 
-        assert_eq!(ids, vec!["dashboard-warning-light", "fuel-gauge"]);
+        assert_eq!(
+            ids,
+            vec!["dashboard-warning-light", "fuel-gauge", "speed-limit"]
+        );
     }
 
     #[test]
