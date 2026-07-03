@@ -53,6 +53,8 @@ If a frame fails recognition, use a simpler source. If it fails decision value,
 say the direct sentence instead. If it fails human safety, rewrite or reject it.
 Use [fit-rubric.md](fit-rubric.md) when a frame needs a scored accept, revise,
 hold, or reject decision.
+Use [frame-lifecycle.md](frame-lifecycle.md) to decide whether a frame belongs
+in the index, remains in draft, or should be deprecated.
 
 ## Audience Levels
 

@@ -15,6 +15,7 @@ Repo or feature: `frames-core`
 | VAL-005 | Methodology maintainer | Choose whether a new frame belongs in the catalog. | Apply the theory fit test and role review. | Selection procedure identifies action cue, evidence boundary, and misuse risk. | EVID-010 / EVID-011 | pass |
 | VAL-006 | Methodology maintainer | Decide whether a candidate frame is accepted, revised, held, or rejected. | Score the frame with `fit-rubric.md`. | Rubric produces a decision band and hard-stop checks. | EVID-012 / EVID-013 | pass |
 | VAL-007 | Methodology maintainer | Check whether a frame transfers to the intended audience. | Apply `audience-transfer.md`. | Guide identifies assumptions, alternates, authority checks, and transfer bands. | EVID-014 | pass |
+| VAL-008 | Methodology maintainer | Decide whether a frame should be indexed, held, deprecated, or rejected. | Apply `frame-lifecycle.md`. | Lifecycle state and indexing rule are clear. | EVID-015 | pass |
 
 ## Deferred Validation
 
