@@ -60,6 +60,7 @@ Repo or feature: `frames-core`
 | VAL-050 | Business leader or methodology maintainer | Prepare a real theme-swimlane worksheet pilot without overstating evidence. | Inspect pilot ledger before running a pilot. | Record template, changed-decision fields, role gates, lifecycle recommendation, and dry-run-not-evidence boundary are explicit. | EVID-058 | pass |
 | VAL-051 | Methodology maintainer or catalog reviewer | Capture a new frame candidate without prematurely adding it to catalog or search. | Apply `frame-acquisition-method.md` to a proposed candidate. | Source channel, intake fields, screening gates, candidate state, next gate, and promotion path are explicit. | EVID-059 | pass |
 | VAL-052 | Methodology maintainer or catalog reviewer | Decide which application pack should expand next without opportunistic catalog growth. | Apply `domain-pack-roadmap.md`. | Pack priority, coverage goal, required fixtures, hold condition, and drift warning are explicit. | EVID-060 | pass |
+| VAL-053 | Methodology maintainer, misuse reviewer, or AI tool builder | Replace a risky frame with direct language without losing action or accountability. | Apply `plain-language-fallbacks.md`. | Fallback names situation, action, owner/authority, evidence, boundary, and revisit trigger when needed. | EVID-061 | pass |
 
 ## Deferred Validation
 

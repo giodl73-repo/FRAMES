@@ -63,6 +63,7 @@ Repo or feature: `frames-core`
 | REQ-053 | The repo shall provide a theme-swimlane leadership pilot ledger before any real worksheet pilot is counted as evidence. | NEED-001 / CON-003 | Pilot claims need a stable place to record changed decisions, unchanged decisions, role gates, and lifecycle recommendations without confusing dry runs with evidence. | must | FRAMES | inspection | accepted |
 | REQ-054 | The repo shall define a repeatable frame acquisition method before broad catalog growth. | NEED-001 / CON-001 / CON-003 | New frame candidates need intake, screening, source-channel, lifecycle, fixture, and promotion gates so the index does not become an unreviewed metaphor list. | must | FRAMES | inspection | accepted |
 | REQ-055 | The repo shall define a domain-pack roadmap before application-pack catalog expansion. | NEED-001 / CON-001 / CON-003 | Product, operations, leadership, learning, and AI-agent packs need expansion order, coverage goals, hold conditions, and drift warnings before pack-specific catalog growth. | must | FRAMES | inspection | accepted |
+| REQ-056 | The repo shall define plain-language fallback theory before high-risk, low-transfer, or unsafe frame uses expand. | NEED-001 / CON-001 / CON-003 | Direct non-metaphor alternatives need stable rules so frames do not replace authority, evidence, repair, or accountability. | must | FRAMES | inspection | accepted |
 
 ## Requirement Quality Checklist
 

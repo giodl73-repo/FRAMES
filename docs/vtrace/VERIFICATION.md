@@ -63,6 +63,7 @@ Repo or feature: `frames-core`
 | REQ-053 | inspection | inspect `docs/validation/theme-swimlane-leadership-pilot-ledger.md` and linked theme-swimlane docs | Pilot ledger defines record shape, dry-run boundary, and no-evidence status. | pass | EVID-058 |
 | REQ-054 | inspection | inspect `docs/theory/frame-acquisition-method.md` | Acquisition rule, source channels, intake template, screening gates, promotion path, candidate states, and design consequences are present. | pass | EVID-059 |
 | REQ-055 | inspection | inspect `docs/theory/domain-pack-roadmap.md` and `docs/theory/application-pack-templates.md` | Domain pack growth rule, expansion order, coverage matrix, hold conditions, and drift warnings are present. | pass | EVID-060 |
+| REQ-056 | inspection | inspect `docs/theory/plain-language-fallbacks.md` and linked response/evaluation docs | Fallback rule, shape, types, examples, selection procedure, tool behavior, evaluation implications, and design consequences are present. | pass | EVID-061 |
 
 ## Commands
 
@@ -138,6 +139,7 @@ git diff --check
 | EVID-058 | inspection | `docs/validation/theme-swimlane-leadership-pilot-ledger.md`, `docs/theory/theme-swimlane-leadership-worksheet.md`, `docs/theory/theme-swimlane-role-review.md`, `docs/theory/theme-swimlane-extraction.md` | REQ-053, SPEC-052, IF-055, VAL-050 | pass |
 | EVID-059 | inspection | `docs/theory/frame-acquisition-method.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md` | REQ-054, SPEC-053, IF-056, VAL-051 | pass |
 | EVID-060 | inspection | `docs/theory/domain-pack-roadmap.md`, `docs/theory/application-pack-templates.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md` | REQ-055, SPEC-054, IF-057, VAL-052 | pass |
+| EVID-061 | inspection | `docs/theory/plain-language-fallbacks.md`, `docs/theory/ai-response-contract.md`, `docs/theory/evaluation-set-design.md`, `docs/theory/frame-acquisition-method.md` | REQ-056, SPEC-055, IF-058, VAL-053 | pass |
 
 ## Gaps
 

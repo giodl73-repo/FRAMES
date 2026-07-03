@@ -158,6 +158,8 @@ Evaluation results should score behavior, not just frame ID match:
   default search has lifecycle and rejection filters.
 - Evaluation fixtures should become the gate before semantic search, typed
   related-frame metadata, or draft-frame inclusion.
+- Plain-language fallback expectations should follow
+  [plain-language-fallbacks.md](plain-language-fallbacks.md).
 
 ## Design Consequences
 

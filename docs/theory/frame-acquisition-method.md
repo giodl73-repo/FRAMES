@@ -143,3 +143,6 @@ Acquisition scoring should reward:
   safer fallbacks.
 - Acquisition remains docs-level until candidate-state and lifecycle filtering
   are implemented in Rust.
+- Fallback language should be reviewed with
+  [plain-language-fallbacks.md](plain-language-fallbacks.md) before medium- or
+  high-risk candidates advance.

@@ -109,6 +109,9 @@ alternate frame or a plain-language fallback.
 7. Include evidence boundary and misuse warning in every response.
 8. Include alternates for medium, high, unknown, or contested contexts.
 9. Include plain-language fallback for high or unknown risk.
+
+Fallback construction follows
+[plain-language-fallbacks.md](plain-language-fallbacks.md).
 10. Never present a frame as proof.
 
 ## Scoring Interpretation

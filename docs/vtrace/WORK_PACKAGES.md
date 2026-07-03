@@ -63,6 +63,7 @@ unless product requirements explicitly define them as user-facing behavior.
 | WP-049 | Add theme-swimlane leadership pilot ledger. | Real Theme Swimlane worksheet pilots have a ledger before evidence claims. | REQ-053 / SPEC-052 / IF-055 | `docs/validation/theme-swimlane-leadership-pilot-ledger.md`, `docs/theory/theme-swimlane-*`, `README.md`, `docs/vtrace/*` | WP-048 complete and worksheet exists. | Pilot ledger exists, dry-run is marked not evidence, linked docs updated, docs and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: run a real pilot and record changed decisions | evidence / trace / review / status rows | complete |
 | WP-050 | Define frame acquisition method. | New frame candidates have intake and screening gates before catalog growth. | REQ-054 / SPEC-053 / IF-056 | `docs/theory/frame-acquisition-method.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md`, `docs/vtrace/*` | WP-049 complete or external pilot blocked. | Acquisition method exists, roadmap updated, docs and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: define domain pack strategy and plain-language fallback theory | evidence / trace / review / status rows | complete |
 | WP-051 | Define domain pack roadmap. | Application packs have expansion order, coverage goals, and hold conditions. | REQ-055 / SPEC-054 / IF-057 | `docs/theory/domain-pack-roadmap.md`, `docs/theory/application-pack-templates.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md`, `docs/vtrace/*` | WP-050 complete and application-pack templates exist. | Roadmap exists, pack templates link it, growth gap audit advances, docs and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: define plain-language fallback theory | evidence / trace / review / status rows | complete |
+| WP-052 | Define plain-language fallback theory. | High-risk and low-transfer frame uses have direct non-metaphor fallback rules. | REQ-056 / SPEC-055 / IF-058 | `docs/theory/plain-language-fallbacks.md`, `docs/theory/ai-response-contract.md`, `docs/theory/evaluation-set-design.md`, `docs/theory/frame-acquisition-method.md`, `README.md`, `docs/vtrace/*` | WP-051 complete and fallback expectations exist in response/eval docs. | Fallback theory exists, linked docs updated, growth gap audit advances, docs and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: define teaching progression | evidence / trace / review / status rows | complete |
 
 ## Work Package Details
 
@@ -1968,3 +1969,42 @@ V closure:
 | Implementation | `docs/theory/domain-pack-roadmap.md` | closed | Roadmap added and linked from pack templates. |
 | Verification | EVID-060 | closed | Inspection covers domain pack roadmap and roadmap updates. |
 | Validation | VAL-052 | closed | Maintainers can choose pack expansion without opportunistic growth. |
+
+### WP-052: Define plain-language fallback theory
+
+Objective: define direct non-metaphor fallback rules for high-risk,
+low-transfer, authority-sensitive, or unsafe frame uses.
+
+Parent IDs: REQ-056, SPEC-055, IF-058.
+
+Affected files/modules:
+
+- `docs/theory/plain-language-fallbacks.md`
+- `docs/theory/ai-response-contract.md`
+- `docs/theory/evaluation-set-design.md`
+- `docs/theory/frame-acquisition-method.md`
+- `docs/theory/theory-gap-audit.md`
+- `docs/theory/theory-roadmap.md`
+- `README.md`
+- `docs/vtrace/*`
+
+Verification commands:
+
+```powershell
+cargo fmt --check
+cargo test
+cargo run --example lookup
+cargo run --example ai_response_contract
+git diff --check
+cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .
+```
+
+V closure:
+
+| V Area | IDs / Evidence | Status | Notes |
+|---|---|---|---|
+| Requirements | REQ-056 | closed | Fallback theory required before high-risk or low-transfer expansion. |
+| Specification / Interface | SPEC-055, IF-058 | closed | Fallback rule, shape, types, examples, tool behavior, and evaluation rules defined. |
+| Implementation | `docs/theory/plain-language-fallbacks.md` | closed | Plain-language fallback theory added and linked. |
+| Verification | EVID-061 | closed | Inspection covers fallback theory and linked guidance. |
+| Validation | VAL-053 | closed | Reviewers can replace risky frames with direct accountable language. |

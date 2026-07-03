@@ -82,6 +82,7 @@ The first machine-readable evaluation package lives in [docs/eval/starter-fixtur
 Role-reviewed domain examples live in [docs/theory/role-reviewed-domain-examples.md](docs/theory/role-reviewed-domain-examples.md).
 Application pack templates live in [docs/theory/application-pack-templates.md](docs/theory/application-pack-templates.md).
 Domain pack roadmap lives in [docs/theory/domain-pack-roadmap.md](docs/theory/domain-pack-roadmap.md).
+Plain-language fallback theory lives in [docs/theory/plain-language-fallbacks.md](docs/theory/plain-language-fallbacks.md).
 Perspective metadata guidance lives in [docs/theory/perspective-metadata.md](docs/theory/perspective-metadata.md).
 Story-job taxonomy lives in [docs/theory/story-job-taxonomy.md](docs/theory/story-job-taxonomy.md).
 The local RESONANCE MANAGE import map lives in [docs/theory/resonance-manage-import-map.md](docs/theory/resonance-manage-import-map.md).

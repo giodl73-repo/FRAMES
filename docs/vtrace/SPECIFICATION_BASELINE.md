@@ -62,6 +62,7 @@ Repo or feature: `frames-core`
 | SPEC-052 | REQ-053 | validation / pilot ledger | target | Theme-swimlane pilot ledger defines pilot rules, a record template, ledger row shape, dry-run example marked not evidence, closeout rule, and links from worksheet, role review, extraction docs, and README. | inspection | VAL-050 | FRAMES | medium | accepted |
 | SPEC-053 | REQ-054 | theory / acquisition | target | Frame acquisition method defines acquisition rule, source channels, intake template, screening gates, promotion path, candidate states, scoring notes, backlog buckets, and design consequences. | inspection | VAL-051 | FRAMES | medium | accepted |
 | SPEC-054 | REQ-055 | theory / application packs | target | Domain pack roadmap defines pack growth rule, expansion order, coverage matrix, candidate sources by pack, promotion gates, drift warnings, roadmap phases, and design consequences. | inspection | VAL-052 | FRAMES | medium | accepted |
+| SPEC-055 | REQ-056 | theory / fallback | target | Plain-language fallback theory defines fallback rule, fallback shape, fallback types, examples, selection procedure, tool behavior, evaluation implications, and design consequences. | inspection | VAL-053 | FRAMES | medium | accepted |
 
 ## Contract Table
 
@@ -119,3 +120,4 @@ Repo or feature: `frames-core`
 | IF-055 | SPEC-052 | Theme-swimlane pilot ledger | Pilot records should distinguish real pilot evidence from dry-run examples and require changed or explicitly unchanged decisions. | Promoting Theme Swimlanes or upgrading claim strength from a dry run, empty ledger, or unreviewed worksheet. | EVID-058 |
 | IF-056 | SPEC-053 | Frame acquisition method | Candidate intake should remain separate from accepted catalog and Rust search until review, fixture, lifecycle, and promotion gates pass. | Adding candidates directly to accepted starter catalog or default search from unreviewed notes. | EVID-059 |
 | IF-057 | SPEC-054 | Domain pack roadmap | Pack growth should be tied to coverage goals, fixtures, hold conditions, and lifecycle boundaries. | Expanding product, operations, leadership, learning, or AI-agent packs by volume without pack-specific gates. | EVID-060 |
+| IF-058 | SPEC-055 | Plain-language fallback theory | Fallbacks should name action, owner or authority, evidence, and boundary without reintroducing metaphor. | Treating fallback text as decorative copy, omitting owner/evidence, or using metaphor again when direct language is required. | EVID-061 |
