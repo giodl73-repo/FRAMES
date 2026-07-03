@@ -45,7 +45,7 @@ Reviewer / lenses: FRAMES role panel
 
 | Risk | Rationale | Owner | Revisit Trigger |
 |---|---|---|---|
-| API may change before first downstream consumer. | This is a first local foundation crate. | FRAMES | First consumer or publish step. |
+| API may change before first downstream consumer. | This is a first local foundation crate, though helper APIs now cover basic lookup flow. | FRAMES | First consumer or publish step. |
 | Catalog coverage is limited. | Foundation focuses on shape and validation. | FRAMES | Frame-pack expansion pulses. |
 
 ## Validation Commands
@@ -58,4 +58,3 @@ git diff --check
 ## Result
 
 Readiness passes with accepted risk for local foundation use.
-

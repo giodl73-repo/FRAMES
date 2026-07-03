@@ -13,4 +13,4 @@ Repo or feature: `frames-core`
 | CR-003 | Preserve warnings with candidates. | Inspect `FrameEntry` fields and starter catalog. |
 | CR-004 | Keep public API names frame-index oriented, not borrowing-oriented. | Inspect `src/lib.rs`. |
 | CR-005 | Format and test Rust code before commit. | `cargo fmt --check`; `cargo test`. |
-
+| CR-006 | Keep helper APIs deterministic and allocation-light where practical. | Unit tests and code inspection. |

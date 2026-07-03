@@ -14,10 +14,11 @@ Repo or feature: `frames-core`
 | IF-004 | `FrameCandidate` | Ranked search result and match notes. | target |
 | IF-005 | `FrameIndex::search` | Deterministic candidate lookup. | target |
 | IF-006 | `FrameIndex::related_to` | Related-frame lookup by stable ID. | target |
+| IF-007 | `FrameQuery::new`, `with_kind`, `with_tags` | Ergonomic query construction. | target |
+| IF-008 | `FrameIndex::search_top`, `by_kind`, `with_tag` | Common lookup and filtering helpers. | target |
 
 ## Non-Interfaces
 
 - VTRACE work package IDs are not public API.
 - `.roles` review lenses are not library API.
 - Natural-language generation prompts are out of scope for this slice.
-

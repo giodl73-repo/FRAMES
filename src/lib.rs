@@ -31,6 +31,26 @@ pub struct FrameQuery<'a> {
     pub tags: &'a [&'a str],
 }
 
+impl<'a> FrameQuery<'a> {
+    pub const fn new(situation: &'a str) -> Self {
+        Self {
+            situation,
+            desired_kind: None,
+            tags: &[],
+        }
+    }
+
+    pub const fn with_kind(mut self, kind: FrameKind) -> Self {
+        self.desired_kind = Some(kind);
+        self
+    }
+
+    pub const fn with_tags(mut self, tags: &'a [&'a str]) -> Self {
+        self.tags = tags;
+        self
+    }
+}
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct FrameCandidate<'a> {
     pub entry: &'a FrameEntry,
@@ -72,6 +92,20 @@ impl FrameIndex {
         self.entries.iter().find(|entry| entry.id == id)
     }
 
+    pub fn by_kind(&self, kind: FrameKind) -> Vec<&'static FrameEntry> {
+        self.entries
+            .iter()
+            .filter(|entry| entry.kind == kind)
+            .collect()
+    }
+
+    pub fn with_tag(&self, tag: &str) -> Vec<&'static FrameEntry> {
+        self.entries
+            .iter()
+            .filter(|entry| contains_ignore_ascii_case(entry.tags, tag))
+            .collect()
+    }
+
     pub fn related_to(&self, id: &str) -> Vec<&'static FrameEntry> {
         let Some(entry) = self.get(id) else {
             return Vec::new();
@@ -98,6 +132,10 @@ impl FrameIndex {
                 .then_with(|| left.entry.name.cmp(right.entry.name))
         });
         candidates
+    }
+
+    pub fn search_top(&self, query: &FrameQuery<'_>, limit: usize) -> Vec<FrameCandidate<'static>> {
+        self.search(query).into_iter().take(limit).collect()
     }
 }
 
@@ -311,15 +349,28 @@ mod tests {
     #[test]
     fn search_ranks_kind_and_tag_matches() {
         let index = FrameIndex::new();
-        let results = index.search(&FrameQuery {
-            situation: "two teams need turn order around constrained attention",
-            desired_kind: Some(FrameKind::Coordination),
-            tags: &["priority"],
-        });
+        let results = index.search(
+            &FrameQuery::new("two teams need turn order around constrained attention")
+                .with_kind(FrameKind::Coordination)
+                .with_tags(&["priority"]),
+        );
 
         assert_eq!(results[0].entry.id, "four-way-stop");
         assert!(results[0].score > 0);
         assert!(results[0].match_notes.kind_match);
+    }
+
+    #[test]
+    fn query_helpers_limit_and_filter_results() {
+        let index = FrameIndex::new();
+        let results = index.search_top(
+            &FrameQuery::new("release status").with_kind(FrameKind::Status),
+            1,
+        );
+
+        assert_eq!(results.len(), 1);
+        assert_eq!(index.by_kind(FrameKind::Status).len(), 2);
+        assert_eq!(index.with_tag("priority").len(), 2);
     }
 
     #[test]

@@ -34,6 +34,19 @@ mode warnings.
 cargo test
 ```
 
+Example lookup:
+
+```rust
+use frames_core::{FrameIndex, FrameKind, FrameQuery};
+
+let index = FrameIndex::new();
+let query = FrameQuery::new("two teams need turn order around constrained attention")
+    .with_kind(FrameKind::Coordination)
+    .with_tags(&["priority"]);
+
+let candidates = index.search_top(&query, 3);
+```
+
 ## First Catalog
 
 The initial catalog lives in [docs/frame-catalog.md](docs/frame-catalog.md).
@@ -66,6 +79,8 @@ Each frame should name:
 Current validation:
 
 ```powershell
+cargo fmt --check
 cargo test
+cargo run --example lookup
 git diff --check
 ```

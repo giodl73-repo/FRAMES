@@ -13,6 +13,8 @@ Repo or feature: `frames-core`
 | EVID-003 | command | `cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .` | VTRACE package validates. | pass. | pass |
 | EVID-004 | inspection | `src/lib.rs`, `docs/frame-catalog.md` | Indexed entries retain action cues and failure modes. | pass. | pass |
 | EVID-005 | inspection | `Cargo.toml`, `Cargo.lock` | No third-party dependencies in first crate. | pass. | pass |
+| EVID-006 | command | `cargo test` | Helper tests pass. | pass. | pass |
+| EVID-007 | command | `cargo run --example lookup` | Lookup example runs and prints candidates with warnings. | pass. | pass |
 
 ## Evidence Rules
 
