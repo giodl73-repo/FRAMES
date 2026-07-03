@@ -20,6 +20,7 @@ unless product requirements explicitly define them as user-facing behavior.
 | WP-006 | Add audience transfer guide. | Frame selection accounts for role, expertise, region, culture, mobility, stakes, and power differences. | REQ-010 / SPEC-009 / IF-012 | `docs/theory/audience-transfer.md`, `docs/theory/theory-roadmap.md`, `README.md`, `docs/vtrace/*` | WP-005 complete. | Audience transfer guide exists, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: role review before adding audience metadata to crate | evidence / trace / review / status rows | complete |
 | WP-007 | Add frame lifecycle model. | Frame catalog entries have controlled status transitions and indexing rules. | REQ-011 / SPEC-010 / IF-013 | `docs/theory/frame-lifecycle.md`, `docs/theory/frame-theory.md`, `docs/theory/theory-roadmap.md`, `README.md`, `docs/vtrace/*` | WP-006 complete. | Lifecycle guide exists, roadmap fixed, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: role review before encoding lifecycle in crate | evidence / trace / review / status rows | complete |
 | WP-008 | Add composition and conflict theory. | Related frames can be composed or rejected based on action, authority, evidence, audience, and safety rules. | REQ-012 / SPEC-011 / IF-014 | `docs/theory/composition-and-conflict.md`, `docs/theory/frame-theory.md`, `docs/theory/theory-roadmap.md`, `README.md`, `docs/vtrace/*` | WP-007 complete. | Composition guide exists, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: role review before encoding composition metadata in crate | evidence / trace / review / status rows | complete |
+| WP-009 | Add evidence-boundary schema to frame index. | AI/tool callers receive the evidence obligation with each indexed frame. | REQ-013 / SPEC-012 / IF-015 | `src/lib.rs`, `examples/lookup.rs`, `docs/theory/evidence-boundary-schema.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-008 complete. | `FrameEntry` has required evidence boundary, starter catalog populated, tests and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: role review before publishing API | evidence / trace / review / status rows | complete |
 
 ## Work Package Details
 
@@ -321,3 +322,39 @@ V closure:
 | Implementation | `docs/theory/composition-and-conflict.md` | closed | Composition and conflict guide added and linked. |
 | Verification | EVID-016 | closed | Inspection covers composition guide. |
 | Validation | VAL-009 | closed | Guide supports multi-frame selection decisions. |
+
+### WP-009: Add evidence-boundary schema to frame index
+
+Objective: make evidence obligations first-class in indexed frame entries.
+
+Parent IDs: REQ-013, SPEC-012, IF-015.
+
+Affected files/modules:
+
+- `src/lib.rs`
+- `examples/lookup.rs`
+- `docs/theory/evidence-boundary-schema.md`
+- `docs/theory/frame-theory.md`
+- `docs/theory/theory-roadmap.md`
+- `README.md`
+- `docs/vtrace/*`
+
+Verification commands:
+
+```powershell
+cargo fmt --check
+cargo test
+cargo run --example lookup
+git diff --check
+cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .
+```
+
+V closure:
+
+| V Area | IDs / Evidence | Status | Notes |
+|---|---|---|---|
+| Requirements | REQ-013 | closed | Indexed frames carry evidence boundaries. |
+| Specification / Interface | SPEC-012, IF-015 | closed | `FrameEntry::evidence_boundary` added as required field. |
+| Implementation | `src/lib.rs`, `examples/lookup.rs`, `docs/theory/evidence-boundary-schema.md` | closed | Catalog entries populated and example displays evidence boundary. |
+| Verification | EVID-017, EVID-018 | closed | Unit test and inspection cover evidence-boundary schema. |
+| Validation | VAL-010 | closed | Search result can expose action, evidence, and warning together. |

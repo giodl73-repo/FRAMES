@@ -24,6 +24,8 @@ Repo or feature: `frames-core`
 | EVID-014 | inspection | `docs/theory/audience-transfer.md` | Audience transfer guide exists. | pass. | pass |
 | EVID-015 | inspection | `docs/theory/frame-lifecycle.md` | Frame lifecycle model exists. | pass. | pass |
 | EVID-016 | inspection | `docs/theory/composition-and-conflict.md` | Composition and conflict guide exists. | pass. | pass |
+| EVID-017 | command | `cargo test` | Evidence-boundary unit test passes. | pass. | pass |
+| EVID-018 | inspection | `src/lib.rs`, `examples/lookup.rs`, `docs/theory/evidence-boundary-schema.md` | Evidence-boundary field, example display, and schema doc exist. | pass. | pass |
 
 ## Evidence Rules
 

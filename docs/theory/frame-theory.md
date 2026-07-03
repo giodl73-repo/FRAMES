@@ -57,6 +57,8 @@ Use [frame-lifecycle.md](frame-lifecycle.md) to decide whether a frame belongs
 in the index, remains in draft, or should be deprecated.
 Use [composition-and-conflict.md](composition-and-conflict.md) when more than
 one frame seems useful for the same situation.
+Use [evidence-boundary-schema.md](evidence-boundary-schema.md) when adding or
+reviewing evidence-boundary fields in docs or `frames-core`.
 
 ## Audience Levels
 

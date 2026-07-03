@@ -24,7 +24,7 @@ frame index rather than a growing metaphor list.
 | Audience transfer | Familiarity differs by role, region, culture, expertise, and mobility. | `audience-transfer.md` |
 | Frame lifecycle | Frames should move from candidate to accepted, revised, deprecated, or rejected. | `frame-lifecycle.md` |
 | Composition | Some situations need two frames; some frames conflict. | `composition-and-conflict.md` |
-| Evidence schema | `frames-core` currently stores failure mode but not evidence boundary. | crate schema extension |
+| Evidence schema | `frames-core` stores the evidence boundary that keeps frames from replacing proof. | `evidence-boundary-schema.md` |
 | Source-domain taxonomy | Everyday domains need controlled names and risks. | source-domain map |
 | Application packs | Product, operations, leadership, learning, and AI-agent packs need different defaults. | pack templates |
 | Research grounding | Public claims about cognition, metaphor, or pedagogy need citations. | research notes |
@@ -34,10 +34,9 @@ frame index rather than a growing metaphor list.
 1. Fit scoring.
 2. Audience transfer.
 3. Frame lifecycle.
-4. Evidence-boundary schema.
-5. Source-domain taxonomy.
-6. Application-pack templates.
-7. Research grounding for public claims.
+4. Source-domain taxonomy.
+5. Application-pack templates.
+6. Research grounding for public claims.
 
 ## Role Guidance
 

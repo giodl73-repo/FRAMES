@@ -20,6 +20,7 @@ Repo or feature: `frames-core`
 | REQ-010 | inspection | inspect `docs/theory/audience-transfer.md` | Audience transfer dimensions, bands, tests, alternates, and future fields are present. | pass | EVID-014 |
 | REQ-011 | inspection | inspect `docs/theory/frame-lifecycle.md` | Lifecycle states, criteria, triggers, status fields, indexing rules, and deprecation rules are present. | pass | EVID-015 |
 | REQ-012 | inspection | inspect `docs/theory/composition-and-conflict.md` | Composition rules, conflict types, sequencing, conflict resolution, and index implications are present. | pass | EVID-016 |
+| REQ-013 | unit test / inspection | `cargo test`; inspect `FrameEntry` and starter catalog | Evidence boundary is required and populated for indexed entries. | pass | EVID-017 / EVID-018 |
 
 ## Commands
 
@@ -50,6 +51,8 @@ git diff --check
 | EVID-014 | inspection | `docs/theory/audience-transfer.md` | REQ-010, SPEC-009, VAL-007 | pass |
 | EVID-015 | inspection | `docs/theory/frame-lifecycle.md` | REQ-011, SPEC-010, VAL-008 | pass |
 | EVID-016 | inspection | `docs/theory/composition-and-conflict.md` | REQ-012, SPEC-011, VAL-009 | pass |
+| EVID-017 | command output | `cargo test` | REQ-013, SPEC-012, IF-015 | pass |
+| EVID-018 | inspection | `src/lib.rs`, `examples/lookup.rs`, `docs/theory/evidence-boundary-schema.md` | REQ-013, VAL-010 | pass |
 
 ## Gaps
 

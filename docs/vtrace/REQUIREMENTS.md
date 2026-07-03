@@ -20,6 +20,7 @@ Repo or feature: `frames-core`
 | REQ-010 | The repo shall define audience transfer guidance for role, expertise, region, culture, mobility, stakes, and power differences. | NEED-001 / CON-003 | Frames can fail when source familiarity or authority assumptions do not transfer. | must | FRAMES | inspection | accepted |
 | REQ-011 | The repo shall define lifecycle states and indexing rules for candidate, draft, accepted, revised, held, deprecated, and rejected frames. | NEED-001 / CON-003 | The catalog needs controlled status transitions before broader growth. | must | FRAMES | inspection | accepted |
 | REQ-012 | The repo shall define composition and conflict guidance for using multiple frames in one situation. | NEED-001 / CON-003 | Related frames can clarify or contradict each other; selection needs rules. | must | FRAMES | inspection | accepted |
+| REQ-013 | Indexed frame entries shall preserve an evidence boundary distinct from failure mode. | NEED-001 / CON-001 / CON-003 | AI/tool callers need to know what must still be checked after a frame is suggested. | must | FRAMES | unit test / inspection | accepted |
 
 ## Requirement Quality Checklist
 

@@ -1,7 +1,8 @@
 //! A small frame index for finding useful analogies.
 //!
 //! FRAMES treats analogies as structured entries: a familiar source situation,
-//! target situations where it helps, action cues, and warnings for misuse.
+//! target situations where it helps, action cues, evidence boundaries, and
+//! warnings for misuse.
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum FrameKind {
@@ -20,6 +21,7 @@ pub struct FrameEntry {
     pub target_situations: &'static [&'static str],
     pub tags: &'static [&'static str],
     pub action_cue: &'static str,
+    pub evidence_boundary: &'static str,
     pub failure_mode: &'static str,
     pub related: &'static [&'static str],
 }
@@ -210,6 +212,7 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         target_situations: &["progress readiness", "release health", "operational status"],
         tags: &["status", "readiness", "progress", "gate"],
         action_cue: "Stop, watch, or proceed.",
+        evidence_boundary: "Check which threshold changed and what would move the status.",
         failure_mode: "Hides why status changed unless paired with evidence.",
         related: &["dashboard-warning-light", "fuel-gauge", "speed-limit"],
     },
@@ -224,6 +227,7 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         ],
         tags: &["coordination", "priority", "turn-order", "handoff"],
         action_cue: "Pause, read priority, signal intent, then proceed visibly.",
+        evidence_boundary: "Check whether parties are peers or one owner has authority.",
         failure_mode: "Breaks when authority, urgency, or safety rules are not equal.",
         related: &["merge-lane", "crosswalk-yield"],
     },
@@ -235,6 +239,7 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         target_situations: &["protecting vulnerable users", "downstream review capacity"],
         tags: &["coordination", "safety", "vulnerability", "priority"],
         action_cue: "The stronger actor absorbs delay before optimizing throughput.",
+        evidence_boundary: "Name the protected value and who has the duty to slow down.",
         failure_mode: "Can be patronizing if a person or team is labeled as weak.",
         related: &["four-way-stop", "merge-lane"],
     },
@@ -249,6 +254,7 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         ],
         tags: &["coordination", "integration", "timing", "handoff"],
         action_cue: "Match speed, signal intent, find a gap, and join predictably.",
+        evidence_boundary: "Check whether timing is enough or explicit approval is required.",
         failure_mode: "Can understate the need for explicit approval gates.",
         related: &["four-way-stop", "crosswalk-yield", "following-distance"],
     },
@@ -260,6 +266,8 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         target_situations: &["changed plan", "blocked path with stable destination"],
         tags: &["momentum", "planning", "route", "adaptation"],
         action_cue: "Preserve the destination, change the route, and mark the cost.",
+        evidence_boundary:
+            "Verify the destination is still valid and the new route cost is acceptable.",
         failure_mode: "Can hide whether the destination is still valid.",
         related: &["downshift", "rest-stop", "shoulder-pull-off"],
     },
@@ -271,6 +279,7 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         target_situations: &["reducing scope under load", "regaining control"],
         tags: &["momentum", "scope", "control", "load"],
         action_cue: "Trade top speed for control and torque.",
+        evidence_boundary: "Check what load or constraint makes current speed unsafe.",
         failure_mode: "Can sound like failure unless framed as control.",
         related: &["detour", "rest-stop", "speed-limit"],
     },
@@ -282,6 +291,7 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         target_situations: &["planned recovery", "fatigue management"],
         tags: &["momentum", "recovery", "fatigue", "pace"],
         action_cue: "Pause deliberately before fatigue causes mistakes.",
+        evidence_boundary: "Check fatigue, error rate, and the planned restart condition.",
         failure_mode: "Can be mistaken for loss of commitment.",
         related: &["walking-pace", "downshift", "shoulder-pull-off"],
     },
@@ -293,6 +303,7 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         target_situations: &["team execution speed", "sustainable progress"],
         tags: &["momentum", "pace", "sustainability", "progress"],
         action_cue: "Choose a pace that can continue.",
+        evidence_boundary: "Check deadline pressure and whether the pace meets required outcomes.",
         failure_mode: "Can excuse low urgency if no deadline exists.",
         related: &["rest-stop", "downshift"],
     },
@@ -304,6 +315,7 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         target_situations: &["unknown dependency", "missing stakeholder visibility"],
         tags: &["risk", "visibility", "dependency", "stakeholder"],
         action_cue: "Check before changing lanes.",
+        evidence_boundary: "Identify the missing dependency, stakeholder, or signal.",
         failure_mode: "Can blame individuals for system visibility gaps.",
         related: &[
             "dashboard-warning-light",
@@ -319,6 +331,7 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         target_situations: &["emerging risk", "early warning signal"],
         tags: &["risk", "status", "warning", "diagnostic"],
         action_cue: "Inspect soon before failure becomes expensive.",
+        evidence_boundary: "Check the diagnostic signal, severity, owner, and next inspection.",
         failure_mode: "Overused warnings can become background noise.",
         related: &["red-yellow-green", "blind-spot"],
     },
@@ -330,6 +343,7 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         target_situations: &["resource burn", "runway", "capacity remaining"],
         tags: &["status", "resource", "capacity", "runway"],
         action_cue: "Refill, reduce consumption, or plan a stop.",
+        evidence_boundary: "Check which resource is scarce and whether other constraints matter.",
         failure_mode: "Can imply a single resource when many constraints matter.",
         related: &["red-yellow-green", "rest-stop"],
     },
@@ -341,6 +355,7 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         target_situations: &["execution pace under constraints", "maximum safe pace"],
         tags: &["status", "pace", "constraint", "safety"],
         action_cue: "Set an upper bound before speed becomes unsafe.",
+        evidence_boundary: "Check which constraint sets the maximum safe pace.",
         failure_mode: "Can be misused as a universal cap instead of a context rule.",
         related: &["downshift", "red-yellow-green", "following-distance"],
     },
@@ -352,6 +367,7 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         target_situations: &["temporary pause outside the main flow", "stabilization"],
         tags: &["momentum", "pause", "stabilize", "reentry"],
         action_cue: "Leave the lane, stabilize, and re-enter deliberately.",
+        evidence_boundary: "Check the stabilization task and re-entry condition.",
         failure_mode: "Can normalize stopping without a re-entry plan.",
         related: &["detour", "rest-stop", "merge-lane"],
     },
@@ -363,6 +379,7 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         target_situations: &["buffer between dependent work items", "reaction time"],
         tags: &["risk", "buffer", "dependency", "coupling"],
         action_cue: "Create enough space to react without collision.",
+        evidence_boundary: "Check coupling, reaction time, and the cost of extra buffer.",
         failure_mode: "Can be read as slack for its own sake if risk is not named.",
         related: &["blind-spot", "merge-lane", "speed-limit"],
     },
@@ -374,6 +391,7 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         target_situations: &["critical dependency", "structural constraint"],
         tags: &["risk", "dependency", "structure", "constraint"],
         action_cue: "Inspect before removing or changing.",
+        evidence_boundary: "Check which dependency is structural and what fails if it changes.",
         failure_mode: "Can make change feel impossible without analysis.",
         related: &["blind-spot", "dashboard-warning-light"],
     },
@@ -418,6 +436,15 @@ mod tests {
         assert!(index.get("shoulder-pull-off").is_some());
         assert!(index.get("following-distance").is_some());
         assert_eq!(index.by_kind(FrameKind::Status).len(), 3);
+    }
+
+    #[test]
+    fn indexed_entries_preserve_evidence_boundaries() {
+        let index = FrameIndex::new();
+
+        for entry in index.entries() {
+            assert!(!entry.evidence_boundary.is_empty(), "{}", entry.id);
+        }
     }
 
     #[test]

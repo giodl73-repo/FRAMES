@@ -17,6 +17,7 @@ Repo or feature: `frames-core`
 | VAL-007 | Methodology maintainer | Check whether a frame transfers to the intended audience. | Apply `audience-transfer.md`. | Guide identifies assumptions, alternates, authority checks, and transfer bands. | EVID-014 | pass |
 | VAL-008 | Methodology maintainer | Decide whether a frame should be indexed, held, deprecated, or rejected. | Apply `frame-lifecycle.md`. | Lifecycle state and indexing rule are clear. | EVID-015 | pass |
 | VAL-009 | Methodology maintainer | Decide whether two frames should be composed, sequenced, or kept separate. | Apply `composition-and-conflict.md`. | Primary/secondary/boundary roles and conflict resolution are clear. | EVID-016 | pass |
+| VAL-010 | AI tool builder | Display frame suggestion with action, evidence boundary, and warning. | Query `FrameIndex` and inspect `FrameEntry`. | Each returned frame carries `action_cue`, `evidence_boundary`, and `failure_mode`. | EVID-017 / EVID-018 | pass |
 
 ## Deferred Validation
 

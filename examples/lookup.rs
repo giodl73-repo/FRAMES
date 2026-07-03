@@ -11,6 +11,7 @@ fn main() {
             "{} [{}]: {}",
             candidate.entry.name, candidate.score, candidate.entry.action_cue
         );
+        println!("evidence: {}", candidate.entry.evidence_boundary);
         println!("warning: {}", candidate.entry.failure_mode);
     }
 }
