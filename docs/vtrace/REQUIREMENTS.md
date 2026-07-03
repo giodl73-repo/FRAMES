@@ -53,6 +53,7 @@ Repo or feature: `frames-core`
 | REQ-043 | The repo shall provide a locked EVT-001 execution packet and empty results ledger before collecting participant responses. | NEED-001 / CON-003 | Empirical trial execution needs stable prompts, condition assignment, scoring, and report shape before data collection to avoid post-hoc claim inflation. | must | FRAMES | inspection | accepted |
 | REQ-044 | The repo shall define a controlled frame ontology before further catalog growth or relation-aware metadata expansion. | NEED-001 / CON-001 / CON-003 | Tags, jobs, relation names, authority terms, and risk labels need controlled meanings so review, search, and future API fields do not drift. | must | FRAMES | inspection | accepted |
 | REQ-045 | Accepted starter catalog rows and evaluation fixture backlog shall apply controlled ontology authority and relation terms. | NEED-001 / CON-001 / CON-003 | The ontology must be visible in catalog and evaluation artifacts before it can guide review, fixture creation, or future relation-aware metadata. | must | FRAMES | inspection | accepted |
+| REQ-046 | The repo shall apply the accepted-catalog review process to the first promoted local candidate before catalog or index promotion. | NEED-001 / CON-003 | Promoted draft heuristics need recorded board findings, fit score, decision band, and revision items before they can become accepted catalog entries. | must | FRAMES | inspection | accepted |
 
 ## Requirement Quality Checklist
 

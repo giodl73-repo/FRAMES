@@ -64,7 +64,7 @@ growth gaps, implementation gaps, and deeper theory questions.
 ## Priority Order
 
 1. Collect EVT-001 participant responses and score the locked packet.
-2. Apply accepted-catalog review process to first promoted candidates.
+2. Close Veto Rule accepted-catalog revision items.
 
 ## Role Guidance
 

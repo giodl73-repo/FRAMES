@@ -58,6 +58,7 @@ Repo or feature: `frames-core`
 | EVID-048 | inspection | `docs/validation/evt-001-theme-swimlanes-runbook.md`, `docs/validation/evt-001-response-and-scoring-sheet.md`, `docs/validation/evt-001-theme-swimlanes-results.md` | EVT-001 execution packet and empty results ledger exist with locked scoring, condition assignment, no-response status, and no claim upgrade. | pass. | pass |
 | EVID-049 | inspection | `docs/theory/frame-ontology.md` | Frame ontology exists with controlled entity, job, relation, authority, risk, tag, term-admission, review, and design-consequence guidance. | pass. | pass |
 | EVID-050 | inspection | `docs/frame-catalog.md`, `docs/theory/evaluation-set-design.md`, `docs/theory/frame-ontology.md` | Accepted starter rows and evaluation fixture backlog apply controlled ontology authority, relation, and job terms. | pass. | pass |
+| EVID-051 | inspection | `docs/theory/accepted-catalog-review-veto-rule.md`, `docs/theory/accepted-catalog-review-process.md`, `docs/theory/local-import-promotion-review.md` | First promoted local candidate review exists; Veto Rule is recorded as revise with required revision items and no default search promotion. | pass. | pass |
 
 ## Evidence Rules
 

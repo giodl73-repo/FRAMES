@@ -155,11 +155,17 @@ The lanes must help say yes and no. The dedicated acceptance gate lives in
 Acceptance review process lives in
 [accepted-catalog-review-process.md](accepted-catalog-review-process.md).
 
+First applied accepted-catalog review:
+
+- [accepted-catalog-review-veto-rule.md](accepted-catalog-review-veto-rule.md)
+  keeps `Veto Rule` in revise status until fixtures and stop conditions are
+  added.
+
 ## Next Catalog Candidates
 
 Recommended order for future accepted-catalog review:
 
-1. Veto Rule.
+1. Close Veto Rule revision items.
 2. Board Session.
 3. Momentum State.
 4. Portability Index.

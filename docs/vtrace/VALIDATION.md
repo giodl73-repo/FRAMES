@@ -50,6 +50,7 @@ Repo or feature: `frames-core`
 | VAL-040 | Methodology maintainer or researcher | Prepare EVT-001 for participant collection without changing scoring after the fact. | Use the runbook, response sheet, and empty results ledger before collection. | Participant screen, condition assignment, scoring lock, report shape, and no-upgrade boundary are explicit. | EVID-048 | pass |
 | VAL-041 | Methodology maintainer or catalog reviewer | Add or review frame terms without letting tags and relation names drift. | Apply `frame-ontology.md` before adding catalog rows, tags, or future metadata fields. | Job, relation, authority, risk, tag family, fallback, and term-admission checks are explicit. | EVID-049 | pass |
 | VAL-042 | Methodology maintainer or catalog reviewer | Use ontology terms during catalog and fixture review. | Inspect accepted starter metadata and evaluation fixture backlog. | Authority, relation, and job terms are explicit and traceable to `frame-ontology.md`. | EVID-050 | pass |
+| VAL-043 | Methodology maintainer or catalog reviewer | Apply accepted-catalog review without prematurely promoting a local heuristic. | Inspect the Veto Rule review record before catalog/index changes. | Review inputs, role findings, fit score, revise decision, revision items, and non-index behavior are explicit. | EVID-051 | pass |
 
 ## Deferred Validation
 

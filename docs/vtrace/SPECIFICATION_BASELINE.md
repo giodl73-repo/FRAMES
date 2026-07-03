@@ -52,6 +52,7 @@ Repo or feature: `frames-core`
 | SPEC-042 | REQ-043 | validation / protocol | target | EVT-001 execution packet defines participant screen, condition assignment, collection procedure, locked scoring sheet, pass rule, empty results ledger, and no-claim-upgrade boundary. | inspection | VAL-040 | FRAMES | medium | accepted |
 | SPEC-043 | REQ-044 | theory / ontology | target | Frame ontology defines ontology rule, entity types, controlled frame jobs, relation terms, authority vocabulary, risk vocabulary, tag rules, term admission criteria, starter ontology decisions, review checklist, and design consequences. | inspection | VAL-041 | FRAMES | medium | accepted |
 | SPEC-044 | REQ-045 | catalog / evaluation | target | Accepted starter metadata rows expose controlled `authority_term` and `relation_term`; evaluation fixture shape and starter backlog include controlled `frame_job`, `relation_term`, and `authority_term` values. | inspection | VAL-042 | FRAMES | medium | accepted |
+| SPEC-045 | REQ-046 | review / governance | target | Veto Rule accepted-catalog review records candidate state, frame shape, examples, fit score, role findings, revise decision, required revision items, candidate metadata, and non-index behavior. | inspection | VAL-043 | FRAMES | medium | accepted |
 
 ## Contract Table
 
@@ -99,3 +100,4 @@ Repo or feature: `frames-core`
 | IF-045 | SPEC-042 | EVT-001 execution packet | Prompts, condition assignment, scoring rubric, and report fields should remain locked once participant collection begins. | Changing EVT-001 prompts, assignment, scoring, or report fields after response collection starts. | EVID-048 |
 | IF-046 | SPEC-043 | Frame ontology terms | Controlled job, relation, authority, risk, and tag-family terms should remain stable enough for catalog rows, evaluation fixtures, and future API promotion. | Adding/removing controlled ontology terms or changing term admission rules without roadmap and VTRACE update. | EVID-049 |
 | IF-047 | SPEC-044 | Catalog ontology columns | Catalog `authority_term` and `relation_term` values and fixture ontology fields should stay aligned with `frame-ontology.md`. | Adding ad hoc catalog authority/relation terms or fixture ontology values not defined in `frame-ontology.md`. | EVID-050 |
+| IF-048 | SPEC-045 | Accepted-catalog review record | Review records should distinguish revise/hold/accept decisions from catalog and Rust index promotion. | Treating a revise decision as accepted catalog or default search without a new review and VTRACE update. | EVID-051 |

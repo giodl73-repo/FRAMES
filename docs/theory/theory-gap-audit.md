@@ -33,7 +33,7 @@ These gaps can cause wrong recommendations or premature catalog acceptance.
 
 | Gap | Risk | First Artifact |
 |---|---|---|
-| Accepted-catalog review application | Promoted draft heuristics need the accepted-catalog gate applied before default search. | `accepted-catalog-review-process.md` |
+| Accepted-catalog revision closure | Veto Rule review found revision items before accepted catalog promotion. | `accepted-catalog-review-veto-rule.md` |
 | Anti-pattern taxonomy application | Bad-frame classes now need to be applied to accepted-catalog reviews, evaluation sets, and rejected-candidate reporting. | `frame-antipattern-taxonomy.md` |
 | Acceptance review board operation | Promoted draft heuristics need named board decisions and recorded dissent before default search. | `accepted-catalog-review-process.md` |
 | Evaluation-set application | Fixtures now need to be populated and used as gates before semantic search or draft-frame inclusion. | `evaluation-set-design.md` |
@@ -79,7 +79,7 @@ methodology rather than a useful catalog.
 ## Recommended Sequence
 
 1. Collect EVT-001 participant responses and score the locked packet without upgrading claim strength prematurely.
-2. Apply the accepted-catalog review process to first promoted candidates.
+2. Close Veto Rule accepted-catalog revision items.
 3. Apply frame anti-pattern taxonomy to first promoted candidates and evaluation fixtures.
 4. Apply related-frame relation taxonomy to catalog examples and evaluation fixtures.
 5. Populate first evaluation fixtures for traffic, anti-pattern, relation, theme-swimlane, and audience-transfer cases.

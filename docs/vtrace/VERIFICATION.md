@@ -53,6 +53,7 @@ Repo or feature: `frames-core`
 | REQ-043 | inspection | inspect `docs/validation/evt-001-theme-swimlanes-runbook.md`, `docs/validation/evt-001-response-and-scoring-sheet.md`, and `docs/validation/evt-001-theme-swimlanes-results.md` | EVT-001 has a locked execution packet, response/scoring sheet, and empty results ledger before collection. | pass | EVID-048 |
 | REQ-044 | inspection | inspect `docs/theory/frame-ontology.md` | Ontology rule, entity types, controlled terms, tag rules, term admission, review checklist, and design consequences are present. | pass | EVID-049 |
 | REQ-045 | inspection | inspect `docs/frame-catalog.md`, `docs/theory/evaluation-set-design.md`, and `docs/theory/frame-ontology.md` | Accepted starter rows and fixture backlog use controlled ontology terms. | pass | EVID-050 |
+| REQ-046 | inspection | inspect `docs/theory/accepted-catalog-review-veto-rule.md` and linked review/promotion docs | Veto Rule accepted-catalog review records revise decision, role findings, fit score, revision items, metadata candidate, and non-index behavior. | pass | EVID-051 |
 
 ## Commands
 
@@ -118,6 +119,7 @@ git diff --check
 | EVID-048 | inspection | `docs/validation/evt-001-theme-swimlanes-runbook.md`, `docs/validation/evt-001-response-and-scoring-sheet.md`, `docs/validation/evt-001-theme-swimlanes-results.md` | REQ-043, SPEC-042, IF-045, VAL-040 | pass |
 | EVID-049 | inspection | `docs/theory/frame-ontology.md` | REQ-044, SPEC-043, IF-046, VAL-041 | pass |
 | EVID-050 | inspection | `docs/frame-catalog.md`, `docs/theory/evaluation-set-design.md`, `docs/theory/frame-ontology.md` | REQ-045, SPEC-044, IF-047, VAL-042 | pass |
+| EVID-051 | inspection | `docs/theory/accepted-catalog-review-veto-rule.md`, `docs/theory/accepted-catalog-review-process.md`, `docs/theory/local-import-promotion-review.md` | REQ-046, SPEC-045, IF-048, VAL-043 | pass |
 
 ## Gaps
 

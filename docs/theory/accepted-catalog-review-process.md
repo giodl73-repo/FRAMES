@@ -148,6 +148,11 @@ Recommended first candidates remain:
 Theme Swimlanes additionally needs its dedicated role gates and pilot evidence
 before accepted catalog use.
 
+First applied review:
+
+- [accepted-catalog-review-veto-rule.md](accepted-catalog-review-veto-rule.md)
+  records `Veto Rule` as `revise`, not accepted catalog or default search.
+
 ## Design Consequences
 
 - Default Rust search should continue to include accepted starter entries only.

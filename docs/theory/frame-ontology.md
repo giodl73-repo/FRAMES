@@ -67,6 +67,7 @@ Use relation terms to describe why a frame fits structurally.
 | `stabilization_reentry` | Work leaves the main flow briefly to stabilize and return. | Shoulder / pull-off | Stop becomes abandonment. |
 | `buffer_spacing` | A gap protects dependent actors from reaction-time risk. | Following distance | Buffer becomes slack without named risk. |
 | `dependency_integrity` | A structural support should not be changed casually. | Load-bearing wall | All change is treated as dangerous. |
+| `required_gate` | One required condition can block progress despite other strengths. | Veto Rule | Preference, bias, or politics is mislabeled as requirement. |
 | `attention_limit` | Actors need to respect finite attention or visibility. | Blind spot | Responsibility is shifted away from the operator. |
 | `reserve_tracking` | Remaining capacity should guide timing and commitment. | Fuel gauge | Numeric display implies false precision. |
 | `perspective_repair` | New evidence changes an actor's interpretation of conflict or ownership. | Bag-of-chips story | Empathy erases accountability after harm is known. |

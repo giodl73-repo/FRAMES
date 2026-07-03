@@ -53,6 +53,7 @@ unless product requirements explicitly define them as user-facing behavior.
 | WP-039 | Add EVT-001 execution packet. | Theme Swimlanes empirical validation can collect responses against locked prompts, scoring, and report shape. | REQ-043 / SPEC-042 / IF-045 | `docs/validation/*`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-038 complete and EVT-001 protocol exists. | Runbook, response sheet, empty results ledger, docs, and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: collect and score participant responses | evidence / trace / review / status rows | complete |
 | WP-040 | Add frame ontology. | Catalog growth uses controlled jobs, relations, authority, risk, and tag families. | REQ-044 / SPEC-043 / IF-046 | `docs/theory/frame-ontology.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-039 complete and gap audit identifies ontology drift risk. | Ontology exists, roadmap/gap audit updated, docs and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: apply ontology terms to catalog rows and fixtures | evidence / trace / review / status rows | complete |
 | WP-041 | Apply ontology to catalog and fixtures. | Accepted starter rows and evaluation fixtures use controlled ontology terms. | REQ-045 / SPEC-044 / IF-047 | `docs/frame-catalog.md`, `docs/theory/evaluation-set-design.md`, `docs/theory/frame-ontology.md`, `docs/theory/*`, `docs/vtrace/*` | WP-040 complete and ontology terms defined. | Catalog and fixture backlog use controlled terms, roadmap/gap audit updated, docs and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: apply accepted-catalog review to promoted candidates | evidence / trace / review / status rows | complete |
+| WP-042 | Apply accepted-catalog review to Veto Rule. | The first promoted local candidate has a recorded review decision before catalog/index promotion. | REQ-046 / SPEC-045 / IF-048 | `docs/theory/accepted-catalog-review-veto-rule.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-041 complete and Veto Rule is promoted draft heuristic. | Veto Rule review records revise decision, revision items, and no default search promotion; docs and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: add fixtures and stop condition before catalog acceptance | evidence / trace / review / status rows | complete |
 
 ## Work Package Details
 
@@ -1572,3 +1573,42 @@ V closure:
 | Implementation | `docs/frame-catalog.md`, `docs/theory/evaluation-set-design.md` | closed | Authority, relation, and job terms applied. |
 | Verification | EVID-050 | closed | Inspection covers catalog and fixture ontology usage. |
 | Validation | VAL-042 | closed | Reviewers can use ontology terms in catalog and fixture review. |
+
+### WP-042: Apply accepted-catalog review to Veto Rule
+
+Objective: record the first accepted-catalog review decision for a promoted
+local heuristic without promoting it into default search.
+
+Parent IDs: REQ-046, SPEC-045, IF-048.
+
+Affected files/modules:
+
+- `docs/theory/accepted-catalog-review-veto-rule.md`
+- `docs/theory/accepted-catalog-review-process.md`
+- `docs/theory/local-import-promotion-review.md`
+- `docs/theory/frame-ontology.md`
+- `docs/theory/theory-gap-audit.md`
+- `docs/theory/theory-roadmap.md`
+- `README.md`
+- `docs/vtrace/*`
+
+Verification commands:
+
+```powershell
+cargo fmt --check
+cargo test
+cargo run --example lookup
+cargo run --example ai_response_contract
+git diff --check
+cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .
+```
+
+V closure:
+
+| V Area | IDs / Evidence | Status | Notes |
+|---|---|---|---|
+| Requirements | REQ-046 | closed | First promoted local candidate review required. |
+| Specification / Interface | SPEC-045, IF-048 | closed | Review decision is distinct from catalog/index promotion. |
+| Implementation | `docs/theory/accepted-catalog-review-veto-rule.md` | closed | Fit score, role findings, revise decision, and revision items recorded. |
+| Verification | EVID-051 | closed | Inspection covers Veto Rule review record. |
+| Validation | VAL-043 | closed | Maintainers can continue from revision items before acceptance. |
