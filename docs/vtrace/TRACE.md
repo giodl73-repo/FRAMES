@@ -27,12 +27,13 @@
 | REQ-023 | NEED-001 | CON-003 | Define structured CAREER Gravity imports. | SPEC-022 | DES-005 | n/a | WP-019 | `docs/theory/career-gravity-frame-imports.md`, `docs/theory/career-gravity-import-map.md`, `docs/theory/claim-strength-labels.md`, `docs/theory/relational-transfer-fields.md` | VER-021 inspection | VAL-020 | EVID-028 | validated |
 | REQ-024 | NEED-001 | CON-003 | Define theme-swimlane extraction. | SPEC-023 | DES-005 | n/a | WP-020 | `docs/theory/theme-swimlane-extraction.md`, `docs/theory/claim-strength-labels.md`, `docs/theory/role-reviewed-domain-examples.md`, `docs/theory/frame-theory.md` | VER-022 inspection | VAL-021 | EVID-029 | validated |
 | REQ-025 | NEED-001 | CON-003 | Define empirical validation plan. | SPEC-024 | DES-005 | n/a | WP-021 | `docs/theory/empirical-validation-plan.md`, `docs/theory/claim-strength-labels.md`, `docs/theory/research-grounding.md`, `docs/theory/frame-theory.md` | VER-023 inspection | VAL-022 | EVID-030 | validated |
+| REQ-026 | NEED-001 | CON-001 / CON-003 | Define catalog metadata migration plan. | SPEC-025 | DES-005 | n/a | WP-022 | `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/frame-theory.md`, `docs/theory/theory-roadmap.md`, `src/lib.rs` | VER-024 inspection | VAL-023 | EVID-031 | validated |
 
 ## ID Legend
 
 - NEED-001: mission need in `MISSION.md`.
 - CON-001..CON-003: operating scenarios in `CONOPS.md`.
-- SPEC-001..SPEC-024: specification baseline.
+- SPEC-001..SPEC-025: specification baseline.
 - DES-001..DES-005: design elements.
 - CR-001..CR-006: code-rigor constraints.
 - WP-001: frame index crate work package.
@@ -56,4 +57,5 @@
 - WP-019: structured CAREER Gravity imports work package.
 - WP-020: theme-swimlane extraction work package.
 - WP-021: empirical validation plan work package.
+- WP-022: catalog metadata migration plan work package.
 - EVID-* evidence: `EVIDENCE.md` and `VERIFICATION.md`.

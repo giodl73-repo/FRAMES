@@ -38,6 +38,7 @@ Repo or feature: `frames-core`
 | EVID-028 | inspection | `docs/theory/career-gravity-frame-imports.md`, `docs/theory/career-gravity-import-map.md` | Structured CAREER Gravity imports exist for high-value local patterns. | pass. | pass |
 | EVID-029 | inspection | `docs/theory/theme-swimlane-extraction.md` | Theme-swimlane extraction exists for local program theme patterns. | pass. | pass |
 | EVID-030 | inspection | `docs/theory/empirical-validation-plan.md` | Empirical validation plan exists with study levels, measures, templates, and hard stops. | pass. | pass |
+| EVID-031 | inspection | `docs/theory/catalog-metadata-migration-plan.md`, `src/lib.rs` | Catalog metadata migration plan exists and reflects the current indexed shape. | pass. | pass |
 
 ## Evidence Rules
 

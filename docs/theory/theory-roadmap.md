@@ -41,15 +41,16 @@ frame index rather than a growing metaphor list.
 | Research grounding | Public claims about cognition, metaphor, or pedagogy need citations and claim-strength limits. | `research-grounding.md` |
 | Theme swimlanes | Local program patterns such as `Run One`, `Run Lean`, `Run Fast`, `Run Safe`, and three-lane promises need structured extraction. | `theme-swimlane-extraction.md` |
 | Empirical validation | Claim upgrades need task-specific tests with comparison conditions and narrow scope. | `empirical-validation-plan.md` |
+| Catalog metadata migration | Theory fields need a staged path into catalog rows and `frames-core` without premature API churn. | `catalog-metadata-migration-plan.md` |
 
 ## Priority Order
 
-1. Catalog metadata migration plan.
-2. AI response contract for frame suggestions.
-3. First metadata-backed catalog migration.
-4. Role-reviewed promotion of local imports.
-5. Theme-swimlane role review.
-6. First empirical validation trial.
+1. AI response contract for frame suggestions.
+2. First metadata-backed catalog migration.
+3. Role-reviewed promotion of local imports.
+4. Theme-swimlane role review.
+5. First empirical validation trial.
+6. Transfer-aware search design.
 
 ## Role Guidance
 

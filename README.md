@@ -72,6 +72,7 @@ The local CAREER Gravity import map lives in [docs/theory/career-gravity-import-
 Structured CAREER Gravity frame imports live in [docs/theory/career-gravity-frame-imports.md](docs/theory/career-gravity-frame-imports.md).
 Theme swimlane extraction lives in [docs/theory/theme-swimlane-extraction.md](docs/theory/theme-swimlane-extraction.md).
 Empirical validation planning lives in [docs/theory/empirical-validation-plan.md](docs/theory/empirical-validation-plan.md).
+Catalog metadata migration planning lives in [docs/theory/catalog-metadata-migration-plan.md](docs/theory/catalog-metadata-migration-plan.md).
 External frame-practitioner benchmarks live in [docs/theory/external-frame-practitioners.md](docs/theory/external-frame-practitioners.md).
 Project review roles live in [.roles/ROLE.md](.roles/ROLE.md).
 

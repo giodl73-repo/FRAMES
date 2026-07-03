@@ -33,6 +33,7 @@ Repo or feature: `frames-core`
 | REQ-023 | inspection | inspect `docs/theory/career-gravity-frame-imports.md` and `docs/theory/career-gravity-import-map.md` | Import status, draft entries, evidence boundaries, transfer exclusions, failure modes, and promotion criteria are present. | pass | EVID-028 |
 | REQ-024 | inspection | inspect `docs/theory/theme-swimlane-extraction.md` | Pattern shape, local variants, extraction procedure, fit checks, promotion criteria, and design consequences are present. | pass | EVID-029 |
 | REQ-025 | inspection | inspect `docs/theory/empirical-validation-plan.md` | Validation boundary, study levels, measures, protocol, templates, backlog, reporting shape, hard stops, and design consequences are present. | pass | EVID-030 |
+| REQ-026 | inspection | inspect `docs/theory/catalog-metadata-migration-plan.md` and `src/lib.rs` | Current indexed shape, metadata families, migration stages, promotion rules, initial backlog, starter target, and compatibility rules are present. | pass | EVID-031 |
 
 ## Commands
 
@@ -77,6 +78,7 @@ git diff --check
 | EVID-028 | inspection | `docs/theory/career-gravity-frame-imports.md`, `docs/theory/career-gravity-import-map.md` | REQ-023, SPEC-022, IF-025, VAL-020 | pass |
 | EVID-029 | inspection | `docs/theory/theme-swimlane-extraction.md` | REQ-024, SPEC-023, IF-026, VAL-021 | pass |
 | EVID-030 | inspection | `docs/theory/empirical-validation-plan.md` | REQ-025, SPEC-024, IF-027, VAL-022 | pass |
+| EVID-031 | inspection | `docs/theory/catalog-metadata-migration-plan.md`, `src/lib.rs` | REQ-026, SPEC-025, IF-028, VAL-023 | pass |
 
 ## Gaps
 
