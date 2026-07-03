@@ -32,6 +32,7 @@ unless product requirements explicitly define them as user-facing behavior.
 | WP-018 | Add structured RESONANCE MANAGE imports. | High-value local management patterns are converted into FRAMES-native draft entries. | REQ-022 / SPEC-021 / IF-024 | `docs/theory/resonance-manage-frame-imports.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-017 complete and import map exists. | Structured imports exist, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: role review before catalog acceptance | evidence / trace / review / status rows | complete |
 | WP-019 | Add structured CAREER Gravity imports. | High-value local career/gravity patterns are converted into FRAMES-native draft entries. | REQ-023 / SPEC-022 / IF-025 | `docs/theory/career-gravity-frame-imports.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-018 complete and import map exists. | Structured imports exist, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: role review before catalog acceptance | evidence / trace / review / status rows | complete |
 | WP-020 | Add theme-swimlane extraction. | Local program theme patterns are converted into promise, lane, owner, measure, tradeoff, and exclusion fields. | REQ-024 / SPEC-023 / IF-026 | `docs/theory/theme-swimlane-extraction.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-019 complete and local theme pattern identified. | Theme-swimlane extraction exists, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: business-leader and evidence-boundary review before heuristic promotion | evidence / trace / review / status rows | complete |
+| WP-021 | Add empirical validation plan. | Frame claim upgrades are supported by narrow audience, context, task, comparison, measure, result, and boundary records. | REQ-025 / SPEC-024 / IF-027 | `docs/theory/empirical-validation-plan.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-020 complete and claim-strength labels exist. | Empirical validation plan exists, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: research review before any public validated claim | evidence / trace / review / status rows | complete |
 
 ## Work Package Details
 
@@ -774,3 +775,40 @@ V closure:
 | Implementation | `docs/theory/theme-swimlane-extraction.md` | closed | Pattern shape, local variants, extraction procedure, and fit checks added. |
 | Verification | EVID-029 | closed | Inspection covers extraction guide. |
 | Validation | VAL-021 | closed | Guide supports business-leader theme extraction without overclaiming. |
+
+### WP-021: Add empirical validation plan
+
+Objective: define how FRAMES can test frame effects without making broad
+persuasion or universality claims.
+
+Parent IDs: REQ-025, SPEC-024, IF-027.
+
+Affected files/modules:
+
+- `docs/theory/empirical-validation-plan.md`
+- `docs/theory/claim-strength-labels.md`
+- `docs/theory/research-grounding.md`
+- `docs/theory/frame-theory.md`
+- `docs/theory/theory-roadmap.md`
+- `README.md`
+- `docs/vtrace/*`
+
+Verification commands:
+
+```powershell
+cargo fmt --check
+cargo test
+cargo run --example lookup
+git diff --check
+cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .
+```
+
+V closure:
+
+| V Area | IDs / Evidence | Status | Notes |
+|---|---|---|---|
+| Requirements | REQ-025 | closed | Empirical validation guidance required. |
+| Specification / Interface | SPEC-024, IF-027 | closed | Study levels, measures, report fields, and hard stops defined. |
+| Implementation | `docs/theory/empirical-validation-plan.md` | closed | Validation boundary, protocol, templates, and backlog added. |
+| Verification | EVID-030 | closed | Inspection covers validation plan. |
+| Validation | VAL-022 | closed | Guide supports bounded claim-strength upgrades. |

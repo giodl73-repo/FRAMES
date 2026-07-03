@@ -41,6 +41,8 @@ FRAMES should not claim without direct validation:
 Use [claim-strength-labels.md](claim-strength-labels.md) before publishing any
 claim about a frame's effect, evidence status, practitioner precedent, or
 research support.
+Use [empirical-validation-plan.md](empirical-validation-plan.md) before calling
+any frame empirically validated for a specific audience or task.
 
 ## Design Rules From Research
 
@@ -118,6 +120,8 @@ Catalog review should ask:
 The first taxonomy artifact is [source-domain-taxonomy.md](source-domain-taxonomy.md).
 Claim-strength labeling is defined in
 [claim-strength-labels.md](claim-strength-labels.md).
+Empirical validation planning is defined in
+[empirical-validation-plan.md](empirical-validation-plan.md).
 
 ## Starter Bibliography
 

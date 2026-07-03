@@ -40,15 +40,16 @@ frame index rather than a growing metaphor list.
 | External practitioners | Successful public frame/story writers should be benchmarked for reusable design lessons. | `external-frame-practitioners.md` |
 | Research grounding | Public claims about cognition, metaphor, or pedagogy need citations and claim-strength limits. | `research-grounding.md` |
 | Theme swimlanes | Local program patterns such as `Run One`, `Run Lean`, `Run Fast`, `Run Safe`, and three-lane promises need structured extraction. | `theme-swimlane-extraction.md` |
+| Empirical validation | Claim upgrades need task-specific tests with comparison conditions and narrow scope. | `empirical-validation-plan.md` |
 
 ## Priority Order
 
-1. Empirical validation plan.
-2. Catalog metadata migration plan.
-3. AI response contract for frame suggestions.
-4. First metadata-backed catalog migration.
-5. Role-reviewed promotion of local imports.
-6. Theme-swimlane role review.
+1. Catalog metadata migration plan.
+2. AI response contract for frame suggestions.
+3. First metadata-backed catalog migration.
+4. Role-reviewed promotion of local imports.
+5. Theme-swimlane role review.
+6. First empirical validation trial.
 
 ## Role Guidance
 

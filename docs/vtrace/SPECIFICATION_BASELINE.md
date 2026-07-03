@@ -31,6 +31,7 @@ Repo or feature: `frames-core`
 | SPEC-021 | REQ-022 | theory / docs | target | RESONANCE MANAGE frame imports define import status, draft entries, action cues, evidence boundaries, transfer exclusions, failure modes, application packs, and promotion criteria. | inspection | VAL-019 | FRAMES | medium | accepted |
 | SPEC-022 | REQ-023 | theory / docs | target | CAREER Gravity frame imports define import status, draft entries, action cues, evidence boundaries, transfer exclusions, failure modes, application packs, and promotion criteria. | inspection | VAL-020 | FRAMES | medium | accepted |
 | SPEC-023 | REQ-024 | theory / docs | target | Theme-swimlane extraction defines pattern shape, draft frame, local variants, extraction procedure, fit checks, promotion criteria, and design consequences. | inspection | VAL-021 | FRAMES | medium | accepted |
+| SPEC-024 | REQ-025 | theory / docs | target | Empirical validation plan defines validation boundary, study levels, measurement targets, minimal protocol, test templates, candidate backlog, reporting shape, hard stops, and design consequences. | inspection | VAL-022 | FRAMES | medium | accepted |
 
 ## Contract Table
 
@@ -57,3 +58,4 @@ Repo or feature: `frames-core`
 | IF-024 | SPEC-021 | Local import draft shape | Import-status, draft-entry, and promotion-criteria fields should remain stable enough for local source imports. | Adding/removing import draft fields or promotion criteria fields. | EVID-027 |
 | IF-025 | SPEC-022 | CAREER import draft shape | Import-status, draft-entry, and promotion-criteria fields should remain stable enough for career-derived local source imports. | Adding/removing import draft fields or promotion criteria fields for CAREER imports. | EVID-028 |
 | IF-026 | SPEC-023 | Theme-swimlane extraction shape | Promise, lane, owner, measure, tradeoff, and exclusion fields should remain stable enough for leadership templates. | Adding/removing theme-swimlane extraction fields or fit checks. | EVID-029 |
+| IF-027 | SPEC-024 | Empirical validation terms | Study levels, measurement targets, reporting fields, and validation-scope terms should remain stable enough for claim-strength upgrades. | Adding/removing study levels, required reporting fields, or upgrade gates. | EVID-030 |

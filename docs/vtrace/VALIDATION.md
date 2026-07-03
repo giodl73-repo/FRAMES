@@ -29,6 +29,7 @@ Repo or feature: `frames-core`
 | VAL-019 | Methodology maintainer | Import local management patterns without overclaiming them. | Apply RESONANCE MANAGE structured imports before catalog expansion. | Each imported candidate has provenance, claim strength, transfer boundary, evidence boundary, failure mode, draft status, and promotion criteria. | EVID-027 | pass |
 | VAL-020 | Methodology maintainer | Import local career/gravity patterns without overclaiming them. | Apply CAREER Gravity structured imports before catalog expansion. | Each imported candidate has provenance, claim strength, transfer boundary, evidence boundary, failure mode, draft status, and promotion criteria. | EVID-028 | pass |
 | VAL-021 | Methodology maintainer or business leader | Extract a local theme-swimlane pattern without turning it into a slogan. | Apply `theme-swimlane-extraction.md` to a program promise. | Promise, lanes, owners, measures, tradeoffs, exclusions, evidence boundaries, and misuse risks are visible. | EVID-029 | pass |
+| VAL-022 | Methodology maintainer or researcher | Decide whether a frame claim can be upgraded to empirically validated. | Apply `empirical-validation-plan.md` before changing claim strength. | Audience, context, task, comparison, measure, result, boundary, and adverse effects are visible. | EVID-030 | pass |
 
 ## Deferred Validation
 

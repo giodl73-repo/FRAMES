@@ -64,6 +64,9 @@ about metaphor, analogy, cognition, persuasion, or human decision behavior.
 Use [claim-strength-labels.md](claim-strength-labels.md) when deciding whether a
 frame claim is illustrative, heuristic, theory-informed, practitioner-observed,
 locally observed, role-reviewed, empirically validated, or an anti-pattern.
+Use [empirical-validation-plan.md](empirical-validation-plan.md) when testing
+whether a frame actually improves comprehension, action selection, evidence
+recall, or misuse detection for a defined audience.
 Use [source-domain-taxonomy.md](source-domain-taxonomy.md) when choosing source
 families, authority models, temporal shapes, and risk bands.
 Use [relational-transfer-fields.md](relational-transfer-fields.md) when
@@ -162,3 +165,5 @@ The Rust index should stay close to this theory:
   high-stakes, asymmetric, or authority-sensitive situation.
 - Story-job metadata should distinguish narrative purpose from analogy source
   and frame kind.
+- Empirical validation metadata should preserve audience, context, task,
+  comparison, result, and boundary before any claim is upgraded.

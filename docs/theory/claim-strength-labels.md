@@ -48,7 +48,7 @@ does not upgrade itself.
 | `heuristic` | `theory_informed` | Research grounding cites a relevant theory and bounds the transfer. |
 | `practitioner_observed` | `heuristic` | FRAMES translates the practitioner pattern into action cue, evidence boundary, and misuse warning. |
 | `locally_observed` | `heuristic` | Local source extraction is reviewed and generalized without overclaiming. |
-| `role_reviewed` | `empirically_validated` | A validation protocol observes the intended effect in a defined audience/context. |
+| `role_reviewed` | `empirically_validated` | A validation protocol from [empirical-validation-plan.md](empirical-validation-plan.md) observes the intended effect in a defined audience/context. |
 
 Labels can also be downgraded. If a frame spreads beyond its reviewed context,
 drop it to the weakest defensible label until the new use is reviewed.
@@ -130,6 +130,8 @@ Use claim-strength labels with:
   whether a claim is structure-based or only surface-similar.
 - [external-frame-practitioners.md](external-frame-practitioners.md) when
   importing public writer patterns.
+- [empirical-validation-plan.md](empirical-validation-plan.md) before upgrading
+  a claim to `empirically_validated`.
 - Local import maps when extracting patterns from RESONANCE, CAREER, or other
   portfolio sources.
 
