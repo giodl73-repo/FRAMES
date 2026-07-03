@@ -130,7 +130,8 @@ Role review:
 | Catalog Structure Reviewer | Promote as leadership/program draft heuristic. |
 
 Promotion note: do not accept every three-theme strategy as a swimlane frame.
-The lanes must help say yes and no.
+The lanes must help say yes and no. The dedicated acceptance gate lives in
+[theme-swimlane-role-review.md](theme-swimlane-role-review.md).
 
 ## Held Imports
 

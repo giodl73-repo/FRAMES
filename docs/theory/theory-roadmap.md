@@ -40,6 +40,7 @@ frame index rather than a growing metaphor list.
 | External practitioners | Successful public frame/story writers should be benchmarked for reusable design lessons. | `external-frame-practitioners.md` |
 | Research grounding | Public claims about cognition, metaphor, or pedagogy need citations and claim-strength limits. | `research-grounding.md` |
 | Theme swimlanes | Local program patterns such as `Run One`, `Run Lean`, `Run Fast`, `Run Safe`, and three-lane promises need structured extraction. | `theme-swimlane-extraction.md` |
+| Theme-swimlane role review | Promoted theme swimlanes need role gates before leadership-pack or catalog acceptance. | `theme-swimlane-role-review.md` |
 | Empirical validation | Claim upgrades need task-specific tests with comparison conditions and narrow scope. | `empirical-validation-plan.md` |
 | Catalog metadata migration | Theory fields need a staged path into catalog rows and `frames-core` without premature API churn. | `catalog-metadata-migration-plan.md` |
 | AI response contract | Tool callers need a safe output shape for suggestions, alternates, scores, warnings, and evidence boundaries. | `ai-response-contract.md` |
@@ -48,12 +49,12 @@ frame index rather than a growing metaphor list.
 
 ## Priority Order
 
-1. Theme-swimlane role review.
-2. First empirical validation trial.
-3. Transfer-aware search design.
-4. AI response contract examples in Rust.
-5. First Rust metadata migration.
-6. Accepted-catalog review for promoted imports.
+1. First empirical validation trial.
+2. Transfer-aware search design.
+3. AI response contract examples in Rust.
+4. First Rust metadata migration.
+5. Accepted-catalog review for promoted imports.
+6. Leadership-pack worksheet for theme swimlanes.
 
 ## Role Guidance
 

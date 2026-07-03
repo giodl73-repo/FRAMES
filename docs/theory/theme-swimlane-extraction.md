@@ -39,10 +39,12 @@ that the lanes clarify real tradeoffs, owners, measures, and customer outcomes.
 | Failure mode | Can become slogan grouping if lanes do not change sequencing, funding, measures, or customer outcomes. |
 | Transfer exclusions | A lane label does not prove priority, eliminate dependencies, or replace product strategy. |
 | Application pack | Leadership / product / operations. |
-| Draft status | Promoted draft heuristic; needs fit score before catalog acceptance. |
+| Draft status | Promoted draft heuristic; role-reviewed as revise-before-acceptance. |
 
 Promotion review lives in
-[local-import-promotion-review.md](local-import-promotion-review.md).
+[local-import-promotion-review.md](local-import-promotion-review.md). Dedicated
+role review lives in
+[theme-swimlane-role-review.md](theme-swimlane-role-review.md).
 
 ## Local Variants
 
@@ -105,3 +107,5 @@ Move from `locally_observed` to `heuristic` only when:
   `exclusion`.
 - AI-agent use should return lane fit plus a reason, not just assign a work item
   to the nearest-sounding theme.
+- Accepted-catalog use should wait until the role-review gates and output
+  template have been piloted on real program plans.

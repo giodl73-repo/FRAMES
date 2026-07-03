@@ -37,6 +37,7 @@ unless product requirements explicitly define them as user-facing behavior.
 | WP-023 | Add AI response contract. | AI/tool frame suggestions return bounded recommendations with action, evidence, warning, score semantics, claim strength, and alternates. | REQ-027 / SPEC-026 / IF-029 | `docs/theory/ai-response-contract.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-022 complete and application-pack defaults exist. | Response contract exists, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: API review before implementing contract structs | evidence / trace / review / status rows | complete |
 | WP-024 | Add metadata-backed accepted starter catalog. | Accepted starter frames expose docs-level metadata before Rust API migration. | REQ-028 / SPEC-027 / IF-030 | `docs/frame-catalog.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-023 complete and migration plan exists. | Accepted starter metadata table exists, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: catalog structure review before Rust field migration | evidence / trace / review / status rows | complete |
 | WP-025 | Add role-reviewed local import promotion. | Local imports have explicit promote/hold outcomes before catalog acceptance. | REQ-029 / SPEC-028 / IF-031 | `docs/theory/local-import-promotion-review.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-024 complete and local structured imports exist. | Promotion review exists, import statuses updated, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: fit scoring before accepted catalog promotion | evidence / trace / review / status rows | complete |
+| WP-026 | Add theme-swimlane role review. | Theme swimlanes have explicit role gates before leadership-pack or catalog acceptance. | REQ-030 / SPEC-029 / IF-032 | `docs/theory/theme-swimlane-role-review.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-025 complete and theme swimlanes promoted only as draft heuristic. | Role review exists, linked docs updated, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: pilot review before accepted catalog promotion | evidence / trace / review / status rows | complete |
 
 ## Work Package Details
 
@@ -958,3 +959,39 @@ V closure:
 | Implementation | `docs/theory/local-import-promotion-review.md` | closed | Six promoted draft heuristics and six held imports recorded. |
 | Verification | EVID-034 | closed | Inspection covers promotion review and updated import statuses. |
 | Validation | VAL-026 | closed | Guide prevents local drafts from silently becoming accepted catalog entries. |
+
+### WP-026: Add theme-swimlane role review
+
+Objective: review theme swimlanes through FRAMES role lenses before leadership
+pack or catalog acceptance.
+
+Parent IDs: REQ-030, SPEC-029, IF-032.
+
+Affected files/modules:
+
+- `docs/theory/theme-swimlane-role-review.md`
+- `docs/theory/theme-swimlane-extraction.md`
+- `docs/theory/local-import-promotion-review.md`
+- `docs/theory/theory-roadmap.md`
+- `README.md`
+- `docs/vtrace/*`
+
+Verification commands:
+
+```powershell
+cargo fmt --check
+cargo test
+cargo run --example lookup
+git diff --check
+cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .
+```
+
+V closure:
+
+| V Area | IDs / Evidence | Status | Notes |
+|---|---|---|---|
+| Requirements | REQ-030 | closed | Dedicated theme-swimlane role review required. |
+| Specification / Interface | SPEC-029, IF-032 | closed | Review gates and output-template fields defined. |
+| Implementation | `docs/theory/theme-swimlane-role-review.md` | closed | Acceptance decision, role findings, fit score, gates, hard stops, and template added. |
+| Verification | EVID-035 | closed | Inspection covers theme-swimlane role review. |
+| Validation | VAL-027 | closed | Guide supports pilot-use decisions before catalog acceptance. |

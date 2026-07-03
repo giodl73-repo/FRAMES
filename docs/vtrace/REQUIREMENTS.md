@@ -37,6 +37,7 @@ Repo or feature: `frames-core`
 | REQ-027 | The repo shall define an AI response contract for safe frame suggestions with action cues, evidence boundaries, warnings, fit rationale, claim strength, and alternates. | NEED-001 / CON-001 / CON-003 | AI/tool callers need bounded outputs that distinguish retrieval score, fit score, draft status, and evidence confidence. | must | FRAMES | inspection | accepted |
 | REQ-028 | The docs catalog shall include metadata-backed accepted starter entries with lifecycle status, claim strength, risk band, application packs, source family, authority model, transfer strength, and review notes. | NEED-001 / CON-001 / CON-003 | Accepted catalog entries need tool-relevant selection and safety metadata before Rust API migration. | must | FRAMES | inspection | accepted |
 | REQ-029 | The repo shall define role-reviewed promotion decisions for local imports before catalog acceptance. | NEED-001 / CON-003 | Local patterns need explicit promote/hold decisions so draft heuristics do not silently become accepted catalog entries. | must | FRAMES | inspection / role review | accepted |
+| REQ-030 | The repo shall define a dedicated role review for theme swimlanes before leadership-pack or catalog acceptance. | NEED-001 / CON-003 | Theme swimlanes can influence funding, sequencing, and staffing, so they need explicit role gates beyond promotion to draft heuristic. | must | FRAMES | inspection / role review | accepted |
 
 ## Requirement Quality Checklist
 

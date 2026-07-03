@@ -31,12 +31,13 @@
 | REQ-027 | NEED-001 | CON-001 / CON-003 | Define AI response contract. | SPEC-026 | DES-005 | n/a | WP-023 | `docs/theory/ai-response-contract.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/frame-theory.md`, `docs/theory/application-pack-templates.md` | VER-025 inspection | VAL-024 | EVID-032 | validated |
 | REQ-028 | NEED-001 | CON-001 / CON-003 | Add metadata-backed accepted starter catalog. | SPEC-027 | DES-005 | n/a | WP-024 | `docs/frame-catalog.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/theory-roadmap.md` | VER-026 inspection | VAL-025 | EVID-033 | validated |
 | REQ-029 | NEED-001 | CON-003 | Define role-reviewed local import promotion. | SPEC-028 | DES-005 | n/a | WP-025 | `docs/theory/local-import-promotion-review.md`, `docs/theory/resonance-manage-frame-imports.md`, `docs/theory/career-gravity-frame-imports.md`, `docs/theory/theme-swimlane-extraction.md` | VER-027 inspection / role review | VAL-026 | EVID-034 | validated |
+| REQ-030 | NEED-001 | CON-003 | Define dedicated theme-swimlane role review. | SPEC-029 | DES-005 | n/a | WP-026 | `docs/theory/theme-swimlane-role-review.md`, `docs/theory/theme-swimlane-extraction.md`, `docs/theory/local-import-promotion-review.md`, `docs/theory/theory-roadmap.md` | VER-028 inspection / role review | VAL-027 | EVID-035 | validated |
 
 ## ID Legend
 
 - NEED-001: mission need in `MISSION.md`.
 - CON-001..CON-003: operating scenarios in `CONOPS.md`.
-- SPEC-001..SPEC-028: specification baseline.
+- SPEC-001..SPEC-029: specification baseline.
 - DES-001..DES-005: design elements.
 - CR-001..CR-006: code-rigor constraints.
 - WP-001: frame index crate work package.
@@ -64,4 +65,5 @@
 - WP-023: AI response contract work package.
 - WP-024: metadata-backed accepted starter catalog work package.
 - WP-025: role-reviewed local import promotion work package.
+- WP-026: theme-swimlane role review work package.
 - EVID-* evidence: `EVIDENCE.md` and `VERIFICATION.md`.

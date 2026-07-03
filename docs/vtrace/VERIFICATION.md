@@ -37,6 +37,7 @@ Repo or feature: `frames-core`
 | REQ-027 | inspection | inspect `docs/theory/ai-response-contract.md` | Required inputs, output fields, JSON shape, selection rules, scoring interpretation, gating rules, language rules, and examples are present. | pass | EVID-032 |
 | REQ-028 | inspection | inspect `docs/frame-catalog.md` and `docs/theory/catalog-metadata-migration-plan.md` | Accepted starter metadata table includes stable metadata columns and excludes local draft imports. | pass | EVID-033 |
 | REQ-029 | inspection / role review | inspect `docs/theory/local-import-promotion-review.md` and local import docs | Promotion outcomes, promoted heuristics, held imports, promotion rules, and next catalog candidates are present. | pass | EVID-034 |
+| REQ-030 | inspection / role review | inspect `docs/theory/theme-swimlane-role-review.md` and linked theme-swimlane docs | Acceptance decision, role findings, fit score, evidence gates, hard stops, output template, and next actions are present. | pass | EVID-035 |
 
 ## Commands
 
@@ -85,6 +86,7 @@ git diff --check
 | EVID-032 | inspection | `docs/theory/ai-response-contract.md` | REQ-027, SPEC-026, IF-029, VAL-024 | pass |
 | EVID-033 | inspection | `docs/frame-catalog.md`, `docs/theory/catalog-metadata-migration-plan.md` | REQ-028, SPEC-027, IF-030, VAL-025 | pass |
 | EVID-034 | inspection / role review | `docs/theory/local-import-promotion-review.md` | REQ-029, SPEC-028, IF-031, VAL-026 | pass |
+| EVID-035 | inspection / role review | `docs/theory/theme-swimlane-role-review.md` | REQ-030, SPEC-029, IF-032, VAL-027 | pass |
 
 ## Gaps
 

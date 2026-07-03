@@ -42,6 +42,7 @@ Repo or feature: `frames-core`
 | EVID-032 | inspection | `docs/theory/ai-response-contract.md` | AI response contract exists with required fields, scoring distinction, gates, language rules, and examples. | pass. | pass |
 | EVID-033 | inspection | `docs/frame-catalog.md`, `docs/theory/catalog-metadata-migration-plan.md` | Accepted starter metadata table exists and excludes local draft imports. | pass. | pass |
 | EVID-034 | inspection / role review | `docs/theory/local-import-promotion-review.md` | Local import promotion review exists with promoted draft heuristics and held imports. | pass. | pass |
+| EVID-035 | inspection / role review | `docs/theory/theme-swimlane-role-review.md` | Theme-swimlane role review exists with acceptance decision, role findings, fit score, evidence gates, hard stops, and output template. | pass. | pass |
 
 ## Evidence Rules
 

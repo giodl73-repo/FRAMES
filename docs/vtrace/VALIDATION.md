@@ -34,6 +34,7 @@ Repo or feature: `frames-core`
 | VAL-024 | AI tool builder | Return frame suggestions without overstating fit, evidence, or authority. | Apply `ai-response-contract.md` to suggestion outputs. | Response includes action cue, evidence boundary, misuse warning, fit reason, claim strength, risk/authority gate, plain-language fallback, and alternates when required. | EVID-032 | pass |
 | VAL-025 | AI tool builder or catalog maintainer | Inspect accepted starter frames with tool-relevant metadata before Rust migration. | Use `docs/frame-catalog.md` accepted metadata table. | Accepted entries expose status, claim strength, risk band, application packs, source family, authority model, transfer strength, and review note. | EVID-033 | pass |
 | VAL-026 | Methodology maintainer | Decide which local imports can advance without becoming accepted catalog entries. | Apply `local-import-promotion-review.md` to RESONANCE, CAREER, and theme-swimlane imports. | Promoted draft heuristics and held imports are visible with role rationale and next gates. | EVID-034 | pass |
+| VAL-027 | Business leader or methodology maintainer | Decide whether theme swimlanes are ready for leadership-pack pilot use or catalog acceptance. | Apply `theme-swimlane-role-review.md` to a candidate program promise. | Acceptance decision, role findings, fit score, evidence gates, hard stops, output template, and next actions are visible. | EVID-035 | pass |
 
 ## Deferred Validation
 
