@@ -22,6 +22,7 @@ sets, governance, and acceptance decisions.
 | Related-frame taxonomy | Separates alternates, fallbacks, conflicts, sequences, and rejected near-misses. |
 | Evaluation-set design | Defines fixture types, expected behavior, pass bands, and review procedure. |
 | Cultural portability | Adds region, language, mobility, accessibility, and authority checks for everyday sources. |
+| Leadership worksheet | Gives Theme Swimlanes a pilot artifact without accepted-catalog promotion. |
 | Empirical protocol | Gives a path to test narrow claims instead of relying on author confidence. |
 | Metadata migration | Keeps Rust API changes behind docs-level proof. |
 
@@ -85,7 +86,8 @@ methodology rather than a useful catalog.
 5. Apply related-frame relation taxonomy to catalog examples and evaluation fixtures.
 6. Populate first evaluation fixtures for traffic, anti-pattern, relation, theme-swimlane, and audience-transfer cases.
 7. Apply cultural portability bands to traffic, status, story, and theme-swimlane fixtures.
-8. Define frame acquisition method.
+8. Pilot the theme-swimlane leadership worksheet and record changed decisions.
+9. Define frame acquisition method.
 
 This sequence keeps tool safety ahead of catalog growth.
 

@@ -52,6 +52,7 @@ growth gaps, implementation gaps, and deeper theory questions.
 | Research grounding | Public claims about cognition, metaphor, or pedagogy need citations and claim-strength limits. | `research-grounding.md` |
 | Theme swimlanes | Local program patterns such as `Run One`, `Run Lean`, `Run Fast`, `Run Safe`, and three-lane promises need structured extraction. | `theme-swimlane-extraction.md` |
 | Theme-swimlane role review | Promoted theme swimlanes need role gates before leadership-pack or catalog acceptance. | `theme-swimlane-role-review.md` |
+| Theme-swimlane leadership worksheet | Leadership-pack use needs a practical worksheet before pilot or catalog acceptance. | `theme-swimlane-leadership-worksheet.md` |
 | Empirical validation | Claim upgrades need task-specific tests with comparison conditions and narrow scope. | `empirical-validation-plan.md` |
 | First empirical validation trial | The validation plan needs a runnable comparison protocol before any empirical claim upgrade. | `empirical-validation-trial-001-theme-swimlanes.md` |
 | Catalog metadata migration | Theory fields need a staged path into catalog rows and `frames-core` without premature API churn. | `catalog-metadata-migration-plan.md` |
@@ -61,9 +62,8 @@ growth gaps, implementation gaps, and deeper theory questions.
 
 ## Priority Order
 
-1. Leadership-pack worksheet for theme swimlanes.
-2. Transfer-aware search filters.
-3. Run EVT-001 and record results.
+1. Transfer-aware search filters.
+2. Run EVT-001 and record results.
 
 ## Role Guidance
 

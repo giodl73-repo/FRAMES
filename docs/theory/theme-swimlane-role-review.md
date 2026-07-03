@@ -128,7 +128,8 @@ Review date:
 
 ## Next Actions
 
-- Build a leadership-pack worksheet from the output template.
+- Use [theme-swimlane-leadership-worksheet.md](theme-swimlane-leadership-worksheet.md)
+  for leadership-pack pilot use.
 - Run one pilot on a real program plan and record the changed decisions.
 - Add a short empirical validation trial comparing lane framing against a
   plain priority list.

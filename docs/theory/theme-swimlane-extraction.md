@@ -45,6 +45,8 @@ Promotion review lives in
 [local-import-promotion-review.md](local-import-promotion-review.md). Dedicated
 role review lives in
 [theme-swimlane-role-review.md](theme-swimlane-role-review.md).
+Leadership-pack pilot use should apply
+[theme-swimlane-leadership-worksheet.md](theme-swimlane-leadership-worksheet.md).
 
 ## Local Variants
 

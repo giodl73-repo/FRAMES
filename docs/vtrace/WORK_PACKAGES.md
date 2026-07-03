@@ -48,6 +48,7 @@ unless product requirements explicitly define them as user-facing behavior.
 | WP-034 | Add related-frame relation taxonomy. | Related links have stable meanings before typed metadata or relation-aware evaluation sets. | REQ-038 / SPEC-037 / IF-040 | `docs/theory/related-frame-taxonomy.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-033 complete and composition/search docs exist. | Taxonomy exists, linked docs updated, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: apply relation taxonomy to catalog rows and evaluation fixtures | evidence / trace / review / status rows | complete |
 | WP-035 | Add evaluation-set design. | Frame selection behavior has fixture rules before semantic search or draft-frame inclusion. | REQ-039 / SPEC-038 / IF-041 | `docs/theory/evaluation-set-design.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-034 complete and anti-pattern/relation taxonomies exist. | Evaluation design exists, linked docs updated, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: populate first machine-readable fixtures | evidence / trace / review / status rows | complete |
 | WP-036 | Add cultural portability guidance. | Everyday source frames have portability checks before broad catalog or AI use. | REQ-040 / SPEC-039 / IF-042 | `docs/theory/cultural-portability.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-035 complete and audience-transfer docs exist. | Portability guide exists, linked docs updated, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: apply portability bands to catalog rows and evaluation fixtures | evidence / trace / review / status rows | complete |
+| WP-037 | Add theme-swimlane leadership worksheet. | Theme Swimlanes have a leadership-pack pilot artifact before catalog acceptance. | REQ-041 / SPEC-040 / IF-043 | `docs/theory/theme-swimlane-leadership-worksheet.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-036 complete and theme-swimlane role review exists. | Worksheet exists, linked docs updated, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: run a real pilot and record changed decisions | evidence / trace / review / status rows | complete |
 
 ## Work Package Details
 
@@ -1375,3 +1376,41 @@ V closure:
 | Implementation | `docs/theory/cultural-portability.md` | closed | Rule, dimensions, bands, source guidance, examples, and implications added. |
 | Verification | EVID-045 | closed | Inspection covers cultural portability guide. |
 | Validation | VAL-037 | closed | Guide supports broad, bounded, limited, unknown, and unsafe portability decisions. |
+
+### WP-037: Add theme-swimlane leadership worksheet
+
+Objective: provide a leadership-pack worksheet for Theme Swimlanes pilot use
+without promoting the frame into accepted catalog or default search.
+
+Parent IDs: REQ-041, SPEC-040, IF-043.
+
+Affected files/modules:
+
+- `docs/theory/theme-swimlane-leadership-worksheet.md`
+- `docs/theory/theme-swimlane-extraction.md`
+- `docs/theory/theme-swimlane-role-review.md`
+- `docs/theory/theory-gap-audit.md`
+- `docs/theory/theory-roadmap.md`
+- `README.md`
+- `docs/vtrace/*`
+
+Verification commands:
+
+```powershell
+cargo fmt --check
+cargo test
+cargo run --example lookup
+cargo run --example ai_response_contract
+git diff --check
+cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .
+```
+
+V closure:
+
+| V Area | IDs / Evidence | Status | Notes |
+|---|---|---|---|
+| Requirements | REQ-041 | closed | Theme-swimlane leadership worksheet required. |
+| Specification / Interface | SPEC-040, IF-043 | closed | Promise, lane, mapping, decision, risk, role-gate, and closeout fields defined. |
+| Implementation | `docs/theory/theme-swimlane-leadership-worksheet.md` | closed | Worksheet, worked example, risk review, and pilot closeout added. |
+| Verification | EVID-046 | closed | Inspection covers worksheet. |
+| Validation | VAL-038 | closed | Worksheet supports leadership pilot use without accepted-catalog promotion. |

@@ -42,12 +42,13 @@
 | REQ-038 | NEED-001 | CON-001 / CON-003 | Define related-frame relation taxonomy. | SPEC-037 | DES-005 | n/a | WP-034 | `docs/theory/related-frame-taxonomy.md`, `docs/theory/composition-and-conflict.md`, `docs/theory/transfer-aware-search-design.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md` | VER-036 inspection | VAL-035 | EVID-043 | validated |
 | REQ-039 | NEED-001 | CON-001 / CON-003 | Define evaluation-set design. | SPEC-038 | DES-005 | n/a | WP-035 | `docs/theory/evaluation-set-design.md`, `docs/theory/accepted-catalog-review-process.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md` | VER-037 inspection | VAL-036 | EVID-044 | validated |
 | REQ-040 | NEED-001 | CON-003 | Define cultural portability guidance. | SPEC-039 | DES-005 | n/a | WP-036 | `docs/theory/cultural-portability.md`, `docs/theory/audience-transfer.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md` | VER-038 inspection | VAL-037 | EVID-045 | validated |
+| REQ-041 | NEED-001 | CON-003 | Define theme-swimlane leadership worksheet. | SPEC-040 | DES-005 | n/a | WP-037 | `docs/theory/theme-swimlane-leadership-worksheet.md`, `docs/theory/theme-swimlane-extraction.md`, `docs/theory/theme-swimlane-role-review.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md` | VER-039 inspection | VAL-038 | EVID-046 | validated |
 
 ## ID Legend
 
 - NEED-001: mission need in `MISSION.md`.
 - CON-001..CON-003: operating scenarios in `CONOPS.md`.
-- SPEC-001..SPEC-039: specification baseline.
+- SPEC-001..SPEC-040: specification baseline.
 - DES-001..DES-005: design elements.
 - CR-001..CR-006: code-rigor constraints.
 - WP-001: frame index crate work package.
@@ -86,4 +87,5 @@
 - WP-034: related-frame relation taxonomy work package.
 - WP-035: evaluation-set design work package.
 - WP-036: cultural portability guidance work package.
+- WP-037: theme-swimlane leadership worksheet work package.
 - EVID-* evidence: `EVIDENCE.md` and `VERIFICATION.md`.
