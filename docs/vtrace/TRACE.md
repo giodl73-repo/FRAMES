@@ -52,12 +52,13 @@
 | REQ-048 | NEED-001 | CON-001 / CON-003 | Add Veto Rule reviewed docs-catalog row. | SPEC-047 | DES-005 | n/a | WP-044 | `docs/frame-catalog.md`, `docs/theory/accepted-catalog-review-veto-rule.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/accepted-catalog-review-process.md`, `docs/theory/local-import-promotion-review.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md` | VER-046 inspection | VAL-045 | EVID-053 | validated |
 | REQ-049 | NEED-001 | CON-003 | Apply anti-pattern taxonomy to Veto Rule. | SPEC-048 | DES-005 | n/a | WP-045 | `docs/theory/frame-antipattern-application-veto-rule.md`, `docs/theory/frame-antipattern-taxonomy.md`, `docs/theory/evaluation-set-design.md`, `docs/theory/accepted-catalog-review-veto-rule.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md` | VER-047 inspection | VAL-046 | EVID-054 | validated |
 | REQ-050 | NEED-001 | CON-001 / CON-002 / CON-003 | Apply related-frame taxonomy to starter catalog links. | SPEC-049 | DES-003 / DES-005 | n/a | WP-046 | `docs/theory/related-frame-application-starter.md`, `docs/theory/related-frame-taxonomy.md`, `docs/theory/evaluation-set-design.md`, `docs/frame-catalog.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md` | VER-048 inspection | VAL-047 | EVID-055 | validated |
+| REQ-051 | NEED-001 | CON-001 / CON-002 / CON-003 | Publish first machine-readable evaluation fixture package. | SPEC-050 | DES-005 | n/a | WP-047 | `docs/eval/starter-fixtures.json`, `docs/eval/README.md`, `docs/theory/evaluation-set-design.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md` | VER-049 inspection / JSON parse | VAL-048 | EVID-056 | validated |
 
 ## ID Legend
 
 - NEED-001: mission need in `MISSION.md`.
 - CON-001..CON-003: operating scenarios in `CONOPS.md`.
-- SPEC-001..SPEC-049: specification baseline.
+- SPEC-001..SPEC-050: specification baseline.
 - DES-001..DES-005: design elements.
 - CR-001..CR-006: code-rigor constraints.
 - WP-001: frame index crate work package.
@@ -106,4 +107,5 @@
 - WP-044: Veto Rule docs-catalog row work package.
 - WP-045: Veto Rule anti-pattern application work package.
 - WP-046: starter related-frame application work package.
+- WP-047: starter evaluation fixture package work package.
 - EVID-* evidence: `EVIDENCE.md` and `VERIFICATION.md`.

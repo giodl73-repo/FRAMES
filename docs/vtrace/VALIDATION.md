@@ -55,6 +55,7 @@ Repo or feature: `frames-core`
 | VAL-045 | Methodology maintainer or catalog reviewer | Add a reviewed local heuristic to docs catalog without changing default search. | Inspect `docs/frame-catalog.md`. | Veto Rule is visible as accepted with caveat, linked to its review, and separated from accepted starter entries. | EVID-053 | pass |
 | VAL-046 | Methodology maintainer or misuse reviewer | Apply anti-pattern taxonomy to a reviewed docs-catalog candidate. | Inspect Veto Rule anti-pattern application and fixture backlog. | Misuse classes, rejected scenarios, safer output, fixture ID, and no-default-search implication are explicit. | EVID-054 | pass |
 | VAL-047 | Methodology maintainer or AI tool builder | Apply related-frame taxonomy to starter catalog links without changing Rust API behavior. | Inspect starter relation application and fixture backlog. | Relation type, display rule, rationale, fixture IDs, and untyped Rust compatibility boundary are explicit. | EVID-055 | pass |
+| VAL-048 | Methodology maintainer or AI tool builder | Use the first fixture package as a gate before semantic search or relation-aware behavior. | Parse and inspect `docs/eval/starter-fixtures.json`. | Fixtures cover positive, hard-stop, near-miss, anti-pattern, relation, evidence-boundary, theme-swimlane, story, and audience-transfer cases with expected warnings and fallbacks. | EVID-056 | pass |
 
 ## Deferred Validation
 

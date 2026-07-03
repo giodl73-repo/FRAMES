@@ -77,6 +77,7 @@ Transfer-aware search design lives in [docs/theory/transfer-aware-search-design.
 Related-frame relation taxonomy lives in [docs/theory/related-frame-taxonomy.md](docs/theory/related-frame-taxonomy.md).
 The first applied related-frame map lives in [docs/theory/related-frame-application-starter.md](docs/theory/related-frame-application-starter.md).
 Evaluation-set design lives in [docs/theory/evaluation-set-design.md](docs/theory/evaluation-set-design.md).
+The first machine-readable evaluation package lives in [docs/eval/starter-fixtures.json](docs/eval/starter-fixtures.json).
 Role-reviewed domain examples live in [docs/theory/role-reviewed-domain-examples.md](docs/theory/role-reviewed-domain-examples.md).
 Application pack templates live in [docs/theory/application-pack-templates.md](docs/theory/application-pack-templates.md).
 Perspective metadata guidance lives in [docs/theory/perspective-metadata.md](docs/theory/perspective-metadata.md).

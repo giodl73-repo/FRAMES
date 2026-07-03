@@ -81,6 +81,10 @@ review_status:
 
 ## Starter Fixture Backlog
 
+The first machine-readable fixture package lives in
+[../eval/starter-fixtures.json](../eval/starter-fixtures.json). The table below
+is the readable backlog view of that package.
+
 | ID | Fixture Type | Ontology Terms | Target Situation | Expected Behavior |
 |---|---|---|---|---|
 | EVAL-TRAFFIC-001 | Positive | coordination / peer_turn_taking / peer | Peer teams need turn order around constrained attention. | Recommend `four-way-stop`; show authority boundary. |

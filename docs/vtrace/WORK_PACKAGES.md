@@ -58,6 +58,7 @@ unless product requirements explicitly define them as user-facing behavior.
 | WP-044 | Add Veto Rule docs-catalog row. | Reviewed docs-catalog candidates are visible without changing starter catalog or default Rust search. | REQ-048 / SPEC-047 / IF-050 | `docs/frame-catalog.md`, `docs/theory/*`, `docs/vtrace/*` | WP-043 complete and Veto Rule accepted-with-caveat boundary exists. | Veto Rule row added under reviewed docs-catalog candidates, roadmap updated, docs and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: add lifecycle filtering before default search expansion | evidence / trace / review / status rows | complete |
 | WP-045 | Apply anti-pattern taxonomy to Veto Rule. | Veto Rule misuse risks are classified and covered by evaluation fixture backlog. | REQ-049 / SPEC-048 / IF-051 | `docs/theory/frame-antipattern-application-veto-rule.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-044 complete and Veto Rule docs-catalog row exists. | Anti-pattern review exists, fixture backlog updated, roadmap updated, docs and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: apply related-frame taxonomy to catalog examples | evidence / trace / review / status rows | complete |
 | WP-046 | Apply related-frame taxonomy to starter links. | Starter related IDs have docs-level relation types and fixture backlog coverage. | REQ-050 / SPEC-049 / IF-052 | `docs/theory/related-frame-application-starter.md`, `docs/theory/related-frame-taxonomy.md`, `docs/theory/evaluation-set-design.md`, `docs/frame-catalog.md`, `README.md`, `docs/vtrace/*` | WP-045 complete and related-frame taxonomy exists. | Applied relation map exists, fixture backlog updated, roadmap updated, Rust API unchanged, docs and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: populate first machine-readable evaluation fixtures | evidence / trace / review / status rows | complete |
+| WP-047 | Publish starter evaluation fixture package. | The starter fixture backlog is available as a parseable docs-level package. | REQ-051 / SPEC-050 / IF-053 | `docs/eval/*`, `docs/theory/evaluation-set-design.md`, `README.md`, `docs/vtrace/*` | WP-046 complete and fixture backlog categories are stable. | JSON fixture package parses, covers starter categories, roadmap updated, docs and VTRACE pass. | L0: JSON parse; `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: add fixture runner only after package shape stabilizes | evidence / trace / review / status rows | complete |
 
 ## Work Package Details
 
@@ -1771,3 +1772,43 @@ V closure:
 | Implementation | `docs/theory/related-frame-application-starter.md` | closed | Starter relation map and rejected near-misses added. |
 | Verification | EVID-055 | closed | Inspection covers applied relation map and fixtures. |
 | Validation | VAL-047 | closed | Maintainers can interpret related IDs without changing `FrameIndex::related_to`. |
+
+### WP-047: Publish starter evaluation fixture package
+
+Objective: convert the starter fixture backlog into a parseable docs-level JSON
+package before adding semantic search, typed relation behavior, rejected
+candidate reporting, or broad draft-frame inclusion.
+
+Parent IDs: REQ-051, SPEC-050, IF-053.
+
+Affected files/modules:
+
+- `docs/eval/README.md`
+- `docs/eval/starter-fixtures.json`
+- `docs/theory/evaluation-set-design.md`
+- `docs/theory/theory-gap-audit.md`
+- `docs/theory/theory-roadmap.md`
+- `README.md`
+- `docs/vtrace/*`
+
+Verification commands:
+
+```powershell
+Get-Content docs\eval\starter-fixtures.json -Raw | ConvertFrom-Json | Out-Null
+cargo fmt --check
+cargo test
+cargo run --example lookup
+cargo run --example ai_response_contract
+git diff --check
+cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .
+```
+
+V closure:
+
+| V Area | IDs / Evidence | Status | Notes |
+|---|---|---|---|
+| Requirements | REQ-051 | closed | Machine-readable starter fixture package required before tool behavior gates. |
+| Specification / Interface | SPEC-050, IF-053 | closed | Fixture fields, parseability, source docs, and docs-level boundary defined. |
+| Implementation | `docs/eval/starter-fixtures.json` | closed | Traffic, risk, veto, anti-pattern, story, relation, theme, and audience fixtures added. |
+| Verification | EVID-056 | closed | JSON parse and inspection cover fixture package. |
+| Validation | VAL-048 | closed | AI tool builders can use fixtures as a future behavior gate. |

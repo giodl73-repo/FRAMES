@@ -58,6 +58,7 @@ Repo or feature: `frames-core`
 | REQ-048 | inspection | inspect `docs/frame-catalog.md` and `docs/theory/catalog-metadata-migration-plan.md` | Reviewed docs-catalog candidates are separated from accepted starter metadata and default Rust search. | pass | EVID-053 |
 | REQ-049 | inspection | inspect `docs/theory/frame-antipattern-application-veto-rule.md`, `docs/theory/frame-antipattern-taxonomy.md`, and `docs/theory/evaluation-set-design.md` | Veto Rule anti-pattern classes and rejected-use fixture are present. | pass | EVID-054 |
 | REQ-050 | inspection | inspect `docs/theory/related-frame-application-starter.md`, `docs/theory/related-frame-taxonomy.md`, `docs/theory/evaluation-set-design.md`, and `docs/frame-catalog.md` | Starter related-frame links are typed at docs level and relation behavior fixtures are present. | pass | EVID-055 |
+| REQ-051 | inspection / JSON parse | parse `docs/eval/starter-fixtures.json` and inspect fixture fields | First fixture package covers starter categories and required expected-behavior fields. | pass | EVID-056 |
 
 ## Commands
 
@@ -128,6 +129,7 @@ git diff --check
 | EVID-053 | inspection | `docs/frame-catalog.md`, `docs/theory/catalog-metadata-migration-plan.md` | REQ-048, SPEC-047, IF-050, VAL-045 | pass |
 | EVID-054 | inspection | `docs/theory/frame-antipattern-application-veto-rule.md`, `docs/theory/frame-antipattern-taxonomy.md`, `docs/theory/evaluation-set-design.md` | REQ-049, SPEC-048, IF-051, VAL-046 | pass |
 | EVID-055 | inspection | `docs/theory/related-frame-application-starter.md`, `docs/theory/related-frame-taxonomy.md`, `docs/theory/evaluation-set-design.md`, `docs/frame-catalog.md` | REQ-050, SPEC-049, IF-052, VAL-047 | pass |
+| EVID-056 | inspection / JSON parse | `docs/eval/starter-fixtures.json`, `docs/eval/README.md`, `docs/theory/evaluation-set-design.md` | REQ-051, SPEC-050, IF-053, VAL-048 | pass |
 
 ## Gaps
 
