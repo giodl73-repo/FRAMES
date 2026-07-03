@@ -83,7 +83,9 @@ review_status:
 
 The first machine-readable fixture package lives in
 [../eval/starter-fixtures.json](../eval/starter-fixtures.json). The table below
-is the readable backlog view of that package.
+is the readable backlog view of that package. Portability bands for these
+fixtures are applied in
+[cultural-portability-application-fixtures.md](cultural-portability-application-fixtures.md).
 
 | ID | Fixture Type | Ontology Terms | Target Situation | Expected Behavior |
 |---|---|---|---|---|

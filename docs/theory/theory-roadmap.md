@@ -64,7 +64,7 @@ growth gaps, implementation gaps, and deeper theory questions.
 ## Priority Order
 
 1. Collect EVT-001 participant responses and score the locked packet.
-2. Apply cultural portability bands to traffic, status, story, and theme-swimlane fixtures.
+2. Pilot the theme-swimlane leadership worksheet and record changed decisions.
 
 ## Role Guidance
 

@@ -15,6 +15,8 @@ tooling proves the shape is stable.
   default.
 - Use `expected_relation_behavior` only when relation behavior is part of the
   pass condition.
+- Use `portability_profiles` to inspect audience, mobility, region, language,
+  and authority risks before recommending a frame to unknown audiences.
 - Do not treat these fixtures as empirical validation; they are specification
   checks for expected tool behavior.
 

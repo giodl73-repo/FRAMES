@@ -61,6 +61,7 @@ The current theory gap audit lives in [docs/theory/theory-gap-audit.md](docs/the
 The first scoring rubric lives in [docs/theory/fit-rubric.md](docs/theory/fit-rubric.md).
 Audience transfer guidance lives in [docs/theory/audience-transfer.md](docs/theory/audience-transfer.md).
 Cultural portability guidance lives in [docs/theory/cultural-portability.md](docs/theory/cultural-portability.md).
+The first applied portability review lives in [docs/theory/cultural-portability-application-fixtures.md](docs/theory/cultural-portability-application-fixtures.md).
 Frame lifecycle guidance lives in [docs/theory/frame-lifecycle.md](docs/theory/frame-lifecycle.md).
 Controlled ontology guidance lives in [docs/theory/frame-ontology.md](docs/theory/frame-ontology.md).
 Accepted-catalog review process lives in [docs/theory/accepted-catalog-review-process.md](docs/theory/accepted-catalog-review-process.md).

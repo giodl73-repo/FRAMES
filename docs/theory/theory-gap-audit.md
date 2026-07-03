@@ -41,7 +41,6 @@ These gaps limit expansion into broader users, domains, and public use.
 
 | Gap | Risk | First Artifact |
 |---|---|---|
-| Cultural portability application | Portability bands need to be applied to catalog rows, evaluation fixtures, and future query filters. | `cultural-portability.md` |
 | Domain pack strategy | New packs could grow opportunistically instead of through coverage goals. | `domain-pack-roadmap.md` |
 | Frame acquisition method | The repo lacks a repeatable way to discover and import new frame candidates. | `frame-acquisition-method.md` |
 | Plain-language fallback theory | High-stakes or low-transfer situations need non-metaphor alternatives. | `plain-language-fallbacks.md` |
@@ -75,9 +74,8 @@ methodology rather than a useful catalog.
 ## Recommended Sequence
 
 1. Collect EVT-001 participant responses and score the locked packet without upgrading claim strength prematurely.
-2. Apply cultural portability bands to traffic, status, story, and theme-swimlane fixtures.
-3. Pilot the theme-swimlane leadership worksheet and record changed decisions.
-4. Define frame acquisition method.
+2. Pilot the theme-swimlane leadership worksheet and record changed decisions.
+3. Define frame acquisition method.
 
 This sequence keeps tool safety ahead of catalog growth.
 

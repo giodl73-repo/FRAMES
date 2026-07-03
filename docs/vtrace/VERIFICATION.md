@@ -59,6 +59,7 @@ Repo or feature: `frames-core`
 | REQ-049 | inspection | inspect `docs/theory/frame-antipattern-application-veto-rule.md`, `docs/theory/frame-antipattern-taxonomy.md`, and `docs/theory/evaluation-set-design.md` | Veto Rule anti-pattern classes and rejected-use fixture are present. | pass | EVID-054 |
 | REQ-050 | inspection | inspect `docs/theory/related-frame-application-starter.md`, `docs/theory/related-frame-taxonomy.md`, `docs/theory/evaluation-set-design.md`, and `docs/frame-catalog.md` | Starter related-frame links are typed at docs level and relation behavior fixtures are present. | pass | EVID-055 |
 | REQ-051 | inspection / JSON parse | parse `docs/eval/starter-fixtures.json` and inspect fixture fields | First fixture package covers starter categories and required expected-behavior fields. | pass | EVID-056 |
+| REQ-052 | inspection / JSON parse | parse `docs/eval/starter-fixtures.json` and inspect portability profiles plus `docs/theory/cultural-portability-application-fixtures.md` | Starter fixtures have portability band profiles and safer fallbacks. | pass | EVID-057 |
 
 ## Commands
 
@@ -130,6 +131,7 @@ git diff --check
 | EVID-054 | inspection | `docs/theory/frame-antipattern-application-veto-rule.md`, `docs/theory/frame-antipattern-taxonomy.md`, `docs/theory/evaluation-set-design.md` | REQ-049, SPEC-048, IF-051, VAL-046 | pass |
 | EVID-055 | inspection | `docs/theory/related-frame-application-starter.md`, `docs/theory/related-frame-taxonomy.md`, `docs/theory/evaluation-set-design.md`, `docs/frame-catalog.md` | REQ-050, SPEC-049, IF-052, VAL-047 | pass |
 | EVID-056 | inspection / JSON parse | `docs/eval/starter-fixtures.json`, `docs/eval/README.md`, `docs/theory/evaluation-set-design.md` | REQ-051, SPEC-050, IF-053, VAL-048 | pass |
+| EVID-057 | inspection / JSON parse | `docs/eval/starter-fixtures.json`, `docs/theory/cultural-portability-application-fixtures.md`, `docs/theory/cultural-portability.md` | REQ-052, SPEC-051, IF-054, VAL-049 | pass |
 
 ## Gaps
 

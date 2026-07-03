@@ -78,6 +78,11 @@ a lower-risk alternate.
 | Green/yellow/red status | Color meanings and accessibility vary; color alone excludes some readers. | Bounded; pair color with label, threshold, and text. |
 | Bag-of-chips conflict story | Story may encourage empathy but can erase harm after facts are known. | Limited; use only when facts are incomplete. |
 
+## Applied Reviews
+
+- [cultural-portability-application-fixtures.md](cultural-portability-application-fixtures.md)
+  applies portability bands to the starter evaluation fixture package.
+
 ## Catalog Fields
 
 Future catalog rows should record:

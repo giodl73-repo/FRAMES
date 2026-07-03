@@ -2,6 +2,120 @@
   "package_id": "frames-starter-fixtures-001",
   "review_status": "role-reviewed",
   "source_design": "docs/theory/evaluation-set-design.md",
+  "portability_profiles": {
+    "EVAL-TRAFFIC-001": {
+      "band": "bounded",
+      "risk": "Four-way stop rules and driving familiarity vary by region and audience.",
+      "safer_alternate": "queue turn-taking",
+      "plain_language_fallback": "The teams need an explicit turn order before work proceeds.",
+      "review_note": "Use driving frame only when peer right-of-way is familiar."
+    },
+    "EVAL-TRAFFIC-002": {
+      "band": "bounded",
+      "risk": "Peer traffic rules obscure owner authority in incident response.",
+      "safer_alternate": "incident owner decision path",
+      "plain_language_fallback": "The incident owner should state the decision path and next action.",
+      "review_note": "Authority mismatch is the controlling portability risk."
+    },
+    "EVAL-TRAFFIC-003": {
+      "band": "bounded",
+      "risk": "Traffic turn-taking and command language may be blended incorrectly.",
+      "safer_alternate": "direct authority classification",
+      "plain_language_fallback": "Do not blend peer turns with command authority; name the decision owner.",
+      "review_note": "Require conflict explanation before any metaphor."
+    },
+    "EVAL-RISK-001": {
+      "band": "bounded",
+      "risk": "Color status can fail accessibility, language, and threshold clarity.",
+      "safer_alternate": "text status with threshold",
+      "plain_language_fallback": "The status cannot be accepted until the threshold and evidence are named.",
+      "review_note": "Color must never be the only signal."
+    },
+    "EVAL-VETO-001": {
+      "band": "bounded",
+      "risk": "Veto language can imply formal authority or legal process.",
+      "safer_alternate": "required approval gate",
+      "plain_language_fallback": "The launch is blocked until the required approval is cleared or waived.",
+      "review_note": "Use only with explicit requirement authority."
+    },
+    "EVAL-VETO-002": {
+      "band": "limited",
+      "risk": "Veto language can escalate a preference into a false hard stop.",
+      "safer_alternate": "preference or tradeoff language",
+      "plain_language_fallback": "This is a preference or tradeoff; name the decision owner and evidence.",
+      "review_note": "Prefer direct decision-rights language."
+    },
+    "EVAL-VETO-003": {
+      "band": "limited",
+      "risk": "Unsupported veto language transfers status and power without evidence.",
+      "safer_alternate": "decision-rights fallback",
+      "plain_language_fallback": "This is an unresolved preference or decision-rights issue.",
+      "review_note": "Suppress frame unless authority and evidence are supplied."
+    },
+    "EVAL-ANTI-001": {
+      "band": "unsafe",
+      "risk": "People-as-obstacles framing dehumanizes teams and hides ownership.",
+      "safer_alternate": "dependency blocked by unresolved ownership",
+      "plain_language_fallback": "The dependency is blocked by unresolved ownership or a decision path.",
+      "review_note": "Reject by default."
+    },
+    "EVAL-THEME-001": {
+      "band": "bounded",
+      "risk": "Swimlane metaphor may be unfamiliar and can become slogan theater.",
+      "safer_alternate": "contribution lanes tied to one promise",
+      "plain_language_fallback": "Organize work into a few named contribution lanes tied to one customer promise.",
+      "review_note": "Use only with owner and measure."
+    },
+    "EVAL-THEME-002": {
+      "band": "limited",
+      "risk": "Three slogans can look like strategy while hiding missing ownership.",
+      "safer_alternate": "owner-measure-promise checklist",
+      "plain_language_fallback": "These are slogans until ownership and measures make them decision lanes.",
+      "review_note": "Hold until themes have operational meaning."
+    },
+    "EVAL-STORY-001": {
+      "band": "limited",
+      "risk": "Empathy story can erase harm when facts are already known.",
+      "safer_alternate": "repair and ownership language",
+      "plain_language_fallback": "Facts are now known; name harm, repair, and ownership.",
+      "review_note": "Use story only while facts and intent are unresolved."
+    },
+    "EVAL-REL-001": {
+      "band": "bounded",
+      "risk": "Speed frames can underweight safety in high-stakes customer work.",
+      "safer_alternate": "Run Fast / Run Safe",
+      "plain_language_fallback": "Move quickly only inside explicit customer-safety gates.",
+      "review_note": "Require protected-value check."
+    },
+    "EVAL-REL-002": {
+      "band": "bounded",
+      "risk": "Crosswalk duty may be patronizing if mapped to people instead of protected values.",
+      "safer_alternate": "protected-value duty",
+      "plain_language_fallback": "One side has a duty to slow down to protect the other value.",
+      "review_note": "Name the value, not a weak party label."
+    },
+    "EVAL-REL-003": {
+      "band": "bounded",
+      "risk": "Merge and following-distance frames assume driving familiarity and compatible flow.",
+      "safer_alternate": "buffer before integration",
+      "plain_language_fallback": "Create enough buffer before integrating work into the active system.",
+      "review_note": "Use sequence behavior, not a single driving metaphor."
+    },
+    "EVAL-REL-004": {
+      "band": "limited",
+      "risk": "Unsupported veto language turns unclear power into a false requirement.",
+      "safer_alternate": "decision owner and evidence language",
+      "plain_language_fallback": "Name the decision owner, tradeoff, and evidence before treating this as blocking.",
+      "review_note": "Fallback should lead."
+    },
+    "EVAL-AUD-001": {
+      "band": "unknown",
+      "risk": "Audience familiarity with driving frames is explicitly unknown.",
+      "safer_alternate": "queue, walking, or direct turn-order explanation",
+      "plain_language_fallback": "Use a queue, walking, or direct turn-order explanation if driving rules are unfamiliar.",
+      "review_note": "Plain language first; metaphor second only if useful."
+    }
+  },
   "fixtures": [
     {
       "id": "EVAL-TRAFFIC-001",

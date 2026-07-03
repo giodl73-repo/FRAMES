@@ -64,6 +64,7 @@ Repo or feature: `frames-core`
 | EVID-054 | inspection | `docs/theory/frame-antipattern-application-veto-rule.md`, `docs/theory/frame-antipattern-taxonomy.md`, `docs/theory/evaluation-set-design.md` | Veto Rule anti-pattern application exists and adds false-veto fixture coverage. | pass. | pass |
 | EVID-055 | inspection | `docs/theory/related-frame-application-starter.md`, `docs/theory/related-frame-taxonomy.md`, `docs/theory/evaluation-set-design.md`, `docs/frame-catalog.md` | Starter related-frame links have typed docs-level relation examples and relation fixture backlog coverage without changing Rust related lookup. | pass. | pass |
 | EVID-056 | inspection / JSON parse | `docs/eval/starter-fixtures.json`, `docs/eval/README.md`, `docs/theory/evaluation-set-design.md` | First machine-readable fixture package exists, parses as JSON, covers starter fixture backlog categories, and remains docs-level. | pass. | pass |
+| EVID-057 | inspection / JSON parse | `docs/eval/starter-fixtures.json`, `docs/theory/cultural-portability-application-fixtures.md`, `docs/theory/cultural-portability.md` | Starter fixtures have portability profiles and the cultural portability application records band decisions for traffic, status, veto, anti-pattern, story, relation, theme-swimlane, and audience-transfer cases. | pass. | pass |
 
 ## Evidence Rules
 
