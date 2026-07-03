@@ -39,16 +39,16 @@ frame index rather than a growing metaphor list.
 | CAREER structured imports | High-value Gravity candidates need FRAMES-native draft entries before catalog acceptance. | `career-gravity-frame-imports.md` |
 | External practitioners | Successful public frame/story writers should be benchmarked for reusable design lessons. | `external-frame-practitioners.md` |
 | Research grounding | Public claims about cognition, metaphor, or pedagogy need citations and claim-strength limits. | `research-grounding.md` |
-| Theme swimlanes | Local program patterns such as `Run One`, `Run Lean`, `Run Fast`, `Run Safe`, and three-lane promises need structured extraction. | future artifact |
+| Theme swimlanes | Local program patterns such as `Run One`, `Run Lean`, `Run Fast`, `Run Safe`, and three-lane promises need structured extraction. | `theme-swimlane-extraction.md` |
 
 ## Priority Order
 
-1. Theme swimlane extraction.
-2. Empirical validation plan.
-3. Catalog metadata migration plan.
-4. AI response contract for frame suggestions.
-5. First metadata-backed catalog migration.
-6. Role-reviewed promotion of local imports.
+1. Empirical validation plan.
+2. Catalog metadata migration plan.
+3. AI response contract for frame suggestions.
+4. First metadata-backed catalog migration.
+5. Role-reviewed promotion of local imports.
+6. Theme-swimlane role review.
 
 ## Role Guidance
 

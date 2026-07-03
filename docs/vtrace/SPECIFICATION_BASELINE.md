@@ -30,6 +30,7 @@ Repo or feature: `frames-core`
 | SPEC-020 | REQ-021 | theory / docs | target | Role-reviewed domain examples define review shape, domain examples, role pressure, review outcomes, and method lessons. | inspection / role review | VAL-018 | FRAMES | medium | accepted |
 | SPEC-021 | REQ-022 | theory / docs | target | RESONANCE MANAGE frame imports define import status, draft entries, action cues, evidence boundaries, transfer exclusions, failure modes, application packs, and promotion criteria. | inspection | VAL-019 | FRAMES | medium | accepted |
 | SPEC-022 | REQ-023 | theory / docs | target | CAREER Gravity frame imports define import status, draft entries, action cues, evidence boundaries, transfer exclusions, failure modes, application packs, and promotion criteria. | inspection | VAL-020 | FRAMES | medium | accepted |
+| SPEC-023 | REQ-024 | theory / docs | target | Theme-swimlane extraction defines pattern shape, draft frame, local variants, extraction procedure, fit checks, promotion criteria, and design consequences. | inspection | VAL-021 | FRAMES | medium | accepted |
 
 ## Contract Table
 
@@ -55,3 +56,4 @@ Repo or feature: `frames-core`
 | IF-023 | SPEC-020 | Role-reviewed example shape | Review fields and outcome labels should remain stable enough for comparing domain examples. | Adding/removing review fields or outcome categories. | EVID-026 |
 | IF-024 | SPEC-021 | Local import draft shape | Import-status, draft-entry, and promotion-criteria fields should remain stable enough for local source imports. | Adding/removing import draft fields or promotion criteria fields. | EVID-027 |
 | IF-025 | SPEC-022 | CAREER import draft shape | Import-status, draft-entry, and promotion-criteria fields should remain stable enough for career-derived local source imports. | Adding/removing import draft fields or promotion criteria fields for CAREER imports. | EVID-028 |
+| IF-026 | SPEC-023 | Theme-swimlane extraction shape | Promise, lane, owner, measure, tradeoff, and exclusion fields should remain stable enough for leadership templates. | Adding/removing theme-swimlane extraction fields or fit checks. | EVID-029 |

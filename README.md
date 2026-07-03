@@ -70,6 +70,7 @@ The local RESONANCE MANAGE import map lives in [docs/theory/resonance-manage-imp
 Structured RESONANCE MANAGE frame imports live in [docs/theory/resonance-manage-frame-imports.md](docs/theory/resonance-manage-frame-imports.md).
 The local CAREER Gravity import map lives in [docs/theory/career-gravity-import-map.md](docs/theory/career-gravity-import-map.md).
 Structured CAREER Gravity frame imports live in [docs/theory/career-gravity-frame-imports.md](docs/theory/career-gravity-frame-imports.md).
+Theme swimlane extraction lives in [docs/theory/theme-swimlane-extraction.md](docs/theory/theme-swimlane-extraction.md).
 External frame-practitioner benchmarks live in [docs/theory/external-frame-practitioners.md](docs/theory/external-frame-practitioners.md).
 Project review roles live in [.roles/ROLE.md](.roles/ROLE.md).
 

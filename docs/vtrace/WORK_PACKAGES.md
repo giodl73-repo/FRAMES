@@ -31,6 +31,7 @@ unless product requirements explicitly define them as user-facing behavior.
 | WP-017 | Add role-reviewed domain examples. | Concrete domains are reviewed through role lenses before broader catalog expansion. | REQ-021 / SPEC-020 / IF-023 | `docs/theory/role-reviewed-domain-examples.md`, `.roles/*`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-016 complete. | Role-reviewed examples exist, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: role review before catalog expansion | evidence / trace / review / status rows | complete |
 | WP-018 | Add structured RESONANCE MANAGE imports. | High-value local management patterns are converted into FRAMES-native draft entries. | REQ-022 / SPEC-021 / IF-024 | `docs/theory/resonance-manage-frame-imports.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-017 complete and import map exists. | Structured imports exist, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: role review before catalog acceptance | evidence / trace / review / status rows | complete |
 | WP-019 | Add structured CAREER Gravity imports. | High-value local career/gravity patterns are converted into FRAMES-native draft entries. | REQ-023 / SPEC-022 / IF-025 | `docs/theory/career-gravity-frame-imports.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-018 complete and import map exists. | Structured imports exist, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: role review before catalog acceptance | evidence / trace / review / status rows | complete |
+| WP-020 | Add theme-swimlane extraction. | Local program theme patterns are converted into promise, lane, owner, measure, tradeoff, and exclusion fields. | REQ-024 / SPEC-023 / IF-026 | `docs/theory/theme-swimlane-extraction.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-019 complete and local theme pattern identified. | Theme-swimlane extraction exists, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: business-leader and evidence-boundary review before heuristic promotion | evidence / trace / review / status rows | complete |
 
 ## Work Package Details
 
@@ -736,3 +737,40 @@ V closure:
 | Implementation | `docs/theory/career-gravity-frame-imports.md` | closed | Six high-value local patterns imported as draft entries. |
 | Verification | EVID-028 | closed | Inspection covers structured imports. |
 | Validation | VAL-020 | closed | Imports preserve provenance, boundaries, and draft status. |
+
+### WP-020: Add theme-swimlane extraction
+
+Objective: convert local program theme patterns into structured contribution
+lanes without letting slogans replace customer outcome evidence.
+
+Parent IDs: REQ-024, SPEC-023, IF-026.
+
+Affected files/modules:
+
+- `docs/theory/theme-swimlane-extraction.md`
+- `docs/theory/claim-strength-labels.md`
+- `docs/theory/role-reviewed-domain-examples.md`
+- `docs/theory/frame-theory.md`
+- `docs/theory/theory-roadmap.md`
+- `README.md`
+- `docs/vtrace/*`
+
+Verification commands:
+
+```powershell
+cargo fmt --check
+cargo test
+cargo run --example lookup
+git diff --check
+cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .
+```
+
+V closure:
+
+| V Area | IDs / Evidence | Status | Notes |
+|---|---|---|---|
+| Requirements | REQ-024 | closed | Theme-swimlane extraction required. |
+| Specification / Interface | SPEC-023, IF-026 | closed | Promise, lane, owner, measure, tradeoff, and exclusion fields defined. |
+| Implementation | `docs/theory/theme-swimlane-extraction.md` | closed | Pattern shape, local variants, extraction procedure, and fit checks added. |
+| Verification | EVID-029 | closed | Inspection covers extraction guide. |
+| Validation | VAL-021 | closed | Guide supports business-leader theme extraction without overclaiming. |

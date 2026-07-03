@@ -99,9 +99,11 @@ are not explicit.
 ```
 
 Promotion path: this pattern can move from `locally_observed` to `heuristic`
-only after FRAMES defines the relational transfer: shared promise, contribution
-lane, owner, measure, constraint, and exclusion. It can move to `role_reviewed`
-after business-leader, catalog-structure, and evidence-boundary review.
+only after FRAMES defines the relational transfer in
+[theme-swimlane-extraction.md](theme-swimlane-extraction.md): shared promise,
+contribution lane, owner, measure, constraint, and exclusion. It can move to
+`role_reviewed` after business-leader, catalog-structure, and
+evidence-boundary review.
 
 ## Hard Stops
 

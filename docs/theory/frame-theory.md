@@ -75,6 +75,9 @@ Use [resonance-manage-frame-imports.md](resonance-manage-frame-imports.md) when
 reviewing local RESONANCE MANAGE patterns for structured import.
 Use [career-gravity-frame-imports.md](career-gravity-frame-imports.md) when
 reviewing local CAREER Gravity patterns for structured import.
+Use [theme-swimlane-extraction.md](theme-swimlane-extraction.md) when turning
+program themes into promise, lane, owner, measure, tradeoff, and exclusion
+fields.
 Use [application-pack-templates.md](application-pack-templates.md) when tailoring
 frame defaults for product, operations, leadership, learning, or AI-agent use.
 Use [perspective-metadata.md](perspective-metadata.md) when checking what role,

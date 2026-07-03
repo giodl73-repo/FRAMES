@@ -31,6 +31,7 @@ Repo or feature: `frames-core`
 | REQ-021 | The repo shall define role-reviewed domain examples before broader catalog expansion. | NEED-001 / CON-003 | Theory needs concrete reviewed examples that show how roles accept, revise, hold, or reject frame patterns. | must | FRAMES | inspection / role review | accepted |
 | REQ-022 | The repo shall define structured RESONANCE MANAGE frame imports with provenance, claim strength, transfer boundaries, evidence boundaries, and draft status. | NEED-001 / CON-003 | Local management patterns need controlled import before becoming catalog or index entries. | must | FRAMES | inspection | accepted |
 | REQ-023 | The repo shall define structured CAREER Gravity frame imports with provenance, claim strength, transfer boundaries, evidence boundaries, and draft status. | NEED-001 / CON-003 | Local career and gravity patterns need controlled import before becoming general-purpose catalog or index entries. | must | FRAMES | inspection | accepted |
+| REQ-024 | The repo shall define theme-swimlane extraction guidance for program promises, contribution lanes, owners, measures, tradeoffs, and exclusions. | NEED-001 / CON-003 | Local program theme patterns need structure before becoming leadership templates or catalog entries. | must | FRAMES | inspection | accepted |
 
 ## Requirement Quality Checklist
 

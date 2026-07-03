@@ -125,6 +125,9 @@ Role pressure:
 | Bag of chips conflict story | Hold as story support. | Create conflict-repair frame with facts, ownership, and repair steps. |
 | Theme swimlanes | Revise toward structured import. | Build a theme-swimlane extraction artifact. |
 
+The structured import now lives in
+[theme-swimlane-extraction.md](theme-swimlane-extraction.md).
+
 ## Method Lessons
 
 - A role-reviewed example can pass for one use and fail for another.
