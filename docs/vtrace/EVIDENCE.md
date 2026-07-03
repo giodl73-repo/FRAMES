@@ -72,6 +72,7 @@ Repo or feature: `frames-core`
 | EVID-062 | inspection | `docs/theory/learning-progression.md`, `docs/theory/application-pack-templates.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md` | Learning progression exists with staged paths for novice, journeyman, expert, and AI-tool users; learning-pack docs link it. | pass. | pass |
 | EVID-063 | inspection | `docs/theory/lifecycle-filtering-and-rejection-reporting.md`, `docs/theory/frame-lifecycle.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md` | Lifecycle filtering and rejected-candidate reporting design exists and keeps default Rust search accepted-starter only until fixtures and filters exist. | pass. | pass |
 | EVID-064 | inspection / JSON parse | `docs/eval/lifecycle-rejection-fixtures.json`, `docs/eval/README.md`, `docs/theory/lifecycle-filtering-and-rejection-reporting.md`, `docs/theory/evaluation-set-design.md` | Lifecycle rejection fixture package exists, parses as JSON, links to starter fixtures, and defines allowed-status plus suppressed-candidate expectations without changing Rust search. | pass. | pass |
+| EVID-065 | inspection | `docs/theory/rust-lifecycle-filter-api-design.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/ai-response-contract.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md` | Rust lifecycle filter API design exists, is linked from migration and response guidance, and preserves default accepted-starter search while separating suppressed reports. | pass. | pass |
 
 ## Evidence Rules
 

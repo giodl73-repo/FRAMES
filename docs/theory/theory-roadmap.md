@@ -65,12 +65,13 @@ growth gaps, implementation gaps, and deeper theory questions.
 | Local import promotion | Local imports need role-reviewed promotion decisions before catalog acceptance. | `local-import-promotion-review.md` |
 | Frame acquisition method | New frame candidates need a repeatable intake, screening, and promotion path. | `frame-acquisition-method.md` |
 | Lifecycle filtering and rejection reporting | Tools need explicit visibility modes, status filters, suppressed-candidate explanations, and fixtures before non-accepted frames enter tool behavior. | `lifecycle-filtering-and-rejection-reporting.md`, `../eval/lifecycle-rejection-fixtures.json` |
+| Rust lifecycle filter API | The crate needs an additive API design before code can expose suppressed candidates or review-only rows safely. | `rust-lifecycle-filter-api-design.md` |
 
 ## Priority Order
 
 1. Collect EVT-001 participant responses and score the locked packet.
 2. Pilot the theme-swimlane leadership worksheet and record changed decisions.
-3. Design Rust lifecycle filters and suppressed-candidate result classes without changing default accepted-starter search.
+3. Implement Rust lifecycle filters and suppressed-candidate result classes without changing default accepted-starter search.
 
 ## Role Guidance
 

@@ -171,6 +171,7 @@ Do not promote a field when:
 | M4 | Add docs catalog column for application pack. | Support product, operations, leadership, learning, and AI-agent defaults. | Application-pack review. |
 | M5 | Add `FrameStatus`, `ClaimStrength`, `RiskBand`, and `ApplicationPack` to Rust only for accepted starter entries. | Improve display safety for tool callers. | Complete. |
 | M6 | Add authority, risk, and application-pack query filters plus authority model metadata. | Let AI/tool callers avoid authority, risk, or pack mismatches. | Complete. |
+| M7 | Design lifecycle filters and suppressed-candidate result classes before adding review-only rows. | Preserve default accepted search while preparing safe explanation modes. | `rust-lifecycle-filter-api-design.md`. |
 
 ## Starter Catalog Migration Target
 
@@ -211,6 +212,8 @@ These are too detailed or too unstable for the first API migration.
 - Keep `STARTER_CATALOG` accepted-only until lifecycle metadata exists.
 - Do not encode held, draft, deprecated, or rejected frames in default search
   until tool behavior can filter them safely.
+- Use [rust-lifecycle-filter-api-design.md](rust-lifecycle-filter-api-design.md)
+  before implementing lifecycle filters or suppressed-candidate reports.
 
 ## Design Consequences
 

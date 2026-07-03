@@ -61,12 +61,13 @@
 | REQ-057 | NEED-001 | CON-001 / CON-003 | Define learning progression. | SPEC-056 | DES-005 | n/a | WP-053 | `docs/theory/learning-progression.md`, `docs/theory/application-pack-templates.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md` | VER-055 inspection | VAL-054 | EVID-062 | validated |
 | REQ-058 | NEED-001 | CON-001 / CON-002 / CON-003 | Define lifecycle filtering and rejected-candidate reporting. | SPEC-057 | DES-003 / DES-005 | n/a | WP-054 | `docs/theory/lifecycle-filtering-and-rejection-reporting.md`, `docs/theory/frame-lifecycle.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md` | VER-056 inspection | VAL-055 | EVID-063 | validated |
 | REQ-059 | NEED-001 | CON-001 / CON-002 / CON-003 | Publish lifecycle and rejected-candidate fixtures. | SPEC-058 | DES-003 / DES-005 | n/a | WP-055 | `docs/eval/lifecycle-rejection-fixtures.json`, `docs/eval/README.md`, `docs/theory/lifecycle-filtering-and-rejection-reporting.md`, `docs/theory/evaluation-set-design.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md` | VER-057 inspection / JSON parse | VAL-056 | EVID-064 | validated |
+| REQ-060 | NEED-001 | CON-001 / CON-002 / CON-003 | Define Rust lifecycle filter API design. | SPEC-059 | DES-003 / DES-005 | n/a | WP-056 | `docs/theory/rust-lifecycle-filter-api-design.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/ai-response-contract.md`, `docs/theory/lifecycle-filtering-and-rejection-reporting.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md` | VER-058 inspection | VAL-057 | EVID-065 | validated |
 
 ## ID Legend
 
 - NEED-001: mission need in `MISSION.md`.
 - CON-001..CON-003: operating scenarios in `CONOPS.md`.
-- SPEC-001..SPEC-058: specification baseline.
+- SPEC-001..SPEC-059: specification baseline.
 - DES-001..DES-005: design elements.
 - CR-001..CR-006: code-rigor constraints.
 - WP-001: frame index crate work package.
@@ -124,4 +125,5 @@
 - WP-053: learning progression work package.
 - WP-054: lifecycle filtering and rejected-candidate reporting work package.
 - WP-055: lifecycle and rejected-candidate fixture work package.
+- WP-056: Rust lifecycle filter API design work package.
 - EVID-* evidence: `EVIDENCE.md` and `VERIFICATION.md`.

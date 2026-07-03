@@ -139,6 +139,9 @@ The first machine-readable package for this gate lives in
 It links suppression behavior back to the starter evaluation package without
 changing default Rust search.
 
+The future Rust API shape is designed in
+[rust-lifecycle-filter-api-design.md](rust-lifecycle-filter-api-design.md).
+
 ## Rust Migration Gate
 
 Do not expand the Rust lifecycle enum or default search behavior until:

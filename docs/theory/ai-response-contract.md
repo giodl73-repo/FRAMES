@@ -191,6 +191,10 @@ not as the decision basis.
 - Tool callers should be able to request accepted-only results.
 - Draft/local imports should not appear in default search until lifecycle and
   claim-strength filters exist.
+- Suppressed candidates should use a separate report channel from
+  recommendations, following
+  [rust-lifecycle-filter-api-design.md](rust-lifecycle-filter-api-design.md)
+  when promoted into Rust.
 - Examples should test that every suggested frame displays action cue, evidence
   boundary, and misuse warning together.
 

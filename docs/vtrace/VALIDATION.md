@@ -64,6 +64,7 @@ Repo or feature: `frames-core`
 | VAL-054 | Methodology maintainer or learning-pack reviewer | Teach frame use at the right depth for a learner's role. | Apply `learning-progression.md`. | Novice, journeyman, expert, and AI-tool paths have distinct skills, anti-patterns, and release checks. | EVID-062 | pass |
 | VAL-055 | AI tool builder or catalog reviewer | Decide whether a non-accepted or rejected candidate may be shown, suppressed, or explained. | Apply `lifecycle-filtering-and-rejection-reporting.md`. | Default suppression, opt-in reporting fields, safer fallback, and fixture gates are explicit. | EVID-063 | pass |
 | VAL-056 | AI tool builder or evaluator maintainer | Check lifecycle filtering and rejected-candidate reporting expectations before Rust implementation. | Parse and inspect `docs/eval/lifecycle-rejection-fixtures.json`. | Allowed statuses, opt-in explanation, expected suppressed candidates, fallbacks, display rules, and linked source docs are explicit. | EVID-064 | pass |
+| VAL-057 | Rust API maintainer or AI tool builder | Plan lifecycle filtering implementation without changing accepted-starter default search. | Apply `rust-lifecycle-filter-api-design.md`. | Future status values, visibility modes, filters, result classes, suppressed reports, migration steps, and compatibility rules are explicit. | EVID-065 | pass |
 
 ## Deferred Validation
 

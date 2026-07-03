@@ -50,8 +50,8 @@ These gaps block reliable tool behavior.
 | Gap | Risk | First Artifact |
 |---|---|---|
 | Relation-aware ranking | Authority, risk, and application-pack filters exist, but target-relation and protected-value ranking are not implemented. | Relation metadata plus evaluation-backed ranking design. |
-| Rejected-candidate reporting | Tools cannot yet explain why a tempting frame was rejected. | Design and fixtures exist; Rust result classes remain. |
-| Lifecycle filtering | Draft, held, deprecated, and accepted states cannot be filtered in code. | Design and fixtures exist; Rust filters remain. |
+| Rejected-candidate reporting | Tools cannot yet explain why a tempting frame was rejected. | Theory, fixtures, and Rust API design exist; implementation remains. |
+| Lifecycle filtering | Draft, held, deprecated, and accepted states cannot be filtered in code. | Theory, fixtures, and Rust API design exist; implementation remains. |
 
 ## Deep Theory Gaps
 
@@ -72,7 +72,7 @@ methodology rather than a useful catalog.
 
 1. Collect EVT-001 participant responses and score the locked packet without upgrading claim strength prematurely.
 2. Pilot the theme-swimlane leadership worksheet and record changed decisions.
-3. Design Rust lifecycle filters and suppressed-candidate result classes without changing default accepted-starter search.
+3. Implement Rust lifecycle filters and suppressed-candidate result classes without changing default accepted-starter search.
 
 This sequence keeps tool safety ahead of catalog growth.
 

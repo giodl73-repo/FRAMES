@@ -101,6 +101,7 @@ The first empirical validation trial lives in [docs/theory/empirical-validation-
 Its execution packet and empty results ledger live in [docs/validation](docs/validation).
 Catalog metadata migration planning lives in [docs/theory/catalog-metadata-migration-plan.md](docs/theory/catalog-metadata-migration-plan.md).
 AI response contract guidance lives in [docs/theory/ai-response-contract.md](docs/theory/ai-response-contract.md).
+Rust lifecycle filter API design lives in [docs/theory/rust-lifecycle-filter-api-design.md](docs/theory/rust-lifecycle-filter-api-design.md).
 External frame-practitioner benchmarks live in [docs/theory/external-frame-practitioners.md](docs/theory/external-frame-practitioners.md).
 Frame acquisition method lives in [docs/theory/frame-acquisition-method.md](docs/theory/frame-acquisition-method.md).
 Project review roles live in [.roles/ROLE.md](.roles/ROLE.md).
