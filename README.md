@@ -63,6 +63,7 @@ Source-domain taxonomy lives in [docs/theory/source-domain-taxonomy.md](docs/the
 Application pack templates live in [docs/theory/application-pack-templates.md](docs/theory/application-pack-templates.md).
 Perspective metadata guidance lives in [docs/theory/perspective-metadata.md](docs/theory/perspective-metadata.md).
 The local RESONANCE MANAGE import map lives in [docs/theory/resonance-manage-import-map.md](docs/theory/resonance-manage-import-map.md).
+The local CAREER Gravity import map lives in [docs/theory/career-gravity-import-map.md](docs/theory/career-gravity-import-map.md).
 Project review roles live in [.roles/ROLE.md](.roles/ROLE.md).
 
 ## Frame Shape
