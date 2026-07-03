@@ -41,6 +41,7 @@ Repo or feature: `frames-core`
 | REQ-031 | The repo shall define a first empirical validation trial protocol with scenario, comparison condition, response form, scoring rubric, analysis plan, and claim boundary. | NEED-001 / CON-003 | FRAMES needs runnable empirical protocols before upgrading any draft heuristic to an empirically validated claim. | must | FRAMES | inspection | accepted |
 | REQ-032 | The repo shall define transfer-aware search design before adding relation-aware Rust ranking. | NEED-001 / CON-001 / CON-003 | Search needs to prefer structural relation, authority fit, protected value, and exclusions over surface wording or vivid source scenes. | must | FRAMES | inspection | accepted |
 | REQ-033 | The repo shall define a current theory gap audit that separates foundation coverage from remaining blocking, growth, implementation, and deep theory gaps. | NEED-001 / CON-003 | FRAMES needs an explicit account of missing theory before scaling catalog growth or AI selection behavior. | must | FRAMES | inspection | accepted |
+| REQ-034 | The repo shall provide a runnable Rust example that wraps current frame search results into the AI response contract shape. | NEED-001 / CON-001 / CON-003 | Tool builders need to see action cue, evidence boundary, misuse warning, retrieval score, fit-score caveat, alternates, and fallback language together. | must | FRAMES | example run / inspection | accepted |
 
 ## Requirement Quality Checklist
 

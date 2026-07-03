@@ -189,3 +189,7 @@ not as the decision basis.
   claim-strength filters exist.
 - Examples should test that every suggested frame displays action cue, evidence
   boundary, and misuse warning together.
+
+The first runnable example is `examples/ai_response_contract.rs`. It wraps the
+current `FrameIndex` output into the contract shape without adding new API
+metadata yet. Unknown fields stay explicit instead of being inferred.

@@ -40,6 +40,7 @@ Repo or feature: `frames-core`
 | SPEC-030 | REQ-031 | theory / docs | target | Empirical validation trial 001 defines trial summary, hypothesis, scenario material, comparison conditions, response form, scoring rubric, analysis plan, report template, hard stops, and expected claim boundaries. | inspection | VAL-028 | FRAMES | medium | accepted |
 | SPEC-031 | REQ-032 | theory / design | target | Transfer-aware search design defines current search limits, query inputs, entry metadata, scoring order, hard stops, output notes, migration path, open questions, and design consequences. | inspection | VAL-029 | FRAMES | medium | accepted |
 | SPEC-032 | REQ-033 | theory / roadmap | target | Theory gap audit defines current strengths, blocking gaps, growth gaps, implementation gaps, deep theory gaps, recommended sequence, non-goals, and decision statement. | inspection | VAL-030 | FRAMES | medium | accepted |
+| SPEC-033 | REQ-034 | example / behavior | target | AI response contract example prints target situation, recommended frame, accepted status, heuristic claim strength, retrieval score, omitted fit score reason, action cue, evidence boundary, misuse warning, authority check, risk band, plain-language fallback, hard stops, alternates, and notes. | example run / inspection | VAL-031 | FRAMES | medium | accepted |
 
 ## Contract Table
 
@@ -75,3 +76,4 @@ Repo or feature: `frames-core`
 | IF-033 | SPEC-030 | Empirical trial protocol fields | Trial summary, comparison conditions, scoring rubric, hard stops, and report template should remain stable between pre-registration and scoring. | Changing protocol fields or scoring rubric after collecting responses. | EVID-036 |
 | IF-034 | SPEC-031 | Transfer-aware search scoring order | Hard stops, authority fit, target relation, protected value, and transfer-strength order should remain stable enough to guide future Rust ranking. | Changing transfer-aware scoring order, hard stops, or metadata gates before Rust implementation. | EVID-037 |
 | IF-035 | SPEC-032 | Theory gap categories | Gap categories and priority sequence should remain stable enough to steer roadmap updates. | Adding/removing gap categories or reordering priorities without updating the audit. | EVID-038 |
+| IF-036 | SPEC-033 | AI response example output fields | Example output should keep retrieval score distinct from fit score and display evidence boundary with misuse warning. | Removing fit-score caveat, evidence boundary, misuse warning, fallback, or alternates from example output. | EVID-039 |

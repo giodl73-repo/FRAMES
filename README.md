@@ -109,5 +109,6 @@ Current validation:
 cargo fmt --check
 cargo test
 cargo run --example lookup
+cargo run --example ai_response_contract
 git diff --check
 ```

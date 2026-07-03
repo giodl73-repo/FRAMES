@@ -41,6 +41,7 @@ unless product requirements explicitly define them as user-facing behavior.
 | WP-027 | Add first empirical validation trial protocol. | Claim upgrades have a concrete comparison protocol before empirical claims are made. | REQ-031 / SPEC-030 / IF-033 | `docs/theory/empirical-validation-trial-001-theme-swimlanes.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-026 complete and validation plan exists. | Trial protocol exists, linked docs updated, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: execute trial before claim-strength upgrade | evidence / trace / review / status rows | complete |
 | WP-028 | Add transfer-aware search design. | Future search ranks structural fit before surface wording or vivid source scenes. | REQ-032 / SPEC-031 / IF-034 | `docs/theory/transfer-aware-search-design.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-027 complete and relational transfer fields exist. | Search design exists, linked docs updated, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: API review before Rust ranking changes | evidence / trace / review / status rows | complete |
 | WP-029 | Add theory gap audit. | Remaining theory gaps are visible before catalog growth or AI selection scale. | REQ-033 / SPEC-032 / IF-035 | `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md`, `docs/vtrace/*` | WP-028 complete and current theory set inspected. | Gap audit exists, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: role review before major roadmap pivot | evidence / trace / review / status rows | complete |
+| WP-030 | Add AI response contract Rust example. | Tool builders can see bounded frame suggestions using current `FrameIndex` output. | REQ-034 / SPEC-033 / IF-036 | `examples/ai_response_contract.rs`, `docs/theory/ai-response-contract.md`, `README.md`, `docs/theory/theory-roadmap.md`, `docs/vtrace/*` | WP-029 complete and AI response contract exists. | Example runs, docs updated, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: API review before contract structs | evidence / trace / review / status rows | complete |
 
 ## Work Package Details
 
@@ -1103,3 +1104,39 @@ V closure:
 | Implementation | `docs/theory/theory-gap-audit.md` | closed | Strengths, blocking gaps, growth gaps, implementation gaps, deep questions, sequence, and non-goals added. |
 | Verification | EVID-038 | closed | Inspection covers theory gap audit. |
 | Validation | VAL-030 | closed | Audit supports roadmap planning before catalog or AI-selection scale. |
+
+### WP-030: Add AI response contract Rust example
+
+Objective: show how current `FrameIndex` results can be returned in a bounded
+AI response contract shape without adding metadata fields prematurely.
+
+Parent IDs: REQ-034, SPEC-033, IF-036.
+
+Affected files/modules:
+
+- `examples/ai_response_contract.rs`
+- `docs/theory/ai-response-contract.md`
+- `docs/theory/theory-roadmap.md`
+- `README.md`
+- `docs/vtrace/*`
+
+Verification commands:
+
+```powershell
+cargo fmt --check
+cargo test
+cargo run --example lookup
+cargo run --example ai_response_contract
+git diff --check
+cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .
+```
+
+V closure:
+
+| V Area | IDs / Evidence | Status | Notes |
+|---|---|---|---|
+| Requirements | REQ-034 | closed | Runnable AI response contract example required. |
+| Specification / Interface | SPEC-033, IF-036 | closed | Output fields and retrieval-vs-fit caveat defined. |
+| Implementation | `examples/ai_response_contract.rs` | closed | Example prints bounded recommendation, fallback, hard stops, alternates, and notes. |
+| Verification | EVID-039 | closed | Example run and inspection cover contract shape. |
+| Validation | VAL-031 | closed | Tool builders can inspect contract-shaped output using current API. |

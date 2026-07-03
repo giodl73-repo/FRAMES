@@ -41,6 +41,7 @@ Repo or feature: `frames-core`
 | REQ-031 | inspection | inspect `docs/theory/empirical-validation-trial-001-theme-swimlanes.md` and validation plan link | Trial summary, hypothesis, scenario material, comparison conditions, response form, scoring rubric, analysis plan, report template, hard stops, and claim boundary are present. | pass | EVID-036 |
 | REQ-032 | inspection | inspect `docs/theory/transfer-aware-search-design.md` and linked transfer/migration docs | Current search limits, query inputs, entry metadata, scoring order, hard stops, output notes, migration path, open questions, and design consequences are present. | pass | EVID-037 |
 | REQ-033 | inspection | inspect `docs/theory/theory-gap-audit.md` and roadmap link | Current strengths, blocking gaps, growth gaps, implementation gaps, deep theory gaps, recommended sequence, non-goals, and decision statement are present. | pass | EVID-038 |
+| REQ-034 | example run / inspection | `cargo run --example ai_response_contract`; inspect `examples/ai_response_contract.rs` | Example prints bounded AI response fields and keeps retrieval score distinct from omitted fit score. | pass | EVID-039 |
 
 ## Commands
 
@@ -48,6 +49,7 @@ Repo or feature: `frames-core`
 cargo fmt --check
 cargo test
 cargo run --example lookup
+cargo run --example ai_response_contract
 git diff --check
 ```
 
@@ -93,6 +95,7 @@ git diff --check
 | EVID-036 | inspection | `docs/theory/empirical-validation-trial-001-theme-swimlanes.md` | REQ-031, SPEC-030, IF-033, VAL-028 | pass |
 | EVID-037 | inspection | `docs/theory/transfer-aware-search-design.md` | REQ-032, SPEC-031, IF-034, VAL-029 | pass |
 | EVID-038 | inspection | `docs/theory/theory-gap-audit.md` | REQ-033, SPEC-032, IF-035, VAL-030 | pass |
+| EVID-039 | command output / inspection | `cargo run --example ai_response_contract`, `examples/ai_response_contract.rs` | REQ-034, SPEC-033, IF-036, VAL-031 | pass |
 
 ## Gaps
 

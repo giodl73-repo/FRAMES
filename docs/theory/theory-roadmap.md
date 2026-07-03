@@ -56,15 +56,14 @@ growth gaps, implementation gaps, and deeper theory questions.
 
 ## Priority Order
 
-1. AI response contract examples in Rust.
-2. First Rust metadata migration.
-3. Accepted-catalog review process.
-4. Frame anti-pattern taxonomy.
-5. Related-frame relation taxonomy.
-6. Evaluation-set design.
-7. Cultural portability guidance.
-8. Leadership-pack worksheet for theme swimlanes.
-9. Run EVT-001 and record results.
+1. First Rust metadata migration.
+2. Accepted-catalog review process.
+3. Frame anti-pattern taxonomy.
+4. Related-frame relation taxonomy.
+5. Evaluation-set design.
+6. Cultural portability guidance.
+7. Leadership-pack worksheet for theme swimlanes.
+8. Run EVT-001 and record results.
 
 ## Role Guidance
 
