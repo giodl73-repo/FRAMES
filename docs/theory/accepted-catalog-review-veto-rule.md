@@ -18,7 +18,7 @@ or Rust index.
 | Claim strength | heuristic |
 | Risk band | medium |
 | Transfer strength | structural when a dimension is truly required; partial otherwise |
-| Decision | Accepted with caveat for docs catalog; not yet default Rust search |
+| Decision | Accepted with caveat for docs catalog; not starter catalog or default Rust search |
 | Index behavior | Docs only; do not include in default Rust search |
 
 ## Frame Shape
@@ -97,8 +97,9 @@ Total: 12. Decision band: accepted with caveat.
 
 ## Decision
 
-Decision: accepted with caveat for docs catalog. Do not add to default Rust
-search until lifecycle filtering and draft/local import indexing rules exist.
+Decision: accepted with caveat for docs catalog. Do not add to accepted starter
+catalog or default Rust search until lifecycle filtering and draft/local import
+indexing rules exist.
 
 Revision items closed:
 
@@ -124,4 +125,4 @@ Catalog metadata for future docs row:
 | `relation_term` | required_gate |
 | `transfer_strength` | structural for true required dimensions |
 
-Next review: before adding a docs catalog row or Rust index entry.
+Next review: before adding to accepted starter catalog or Rust index.

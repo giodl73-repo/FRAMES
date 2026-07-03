@@ -59,8 +59,10 @@ Required before leaving this stage:
 - no Rust API changes are needed for lookup.
 
 Current status: complete for the first accepted starter metadata table in
-`docs/frame-catalog.md`; still active for local draft imports and future API
-metadata.
+`docs/frame-catalog.md`. The same catalog now has a separate reviewed
+docs-catalog candidate section for entries such as `veto-rule` that are
+accepted with caveat for docs use but not starter index or default Rust search.
+Stage 0 remains active for local draft imports and future API metadata.
 
 ### Stage 1: Catalog Table Normalization
 

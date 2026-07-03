@@ -55,6 +55,7 @@ Repo or feature: `frames-core`
 | REQ-045 | Accepted starter catalog rows and evaluation fixture backlog shall apply controlled ontology authority and relation terms. | NEED-001 / CON-001 / CON-003 | The ontology must be visible in catalog and evaluation artifacts before it can guide review, fixture creation, or future relation-aware metadata. | must | FRAMES | inspection | accepted |
 | REQ-046 | The repo shall apply the accepted-catalog review process to the first promoted local candidate before catalog or index promotion. | NEED-001 / CON-003 | Promoted draft heuristics need recorded board findings, fit score, decision band, and revision items before they can become accepted catalog entries. | must | FRAMES | inspection | accepted |
 | REQ-047 | The repo shall close Veto Rule accepted-catalog revision items before any docs catalog row or default-search promotion. | NEED-001 / CON-003 | Accepted-with-caveat decisions need fixtures, stop conditions, and fallback language before broader catalog use. | must | FRAMES | inspection | accepted |
+| REQ-048 | The docs catalog shall distinguish reviewed docs-catalog candidates from accepted starter entries and default Rust search. | NEED-001 / CON-001 / CON-003 | Reviewed local heuristics can become docs-catalog candidates before they are safe for starter catalog or default index behavior. | must | FRAMES | inspection | accepted |
 
 ## Requirement Quality Checklist
 

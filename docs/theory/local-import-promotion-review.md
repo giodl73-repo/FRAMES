@@ -159,17 +159,16 @@ First applied accepted-catalog review:
 
 - [accepted-catalog-review-veto-rule.md](accepted-catalog-review-veto-rule.md)
   closes `Veto Rule` revision items and records it as accepted with caveat for
-  docs catalog, but not default Rust search.
+  docs catalog, but not accepted starter catalog or default Rust search.
 
 ## Next Catalog Candidates
 
 Recommended order for future accepted-catalog review:
 
-1. Add Veto Rule docs catalog row when catalog scope expands beyond starter entries.
-2. Board Session.
-3. Momentum State.
-4. Portability Index.
-5. Contact Structure.
-6. Theme Swimlanes.
+1. Board Session.
+2. Momentum State.
+3. Portability Index.
+4. Contact Structure.
+5. Theme Swimlanes.
 
 This order favors broad utility, clear transfer, and lower human-safety risk.

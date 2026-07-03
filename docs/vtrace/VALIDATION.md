@@ -52,6 +52,7 @@ Repo or feature: `frames-core`
 | VAL-042 | Methodology maintainer or catalog reviewer | Use ontology terms during catalog and fixture review. | Inspect accepted starter metadata and evaluation fixture backlog. | Authority, relation, and job terms are explicit and traceable to `frame-ontology.md`. | EVID-050 | pass |
 | VAL-043 | Methodology maintainer or catalog reviewer | Apply accepted-catalog review without prematurely promoting a local heuristic. | Inspect the Veto Rule review record before catalog/index changes. | Review inputs, role findings, fit score, revise decision, revision items, and non-index behavior are explicit. | EVID-051 | pass |
 | VAL-044 | Methodology maintainer or catalog reviewer | Close Veto Rule review items without changing default search. | Inspect the Veto Rule review and evaluation fixture backlog. | Positive and near-miss fixtures, stop conditions, fallback language, caveat status, and no-index boundary are explicit. | EVID-052 | pass |
+| VAL-045 | Methodology maintainer or catalog reviewer | Add a reviewed local heuristic to docs catalog without changing default search. | Inspect `docs/frame-catalog.md`. | Veto Rule is visible as accepted with caveat, linked to its review, and separated from accepted starter entries. | EVID-053 | pass |
 
 ## Deferred Validation
 

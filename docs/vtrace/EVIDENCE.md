@@ -60,6 +60,7 @@ Repo or feature: `frames-core`
 | EVID-050 | inspection | `docs/frame-catalog.md`, `docs/theory/evaluation-set-design.md`, `docs/theory/frame-ontology.md` | Accepted starter rows and evaluation fixture backlog apply controlled ontology authority, relation, and job terms. | pass. | pass |
 | EVID-051 | inspection | `docs/theory/accepted-catalog-review-veto-rule.md`, `docs/theory/accepted-catalog-review-process.md`, `docs/theory/local-import-promotion-review.md` | First promoted local candidate review exists; Veto Rule is recorded as revise with required revision items and no default search promotion. | pass. | pass |
 | EVID-052 | inspection | `docs/theory/accepted-catalog-review-veto-rule.md`, `docs/theory/evaluation-set-design.md`, `docs/theory/theory-roadmap.md` | Veto Rule revision items are closed with fixtures, stop condition, fallback, accepted-with-caveat docs decision, and no default Rust search promotion. | pass. | pass |
+| EVID-053 | inspection | `docs/frame-catalog.md`, `docs/theory/catalog-metadata-migration-plan.md` | Veto Rule appears as a reviewed docs-catalog candidate separate from accepted starter metadata and default Rust search. | pass. | pass |
 
 ## Evidence Rules
 

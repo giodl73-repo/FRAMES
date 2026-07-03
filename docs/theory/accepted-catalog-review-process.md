@@ -152,7 +152,7 @@ First applied review:
 
 - [accepted-catalog-review-veto-rule.md](accepted-catalog-review-veto-rule.md)
   records `Veto Rule` as accepted with caveat for docs catalog, but not default
-  Rust search.
+  Rust search or accepted starter catalog.
 
 ## Design Consequences
 

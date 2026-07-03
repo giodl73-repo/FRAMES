@@ -46,6 +46,20 @@ Metadata meanings:
 Draft local imports stay in their import artifacts until they are fit-scored,
 role-reviewed, and promoted.
 
+## Reviewed Docs-Catalog Candidates
+
+These rows are reviewed candidates that passed accepted-catalog review for docs
+use but are not part of the accepted starter index or default Rust search.
+
+| ID | Frame | Status | Claim strength | Risk band | Application packs | Source family | Authority term | Relation term | Transfer strength | Review note |
+|---|---|---|---|---|---|---|---|---|---|---|
+| `veto-rule` | Veto Rule | accepted with caveat | heuristic | medium | product, operations, leadership, AI-agent | gates and locks | reviewer | required_gate | structural for true required dimensions | Use only when a requirement, owner, evidence, and clearance or waiver condition are explicit. |
+
+Review record:
+
+- [theory/accepted-catalog-review-veto-rule.md](theory/accepted-catalog-review-veto-rule.md)
+  records the caveat, stop condition, fallback, and no-default-search boundary.
+
 ## Status Frames
 
 | Frame | Everyday source | Target situation | Action cue | Failure mode |
