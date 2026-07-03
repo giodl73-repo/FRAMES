@@ -66,6 +66,7 @@ Controlled ontology guidance lives in [docs/theory/frame-ontology.md](docs/theor
 Accepted-catalog review process lives in [docs/theory/accepted-catalog-review-process.md](docs/theory/accepted-catalog-review-process.md).
 The first applied accepted-catalog review lives in [docs/theory/accepted-catalog-review-veto-rule.md](docs/theory/accepted-catalog-review-veto-rule.md).
 Frame anti-pattern taxonomy lives in [docs/theory/frame-antipattern-taxonomy.md](docs/theory/frame-antipattern-taxonomy.md).
+The first applied anti-pattern review lives in [docs/theory/frame-antipattern-application-veto-rule.md](docs/theory/frame-antipattern-application-veto-rule.md).
 Composition and conflict guidance lives in [docs/theory/composition-and-conflict.md](docs/theory/composition-and-conflict.md).
 Evidence boundary schema lives in [docs/theory/evidence-boundary-schema.md](docs/theory/evidence-boundary-schema.md).
 Research grounding lives in [docs/theory/research-grounding.md](docs/theory/research-grounding.md).

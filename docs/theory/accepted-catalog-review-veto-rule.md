@@ -126,3 +126,9 @@ Catalog metadata for future docs row:
 | `transfer_strength` | structural for true required dimensions |
 
 Next review: before adding to accepted starter catalog or Rust index.
+
+Anti-pattern application:
+
+- [frame-antipattern-application-veto-rule.md](frame-antipattern-application-veto-rule.md)
+  records false-authority, evidence-replacement, coercive-alignment, and
+  category-error checks for Veto Rule.

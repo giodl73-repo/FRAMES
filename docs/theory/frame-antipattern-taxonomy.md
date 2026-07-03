@@ -94,7 +94,14 @@ fixtures. Each anti-pattern fixture should record:
 | "That team is a roadblock." | People as obstacles; blame laundering. | Reject. | "The dependency is blocked by an unresolved ownership or decision path." |
 | "Green means done." | Evidence replacement. | Revise. | "Green means the agreed threshold has been met; list the threshold." |
 | "Run Fast" for a risky customer migration. | Protected-value inversion unless paired with safety gates. | Hold or revise. | Use "Run Fast / Run Safe" with explicit customer-risk checks. |
+| Unsupported Veto Rule. | False authority transfer; evidence replacement. | Reject or hold. | Name the requirement, accountable owner, and evidence before treating it as blocking. |
 | Bag-of-chips conflict story after facts are known. | Empathy eraser. | Revise. | Use the story only when facts are incomplete; once harm is established, name repair and ownership. |
+
+## Applied Reviews
+
+- [frame-antipattern-application-veto-rule.md](frame-antipattern-application-veto-rule.md)
+  applies the taxonomy to Veto Rule and adds the `EVAL-VETO-003` anti-pattern
+  fixture.
 
 ## Design Consequences
 

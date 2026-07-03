@@ -56,6 +56,7 @@ Repo or feature: `frames-core`
 | REQ-046 | inspection | inspect `docs/theory/accepted-catalog-review-veto-rule.md` and linked review/promotion docs | Veto Rule accepted-catalog review records revise decision, role findings, fit score, revision items, metadata candidate, and non-index behavior. | pass | EVID-051 |
 | REQ-047 | inspection | inspect `docs/theory/accepted-catalog-review-veto-rule.md` and `docs/theory/evaluation-set-design.md` | Veto Rule revision items are closed with fixtures, stop conditions, fallback, and docs-only caveat boundary. | pass | EVID-052 |
 | REQ-048 | inspection | inspect `docs/frame-catalog.md` and `docs/theory/catalog-metadata-migration-plan.md` | Reviewed docs-catalog candidates are separated from accepted starter metadata and default Rust search. | pass | EVID-053 |
+| REQ-049 | inspection | inspect `docs/theory/frame-antipattern-application-veto-rule.md`, `docs/theory/frame-antipattern-taxonomy.md`, and `docs/theory/evaluation-set-design.md` | Veto Rule anti-pattern classes and rejected-use fixture are present. | pass | EVID-054 |
 
 ## Commands
 
@@ -124,6 +125,7 @@ git diff --check
 | EVID-051 | inspection | `docs/theory/accepted-catalog-review-veto-rule.md`, `docs/theory/accepted-catalog-review-process.md`, `docs/theory/local-import-promotion-review.md` | REQ-046, SPEC-045, IF-048, VAL-043 | pass |
 | EVID-052 | inspection | `docs/theory/accepted-catalog-review-veto-rule.md`, `docs/theory/evaluation-set-design.md`, `docs/theory/theory-roadmap.md` | REQ-047, SPEC-046, IF-049, VAL-044 | pass |
 | EVID-053 | inspection | `docs/frame-catalog.md`, `docs/theory/catalog-metadata-migration-plan.md` | REQ-048, SPEC-047, IF-050, VAL-045 | pass |
+| EVID-054 | inspection | `docs/theory/frame-antipattern-application-veto-rule.md`, `docs/theory/frame-antipattern-taxonomy.md`, `docs/theory/evaluation-set-design.md` | REQ-049, SPEC-048, IF-051, VAL-046 | pass |
 
 ## Gaps
 

@@ -64,7 +64,7 @@ growth gaps, implementation gaps, and deeper theory questions.
 ## Priority Order
 
 1. Collect EVT-001 participant responses and score the locked packet.
-2. Apply frame anti-pattern taxonomy to first promoted candidates and evaluation fixtures.
+2. Apply related-frame relation taxonomy to catalog examples and evaluation fixtures.
 
 ## Role Guidance
 

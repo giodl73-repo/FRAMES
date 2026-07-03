@@ -56,6 +56,7 @@ unless product requirements explicitly define them as user-facing behavior.
 | WP-042 | Apply accepted-catalog review to Veto Rule. | The first promoted local candidate has a recorded review decision before catalog/index promotion. | REQ-046 / SPEC-045 / IF-048 | `docs/theory/accepted-catalog-review-veto-rule.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-041 complete and Veto Rule is promoted draft heuristic. | Veto Rule review records revise decision, revision items, and no default search promotion; docs and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: add fixtures and stop condition before catalog acceptance | evidence / trace / review / status rows | complete |
 | WP-043 | Close Veto Rule revision items. | Veto Rule has fixtures, stop condition, fallback language, and a docs-only accepted-with-caveat boundary. | REQ-047 / SPEC-046 / IF-049 | `docs/theory/accepted-catalog-review-veto-rule.md`, `docs/theory/evaluation-set-design.md`, `docs/theory/*`, `docs/vtrace/*` | WP-042 complete and revision items identified. | Revision items closed, roadmap updated, docs and VTRACE pass, default Rust search unchanged. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: add docs catalog row when catalog scope expands | evidence / trace / review / status rows | complete |
 | WP-044 | Add Veto Rule docs-catalog row. | Reviewed docs-catalog candidates are visible without changing starter catalog or default Rust search. | REQ-048 / SPEC-047 / IF-050 | `docs/frame-catalog.md`, `docs/theory/*`, `docs/vtrace/*` | WP-043 complete and Veto Rule accepted-with-caveat boundary exists. | Veto Rule row added under reviewed docs-catalog candidates, roadmap updated, docs and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: add lifecycle filtering before default search expansion | evidence / trace / review / status rows | complete |
+| WP-045 | Apply anti-pattern taxonomy to Veto Rule. | Veto Rule misuse risks are classified and covered by evaluation fixture backlog. | REQ-049 / SPEC-048 / IF-051 | `docs/theory/frame-antipattern-application-veto-rule.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-044 complete and Veto Rule docs-catalog row exists. | Anti-pattern review exists, fixture backlog updated, roadmap updated, docs and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: apply related-frame taxonomy to catalog examples | evidence / trace / review / status rows | complete |
 
 ## Work Package Details
 
@@ -1691,3 +1692,42 @@ V closure:
 | Implementation | `docs/frame-catalog.md` | closed | Veto Rule row added under reviewed docs-catalog candidates. |
 | Verification | EVID-053 | closed | Inspection covers catalog separation. |
 | Validation | VAL-045 | closed | Reviewers can find Veto Rule without changing Rust index behavior. |
+
+### WP-045: Apply anti-pattern taxonomy to Veto Rule
+
+Objective: classify Veto Rule misuse risks and add a rejected-use fixture before
+broader catalog or tool behavior depends on it.
+
+Parent IDs: REQ-049, SPEC-048, IF-051.
+
+Affected files/modules:
+
+- `docs/theory/frame-antipattern-application-veto-rule.md`
+- `docs/theory/frame-antipattern-taxonomy.md`
+- `docs/theory/evaluation-set-design.md`
+- `docs/theory/accepted-catalog-review-veto-rule.md`
+- `docs/theory/theory-gap-audit.md`
+- `docs/theory/theory-roadmap.md`
+- `README.md`
+- `docs/vtrace/*`
+
+Verification commands:
+
+```powershell
+cargo fmt --check
+cargo test
+cargo run --example lookup
+cargo run --example ai_response_contract
+git diff --check
+cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .
+```
+
+V closure:
+
+| V Area | IDs / Evidence | Status | Notes |
+|---|---|---|---|
+| Requirements | REQ-049 | closed | Anti-pattern application required for first docs-catalog candidate. |
+| Specification / Interface | SPEC-048, IF-051 | closed | Misuse classes, rejected scenarios, and fixture link defined. |
+| Implementation | `docs/theory/frame-antipattern-application-veto-rule.md` | closed | Veto Rule anti-pattern review and fixture linkage added. |
+| Verification | EVID-054 | closed | Inspection covers applied anti-pattern review. |
+| Validation | VAL-046 | closed | Misuse reviewers can suppress unsupported Veto Rule use. |

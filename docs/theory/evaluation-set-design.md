@@ -89,6 +89,7 @@ review_status:
 | EVAL-RISK-001 | Evidence boundary | status / threshold_signal / operator | Status is called green but no threshold is named. | Require threshold evidence; do not accept green as proof. |
 | EVAL-VETO-001 | Positive | risk / required_gate / reviewer | Launch scores are strong overall, but privacy approval is missing. | Recommend `veto-rule` as docs-catalog candidate; require owner and clearance condition. |
 | EVAL-VETO-002 | Near-miss | priority / required_gate / owner | A stakeholder dislikes a design but no requirement, policy, safety, or customer outcome is blocked. | Do not call it a veto; use preference, tradeoff, or decision-owner language. |
+| EVAL-VETO-003 | Anti-pattern | risk / required_gate / mixed | A senior stakeholder says an option is vetoed but names no requirement, evidence, or accountable owner. | Suppress `veto-rule`; warn false authority transfer and evidence replacement. |
 | EVAL-ANTI-001 | Anti-pattern | coordination / dependency_integrity / owner | A query says another team is a roadblock. | Suppress people-as-obstacles; return dependency/ownership fallback. |
 | EVAL-THEME-001 | Positive | priority / route_adjustment / steward | Program leader wants three contribution lanes under one customer promise. | Recommend theme swimlanes only as draft/pilot unless accepted-catalog review passes. |
 | EVAL-THEME-002 | Near-miss | priority / route_adjustment / mixed | Three slogans exist but no owner, measure, or customer promise exists. | Hold or fallback; warn about slogan compression. |
