@@ -28,7 +28,8 @@ FRAMES starts with ordinary human activities:
 FRAMES also includes `frames-core`, a small Rust library for AI tools and other
 software that need a structured frame index. It provides a starter catalog,
 query types, ranked candidates, related-frame lookup, action cues, and failure
-mode warnings.
+mode warnings. Accepted starter entries also expose compact metadata for status,
+claim strength, risk band, and application packs.
 
 ```powershell
 cargo test

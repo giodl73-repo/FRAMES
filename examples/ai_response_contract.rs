@@ -27,8 +27,8 @@ fn print_contract_response(
     println!("recommended:");
     println!("  frame_id: {}", entry.id);
     println!("  name: {}", entry.name);
-    println!("  status: accepted");
-    println!("  claim_strength: heuristic");
+    println!("  status: {}", entry.status.as_str());
+    println!("  claim_strength: {}", entry.claim_strength.as_str());
     println!("  retrieval_score: {}", recommended.score);
     println!("  fit_score: omitted; human rubric review required");
     println!("  fit_reason: {}", fit_reason(recommended));
@@ -36,7 +36,7 @@ fn print_contract_response(
     println!("  evidence_boundary: {}", entry.evidence_boundary);
     println!("  misuse_warning: {}", entry.failure_mode);
     println!("  authority_check: verify that peer coordination applies");
-    println!("  risk_band: unknown");
+    println!("  risk_band: {}", entry.risk_band.as_str());
     println!(
         "  plain_language_fallback: The teams need an explicit turn order before work proceeds."
     );

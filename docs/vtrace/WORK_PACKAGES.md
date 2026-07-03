@@ -42,6 +42,7 @@ unless product requirements explicitly define them as user-facing behavior.
 | WP-028 | Add transfer-aware search design. | Future search ranks structural fit before surface wording or vivid source scenes. | REQ-032 / SPEC-031 / IF-034 | `docs/theory/transfer-aware-search-design.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-027 complete and relational transfer fields exist. | Search design exists, linked docs updated, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: API review before Rust ranking changes | evidence / trace / review / status rows | complete |
 | WP-029 | Add theory gap audit. | Remaining theory gaps are visible before catalog growth or AI selection scale. | REQ-033 / SPEC-032 / IF-035 | `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md`, `docs/vtrace/*` | WP-028 complete and current theory set inspected. | Gap audit exists, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: role review before major roadmap pivot | evidence / trace / review / status rows | complete |
 | WP-030 | Add AI response contract Rust example. | Tool builders can see bounded frame suggestions using current `FrameIndex` output. | REQ-034 / SPEC-033 / IF-036 | `examples/ai_response_contract.rs`, `docs/theory/ai-response-contract.md`, `README.md`, `docs/theory/theory-roadmap.md`, `docs/vtrace/*` | WP-029 complete and AI response contract exists. | Example runs, docs updated, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: API review before contract structs | evidence / trace / review / status rows | complete |
+| WP-031 | Add accepted starter Rust metadata migration. | Accepted starter frames expose basic display-safety metadata and filters. | REQ-035 / SPEC-034 / IF-037 | `src/lib.rs`, `examples/ai_response_contract.rs`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-030 complete and accepted starter metadata table exists. | Metadata fields and filters exist, examples run, docs updated, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: API review before transfer-aware ranking | evidence / trace / review / status rows | complete |
 
 ## Work Package Details
 
@@ -1140,3 +1141,41 @@ V closure:
 | Implementation | `examples/ai_response_contract.rs` | closed | Example prints bounded recommendation, fallback, hard stops, alternates, and notes. |
 | Verification | EVID-039 | closed | Example run and inspection cover contract shape. |
 | Validation | VAL-031 | closed | Tool builders can inspect contract-shaped output using current API. |
+
+### WP-031: Add accepted starter Rust metadata migration
+
+Objective: expose compact metadata for accepted starter frames in `frames-core`
+without adding draft frames or transfer-aware ranking.
+
+Parent IDs: REQ-035, SPEC-034, IF-037.
+
+Affected files/modules:
+
+- `src/lib.rs`
+- `examples/ai_response_contract.rs`
+- `docs/theory/catalog-metadata-migration-plan.md`
+- `docs/theory/ai-response-contract.md`
+- `docs/theory/theory-roadmap.md`
+- `README.md`
+- `docs/vtrace/*`
+
+Verification commands:
+
+```powershell
+cargo fmt --check
+cargo test
+cargo run --example lookup
+cargo run --example ai_response_contract
+git diff --check
+cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .
+```
+
+V closure:
+
+| V Area | IDs / Evidence | Status | Notes |
+|---|---|---|---|
+| Requirements | REQ-035 | closed | Accepted starter Rust metadata required. |
+| Specification / Interface | SPEC-034, IF-037 | closed | Metadata fields and helper filters defined. |
+| Implementation | `src/lib.rs`, `examples/ai_response_contract.rs` | closed | Status, claim strength, risk band, application packs, and filters added. |
+| Verification | EVID-040 | closed | Tests and example cover metadata presence and display. |
+| Validation | VAL-032 | closed | Tool builders can filter and display accepted starter metadata. |

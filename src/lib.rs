@@ -13,10 +13,76 @@ pub enum FrameKind {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum FrameStatus {
+    Accepted,
+}
+
+impl FrameStatus {
+    pub const fn as_str(self) -> &'static str {
+        match self {
+            Self::Accepted => "accepted",
+        }
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum ClaimStrength {
+    Heuristic,
+}
+
+impl ClaimStrength {
+    pub const fn as_str(self) -> &'static str {
+        match self {
+            Self::Heuristic => "heuristic",
+        }
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum RiskBand {
+    Low,
+    Medium,
+}
+
+impl RiskBand {
+    pub const fn as_str(self) -> &'static str {
+        match self {
+            Self::Low => "low",
+            Self::Medium => "medium",
+        }
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum ApplicationPack {
+    Product,
+    Operations,
+    Leadership,
+    Learning,
+    AiAgent,
+}
+
+impl ApplicationPack {
+    pub const fn as_str(self) -> &'static str {
+        match self {
+            Self::Product => "product",
+            Self::Operations => "operations",
+            Self::Leadership => "leadership",
+            Self::Learning => "learning",
+            Self::AiAgent => "AI-agent",
+        }
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct FrameEntry {
     pub id: &'static str,
     pub name: &'static str,
     pub kind: FrameKind,
+    pub status: FrameStatus,
+    pub claim_strength: ClaimStrength,
+    pub risk_band: RiskBand,
+    pub application_packs: &'static [ApplicationPack],
     pub everyday_source: &'static str,
     pub target_situations: &'static [&'static str],
     pub tags: &'static [&'static str],
@@ -105,6 +171,34 @@ impl FrameIndex {
         self.entries
             .iter()
             .filter(|entry| contains_ignore_ascii_case(entry.tags, tag))
+            .collect()
+    }
+
+    pub fn by_status(&self, status: FrameStatus) -> Vec<&'static FrameEntry> {
+        self.entries
+            .iter()
+            .filter(|entry| entry.status == status)
+            .collect()
+    }
+
+    pub fn by_claim_strength(&self, claim_strength: ClaimStrength) -> Vec<&'static FrameEntry> {
+        self.entries
+            .iter()
+            .filter(|entry| entry.claim_strength == claim_strength)
+            .collect()
+    }
+
+    pub fn by_risk_band(&self, risk_band: RiskBand) -> Vec<&'static FrameEntry> {
+        self.entries
+            .iter()
+            .filter(|entry| entry.risk_band == risk_band)
+            .collect()
+    }
+
+    pub fn with_application_pack(&self, pack: ApplicationPack) -> Vec<&'static FrameEntry> {
+        self.entries
+            .iter()
+            .filter(|entry| entry.application_packs.contains(&pack))
             .collect()
     }
 
@@ -208,6 +302,15 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         id: "red-yellow-green",
         name: "Red / yellow / green",
         kind: FrameKind::Status,
+        status: FrameStatus::Accepted,
+        claim_strength: ClaimStrength::Heuristic,
+        risk_band: RiskBand::Medium,
+        application_packs: &[
+            ApplicationPack::Product,
+            ApplicationPack::Operations,
+            ApplicationPack::Leadership,
+            ApplicationPack::AiAgent,
+        ],
         everyday_source: "Traffic signal",
         target_situations: &["progress readiness", "release health", "operational status"],
         tags: &["status", "readiness", "progress", "gate"],
@@ -220,6 +323,15 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         id: "four-way-stop",
         name: "Four-way stop",
         kind: FrameKind::Coordination,
+        status: FrameStatus::Accepted,
+        claim_strength: ClaimStrength::Heuristic,
+        risk_band: RiskBand::Medium,
+        application_packs: &[
+            ApplicationPack::Product,
+            ApplicationPack::Operations,
+            ApplicationPack::Leadership,
+            ApplicationPack::AiAgent,
+        ],
         everyday_source: "Drivers negotiating turn order",
         target_situations: &[
             "peer teams sharing constrained attention",
@@ -235,6 +347,14 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         id: "crosswalk-yield",
         name: "Crosswalk yield",
         kind: FrameKind::Coordination,
+        status: FrameStatus::Accepted,
+        claim_strength: ClaimStrength::Heuristic,
+        risk_band: RiskBand::Medium,
+        application_packs: &[
+            ApplicationPack::Product,
+            ApplicationPack::Operations,
+            ApplicationPack::Leadership,
+        ],
         everyday_source: "Pedestrian priority at a crossing",
         target_situations: &["protecting vulnerable users", "downstream review capacity"],
         tags: &["coordination", "safety", "vulnerability", "priority"],
@@ -247,6 +367,14 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         id: "merge-lane",
         name: "Merge lane",
         kind: FrameKind::Coordination,
+        status: FrameStatus::Accepted,
+        claim_strength: ClaimStrength::Heuristic,
+        risk_band: RiskBand::Medium,
+        application_packs: &[
+            ApplicationPack::Product,
+            ApplicationPack::Operations,
+            ApplicationPack::AiAgent,
+        ],
         everyday_source: "Joining moving traffic",
         target_situations: &[
             "integrating work into an active system",
@@ -262,6 +390,14 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         id: "detour",
         name: "Detour",
         kind: FrameKind::Momentum,
+        status: FrameStatus::Accepted,
+        claim_strength: ClaimStrength::Heuristic,
+        risk_band: RiskBand::Medium,
+        application_packs: &[
+            ApplicationPack::Product,
+            ApplicationPack::Operations,
+            ApplicationPack::Leadership,
+        ],
         everyday_source: "Blocked route",
         target_situations: &["changed plan", "blocked path with stable destination"],
         tags: &["momentum", "planning", "route", "adaptation"],
@@ -275,6 +411,14 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         id: "downshift",
         name: "Downshift",
         kind: FrameKind::Momentum,
+        status: FrameStatus::Accepted,
+        claim_strength: ClaimStrength::Heuristic,
+        risk_band: RiskBand::Low,
+        application_packs: &[
+            ApplicationPack::Product,
+            ApplicationPack::Operations,
+            ApplicationPack::Learning,
+        ],
         everyday_source: "Driving uphill or slowing safely",
         target_situations: &["reducing scope under load", "regaining control"],
         tags: &["momentum", "scope", "control", "load"],
@@ -287,6 +431,14 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         id: "rest-stop",
         name: "Rest stop",
         kind: FrameKind::Momentum,
+        status: FrameStatus::Accepted,
+        claim_strength: ClaimStrength::Heuristic,
+        risk_band: RiskBand::Low,
+        application_packs: &[
+            ApplicationPack::Operations,
+            ApplicationPack::Learning,
+            ApplicationPack::Leadership,
+        ],
         everyday_source: "Planned pause on a long trip",
         target_situations: &["planned recovery", "fatigue management"],
         tags: &["momentum", "recovery", "fatigue", "pace"],
@@ -299,6 +451,14 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         id: "walking-pace",
         name: "Walking pace",
         kind: FrameKind::Momentum,
+        status: FrameStatus::Accepted,
+        claim_strength: ClaimStrength::Heuristic,
+        risk_band: RiskBand::Low,
+        application_packs: &[
+            ApplicationPack::Product,
+            ApplicationPack::Learning,
+            ApplicationPack::Operations,
+        ],
         everyday_source: "Sustainable movement",
         target_situations: &["team execution speed", "sustainable progress"],
         tags: &["momentum", "pace", "sustainability", "progress"],
@@ -311,6 +471,15 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         id: "blind-spot",
         name: "Blind spot",
         kind: FrameKind::Risk,
+        status: FrameStatus::Accepted,
+        claim_strength: ClaimStrength::Heuristic,
+        risk_band: RiskBand::Medium,
+        application_packs: &[
+            ApplicationPack::Product,
+            ApplicationPack::Operations,
+            ApplicationPack::Leadership,
+            ApplicationPack::AiAgent,
+        ],
         everyday_source: "Driving awareness gap",
         target_situations: &["unknown dependency", "missing stakeholder visibility"],
         tags: &["risk", "visibility", "dependency", "stakeholder"],
@@ -327,6 +496,14 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         id: "dashboard-warning-light",
         name: "Dashboard warning light",
         kind: FrameKind::Risk,
+        status: FrameStatus::Accepted,
+        claim_strength: ClaimStrength::Heuristic,
+        risk_band: RiskBand::Medium,
+        application_packs: &[
+            ApplicationPack::Operations,
+            ApplicationPack::Product,
+            ApplicationPack::AiAgent,
+        ],
         everyday_source: "Vehicle diagnostics",
         target_situations: &["emerging risk", "early warning signal"],
         tags: &["risk", "status", "warning", "diagnostic"],
@@ -339,6 +516,15 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         id: "fuel-gauge",
         name: "Fuel gauge",
         kind: FrameKind::Status,
+        status: FrameStatus::Accepted,
+        claim_strength: ClaimStrength::Heuristic,
+        risk_band: RiskBand::Low,
+        application_packs: &[
+            ApplicationPack::Product,
+            ApplicationPack::Operations,
+            ApplicationPack::Leadership,
+            ApplicationPack::AiAgent,
+        ],
         everyday_source: "Driving range",
         target_situations: &["resource burn", "runway", "capacity remaining"],
         tags: &["status", "resource", "capacity", "runway"],
@@ -351,6 +537,14 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         id: "speed-limit",
         name: "Speed limit",
         kind: FrameKind::Status,
+        status: FrameStatus::Accepted,
+        claim_strength: ClaimStrength::Heuristic,
+        risk_band: RiskBand::Medium,
+        application_packs: &[
+            ApplicationPack::Product,
+            ApplicationPack::Operations,
+            ApplicationPack::Leadership,
+        ],
         everyday_source: "Posted road limit",
         target_situations: &["execution pace under constraints", "maximum safe pace"],
         tags: &["status", "pace", "constraint", "safety"],
@@ -363,6 +557,10 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         id: "shoulder-pull-off",
         name: "Shoulder / pull-off",
         kind: FrameKind::Momentum,
+        status: FrameStatus::Accepted,
+        claim_strength: ClaimStrength::Heuristic,
+        risk_band: RiskBand::Medium,
+        application_packs: &[ApplicationPack::Operations, ApplicationPack::Product],
         everyday_source: "Safe roadside stop",
         target_situations: &["temporary pause outside the main flow", "stabilization"],
         tags: &["momentum", "pause", "stabilize", "reentry"],
@@ -375,6 +573,14 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         id: "following-distance",
         name: "Following distance",
         kind: FrameKind::Risk,
+        status: FrameStatus::Accepted,
+        claim_strength: ClaimStrength::Heuristic,
+        risk_band: RiskBand::Medium,
+        application_packs: &[
+            ApplicationPack::Product,
+            ApplicationPack::Operations,
+            ApplicationPack::AiAgent,
+        ],
         everyday_source: "Safe gap between vehicles",
         target_situations: &["buffer between dependent work items", "reaction time"],
         tags: &["risk", "buffer", "dependency", "coupling"],
@@ -387,6 +593,14 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         id: "load-bearing-wall",
         name: "Load-bearing wall",
         kind: FrameKind::Risk,
+        status: FrameStatus::Accepted,
+        claim_strength: ClaimStrength::Heuristic,
+        risk_band: RiskBand::Medium,
+        application_packs: &[
+            ApplicationPack::Product,
+            ApplicationPack::Operations,
+            ApplicationPack::Leadership,
+        ],
         everyday_source: "Building structure",
         target_situations: &["critical dependency", "structural constraint"],
         tags: &["risk", "dependency", "structure", "constraint"],
@@ -429,6 +643,19 @@ mod tests {
     }
 
     #[test]
+    fn metadata_helpers_filter_entries() {
+        let index = FrameIndex::new();
+
+        assert_eq!(index.by_status(FrameStatus::Accepted).len(), 15);
+        assert_eq!(index.by_claim_strength(ClaimStrength::Heuristic).len(), 15);
+        assert_eq!(index.by_risk_band(RiskBand::Low).len(), 4);
+        assert_eq!(
+            index.with_application_pack(ApplicationPack::AiAgent).len(),
+            7
+        );
+    }
+
+    #[test]
     fn traffic_pack_entries_are_indexed() {
         let index = FrameIndex::new();
 
@@ -444,6 +671,7 @@ mod tests {
 
         for entry in index.entries() {
             assert!(!entry.evidence_boundary.is_empty(), "{}", entry.id);
+            assert!(!entry.application_packs.is_empty(), "{}", entry.id);
         }
     }
 

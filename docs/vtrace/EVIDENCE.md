@@ -47,6 +47,7 @@ Repo or feature: `frames-core`
 | EVID-037 | inspection | `docs/theory/transfer-aware-search-design.md` | Transfer-aware search design exists with query inputs, metadata gates, scoring order, hard stops, output notes, migration path, and no immediate Rust API change. | pass. | pass |
 | EVID-038 | inspection | `docs/theory/theory-gap-audit.md` | Theory gap audit exists with current strengths, blocking gaps, growth gaps, implementation gaps, deep theory gaps, recommended sequence, non-goals, and decision statement. | pass. | pass |
 | EVID-039 | command / inspection | `cargo run --example ai_response_contract`; `examples/ai_response_contract.rs` | AI response contract example runs and displays retrieval score, fit-score caveat, action cue, evidence boundary, misuse warning, fallback, hard stops, alternates, and notes. | pass. | pass |
+| EVID-040 | command / inspection | `cargo test`; `cargo run --example ai_response_contract`; `src/lib.rs`; `docs/theory/catalog-metadata-migration-plan.md` | Accepted starter entries expose Rust status, claim strength, risk band, application packs, and metadata filters; AI response example reads metadata from `FrameEntry`. | pass. | pass |
 
 ## Evidence Rules
 

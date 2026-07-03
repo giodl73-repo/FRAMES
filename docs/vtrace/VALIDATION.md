@@ -39,6 +39,7 @@ Repo or feature: `frames-core`
 | VAL-029 | AI tool builder or methodology maintainer | Decide how future search should rank structural fit safely. | Apply `transfer-aware-search-design.md` before Rust ranking changes. | Query inputs, metadata gates, scoring order, hard stops, output notes, migration path, and no-immediate-API-change boundary are visible. | EVID-037 | pass |
 | VAL-030 | Methodology maintainer | Decide what theory is still missing before scaling catalog growth or AI selection. | Apply `theory-gap-audit.md` to roadmap planning. | Current strengths, blocking gaps, growth gaps, implementation gaps, deep theory gaps, recommended sequence, and non-goals are visible. | EVID-038 | pass |
 | VAL-031 | AI tool builder | See how current search results can be returned in the AI response contract shape. | Run `cargo run --example ai_response_contract`. | Example displays bounded recommendation fields, alternates, fallback, retrieval-score caveat, evidence boundary, and misuse warning. | EVID-039 | pass |
+| VAL-032 | AI tool builder | Filter and display accepted starter frames with basic safety metadata. | Inspect `FrameEntry` metadata fields and call metadata helper filters. | Accepted entries expose status, claim strength, risk band, and application packs without adding draft frames or transfer-aware ranking. | EVID-040 | pass |
 
 ## Deferred Validation
 

@@ -16,6 +16,10 @@ fit scoring, and real lookup needs.
 | `id` | stable | Required for lookup and related frames. |
 | `name` | stable | Human-readable label. |
 | `kind` | stable | Current frame job enum: status, coordination, momentum, risk. |
+| `status` | stable | Accepted starter entries currently expose `FrameStatus::Accepted`. |
+| `claim_strength` | stable | Accepted starter entries currently expose `ClaimStrength::Heuristic`. |
+| `risk_band` | stable | Low or medium risk band for accepted starter entries. |
+| `application_packs` | stable | Product, operations, leadership, learning, or AI-agent display/filter metadata. |
 | `everyday_source` | stable | Short source scene. |
 | `target_situations` | stable | Searchable target text. |
 | `tags` | stable | Flexible bridge for metadata not yet first-class. |
@@ -24,8 +28,8 @@ fit scoring, and real lookup needs.
 | `failure_mode` | stable | Required misuse warning. |
 | `related` | stable | Adjacent alternatives. |
 
-This is enough for first lookup. It is not enough for safe expansion into local
-imports, leadership packs, or validated claims.
+This is enough for first lookup plus basic display safety. It is not enough for
+safe expansion into local imports, transfer-aware ranking, or validated claims.
 
 ## Metadata Families
 
@@ -87,6 +91,9 @@ pub enum ClaimStrength { Heuristic, RoleReviewed, EmpiricallyValidated }
 pub enum RiskBand { Low, Medium, High }
 pub enum ApplicationPack { Product, Operations, Leadership, Learning, AiAgent }
 ```
+
+Current status: first accepted-starter migration complete for `FrameStatus`,
+`ClaimStrength`, `RiskBand`, and `ApplicationPack`.
 
 Nonbreaking approach:
 
@@ -158,7 +165,7 @@ Do not promote a field when:
 | M2 | Add docs catalog columns for source family, authority model, and risk band. | Make source-domain risk visible. | Source-domain review. |
 | M3 | Add docs catalog column for transfer strength. | Separate structural frames from illustrative stories. | Fit rubric review. |
 | M4 | Add docs catalog column for application pack. | Support product, operations, leadership, learning, and AI-agent defaults. | Application-pack review. |
-| M5 | Add `ClaimStrength` and `RiskBand` to Rust only for accepted starter entries. | Improve display safety for tool callers. | All starter entries populated. |
+| M5 | Add `FrameStatus`, `ClaimStrength`, `RiskBand`, and `ApplicationPack` to Rust only for accepted starter entries. | Improve display safety for tool callers. | Complete. |
 | M6 | Add transfer-aware search filters. | Let AI/tool callers avoid authority or risk mismatches. | Transfer metadata stable. |
 
 ## Starter Catalog Migration Target
@@ -177,6 +184,8 @@ Suggested first fields:
 | `claim_strength` | Prevents heuristic entries from sounding validated. |
 | `risk_band` | Helps AI/tool callers avoid high-stakes overuse. |
 | `application_packs` | Supports context-specific suggestions. |
+
+These fields are now exposed by `FrameEntry` for accepted starter entries.
 
 Deferred fields:
 

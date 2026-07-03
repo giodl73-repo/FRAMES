@@ -191,5 +191,6 @@ not as the decision basis.
   boundary, and misuse warning together.
 
 The first runnable example is `examples/ai_response_contract.rs`. It wraps the
-current `FrameIndex` output into the contract shape without adding new API
-metadata yet. Unknown fields stay explicit instead of being inferred.
+current `FrameIndex` output into the contract shape and reads status, claim
+strength, risk band, and application pack metadata from `FrameEntry`. Fields not
+yet represented in the API stay explicit instead of being inferred.

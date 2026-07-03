@@ -41,6 +41,7 @@ Repo or feature: `frames-core`
 | SPEC-031 | REQ-032 | theory / design | target | Transfer-aware search design defines current search limits, query inputs, entry metadata, scoring order, hard stops, output notes, migration path, open questions, and design consequences. | inspection | VAL-029 | FRAMES | medium | accepted |
 | SPEC-032 | REQ-033 | theory / roadmap | target | Theory gap audit defines current strengths, blocking gaps, growth gaps, implementation gaps, deep theory gaps, recommended sequence, non-goals, and decision statement. | inspection | VAL-030 | FRAMES | medium | accepted |
 | SPEC-033 | REQ-034 | example / behavior | target | AI response contract example prints target situation, recommended frame, accepted status, heuristic claim strength, retrieval score, omitted fit score reason, action cue, evidence boundary, misuse warning, authority check, risk band, plain-language fallback, hard stops, alternates, and notes. | example run / inspection | VAL-031 | FRAMES | medium | accepted |
+| SPEC-034 | REQ-035 | API / data model | target | `FrameEntry` exposes `status`, `claim_strength`, `risk_band`, and `application_packs`; `FrameIndex` exposes filters for each metadata family. | unit test / example run / inspection | VAL-032 | FRAMES | medium | accepted |
 
 ## Contract Table
 
@@ -77,3 +78,4 @@ Repo or feature: `frames-core`
 | IF-034 | SPEC-031 | Transfer-aware search scoring order | Hard stops, authority fit, target relation, protected value, and transfer-strength order should remain stable enough to guide future Rust ranking. | Changing transfer-aware scoring order, hard stops, or metadata gates before Rust implementation. | EVID-037 |
 | IF-035 | SPEC-032 | Theory gap categories | Gap categories and priority sequence should remain stable enough to steer roadmap updates. | Adding/removing gap categories or reordering priorities without updating the audit. | EVID-038 |
 | IF-036 | SPEC-033 | AI response example output fields | Example output should keep retrieval score distinct from fit score and display evidence boundary with misuse warning. | Removing fit-score caveat, evidence boundary, misuse warning, fallback, or alternates from example output. | EVID-039 |
+| IF-037 | SPEC-034 | Starter metadata API fields | Metadata field names and enum values should remain stable enough for downstream display and filtering. | Renaming/removing `FrameEntry` metadata fields or metadata helper filters. | EVID-040 |

@@ -36,12 +36,13 @@
 | REQ-032 | NEED-001 | CON-001 / CON-003 | Define transfer-aware search design. | SPEC-031 | DES-005 | n/a | WP-028 | `docs/theory/transfer-aware-search-design.md`, `docs/theory/relational-transfer-fields.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/theory-roadmap.md` | VER-030 inspection | VAL-029 | EVID-037 | validated |
 | REQ-033 | NEED-001 | CON-003 | Define current theory gap audit. | SPEC-032 | DES-005 | n/a | WP-029 | `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md` | VER-031 inspection | VAL-030 | EVID-038 | validated |
 | REQ-034 | NEED-001 | CON-001 / CON-003 | Add runnable AI response contract example. | SPEC-033 | DES-005 | CR-006 | WP-030 | `examples/ai_response_contract.rs`, `docs/theory/ai-response-contract.md`, `README.md`, `docs/theory/theory-roadmap.md` | VER-032 example run / inspection | VAL-031 | EVID-039 | validated |
+| REQ-035 | NEED-001 | CON-001 / CON-003 | Add Rust metadata for accepted starter entries. | SPEC-034 | DES-005 | CR-006 | WP-031 | `src/lib.rs`, `examples/ai_response_contract.rs`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/ai-response-contract.md`, `README.md` | VER-033 unit test / example run / inspection | VAL-032 | EVID-040 | validated |
 
 ## ID Legend
 
 - NEED-001: mission need in `MISSION.md`.
 - CON-001..CON-003: operating scenarios in `CONOPS.md`.
-- SPEC-001..SPEC-033: specification baseline.
+- SPEC-001..SPEC-034: specification baseline.
 - DES-001..DES-005: design elements.
 - CR-001..CR-006: code-rigor constraints.
 - WP-001: frame index crate work package.
@@ -74,4 +75,5 @@
 - WP-028: transfer-aware search design work package.
 - WP-029: theory gap audit work package.
 - WP-030: AI response contract example work package.
+- WP-031: accepted starter Rust metadata migration work package.
 - EVID-* evidence: `EVIDENCE.md` and `VERIFICATION.md`.

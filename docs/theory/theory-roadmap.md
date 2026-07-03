@@ -56,13 +56,13 @@ growth gaps, implementation gaps, and deeper theory questions.
 
 ## Priority Order
 
-1. First Rust metadata migration.
-2. Accepted-catalog review process.
-3. Frame anti-pattern taxonomy.
-4. Related-frame relation taxonomy.
-5. Evaluation-set design.
-6. Cultural portability guidance.
-7. Leadership-pack worksheet for theme swimlanes.
+1. Accepted-catalog review process.
+2. Frame anti-pattern taxonomy.
+3. Related-frame relation taxonomy.
+4. Evaluation-set design.
+5. Cultural portability guidance.
+6. Leadership-pack worksheet for theme swimlanes.
+7. Transfer-aware search filters.
 8. Run EVT-001 and record results.
 
 ## Role Guidance
