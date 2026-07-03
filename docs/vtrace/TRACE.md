@@ -39,12 +39,13 @@
 | REQ-035 | NEED-001 | CON-001 / CON-003 | Add Rust metadata for accepted starter entries. | SPEC-034 | DES-005 | CR-006 | WP-031 | `src/lib.rs`, `examples/ai_response_contract.rs`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/ai-response-contract.md`, `README.md` | VER-033 unit test / example run / inspection | VAL-032 | EVID-040 | validated |
 | REQ-036 | NEED-001 | CON-003 | Define accepted-catalog review process. | SPEC-035 | DES-005 | n/a | WP-032 | `docs/theory/accepted-catalog-review-process.md`, `docs/theory/frame-lifecycle.md`, `docs/theory/local-import-promotion-review.md`, `docs/theory/theory-roadmap.md` | VER-034 inspection | VAL-033 | EVID-041 | validated |
 | REQ-037 | NEED-001 | CON-003 | Define frame anti-pattern taxonomy. | SPEC-036 | DES-005 | n/a | WP-033 | `docs/theory/frame-antipattern-taxonomy.md`, `docs/theory/accepted-catalog-review-process.md`, `docs/theory/frame-theory.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md` | VER-035 inspection | VAL-034 | EVID-042 | validated |
+| REQ-038 | NEED-001 | CON-001 / CON-003 | Define related-frame relation taxonomy. | SPEC-037 | DES-005 | n/a | WP-034 | `docs/theory/related-frame-taxonomy.md`, `docs/theory/composition-and-conflict.md`, `docs/theory/transfer-aware-search-design.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md` | VER-036 inspection | VAL-035 | EVID-043 | validated |
 
 ## ID Legend
 
 - NEED-001: mission need in `MISSION.md`.
 - CON-001..CON-003: operating scenarios in `CONOPS.md`.
-- SPEC-001..SPEC-036: specification baseline.
+- SPEC-001..SPEC-037: specification baseline.
 - DES-001..DES-005: design elements.
 - CR-001..CR-006: code-rigor constraints.
 - WP-001: frame index crate work package.
@@ -80,4 +81,5 @@
 - WP-031: accepted starter Rust metadata migration work package.
 - WP-032: accepted-catalog review process work package.
 - WP-033: frame anti-pattern taxonomy work package.
+- WP-034: related-frame relation taxonomy work package.
 - EVID-* evidence: `EVIDENCE.md` and `VERIFICATION.md`.

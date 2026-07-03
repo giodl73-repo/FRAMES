@@ -45,6 +45,7 @@ unless product requirements explicitly define them as user-facing behavior.
 | WP-031 | Add accepted starter Rust metadata migration. | Accepted starter frames expose basic display-safety metadata and filters. | REQ-035 / SPEC-034 / IF-037 | `src/lib.rs`, `examples/ai_response_contract.rs`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-030 complete and accepted starter metadata table exists. | Metadata fields and filters exist, examples run, docs updated, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: API review before transfer-aware ranking | evidence / trace / review / status rows | complete |
 | WP-032 | Add accepted-catalog review process. | Draft heuristics have a repeatable gate before accepted catalog or default search. | REQ-036 / SPEC-035 / IF-038 | `docs/theory/accepted-catalog-review-process.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-031 complete and lifecycle/promotion docs exist. | Process exists, linked docs updated, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: apply process to first promoted candidate | evidence / trace / review / status rows | complete |
 | WP-033 | Add frame anti-pattern taxonomy. | Bad frames have reusable rejection classes before rejected examples or evaluation sets expand. | REQ-037 / SPEC-036 / IF-039 | `docs/theory/frame-antipattern-taxonomy.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-032 complete and hard-stop/review docs exist. | Taxonomy exists, linked docs updated, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: apply taxonomy to evaluation fixtures and rejected-candidate reporting | evidence / trace / review / status rows | complete |
+| WP-034 | Add related-frame relation taxonomy. | Related links have stable meanings before typed metadata or relation-aware evaluation sets. | REQ-038 / SPEC-037 / IF-040 | `docs/theory/related-frame-taxonomy.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-033 complete and composition/search docs exist. | Taxonomy exists, linked docs updated, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: apply relation taxonomy to catalog rows and evaluation fixtures | evidence / trace / review / status rows | complete |
 
 ## Work Package Details
 
@@ -1257,3 +1258,42 @@ V closure:
 | Implementation | `docs/theory/frame-antipattern-taxonomy.md` | closed | Taxonomy, review procedure, examples, and design consequences added. |
 | Verification | EVID-042 | closed | Inspection covers anti-pattern taxonomy. |
 | Validation | VAL-034 | closed | Taxonomy supports revise/hold/reject decisions and safer fallbacks. |
+
+### WP-034: Add related-frame relation taxonomy
+
+Objective: define stable relation types for related frames so alternates,
+fallbacks, conflicts, sequences, and rejected near-misses can be reviewed before
+typed Rust metadata exists.
+
+Parent IDs: REQ-038, SPEC-037, IF-040.
+
+Affected files/modules:
+
+- `docs/theory/related-frame-taxonomy.md`
+- `docs/theory/composition-and-conflict.md`
+- `docs/theory/transfer-aware-search-design.md`
+- `docs/theory/theory-gap-audit.md`
+- `docs/theory/theory-roadmap.md`
+- `README.md`
+- `docs/vtrace/*`
+
+Verification commands:
+
+```powershell
+cargo fmt --check
+cargo test
+cargo run --example lookup
+cargo run --example ai_response_contract
+git diff --check
+cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .
+```
+
+V closure:
+
+| V Area | IDs / Evidence | Status | Notes |
+|---|---|---|---|
+| Requirements | REQ-038 | closed | Related-frame relation taxonomy required. |
+| Specification / Interface | SPEC-037, IF-040 | closed | Relation types, direction rules, display rules, and tool implications defined. |
+| Implementation | `docs/theory/related-frame-taxonomy.md` | closed | Taxonomy, examples, catalog field shape, and design consequences added. |
+| Verification | EVID-043 | closed | Inspection covers related-frame taxonomy. |
+| Validation | VAL-035 | closed | Taxonomy supports alternate, fallback, sequence, conflict, and suppression decisions. |

@@ -67,6 +67,7 @@ Claim-strength labels live in [docs/theory/claim-strength-labels.md](docs/theory
 Source-domain taxonomy lives in [docs/theory/source-domain-taxonomy.md](docs/theory/source-domain-taxonomy.md).
 Relational transfer fields live in [docs/theory/relational-transfer-fields.md](docs/theory/relational-transfer-fields.md).
 Transfer-aware search design lives in [docs/theory/transfer-aware-search-design.md](docs/theory/transfer-aware-search-design.md).
+Related-frame relation taxonomy lives in [docs/theory/related-frame-taxonomy.md](docs/theory/related-frame-taxonomy.md).
 Role-reviewed domain examples live in [docs/theory/role-reviewed-domain-examples.md](docs/theory/role-reviewed-domain-examples.md).
 Application pack templates live in [docs/theory/application-pack-templates.md](docs/theory/application-pack-templates.md).
 Perspective metadata guidance lives in [docs/theory/perspective-metadata.md](docs/theory/perspective-metadata.md).

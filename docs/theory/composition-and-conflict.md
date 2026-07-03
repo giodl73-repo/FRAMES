@@ -99,7 +99,8 @@ Story never wins over safety, authority, or evidence.
 `frames-core` currently exposes related frames, not composed frames. That is the
 right default. Related frames are candidates for comparison; composition should
 remain a caller or higher-level pack decision until FRAMES has enough reviewed
-examples.
+examples. Typed related-frame relations are defined in
+[related-frame-taxonomy.md](related-frame-taxonomy.md).
 
 Future index metadata may add:
 
@@ -109,6 +110,5 @@ Future index metadata may add:
 - boundary frame hints,
 - sequence-before and sequence-after.
 
-Do not add those fields until composition examples exist across at least three
-frame jobs.
-
+Do not add those fields until composition and related-frame examples exist
+across at least three frame jobs.

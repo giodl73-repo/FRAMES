@@ -42,6 +42,7 @@ Repo or feature: `frames-core`
 | VAL-032 | AI tool builder | Filter and display accepted starter frames with basic safety metadata. | Inspect `FrameEntry` metadata fields and call metadata helper filters. | Accepted entries expose status, claim strength, risk band, and application packs without adding draft frames or transfer-aware ranking. | EVID-040 | pass |
 | VAL-033 | Methodology maintainer | Decide whether a draft heuristic can become accepted catalog. | Apply `accepted-catalog-review-process.md` to a candidate. | Required inputs, role lenses, decision bands, hard stops, metadata requirements, index behavior, and review template are visible. | EVID-041 | pass |
 | VAL-034 | Methodology maintainer or AI tool builder | Decide why a tempting frame should be revised, held, rejected, or kept only as an anti-pattern. | Apply `frame-antipattern-taxonomy.md` to candidate frames and rejected examples. | Anti-pattern class, disposition, safer fallback, evidence boundary, and tool/index implications are visible. | EVID-042 | pass |
+| VAL-035 | Methodology maintainer or AI tool builder | Decide how a related frame should be displayed, sequenced, preferred, suppressed, or explained. | Apply `related-frame-taxonomy.md` to related-frame links and candidate alternates. | Relation type, direction, display rule, safety implication, and future tool behavior are visible. | EVID-043 | pass |
 
 ## Deferred Validation
 

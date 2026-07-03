@@ -44,6 +44,7 @@ Repo or feature: `frames-core`
 | SPEC-034 | REQ-035 | API / data model | target | `FrameEntry` exposes `status`, `claim_strength`, `risk_band`, and `application_packs`; `FrameIndex` exposes filters for each metadata family. | unit test / example run / inspection | VAL-032 | FRAMES | medium | accepted |
 | SPEC-035 | REQ-036 | theory / process | target | Accepted-catalog review process defines review inputs, acceptance board lenses, decision bands, hard stops, acceptance procedure, required metadata, review template, local-import promotion rule, and design consequences. | inspection | VAL-033 | FRAMES | medium | accepted |
 | SPEC-036 | REQ-037 | theory / taxonomy | target | Frame anti-pattern taxonomy defines detection rule, reusable failure classes, review procedure, dispositions, evaluation-set implications, AI/tool implications, examples, and design consequences. | inspection | VAL-034 | FRAMES | medium | accepted |
+| SPEC-037 | REQ-038 | theory / taxonomy | target | Related-frame relation taxonomy defines relation rule, relation types, direction rules, selection implications, examples, review procedure, catalog field shape, AI/tool implications, and design consequences. | inspection | VAL-035 | FRAMES | medium | accepted |
 
 ## Contract Table
 
@@ -83,3 +84,4 @@ Repo or feature: `frames-core`
 | IF-037 | SPEC-034 | Starter metadata API fields | Metadata field names and enum values should remain stable enough for downstream display and filtering. | Renaming/removing `FrameEntry` metadata fields or metadata helper filters. | EVID-040 |
 | IF-038 | SPEC-035 | Accepted-catalog acceptance gates | Acceptance inputs, decision bands, hard stops, and required metadata should remain stable enough to govern catalog promotion. | Bypassing accepted-catalog gates or changing acceptance bands without roadmap and VTRACE update. | EVID-041 |
 | IF-039 | SPEC-036 | Anti-pattern taxonomy terms | Anti-pattern class names, dispositions, and evaluation-fixture fields should remain stable enough for rejected examples and future rejected-candidate reporting. | Adding/removing anti-pattern classes or changing default dispositions without roadmap and VTRACE update. | EVID-042 |
+| IF-040 | SPEC-037 | Related-frame relation terms | Relation names, direction rules, and display rules should remain stable enough for catalog metadata, evaluation fixtures, and future typed related-frame APIs. | Adding/removing relation types or changing display semantics without roadmap and VTRACE update. | EVID-043 |

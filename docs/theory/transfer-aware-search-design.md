@@ -150,7 +150,8 @@ instead of returning a bare metaphor name.
   `application_packs`, and `authority_model` before full relation scoring.
 - Accepted catalog rows need stable transfer metadata before the crate can rank
   by transfer fit.
-- Related-frame lookup should eventually use adjacent relation structure, not
-  just shared source family or manually curated IDs.
+- Related-frame lookup should eventually use
+  [related-frame-taxonomy.md](related-frame-taxonomy.md), not just shared source
+  family or manually curated IDs.
 - Transfer-aware search should make wrong-frame rejection as visible as
   right-frame recommendation.
