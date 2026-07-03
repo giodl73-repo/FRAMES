@@ -18,12 +18,13 @@
 | REQ-014 | NEED-001 | CON-003 | Define research grounding for cognitive-science claims. | SPEC-013 | DES-005 | n/a | WP-010 | `docs/theory/research-grounding.md`, `docs/theory/frame-theory.md`, `docs/theory/theory-roadmap.md` | VER-012 inspection | VAL-011 | EVID-019 | validated |
 | REQ-015 | NEED-001 | CON-003 | Define source-domain taxonomy. | SPEC-014 | DES-005 | n/a | WP-011 | `docs/theory/source-domain-taxonomy.md`, `.roles/parliament/research-grounding-reviewer.md`, `docs/theory/theory-roadmap.md` | VER-013 inspection / role review | VAL-012 | EVID-020 | validated |
 | REQ-016 | NEED-001 | CON-001 / CON-003 | Define application-pack templates. | SPEC-015 | DES-005 | n/a | WP-012 | `docs/theory/application-pack-templates.md`, `docs/theory/frame-theory.md`, `docs/theory/source-domain-taxonomy.md`, `docs/theory/theory-roadmap.md` | VER-014 inspection | VAL-013 | EVID-021 | validated |
+| REQ-017 | NEED-001 | CON-003 | Define perspective metadata guidance. | SPEC-016 | DES-005 | n/a | WP-013 | `docs/theory/perspective-metadata.md`, `docs/theory/frame-theory.md`, `docs/theory/source-domain-taxonomy.md`, `docs/theory/application-pack-templates.md` | VER-015 inspection | VAL-014 | EVID-022 | validated |
 
 ## ID Legend
 
 - NEED-001: mission need in `MISSION.md`.
 - CON-001..CON-003: operating scenarios in `CONOPS.md`.
-- SPEC-001..SPEC-015: specification baseline.
+- SPEC-001..SPEC-016: specification baseline.
 - DES-001..DES-005: design elements.
 - CR-001..CR-006: code-rigor constraints.
 - WP-001: frame index crate work package.
@@ -38,4 +39,5 @@
 - WP-010: research-grounding theory work package.
 - WP-011: source-domain taxonomy work package.
 - WP-012: application-pack templates work package.
+- WP-013: perspective metadata work package.
 - EVID-* evidence: `EVIDENCE.md` and `VERIFICATION.md`.

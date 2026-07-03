@@ -23,6 +23,7 @@ Repo or feature: `frames-core`
 | SPEC-013 | REQ-014 | theory / docs | target | Research grounding guide defines relevant cognitive-science pillars, safe claims, unsafe claims, design rules, and bibliography. | inspection | VAL-011 | FRAMES | medium | accepted |
 | SPEC-014 | REQ-015 | theory / docs | target | Source-domain taxonomy defines domain dimensions, source families, authority models, temporal shapes, risk bands, selection procedure, and catalog implications. | inspection / role review | VAL-012 | FRAMES | medium | accepted |
 | SPEC-015 | REQ-016 | theory / docs | target | Application-pack templates define pack shape, defaults, authority checks, evidence defaults, risk defaults, alternates, rejection rules, and pack selection procedure. | inspection | VAL-013 | FRAMES | medium | accepted |
+| SPEC-016 | REQ-017 | theory / docs | target | Perspective metadata guide defines perspective fields, roles, fit test, conflicts, examples, and anti-patterns. | inspection | VAL-014 | FRAMES | medium | accepted |
 
 ## Contract Table
 
@@ -41,3 +42,4 @@ Repo or feature: `frames-core`
 | IF-016 | SPEC-013 | Research claim boundaries | Public cognitive-science claims should distinguish theory-informed guidance from validated effect claims. | Adding public claims about cognition, persuasion, analogy effectiveness, or universality. | EVID-019 |
 | IF-017 | SPEC-014 | Source-domain taxonomy terms | Source family, authority model, temporal shape, and risk band names should remain stable enough for catalog metadata. | Adding/removing source families, authority models, temporal shapes, or risk bands. | EVID-020 |
 | IF-018 | SPEC-015 | Application-pack template terms | Pack names, output obligations, and rejection rules should remain stable enough for downstream docs and tool design. | Adding/removing application packs or changing required outputs. | EVID-021 |
+| IF-019 | SPEC-016 | Perspective metadata terms | Perspective roles, duty types, agency levels, and perspective-risk terms should remain stable enough for future catalog metadata. | Adding/removing perspective fields or role categories. | EVID-022 |

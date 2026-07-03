@@ -65,6 +65,8 @@ Use [source-domain-taxonomy.md](source-domain-taxonomy.md) when choosing source
 families, authority models, temporal shapes, and risk bands.
 Use [application-pack-templates.md](application-pack-templates.md) when tailoring
 frame defaults for product, operations, leadership, learning, or AI-agent use.
+Use [perspective-metadata.md](perspective-metadata.md) when checking what role,
+duty, agency, or authority a frame assigns to the listener.
 
 ## Audience Levels
 
@@ -132,3 +134,5 @@ The Rust index should stay close to this theory:
   temporal shape, risk band, and implied perspective.
 - Application packs should select defaults without bypassing fit, audience,
   evidence, or misuse review.
+- Perspective metadata should be reviewed before any frame is accepted for a
+  high-stakes, asymmetric, or authority-sensitive situation.

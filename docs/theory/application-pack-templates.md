@@ -164,3 +164,6 @@ Application packs imply future metadata:
 
 These fields should wait until there is enough catalog evidence to avoid
 locking in premature API structure.
+
+Use [perspective-metadata.md](perspective-metadata.md) before converting pack
+defaults into catalog or crate metadata.

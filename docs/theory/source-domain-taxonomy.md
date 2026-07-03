@@ -100,6 +100,8 @@ The first Rust crate does not need these fields yet. Until the API changes,
 store the most important domain signals in tags, docs, and review notes.
 Use [application-pack-templates.md](application-pack-templates.md) to choose
 context-specific defaults after selecting source-domain structure.
+Use [perspective-metadata.md](perspective-metadata.md) to check whether the
+source domain assigns the listener the correct role and duty.
 
 ## Anti-Patterns
 

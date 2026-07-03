@@ -24,6 +24,7 @@ unless product requirements explicitly define them as user-facing behavior.
 | WP-010 | Add research-grounding theory. | Public FRAMES claims about cognition, metaphor, analogy, and persuasion are bounded by research-grounding rules. | REQ-014 / SPEC-013 / IF-016 | `docs/theory/research-grounding.md`, `docs/theory/frame-theory.md`, `docs/theory/theory-roadmap.md`, `README.md`, `docs/vtrace/*` | WP-009 complete and first research sources identified. | Research-grounding guide exists, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: literature review before public research claims | evidence / trace / review / status rows | complete |
 | WP-011 | Add source-domain taxonomy. | Frame source domains are classified by embodied schema, social script, authority model, temporal shape, risk band, and portability. | REQ-015 / SPEC-014 / IF-017 | `docs/theory/source-domain-taxonomy.md`, `.roles/*`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-010 complete. | Source-domain taxonomy exists, research-grounding role lens exists, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: role review before encoding taxonomy in crate metadata | evidence / trace / review / status rows | complete |
 | WP-012 | Add application-pack templates. | Product, operations, leadership, learning, and AI-agent contexts have explicit frame-selection defaults and rejection rules. | REQ-016 / SPEC-015 / IF-018 | `docs/theory/application-pack-templates.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-011 complete. | Pack templates exist, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: role review before encoding packs in crate metadata | evidence / trace / review / status rows | complete |
+| WP-013 | Add perspective metadata theory. | Frame selection exposes the listener role, agency, duty, authority, and perspective risk implied by a source scene. | REQ-017 / SPEC-016 / IF-019 | `docs/theory/perspective-metadata.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-012 complete. | Perspective metadata guide exists, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: role review before encoding perspective in crate metadata | evidence / trace / review / status rows | complete |
 
 ## Work Package Details
 
@@ -470,3 +471,40 @@ V closure:
 | Implementation | `docs/theory/application-pack-templates.md` | closed | Product, operations, leadership, learning, and AI-agent packs added. |
 | Verification | EVID-021 | closed | Inspection covers application-pack templates. |
 | Validation | VAL-013 | closed | Guide supports context-specific frame defaults and rejection rules. |
+
+### WP-013: Add perspective metadata theory
+
+Objective: define how frames assign listener roles, agency, duty, authority, and
+perspective risk.
+
+Parent IDs: REQ-017, SPEC-016, IF-019.
+
+Affected files/modules:
+
+- `docs/theory/perspective-metadata.md`
+- `docs/theory/frame-theory.md`
+- `docs/theory/source-domain-taxonomy.md`
+- `docs/theory/application-pack-templates.md`
+- `docs/theory/theory-roadmap.md`
+- `README.md`
+- `docs/vtrace/*`
+
+Verification commands:
+
+```powershell
+cargo fmt --check
+cargo test
+cargo run --example lookup
+git diff --check
+cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .
+```
+
+V closure:
+
+| V Area | IDs / Evidence | Status | Notes |
+|---|---|---|---|
+| Requirements | REQ-017 | closed | Perspective metadata guidance required. |
+| Specification / Interface | SPEC-016, IF-019 | closed | Perspective terms and change triggers defined. |
+| Implementation | `docs/theory/perspective-metadata.md` | closed | Perspective fields, roles, conflicts, examples, and anti-patterns added. |
+| Verification | EVID-022 | closed | Inspection covers perspective metadata guide. |
+| Validation | VAL-014 | closed | Guide supports role, duty, and authority checks for frame selection. |

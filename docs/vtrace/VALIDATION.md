@@ -21,6 +21,7 @@ Repo or feature: `frames-core`
 | VAL-011 | Methodology maintainer | Decide whether a cognitive-science claim is safe to publish. | Apply `research-grounding.md`. | The claim is either supported with a citation and bounded scope or downgraded to an internal hypothesis. | EVID-019 | pass |
 | VAL-012 | Methodology maintainer | Choose a source domain before adding a frame pack. | Apply `source-domain-taxonomy.md` and research-grounding review. | Source family, authority model, temporal shape, risk band, and audience portability are clear. | EVID-020 | pass |
 | VAL-013 | Methodology maintainer or AI tool builder | Choose context-specific defaults for frame suggestions. | Apply `application-pack-templates.md`. | Pack choice identifies audience, target situations, default jobs, source families, authority checks, evidence obligations, risk defaults, alternates, and rejection rules. | EVID-021 | pass |
+| VAL-014 | Methodology maintainer | Check whether a frame assigns the right listener role and duty. | Apply `perspective-metadata.md`. | Implied role, counterparty role, agency, duty, authority, vulnerability, and perspective risk are visible. | EVID-022 | pass |
 
 ## Deferred Validation
 

@@ -24,6 +24,7 @@ Repo or feature: `frames-core`
 | REQ-014 | inspection | inspect `docs/theory/research-grounding.md` | Research pillars, claim limits, design rules, backlog, and bibliography are present. | pass | EVID-019 |
 | REQ-015 | inspection / role review | inspect `docs/theory/source-domain-taxonomy.md` and `.roles/parliament/research-grounding-reviewer.md` | Source-domain dimensions, families, authority models, temporal shapes, risk bands, and review lens are present. | pass | EVID-020 |
 | REQ-016 | inspection | inspect `docs/theory/application-pack-templates.md` | Pack shape, pack defaults, authority checks, evidence defaults, alternates, rejection rules, and selection procedure are present. | pass | EVID-021 |
+| REQ-017 | inspection | inspect `docs/theory/perspective-metadata.md` | Perspective fields, roles, fit test, conflicts, examples, and anti-patterns are present. | pass | EVID-022 |
 
 ## Commands
 
@@ -59,6 +60,7 @@ git diff --check
 | EVID-019 | inspection | `docs/theory/research-grounding.md` | REQ-014, SPEC-013, IF-016, VAL-011 | pass |
 | EVID-020 | inspection / role review | `docs/theory/source-domain-taxonomy.md`, `.roles/parliament/research-grounding-reviewer.md` | REQ-015, SPEC-014, IF-017, VAL-012 | pass |
 | EVID-021 | inspection | `docs/theory/application-pack-templates.md` | REQ-016, SPEC-015, IF-018, VAL-013 | pass |
+| EVID-022 | inspection | `docs/theory/perspective-metadata.md` | REQ-017, SPEC-016, IF-019, VAL-014 | pass |
 
 ## Gaps
 
