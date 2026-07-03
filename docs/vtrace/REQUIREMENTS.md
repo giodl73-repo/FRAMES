@@ -44,6 +44,7 @@ Repo or feature: `frames-core`
 | REQ-034 | The repo shall provide a runnable Rust example that wraps current frame search results into the AI response contract shape. | NEED-001 / CON-001 / CON-003 | Tool builders need to see action cue, evidence boundary, misuse warning, retrieval score, fit-score caveat, alternates, and fallback language together. | must | FRAMES | example run / inspection | accepted |
 | REQ-035 | Accepted starter frame entries shall expose compact Rust metadata for lifecycle status, claim strength, risk band, and application packs. | NEED-001 / CON-001 / CON-003 | AI/tool callers need display-safety metadata before richer ranking or draft-frame inclusion. | must | FRAMES | unit test / example run / inspection | accepted |
 | REQ-036 | The repo shall define an accepted-catalog review process before promoting draft heuristics into accepted catalog or default search. | NEED-001 / CON-003 | Draft and local frames need a repeatable acceptance gate so useful heuristics do not bypass fit, evidence, misuse, and metadata checks. | must | FRAMES | inspection | accepted |
+| REQ-037 | The repo shall define a frame anti-pattern taxonomy before expanding rejected examples or evaluation sets. | NEED-001 / CON-003 | Bad frames need reusable failure classes so rejection, review, and future tool reporting are consistent. | must | FRAMES | inspection | accepted |
 
 ## Requirement Quality Checklist
 

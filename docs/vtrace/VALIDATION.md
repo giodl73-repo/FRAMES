@@ -41,6 +41,7 @@ Repo or feature: `frames-core`
 | VAL-031 | AI tool builder | See how current search results can be returned in the AI response contract shape. | Run `cargo run --example ai_response_contract`. | Example displays bounded recommendation fields, alternates, fallback, retrieval-score caveat, evidence boundary, and misuse warning. | EVID-039 | pass |
 | VAL-032 | AI tool builder | Filter and display accepted starter frames with basic safety metadata. | Inspect `FrameEntry` metadata fields and call metadata helper filters. | Accepted entries expose status, claim strength, risk band, and application packs without adding draft frames or transfer-aware ranking. | EVID-040 | pass |
 | VAL-033 | Methodology maintainer | Decide whether a draft heuristic can become accepted catalog. | Apply `accepted-catalog-review-process.md` to a candidate. | Required inputs, role lenses, decision bands, hard stops, metadata requirements, index behavior, and review template are visible. | EVID-041 | pass |
+| VAL-034 | Methodology maintainer or AI tool builder | Decide why a tempting frame should be revised, held, rejected, or kept only as an anti-pattern. | Apply `frame-antipattern-taxonomy.md` to candidate frames and rejected examples. | Anti-pattern class, disposition, safer fallback, evidence boundary, and tool/index implications are visible. | EVID-042 | pass |
 
 ## Deferred Validation
 

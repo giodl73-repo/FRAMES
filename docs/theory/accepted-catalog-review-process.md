@@ -153,7 +153,9 @@ before accepted catalog use.
 - Default Rust search should continue to include accepted starter entries only.
 - Draft and held imports need lifecycle filtering before they can appear in
   tool-facing search.
-- Anti-pattern taxonomy should be defined before rejected examples are expanded.
+- Frame anti-pattern taxonomy is defined in
+  [frame-antipattern-taxonomy.md](frame-antipattern-taxonomy.md) and should be
+  applied before rejected examples are expanded.
 - Evaluation sets should include accepted, revise, hold, reject, near-miss, and
   hard-stop examples.
 - Accepted-catalog review is the next gate before adding local imports to the

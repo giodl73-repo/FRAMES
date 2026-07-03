@@ -44,6 +44,7 @@ unless product requirements explicitly define them as user-facing behavior.
 | WP-030 | Add AI response contract Rust example. | Tool builders can see bounded frame suggestions using current `FrameIndex` output. | REQ-034 / SPEC-033 / IF-036 | `examples/ai_response_contract.rs`, `docs/theory/ai-response-contract.md`, `README.md`, `docs/theory/theory-roadmap.md`, `docs/vtrace/*` | WP-029 complete and AI response contract exists. | Example runs, docs updated, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: API review before contract structs | evidence / trace / review / status rows | complete |
 | WP-031 | Add accepted starter Rust metadata migration. | Accepted starter frames expose basic display-safety metadata and filters. | REQ-035 / SPEC-034 / IF-037 | `src/lib.rs`, `examples/ai_response_contract.rs`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-030 complete and accepted starter metadata table exists. | Metadata fields and filters exist, examples run, docs updated, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: API review before transfer-aware ranking | evidence / trace / review / status rows | complete |
 | WP-032 | Add accepted-catalog review process. | Draft heuristics have a repeatable gate before accepted catalog or default search. | REQ-036 / SPEC-035 / IF-038 | `docs/theory/accepted-catalog-review-process.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-031 complete and lifecycle/promotion docs exist. | Process exists, linked docs updated, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: apply process to first promoted candidate | evidence / trace / review / status rows | complete |
+| WP-033 | Add frame anti-pattern taxonomy. | Bad frames have reusable rejection classes before rejected examples or evaluation sets expand. | REQ-037 / SPEC-036 / IF-039 | `docs/theory/frame-antipattern-taxonomy.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-032 complete and hard-stop/review docs exist. | Taxonomy exists, linked docs updated, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: apply taxonomy to evaluation fixtures and rejected-candidate reporting | evidence / trace / review / status rows | complete |
 
 ## Work Package Details
 
@@ -1218,3 +1219,41 @@ V closure:
 | Implementation | `docs/theory/accepted-catalog-review-process.md` | closed | Inputs, role lenses, decision bands, procedure, template, and promotion rule added. |
 | Verification | EVID-041 | closed | Inspection covers accepted-catalog review process. |
 | Validation | VAL-033 | closed | Process supports draft-to-accepted catalog decisions. |
+
+### WP-033: Add frame anti-pattern taxonomy
+
+Objective: define reusable failure classes for bad frames so rejection,
+evaluation fixtures, and future rejected-candidate reporting are consistent.
+
+Parent IDs: REQ-037, SPEC-036, IF-039.
+
+Affected files/modules:
+
+- `docs/theory/frame-antipattern-taxonomy.md`
+- `docs/theory/accepted-catalog-review-process.md`
+- `docs/theory/frame-theory.md`
+- `docs/theory/theory-gap-audit.md`
+- `docs/theory/theory-roadmap.md`
+- `README.md`
+- `docs/vtrace/*`
+
+Verification commands:
+
+```powershell
+cargo fmt --check
+cargo test
+cargo run --example lookup
+cargo run --example ai_response_contract
+git diff --check
+cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .
+```
+
+V closure:
+
+| V Area | IDs / Evidence | Status | Notes |
+|---|---|---|---|
+| Requirements | REQ-037 | closed | Frame anti-pattern taxonomy required. |
+| Specification / Interface | SPEC-036, IF-039 | closed | Detection rule, anti-pattern classes, dispositions, and fixture fields defined. |
+| Implementation | `docs/theory/frame-antipattern-taxonomy.md` | closed | Taxonomy, review procedure, examples, and design consequences added. |
+| Verification | EVID-042 | closed | Inspection covers anti-pattern taxonomy. |
+| Validation | VAL-034 | closed | Taxonomy supports revise/hold/reject decisions and safer fallbacks. |

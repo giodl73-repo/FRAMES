@@ -18,6 +18,7 @@ sets, governance, and acceptance decisions.
 | Role review | Lets business, novice, evidence, misuse, and catalog lenses disagree visibly. |
 | Claim strength | Prevents local observations and heuristics from sounding validated. |
 | Application packs | Separates product, operations, leadership, learning, and AI-agent use. |
+| Anti-pattern taxonomy | Gives bad frames reusable rejection classes instead of one-off warnings. |
 | Empirical protocol | Gives a path to test narrow claims instead of relying on author confidence. |
 | Metadata migration | Keeps Rust API changes behind docs-level proof. |
 
@@ -28,7 +29,7 @@ These gaps can cause wrong recommendations or premature catalog acceptance.
 | Gap | Risk | First Artifact |
 |---|---|---|
 | Controlled frame ontology | Tags and relation names drift as the catalog grows. | `frame-ontology.md` |
-| Anti-pattern taxonomy | Bad frames are rejected case by case, not through reusable failure classes. | `frame-antipattern-taxonomy.md` |
+| Anti-pattern taxonomy application | Bad-frame classes now need to be applied to accepted-catalog reviews, evaluation sets, and rejected-candidate reporting. | `frame-antipattern-taxonomy.md` |
 | Acceptance review board | Promoted draft heuristics need the accepted-catalog gate applied before default search. | `accepted-catalog-review-process.md` |
 | Evaluation set | Search and AI outputs cannot be compared against known good/bad examples. | `evaluation-set-design.md` |
 | Related-frame relation types | `related` is currently one undifferentiated link type. | `related-frame-taxonomy.md` |
@@ -77,9 +78,9 @@ methodology rather than a useful catalog.
 1. Add AI response contract examples in Rust.
 2. Add first Rust metadata migration for accepted starter entries.
 3. Apply the accepted-catalog review process to first promoted candidates.
-4. Define frame anti-pattern taxonomy.
+4. Apply frame anti-pattern taxonomy to first promoted candidates and evaluation fixtures.
 5. Define related-frame relation taxonomy.
-6. Define evaluation-set design with positive, near-miss, and hard-stop cases.
+6. Define evaluation-set design with positive, near-miss, hard-stop, and anti-pattern cases.
 7. Define cultural portability guidance.
 8. Define frame acquisition method.
 
@@ -87,8 +88,8 @@ This sequence keeps tool safety ahead of catalog growth.
 
 ## What Not To Do Yet
 
-- Do not add many more draft frames before anti-pattern and acceptance gates
-  exist.
+- Do not add many more draft frames before anti-pattern and acceptance gates are
+  applied.
 - Do not add semantic search before evaluation sets and rejection examples
   exist.
 - Do not claim empirical validation before EVT-001 or another comparison trial

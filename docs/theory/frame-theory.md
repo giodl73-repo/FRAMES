@@ -64,6 +64,8 @@ about metaphor, analogy, cognition, persuasion, or human decision behavior.
 Use [claim-strength-labels.md](claim-strength-labels.md) when deciding whether a
 frame claim is illustrative, heuristic, theory-informed, practitioner-observed,
 locally observed, role-reviewed, empirically validated, or an anti-pattern.
+Use [frame-antipattern-taxonomy.md](frame-antipattern-taxonomy.md) when a failed
+frame needs a reusable rejection class instead of a one-off warning.
 Use [empirical-validation-plan.md](empirical-validation-plan.md) when testing
 whether a frame actually improves comprehension, action selection, evidence
 recall, or misuse detection for a defined audience.
