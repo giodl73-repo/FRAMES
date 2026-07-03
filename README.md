@@ -28,6 +28,7 @@ FRAMES starts with ordinary human activities:
 The initial catalog lives in [docs/frame-catalog.md](docs/frame-catalog.md).
 The first worked examples live in
 [docs/examples/traffic-and-motion.md](docs/examples/traffic-and-motion.md).
+Project review roles live in [.roles/ROLE.md](.roles/ROLE.md).
 
 ## Frame Shape
 
@@ -56,4 +57,3 @@ This is a docs-first scaffold. Current validation:
 ```powershell
 git diff --check
 ```
-
