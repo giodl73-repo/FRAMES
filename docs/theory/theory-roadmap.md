@@ -43,15 +43,16 @@ frame index rather than a growing metaphor list.
 | Empirical validation | Claim upgrades need task-specific tests with comparison conditions and narrow scope. | `empirical-validation-plan.md` |
 | Catalog metadata migration | Theory fields need a staged path into catalog rows and `frames-core` without premature API churn. | `catalog-metadata-migration-plan.md` |
 | AI response contract | Tool callers need a safe output shape for suggestions, alternates, scores, warnings, and evidence boundaries. | `ai-response-contract.md` |
+| Metadata-backed catalog | Accepted starter frames need docs-level status, claim strength, risk band, application pack, authority, and transfer metadata. | `../frame-catalog.md` |
 
 ## Priority Order
 
-1. First metadata-backed catalog migration.
-2. Role-reviewed promotion of local imports.
-3. Theme-swimlane role review.
-4. First empirical validation trial.
-5. Transfer-aware search design.
-6. AI response contract examples in Rust.
+1. Role-reviewed promotion of local imports.
+2. Theme-swimlane role review.
+3. First empirical validation trial.
+4. Transfer-aware search design.
+5. AI response contract examples in Rust.
+6. First Rust metadata migration.
 
 ## Role Guidance
 

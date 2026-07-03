@@ -3,6 +3,45 @@
 This catalog records candidate frames as structured analogies, not as slogans.
 Each entry should make the mapping useful and the limits visible.
 
+## Accepted Starter Metadata
+
+These rows are the first metadata-backed catalog migration. They cover accepted
+starter entries only and do not promote local draft imports from RESONANCE,
+CAREER, or theme swimlanes.
+
+| ID | Frame | Status | Claim strength | Risk band | Application packs | Source family | Authority model | Transfer strength | Review note |
+|---|---|---|---|---|---|---|---|---|---|
+| `red-yellow-green` | Red / yellow / green | accepted | heuristic | medium | product, operations, leadership, AI-agent | signals and instruments | operator responsibility | structural when thresholds are explicit | Pair color with threshold and owner. |
+| `fuel-gauge` | Fuel gauge | accepted | heuristic | low | product, operations, leadership, AI-agent | signals and instruments | stewardship | partial | Name the scarce resource and other constraints. |
+| `dashboard-warning-light` | Dashboard warning light | accepted | heuristic | medium | operations, product, AI-agent | signals and instruments | operator responsibility | structural when diagnostic signal is known | Avoid warning fatigue. |
+| `speed-limit` | Speed limit | accepted | heuristic | medium | product, operations, leadership | motion and navigation | operator responsibility | structural when constraint sets pace | Do not turn local constraint into universal cap. |
+| `four-way-stop` | Four-way stop | accepted | heuristic | medium | product, operations, leadership, AI-agent | queues and turns | peer coordination | structural for peer coordination | Reject when authority is asymmetric. |
+| `merge-lane` | Merge lane | accepted | heuristic | medium | product, operations, AI-agent | motion and navigation | peer coordination | structural when timing and approval are clear | Check whether explicit approval is required. |
+| `crosswalk-yield` | Crosswalk yield | accepted | heuristic | medium | product, operations, leadership | queues and turns | protected party | partial | Name protected value without labeling people as weak. |
+| `walking-pace` | Walking pace | accepted | heuristic | low | product, learning, operations | motion and navigation | stewardship | partial | Check urgency and required outcome. |
+| `downshift` | Downshift | accepted | heuristic | low | product, operations, learning | motion and navigation | operator responsibility | structural when load is named | Frame as control, not failure. |
+| `detour` | Detour | accepted | heuristic | medium | product, operations, leadership | motion and navigation | stewardship | structural when destination is stable | Verify destination before changing route. |
+| `rest-stop` | Rest stop | accepted | heuristic | low | operations, learning, leadership | motion and navigation | stewardship | structural when restart is explicit | Require restart condition. |
+| `shoulder-pull-off` | Shoulder / pull-off | accepted | heuristic | medium | operations, product | motion and navigation | operator responsibility | structural when stabilization and reentry are clear | Do not normalize stopping without reentry. |
+| `blind-spot` | Blind spot | accepted | heuristic | medium | product, operations, leadership, AI-agent | motion and navigation | operator responsibility | structural when missing signal is named | Avoid blaming individuals for system visibility gaps. |
+| `following-distance` | Following distance | accepted | heuristic | medium | product, operations, AI-agent | motion and navigation | operator responsibility | structural when coupling and reaction time are known | Buffer must be tied to named risk. |
+| `load-bearing-wall` | Load-bearing wall | accepted | heuristic | medium | product, operations, leadership | construction and repair | stewardship | structural when dependency is truly structural | Inspect before treating change as impossible. |
+
+Metadata meanings:
+
+- `status` follows [theory/frame-lifecycle.md](theory/frame-lifecycle.md).
+- `claim_strength` follows
+  [theory/claim-strength-labels.md](theory/claim-strength-labels.md).
+- `risk_band`, `source_family`, and `authority_model` follow
+  [theory/source-domain-taxonomy.md](theory/source-domain-taxonomy.md).
+- `transfer_strength` follows
+  [theory/relational-transfer-fields.md](theory/relational-transfer-fields.md).
+- Application packs follow
+  [theory/application-pack-templates.md](theory/application-pack-templates.md).
+
+Draft local imports stay in their import artifacts until they are fit-scored,
+role-reviewed, and promoted.
+
 ## Status Frames
 
 | Frame | Everyday source | Target situation | Action cue | Failure mode |
@@ -49,3 +88,5 @@ Each entry should make the mapping useful and the limits visible.
 3. Avoid frames that turn people into obstacles.
 4. Pair status frames with evidence.
 5. Name where the analogy stops working.
+6. Prefer accepted metadata rows for AI/tool suggestions.
+7. Treat local draft imports as `locally_observed` until promoted.

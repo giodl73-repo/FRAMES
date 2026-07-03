@@ -35,6 +35,7 @@ unless product requirements explicitly define them as user-facing behavior.
 | WP-021 | Add empirical validation plan. | Frame claim upgrades are supported by narrow audience, context, task, comparison, measure, result, and boundary records. | REQ-025 / SPEC-024 / IF-027 | `docs/theory/empirical-validation-plan.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-020 complete and claim-strength labels exist. | Empirical validation plan exists, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: research review before any public validated claim | evidence / trace / review / status rows | complete |
 | WP-022 | Add catalog metadata migration plan. | Theory fields have a staged path into catalog docs and `frames-core` without premature API churn. | REQ-026 / SPEC-025 / IF-028 | `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*`, `src/lib.rs` | WP-021 complete and current index shape inspected. | Migration plan exists, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: API review before Rust metadata fields are added | evidence / trace / review / status rows | complete |
 | WP-023 | Add AI response contract. | AI/tool frame suggestions return bounded recommendations with action, evidence, warning, score semantics, claim strength, and alternates. | REQ-027 / SPEC-026 / IF-029 | `docs/theory/ai-response-contract.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-022 complete and application-pack defaults exist. | Response contract exists, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: API review before implementing contract structs | evidence / trace / review / status rows | complete |
+| WP-024 | Add metadata-backed accepted starter catalog. | Accepted starter frames expose docs-level metadata before Rust API migration. | REQ-028 / SPEC-027 / IF-030 | `docs/frame-catalog.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-023 complete and migration plan exists. | Accepted starter metadata table exists, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: catalog structure review before Rust field migration | evidence / trace / review / status rows | complete |
 
 ## Work Package Details
 
@@ -886,3 +887,37 @@ V closure:
 | Implementation | `docs/theory/ai-response-contract.md` | closed | Contract, JSON shape, examples, and implementation implications added. |
 | Verification | EVID-032 | closed | Inspection covers response contract. |
 | Validation | VAL-024 | closed | Guide supports bounded AI/tool frame suggestions. |
+
+### WP-024: Add metadata-backed accepted starter catalog
+
+Objective: apply the first stable metadata fields to accepted starter catalog
+entries without promoting local draft imports.
+
+Parent IDs: REQ-028, SPEC-027, IF-030.
+
+Affected files/modules:
+
+- `docs/frame-catalog.md`
+- `docs/theory/catalog-metadata-migration-plan.md`
+- `docs/theory/theory-roadmap.md`
+- `docs/vtrace/*`
+
+Verification commands:
+
+```powershell
+cargo fmt --check
+cargo test
+cargo run --example lookup
+git diff --check
+cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .
+```
+
+V closure:
+
+| V Area | IDs / Evidence | Status | Notes |
+|---|---|---|---|
+| Requirements | REQ-028 | closed | Metadata-backed accepted starter catalog required. |
+| Specification / Interface | SPEC-027, IF-030 | closed | Accepted metadata columns and accepted-only rule defined. |
+| Implementation | `docs/frame-catalog.md` | closed | Accepted starter metadata table added. |
+| Verification | EVID-033 | closed | Inspection covers metadata table and migration-plan update. |
+| Validation | VAL-025 | closed | Catalog supports tool-facing metadata review before Rust migration. |

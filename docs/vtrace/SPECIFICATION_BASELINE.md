@@ -34,6 +34,7 @@ Repo or feature: `frames-core`
 | SPEC-024 | REQ-025 | theory / docs | target | Empirical validation plan defines validation boundary, study levels, measurement targets, minimal protocol, test templates, candidate backlog, reporting shape, hard stops, and design consequences. | inspection | VAL-022 | FRAMES | medium | accepted |
 | SPEC-025 | REQ-026 | theory / docs | target | Catalog metadata migration plan defines current indexed shape, metadata families, migration stages, field promotion rules, initial backlog, starter migration target, compatibility rules, and design consequences. | inspection | VAL-023 | FRAMES | medium | accepted |
 | SPEC-026 | REQ-027 | theory / docs | target | AI response contract defines required inputs, required output fields, JSON shape, selection rules, scoring interpretation, gating rules, language rules, examples, and implementation implications. | inspection | VAL-024 | FRAMES | medium | accepted |
+| SPEC-027 | REQ-028 | catalog / docs | target | Frame catalog accepted-starter metadata table defines ID, status, claim strength, risk band, application packs, source family, authority model, transfer strength, and review note for accepted starter entries. | inspection | VAL-025 | FRAMES | medium | accepted |
 
 ## Contract Table
 
@@ -63,3 +64,4 @@ Repo or feature: `frames-core`
 | IF-027 | SPEC-024 | Empirical validation terms | Study levels, measurement targets, reporting fields, and validation-scope terms should remain stable enough for claim-strength upgrades. | Adding/removing study levels, required reporting fields, or upgrade gates. | EVID-030 |
 | IF-028 | SPEC-025 | Catalog metadata migration stages | Migration stages, promotion rules, and first API candidate fields should remain stable enough to guide future catalog and Rust changes. | Changing migration stages, promotion gates, or first API migration field set. | EVID-031 |
 | IF-029 | SPEC-026 | AI response contract fields | Required inputs, output fields, gating rules, and scoring terminology should remain stable enough for downstream tool callers. | Adding/removing required response fields or changing score semantics. | EVID-032 |
+| IF-030 | SPEC-027 | Accepted starter metadata columns | Accepted starter metadata columns should remain stable enough to guide the first Rust metadata migration. | Adding/removing accepted metadata columns or changing accepted-only rule. | EVID-033 |

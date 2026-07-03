@@ -53,7 +53,9 @@ Required before leaving this stage:
 - VTRACE records the theory artifact;
 - no Rust API changes are needed for lookup.
 
-Current status: active.
+Current status: complete for the first accepted starter metadata table in
+`docs/frame-catalog.md`; still active for local draft imports and future API
+metadata.
 
 ### Stage 1: Catalog Table Normalization
 
@@ -160,6 +162,9 @@ Do not promote a field when:
 
 The first metadata-backed catalog migration should touch only accepted starter
 entries and should not import local draft frames yet.
+
+This first migration is implemented as the "Accepted Starter Metadata" table in
+`docs/frame-catalog.md`.
 
 Suggested first fields:
 

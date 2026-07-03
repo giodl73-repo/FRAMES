@@ -35,6 +35,7 @@ Repo or feature: `frames-core`
 | REQ-025 | inspection | inspect `docs/theory/empirical-validation-plan.md` | Validation boundary, study levels, measures, protocol, templates, backlog, reporting shape, hard stops, and design consequences are present. | pass | EVID-030 |
 | REQ-026 | inspection | inspect `docs/theory/catalog-metadata-migration-plan.md` and `src/lib.rs` | Current indexed shape, metadata families, migration stages, promotion rules, initial backlog, starter target, and compatibility rules are present. | pass | EVID-031 |
 | REQ-027 | inspection | inspect `docs/theory/ai-response-contract.md` | Required inputs, output fields, JSON shape, selection rules, scoring interpretation, gating rules, language rules, and examples are present. | pass | EVID-032 |
+| REQ-028 | inspection | inspect `docs/frame-catalog.md` and `docs/theory/catalog-metadata-migration-plan.md` | Accepted starter metadata table includes stable metadata columns and excludes local draft imports. | pass | EVID-033 |
 
 ## Commands
 
@@ -81,6 +82,7 @@ git diff --check
 | EVID-030 | inspection | `docs/theory/empirical-validation-plan.md` | REQ-025, SPEC-024, IF-027, VAL-022 | pass |
 | EVID-031 | inspection | `docs/theory/catalog-metadata-migration-plan.md`, `src/lib.rs` | REQ-026, SPEC-025, IF-028, VAL-023 | pass |
 | EVID-032 | inspection | `docs/theory/ai-response-contract.md` | REQ-027, SPEC-026, IF-029, VAL-024 | pass |
+| EVID-033 | inspection | `docs/frame-catalog.md`, `docs/theory/catalog-metadata-migration-plan.md` | REQ-028, SPEC-027, IF-030, VAL-025 | pass |
 
 ## Gaps
 
