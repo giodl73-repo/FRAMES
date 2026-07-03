@@ -35,7 +35,6 @@ These gaps can cause wrong recommendations or premature catalog acceptance.
 |---|---|---|
 | Acceptance review board operation | Promoted draft heuristics need named board decisions and recorded dissent before default search. | `accepted-catalog-review-process.md` |
 | Evaluation-set application | Fixtures now need to be populated and used as gates before semantic search or draft-frame inclusion. | `evaluation-set-design.md` |
-| Related-frame relation application | Typed related-frame relations need to be applied to catalog rows, evaluation sets, and future Rust metadata. | `related-frame-taxonomy.md` |
 
 ## Growth Gaps
 
@@ -77,11 +76,10 @@ methodology rather than a useful catalog.
 ## Recommended Sequence
 
 1. Collect EVT-001 participant responses and score the locked packet without upgrading claim strength prematurely.
-2. Apply related-frame relation taxonomy to catalog examples and evaluation fixtures.
-3. Populate first evaluation fixtures for traffic, anti-pattern, relation, theme-swimlane, and audience-transfer cases.
-4. Apply cultural portability bands to traffic, status, story, and theme-swimlane fixtures.
-5. Pilot the theme-swimlane leadership worksheet and record changed decisions.
-6. Define frame acquisition method.
+2. Populate first evaluation fixtures for traffic, anti-pattern, relation, theme-swimlane, and audience-transfer cases.
+3. Apply cultural portability bands to traffic, status, story, and theme-swimlane fixtures.
+4. Pilot the theme-swimlane leadership worksheet and record changed decisions.
+5. Define frame acquisition method.
 
 This sequence keeps tool safety ahead of catalog growth.
 

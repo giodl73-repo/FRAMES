@@ -62,6 +62,7 @@ Repo or feature: `frames-core`
 | EVID-052 | inspection | `docs/theory/accepted-catalog-review-veto-rule.md`, `docs/theory/evaluation-set-design.md`, `docs/theory/theory-roadmap.md` | Veto Rule revision items are closed with fixtures, stop condition, fallback, accepted-with-caveat docs decision, and no default Rust search promotion. | pass. | pass |
 | EVID-053 | inspection | `docs/frame-catalog.md`, `docs/theory/catalog-metadata-migration-plan.md` | Veto Rule appears as a reviewed docs-catalog candidate separate from accepted starter metadata and default Rust search. | pass. | pass |
 | EVID-054 | inspection | `docs/theory/frame-antipattern-application-veto-rule.md`, `docs/theory/frame-antipattern-taxonomy.md`, `docs/theory/evaluation-set-design.md` | Veto Rule anti-pattern application exists and adds false-veto fixture coverage. | pass. | pass |
+| EVID-055 | inspection | `docs/theory/related-frame-application-starter.md`, `docs/theory/related-frame-taxonomy.md`, `docs/theory/evaluation-set-design.md`, `docs/frame-catalog.md` | Starter related-frame links have typed docs-level relation examples and relation fixture backlog coverage without changing Rust related lookup. | pass. | pass |
 
 ## Evidence Rules
 

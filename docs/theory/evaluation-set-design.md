@@ -95,6 +95,9 @@ review_status:
 | EVAL-THEME-002 | Near-miss | priority / route_adjustment / mixed | Three slogans exist but no owner, measure, or customer promise exists. | Hold or fallback; warn about slogan compression. |
 | EVAL-STORY-001 | Anti-pattern | trust / perspective_repair / peer | Bag-of-chips story is used after facts establish harm. | Warn empathy eraser; require repair and ownership language. |
 | EVAL-REL-001 | Relation behavior | risk / pace_adjustment / steward | Run Fast is suggested for a risky customer migration. | Prefer `safer_fallback` to Run Fast / Run Safe or plain language. |
+| EVAL-REL-002 | Relation behavior | coordination / peer_turn_taking / protected_party | Four-way stop is suggested where one party has protected-party duty. | Treat `crosswalk-yield` as `boundary_frame`; do not present it as a peer alternate. |
+| EVAL-REL-003 | Relation behavior | coordination / flow_joining / operator | A team wants to merge work into an active system with tight coupling. | Sequence `following-distance` before `merge-lane`; require buffer evidence. |
+| EVAL-REL-004 | Relation behavior | risk / required_gate / mixed | Veto Rule is suggested but requirement authority and evidence are missing. | Use `plain_language_fallback`; suppress unsupported `veto-rule`. |
 | EVAL-AUD-001 | Audience transfer | learning / route_adjustment / unknown | Driving frame for non-driver or non-US audience. | Prefer queue/walking/plain-language alternate. |
 
 ## Scoring Dimensions

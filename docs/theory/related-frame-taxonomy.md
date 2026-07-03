@@ -79,6 +79,12 @@ materializes them from both frames.
 | Team as roadblock | `rejected_near_miss` | Dependency blocked by unresolved ownership | The surface match is tempting, but people-as-obstacles should be rejected. |
 | Bag-of-chips story | `plain_language_fallback` | "We do not know intent yet; check facts before assigning blame." | The story is useful only before facts establish harm or duty. |
 
+## Applied Reviews
+
+- [related-frame-application-starter.md](related-frame-application-starter.md)
+  applies relation types to starter catalog links and relation fixture backlog
+  rows.
+
 ## Review Procedure
 
 1. Name the source frame and target frame or fallback.

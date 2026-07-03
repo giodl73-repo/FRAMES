@@ -60,6 +60,15 @@ Review record:
 - [theory/accepted-catalog-review-veto-rule.md](theory/accepted-catalog-review-veto-rule.md)
   records the caveat, stop condition, fallback, and no-default-search boundary.
 
+## Typed Related-Frame Application
+
+Current Rust entries expose untyped `related` IDs. The first docs-level typed
+relation map lives in
+[theory/related-frame-application-starter.md](theory/related-frame-application-starter.md).
+It classifies starter links such as `four-way-stop` to `merge-lane` as
+`alternate`, `four-way-stop` to `crosswalk-yield` as `boundary_frame`, and
+`merge-lane` to `following-distance` as `sequence_before`.
+
 ## Status Frames
 
 | Frame | Everyday source | Target situation | Action cue | Failure mode |

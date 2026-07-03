@@ -57,6 +57,7 @@ Repo or feature: `frames-core`
 | REQ-047 | The repo shall close Veto Rule accepted-catalog revision items before any docs catalog row or default-search promotion. | NEED-001 / CON-003 | Accepted-with-caveat decisions need fixtures, stop conditions, and fallback language before broader catalog use. | must | FRAMES | inspection | accepted |
 | REQ-048 | The docs catalog shall distinguish reviewed docs-catalog candidates from accepted starter entries and default Rust search. | NEED-001 / CON-001 / CON-003 | Reviewed local heuristics can become docs-catalog candidates before they are safe for starter catalog or default index behavior. | must | FRAMES | inspection | accepted |
 | REQ-049 | The repo shall apply frame anti-pattern taxonomy to the first reviewed docs-catalog candidate and evaluation fixture backlog. | NEED-001 / CON-003 | Reviewed candidates need explicit misuse classes and rejected-use fixtures before broader catalog or tool behavior depends on them. | must | FRAMES | inspection | accepted |
+| REQ-050 | The repo shall apply related-frame relation taxonomy to starter catalog examples and relation fixture backlog before typed related metadata is added to Rust. | NEED-001 / CON-001 / CON-002 / CON-003 | Related IDs need documented meanings and fixture expectations before tools distinguish alternates, fallbacks, conflicts, sequences, and rejected near-misses. | must | FRAMES | inspection | accepted |
 
 ## Requirement Quality Checklist
 

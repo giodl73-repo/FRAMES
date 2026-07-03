@@ -57,6 +57,7 @@ unless product requirements explicitly define them as user-facing behavior.
 | WP-043 | Close Veto Rule revision items. | Veto Rule has fixtures, stop condition, fallback language, and a docs-only accepted-with-caveat boundary. | REQ-047 / SPEC-046 / IF-049 | `docs/theory/accepted-catalog-review-veto-rule.md`, `docs/theory/evaluation-set-design.md`, `docs/theory/*`, `docs/vtrace/*` | WP-042 complete and revision items identified. | Revision items closed, roadmap updated, docs and VTRACE pass, default Rust search unchanged. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: add docs catalog row when catalog scope expands | evidence / trace / review / status rows | complete |
 | WP-044 | Add Veto Rule docs-catalog row. | Reviewed docs-catalog candidates are visible without changing starter catalog or default Rust search. | REQ-048 / SPEC-047 / IF-050 | `docs/frame-catalog.md`, `docs/theory/*`, `docs/vtrace/*` | WP-043 complete and Veto Rule accepted-with-caveat boundary exists. | Veto Rule row added under reviewed docs-catalog candidates, roadmap updated, docs and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: add lifecycle filtering before default search expansion | evidence / trace / review / status rows | complete |
 | WP-045 | Apply anti-pattern taxonomy to Veto Rule. | Veto Rule misuse risks are classified and covered by evaluation fixture backlog. | REQ-049 / SPEC-048 / IF-051 | `docs/theory/frame-antipattern-application-veto-rule.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-044 complete and Veto Rule docs-catalog row exists. | Anti-pattern review exists, fixture backlog updated, roadmap updated, docs and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: apply related-frame taxonomy to catalog examples | evidence / trace / review / status rows | complete |
+| WP-046 | Apply related-frame taxonomy to starter links. | Starter related IDs have docs-level relation types and fixture backlog coverage. | REQ-050 / SPEC-049 / IF-052 | `docs/theory/related-frame-application-starter.md`, `docs/theory/related-frame-taxonomy.md`, `docs/theory/evaluation-set-design.md`, `docs/frame-catalog.md`, `README.md`, `docs/vtrace/*` | WP-045 complete and related-frame taxonomy exists. | Applied relation map exists, fixture backlog updated, roadmap updated, Rust API unchanged, docs and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: populate first machine-readable evaluation fixtures | evidence / trace / review / status rows | complete |
 
 ## Work Package Details
 
@@ -1731,3 +1732,42 @@ V closure:
 | Implementation | `docs/theory/frame-antipattern-application-veto-rule.md` | closed | Veto Rule anti-pattern review and fixture linkage added. |
 | Verification | EVID-054 | closed | Inspection covers applied anti-pattern review. |
 | Validation | VAL-046 | closed | Misuse reviewers can suppress unsupported Veto Rule use. |
+
+### WP-046: Apply related-frame taxonomy to starter links
+
+Objective: classify representative starter related-frame IDs and add relation
+behavior fixture expectations before typed relation metadata is added to Rust.
+
+Parent IDs: REQ-050, SPEC-049, IF-052.
+
+Affected files/modules:
+
+- `docs/theory/related-frame-application-starter.md`
+- `docs/theory/related-frame-taxonomy.md`
+- `docs/theory/evaluation-set-design.md`
+- `docs/frame-catalog.md`
+- `docs/theory/theory-gap-audit.md`
+- `docs/theory/theory-roadmap.md`
+- `README.md`
+- `docs/vtrace/*`
+
+Verification commands:
+
+```powershell
+cargo fmt --check
+cargo test
+cargo run --example lookup
+cargo run --example ai_response_contract
+git diff --check
+cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .
+```
+
+V closure:
+
+| V Area | IDs / Evidence | Status | Notes |
+|---|---|---|---|
+| Requirements | REQ-050 | closed | Related taxonomy application required before typed Rust relation behavior. |
+| Specification / Interface | SPEC-049, IF-052 | closed | Relation type, display rule, rationale, fixture implication, and API boundary defined. |
+| Implementation | `docs/theory/related-frame-application-starter.md` | closed | Starter relation map and rejected near-misses added. |
+| Verification | EVID-055 | closed | Inspection covers applied relation map and fixtures. |
+| Validation | VAL-047 | closed | Maintainers can interpret related IDs without changing `FrameIndex::related_to`. |
