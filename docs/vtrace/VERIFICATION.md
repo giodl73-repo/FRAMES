@@ -79,6 +79,7 @@ Repo or feature: `frames-core`
 | REQ-069 | unit test / example run / inspection | run `cargo test`, examples, and inspect `src/lib.rs` | Relation-aware report tests pass, hard stops are separate from suggestions, and default search behavior remains unchanged. | pass | EVID-074 |
 | REQ-070 | example run / inspection | run `cargo run --example relation_lookup` and inspect `examples/relation_lookup.rs` | Relation-aware example runs and prints report fields for suggestions, warnings, suppression, and fallback channels. | pass | EVID-075 |
 | REQ-071 | JSON parse / unit test / example run / inspection | parse relation fixtures, run `cargo test`, examples, and inspect `src/lib.rs` | Relation-aware fixtures and Rust tests cover accepted-starter sequence and composition cases beyond the first hard-stop set. | pass | EVID-076 |
+| REQ-072 | JSON parse / unit test / example run / inspection | parse relation fixtures, run `cargo test`, examples, and inspect `src/lib.rs` | Stabilization-before-reentry fixture and Rust test rank `shoulder-pull-off` before `merge-lane`. | pass | EVID-077 |
 
 ## Commands
 
@@ -170,6 +171,7 @@ git diff --check
 | EVID-074 | command output / inspection | `cargo test`, `cargo run --example lookup`, `cargo run --example ai_response_contract`, `src/lib.rs`, `README.md`, `docs/vtrace/INTERFACES.md`, `docs/theory/rust-relation-aware-ranking-design.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md` | REQ-069, SPEC-068, IF-071, VAL-066 | pass |
 | EVID-075 | command output / inspection | `cargo run --example relation_lookup`, `examples/relation_lookup.rs`, `README.md`, `docs/theory/rust-relation-aware-ranking-design.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md` | REQ-070, SPEC-069, VAL-067 | pass |
 | EVID-076 | command output / inspection / JSON parse | `cargo test`, `cargo run --example lookup`, `cargo run --example ai_response_contract`, `cargo run --example relation_lookup`, `docs/eval/relation-aware-ranking-fixtures.json`, `src/lib.rs`, `docs/eval/README.md`, `docs/theory/rust-relation-aware-ranking-design.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md` | REQ-071, SPEC-070, IF-068, VAL-068 | pass |
+| EVID-077 | command output / inspection / JSON parse | `cargo test`, `cargo run --example lookup`, `cargo run --example ai_response_contract`, `cargo run --example relation_lookup`, `docs/eval/relation-aware-ranking-fixtures.json`, `src/lib.rs`, `docs/eval/README.md`, `docs/theory/rust-relation-aware-ranking-design.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md` | REQ-072, SPEC-071, IF-068, VAL-069 | pass |
 
 ## Gaps
 

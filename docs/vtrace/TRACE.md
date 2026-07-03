@@ -73,12 +73,13 @@
 | REQ-069 | NEED-001 | CON-001 / CON-002 / CON-003 | Add relation-aware report path. | SPEC-068 | DES-003 / DES-005 | CR-006 | WP-065 | `src/lib.rs`, `README.md`, `docs/vtrace/INTERFACES.md`, `docs/theory/rust-relation-aware-ranking-design.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md` | VER-067 unit test / example run / inspection | VAL-066 | EVID-074 | validated |
 | REQ-070 | NEED-001 | CON-001 / CON-002 / CON-003 | Add relation-aware report example. | SPEC-069 | DES-005 | CR-006 | WP-066 | `examples/relation_lookup.rs`, `README.md`, `docs/theory/rust-relation-aware-ranking-design.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md` | VER-068 example run / inspection | VAL-067 | EVID-075 | validated |
 | REQ-071 | NEED-001 | CON-001 / CON-002 / CON-003 | Broaden relation-aware fixture coverage. | SPEC-070 | DES-003 / DES-005 | CR-006 | WP-067 | `docs/eval/relation-aware-ranking-fixtures.json`, `src/lib.rs`, `docs/eval/README.md`, `docs/theory/rust-relation-aware-ranking-design.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md` | VER-069 JSON parse / unit test / example run / inspection | VAL-068 | EVID-076 | validated |
+| REQ-072 | NEED-001 | CON-001 / CON-002 / CON-003 | Deepen relation-aware sequencing coverage. | SPEC-071 | DES-003 / DES-005 | CR-006 | WP-068 | `docs/eval/relation-aware-ranking-fixtures.json`, `src/lib.rs`, `docs/eval/README.md`, `docs/theory/rust-relation-aware-ranking-design.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md` | VER-070 JSON parse / unit test / example run / inspection | VAL-069 | EVID-077 | validated |
 
 ## ID Legend
 
 - NEED-001: mission need in `MISSION.md`.
 - CON-001..CON-003: operating scenarios in `CONOPS.md`.
-- SPEC-001..SPEC-070: specification baseline.
+- SPEC-001..SPEC-071: specification baseline.
 - DES-001..DES-005: design elements.
 - CR-001..CR-006: code-rigor constraints.
 - WP-001: frame index crate work package.
@@ -148,4 +149,5 @@
 - WP-065: relation-aware report path work package.
 - WP-066: relation-aware report example work package.
 - WP-067: broaden relation-aware fixture coverage work package.
+- WP-068: deepen relation-aware sequencing coverage work package.
 - EVID-* evidence: `EVIDENCE.md` and `VERIFICATION.md`.

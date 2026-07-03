@@ -136,8 +136,9 @@ Current status: relation-aware ranking fixtures, Rust implementation design,
 private relation metadata tables, and a separate relation-aware report path
 exist for the first fixture IDs. A runnable relation-aware example now shows
 the report shape. The fixture package now also covers visibility-before-
-dependency and pace-plus-buffer composition. The next Rust step should deepen
-fixture coverage before changing default search.
+dependency, pace-plus-buffer composition, and stabilization-before-reentry
+sequencing. The next Rust step should continue deepening fixture coverage
+before changing default search.
 
 ### Stage 4: Validation Scope
 
@@ -187,6 +188,7 @@ Do not promote a field when:
 | M11 | Add a separate relation-aware report path. | Let AI/tool callers inspect structural ranking, demotions, hard stops, warnings, and fallbacks without changing default search. | Complete. |
 | M12 | Add a runnable relation-aware report example. | Make relation output inspectable without asking callers to infer report shape from tests. | Complete. |
 | M13 | Broaden relation-aware fixture coverage. | Cover accepted-starter visibility/dependency and pace/buffer composition cases before default-search promotion. | Complete. |
+| M14 | Deepen relation-aware sequencing coverage. | Cover stabilization-before-reentry sequencing before default-search promotion. | Complete. |
 
 ## Starter Catalog Migration Target
 

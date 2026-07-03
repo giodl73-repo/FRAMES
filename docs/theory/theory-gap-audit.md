@@ -49,7 +49,7 @@ These gaps block reliable tool behavior.
 
 | Gap | Risk | First Artifact |
 |---|---|---|
-| Relation-aware ranking | Authority, risk, application-pack filters, ranking fixtures, Rust design, private metadata tables, first relation-aware report output, a runnable example, and broadened accepted-starter fixture coverage exist, but fixture depth is still narrow. | Deepen relation fixture coverage before changing default search. |
+| Relation-aware ranking | Authority, risk, application-pack filters, ranking fixtures, Rust design, private metadata tables, first relation-aware report output, a runnable example, broadened accepted-starter coverage, and first re-entry sequencing coverage exist, but fixture depth is still narrow. | Continue deepening relation fixture coverage before changing default search. |
 | Rejected-candidate reporting | First review-only rows back suppressed reports and explicit review modes, but broader rejected-candidate scoring is not implemented. | Use relation-aware ranking fixtures before expanding rows. |
 | Lifecycle filtering | `search_with_lifecycle` separates suggestions, fallbacks, suppressed reports, and review-only rows, but relation-aware review ordering is not implemented. | Implement relation-aware ordering only after fixture-backed design. |
 
@@ -72,7 +72,7 @@ methodology rather than a useful catalog.
 
 1. Collect EVT-001 participant responses and score the locked packet without upgrading claim strength prematurely.
 2. Pilot the theme-swimlane leadership worksheet and record changed decisions.
-3. Deepen relation-aware fixture coverage without changing default search.
+3. Continue deepening relation-aware fixture coverage without changing default search.
 
 This sequence keeps tool safety ahead of catalog growth.
 

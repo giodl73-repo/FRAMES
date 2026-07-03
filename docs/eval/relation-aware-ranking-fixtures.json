@@ -246,6 +246,31 @@
         "docs/frame-catalog.md"
       ],
       "review_status": "accepted-fixture"
+    },
+    {
+      "id": "REL-RANK-009",
+      "title": "Stabilization precedes re-entry into flow",
+      "query": {
+        "target_situation": "A team needs to pause outside the main flow, stabilize, and then re-enter active work.",
+        "frame_job": "momentum",
+        "target_relation": "stabilization_reentry",
+        "authority_term": "operator",
+        "risk_band": "medium",
+        "application_pack": "operations"
+      },
+      "expected_order": ["shoulder-pull-off", "merge-lane"],
+      "must_demote": [],
+      "must_suppress": [],
+      "expected_decision": "recommend-sequence",
+      "expected_relation_behavior": "sequence_after",
+      "expected_warnings": [],
+      "plain_language_fallback": "Stabilize outside the main flow, name the re-entry condition, then rejoin deliberately.",
+      "source_docs": [
+        "docs/theory/related-frame-application-starter.md",
+        "docs/theory/transfer-aware-search-design.md",
+        "docs/frame-catalog.md"
+      ],
+      "review_status": "accepted-fixture"
     }
   ]
 }

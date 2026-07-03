@@ -188,5 +188,7 @@ Before implementation can replace or influence default ranking:
 - A runnable relation-aware example now shows the report shape.
 - Relation fixture coverage now includes visibility-before-dependency and
   pace-plus-buffer composition cases.
-- The next implementation step should deepen fixture coverage before
-  considering any default-search promotion.
+- Relation fixture coverage now also includes stabilization-before-reentry
+  sequencing.
+- The next implementation step should continue deepening fixture coverage
+  before considering any default-search promotion.

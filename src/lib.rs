@@ -355,6 +355,7 @@ pub enum TargetRelation {
     AttentionLimit,
     DependencyIntegrity,
     PaceAdjustment,
+    StabilizationReentry,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -861,6 +862,8 @@ fn relation_composes_with_target(
         && metadata
             .constraint_relations
             .contains(&ConstraintRelation::Coupling)
+        || target_relation == TargetRelation::StabilizationReentry
+            && metadata.frame_id == "merge-lane"
 }
 
 fn score_entry(
@@ -1158,6 +1161,8 @@ fn relation_decision(
         RelationDecision::RecommendSequence
     } else if query.constraint == Some(ConstraintRelation::EvidenceMissing) {
         RelationDecision::RecommendWithEvidenceWarning
+    } else if query.target_relation == Some(TargetRelation::StabilizationReentry) {
+        RelationDecision::RecommendSequence
     } else {
         RelationDecision::RecommendBoundaryFrame
     }
@@ -1210,6 +1215,7 @@ fn target_relation_name(relation: TargetRelation) -> &'static str {
         TargetRelation::AttentionLimit => "attention_limit",
         TargetRelation::DependencyIntegrity => "dependency_integrity",
         TargetRelation::PaceAdjustment => "pace_adjustment",
+        TargetRelation::StabilizationReentry => "stabilization_reentry",
     }
 }
 
@@ -1544,6 +1550,14 @@ const RELATION_METADATA: &[RelationMetadata] = &[
         frame_id: "speed-limit",
         target_relations: &[TargetRelation::PaceAdjustment],
         constraint_relations: &[ConstraintRelation::Coupling],
+        protected_values: &[ProtectedValue::SystemStability],
+        transfer_strength: TransferStrength::Structural,
+        exclusions: &[],
+    },
+    RelationMetadata {
+        frame_id: "shoulder-pull-off",
+        target_relations: &[TargetRelation::StabilizationReentry],
+        constraint_relations: &[],
         protected_values: &[ProtectedValue::SystemStability],
         transfer_strength: TransferStrength::Structural,
         exclusions: &[],
@@ -2331,6 +2345,7 @@ mod tests {
             "blind-spot",
             "load-bearing-wall",
             "speed-limit",
+            "shoulder-pull-off",
             "veto-rule",
             "bag-of-chips-as-excuse",
         ];
@@ -2382,6 +2397,7 @@ mod tests {
         let blind_spot = relation_metadata_by_id("blind-spot").unwrap();
         let load_bearing_wall = relation_metadata_by_id("load-bearing-wall").unwrap();
         let speed_limit = relation_metadata_by_id("speed-limit").unwrap();
+        let shoulder_pull_off = relation_metadata_by_id("shoulder-pull-off").unwrap();
         assert!(blind_spot
             .target_relations
             .contains(&TargetRelation::AttentionLimit));
@@ -2391,6 +2407,9 @@ mod tests {
         assert!(speed_limit
             .target_relations
             .contains(&TargetRelation::PaceAdjustment));
+        assert!(shoulder_pull_off
+            .target_relations
+            .contains(&TargetRelation::StabilizationReentry));
     }
 
     #[test]
@@ -2655,6 +2674,37 @@ mod tests {
             .collect();
 
         assert_eq!(ids, vec!["speed-limit", "following-distance"]);
+        assert_eq!(
+            report.suggestions[0].decision,
+            RelationDecision::RecommendSequence
+        );
+        assert!(report.suggestions[0].warnings.is_empty());
+        assert!(report.suggestions[1].warnings.is_empty());
+    }
+
+    #[test]
+    fn relation_report_sequences_stabilization_before_reentry() {
+        let index = FrameIndex::new();
+        let query = RelationQuery::new(
+            FrameQuery::new(
+                "pause outside the main flow, stabilize, and then re-enter active work",
+            )
+            .with_kind(FrameKind::Momentum)
+            .with_authority_model(AuthorityModel::Operator)
+            .with_risk_band(RiskBand::Medium)
+            .with_application_pack(ApplicationPack::Operations),
+        )
+        .with_target_relation(TargetRelation::StabilizationReentry);
+
+        let report = index.search_with_relations(&query);
+        let ids: Vec<_> = report
+            .suggestions
+            .iter()
+            .take(2)
+            .map(|candidate| candidate.candidate.entry.id)
+            .collect();
+
+        assert_eq!(ids, vec!["shoulder-pull-off", "merge-lane"]);
         assert_eq!(
             report.suggestions[0].decision,
             RelationDecision::RecommendSequence
