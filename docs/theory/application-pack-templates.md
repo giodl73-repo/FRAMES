@@ -167,3 +167,6 @@ locking in premature API structure.
 
 Use [perspective-metadata.md](perspective-metadata.md) before converting pack
 defaults into catalog or crate metadata.
+
+Pack expansion order and coverage gates live in
+[domain-pack-roadmap.md](domain-pack-roadmap.md).

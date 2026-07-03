@@ -62,6 +62,7 @@ Repo or feature: `frames-core`
 | REQ-052 | inspection / JSON parse | parse `docs/eval/starter-fixtures.json` and inspect portability profiles plus `docs/theory/cultural-portability-application-fixtures.md` | Starter fixtures have portability band profiles and safer fallbacks. | pass | EVID-057 |
 | REQ-053 | inspection | inspect `docs/validation/theme-swimlane-leadership-pilot-ledger.md` and linked theme-swimlane docs | Pilot ledger defines record shape, dry-run boundary, and no-evidence status. | pass | EVID-058 |
 | REQ-054 | inspection | inspect `docs/theory/frame-acquisition-method.md` | Acquisition rule, source channels, intake template, screening gates, promotion path, candidate states, and design consequences are present. | pass | EVID-059 |
+| REQ-055 | inspection | inspect `docs/theory/domain-pack-roadmap.md` and `docs/theory/application-pack-templates.md` | Domain pack growth rule, expansion order, coverage matrix, hold conditions, and drift warnings are present. | pass | EVID-060 |
 
 ## Commands
 
@@ -136,6 +137,7 @@ git diff --check
 | EVID-057 | inspection / JSON parse | `docs/eval/starter-fixtures.json`, `docs/theory/cultural-portability-application-fixtures.md`, `docs/theory/cultural-portability.md` | REQ-052, SPEC-051, IF-054, VAL-049 | pass |
 | EVID-058 | inspection | `docs/validation/theme-swimlane-leadership-pilot-ledger.md`, `docs/theory/theme-swimlane-leadership-worksheet.md`, `docs/theory/theme-swimlane-role-review.md`, `docs/theory/theme-swimlane-extraction.md` | REQ-053, SPEC-052, IF-055, VAL-050 | pass |
 | EVID-059 | inspection | `docs/theory/frame-acquisition-method.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md` | REQ-054, SPEC-053, IF-056, VAL-051 | pass |
+| EVID-060 | inspection | `docs/theory/domain-pack-roadmap.md`, `docs/theory/application-pack-templates.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md` | REQ-055, SPEC-054, IF-057, VAL-052 | pass |
 
 ## Gaps
 

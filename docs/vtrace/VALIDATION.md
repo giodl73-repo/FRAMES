@@ -59,6 +59,7 @@ Repo or feature: `frames-core`
 | VAL-049 | Methodology maintainer or audience-transfer reviewer | Apply portability bands to starter fixtures without adding Rust portability filters. | Parse fixture portability profiles and inspect cultural portability application. | Each starter fixture has band, risk, safer alternate, fallback, and review note; unknown and unsafe cases are explicit. | EVID-057 | pass |
 | VAL-050 | Business leader or methodology maintainer | Prepare a real theme-swimlane worksheet pilot without overstating evidence. | Inspect pilot ledger before running a pilot. | Record template, changed-decision fields, role gates, lifecycle recommendation, and dry-run-not-evidence boundary are explicit. | EVID-058 | pass |
 | VAL-051 | Methodology maintainer or catalog reviewer | Capture a new frame candidate without prematurely adding it to catalog or search. | Apply `frame-acquisition-method.md` to a proposed candidate. | Source channel, intake fields, screening gates, candidate state, next gate, and promotion path are explicit. | EVID-059 | pass |
+| VAL-052 | Methodology maintainer or catalog reviewer | Decide which application pack should expand next without opportunistic catalog growth. | Apply `domain-pack-roadmap.md`. | Pack priority, coverage goal, required fixtures, hold condition, and drift warning are explicit. | EVID-060 | pass |
 
 ## Deferred Validation
 

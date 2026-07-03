@@ -43,6 +43,7 @@ growth gaps, implementation gaps, and deeper theory questions.
 | Evaluation-set design | Search and AI outputs need curated fixtures before semantic search or broad catalog growth. | `evaluation-set-design.md` |
 | Role-reviewed domain examples | Theory needs concrete role-reviewed examples before broader catalog expansion. | `role-reviewed-domain-examples.md` |
 | Application packs | Product, operations, leadership, learning, and AI-agent packs need different defaults. | `application-pack-templates.md` |
+| Domain pack strategy | Application packs need expansion order, coverage goals, and hold conditions. | `domain-pack-roadmap.md` |
 | Perspective metadata | Frames assign listener roles, agency, duty, and authority assumptions. | `perspective-metadata.md` |
 | Story-job taxonomy | Frames need to declare what their narrative layer is doing for the audience. | `story-job-taxonomy.md` |
 | Internal source import | Local RESONANCE MANAGE patterns need structured import before catalog expansion. | `resonance-manage-import-map.md` |
@@ -66,7 +67,7 @@ growth gaps, implementation gaps, and deeper theory questions.
 
 1. Collect EVT-001 participant responses and score the locked packet.
 2. Pilot the theme-swimlane leadership worksheet and record changed decisions.
-3. Define domain pack strategy.
+3. Define plain-language fallback theory.
 
 ## Role Guidance
 

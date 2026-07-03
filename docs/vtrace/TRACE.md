@@ -56,12 +56,13 @@
 | REQ-052 | NEED-001 | CON-001 / CON-003 | Apply cultural portability bands to starter fixtures. | SPEC-051 | DES-005 | n/a | WP-048 | `docs/eval/starter-fixtures.json`, `docs/eval/README.md`, `docs/theory/cultural-portability-application-fixtures.md`, `docs/theory/cultural-portability.md`, `docs/theory/evaluation-set-design.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md` | VER-050 inspection / JSON parse | VAL-049 | EVID-057 | validated |
 | REQ-053 | NEED-001 | CON-003 | Add theme-swimlane leadership pilot ledger. | SPEC-052 | DES-005 | n/a | WP-049 | `docs/validation/theme-swimlane-leadership-pilot-ledger.md`, `docs/theory/theme-swimlane-leadership-worksheet.md`, `docs/theory/theme-swimlane-role-review.md`, `docs/theory/theme-swimlane-extraction.md`, `README.md` | VER-051 inspection | VAL-050 | EVID-058 | validated |
 | REQ-054 | NEED-001 | CON-001 / CON-003 | Define frame acquisition method. | SPEC-053 | DES-005 | n/a | WP-050 | `docs/theory/frame-acquisition-method.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md` | VER-052 inspection | VAL-051 | EVID-059 | validated |
+| REQ-055 | NEED-001 | CON-001 / CON-003 | Define domain pack roadmap. | SPEC-054 | DES-005 | n/a | WP-051 | `docs/theory/domain-pack-roadmap.md`, `docs/theory/application-pack-templates.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md` | VER-053 inspection | VAL-052 | EVID-060 | validated |
 
 ## ID Legend
 
 - NEED-001: mission need in `MISSION.md`.
 - CON-001..CON-003: operating scenarios in `CONOPS.md`.
-- SPEC-001..SPEC-053: specification baseline.
+- SPEC-001..SPEC-054: specification baseline.
 - DES-001..DES-005: design elements.
 - CR-001..CR-006: code-rigor constraints.
 - WP-001: frame index crate work package.
@@ -114,4 +115,5 @@
 - WP-048: starter fixture portability application work package.
 - WP-049: theme-swimlane leadership pilot ledger work package.
 - WP-050: frame acquisition method work package.
+- WP-051: domain pack roadmap work package.
 - EVID-* evidence: `EVIDENCE.md` and `VERIFICATION.md`.

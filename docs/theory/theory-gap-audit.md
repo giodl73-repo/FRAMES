@@ -41,7 +41,6 @@ These gaps limit expansion into broader users, domains, and public use.
 
 | Gap | Risk | First Artifact |
 |---|---|---|
-| Domain pack strategy | New packs could grow opportunistically instead of through coverage goals. | `domain-pack-roadmap.md` |
 | Plain-language fallback theory | High-stakes or low-transfer situations need non-metaphor alternatives. | `plain-language-fallbacks.md` |
 | Teaching progression | Novice, journeyman, and expert use needs a learning path, not just docs. | `learning-progression.md` |
 
@@ -74,7 +73,7 @@ methodology rather than a useful catalog.
 
 1. Collect EVT-001 participant responses and score the locked packet without upgrading claim strength prematurely.
 2. Pilot the theme-swimlane leadership worksheet and record changed decisions.
-3. Define domain pack strategy.
+3. Define plain-language fallback theory.
 
 This sequence keeps tool safety ahead of catalog growth.
 

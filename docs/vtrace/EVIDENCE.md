@@ -67,6 +67,7 @@ Repo or feature: `frames-core`
 | EVID-057 | inspection / JSON parse | `docs/eval/starter-fixtures.json`, `docs/theory/cultural-portability-application-fixtures.md`, `docs/theory/cultural-portability.md` | Starter fixtures have portability profiles and the cultural portability application records band decisions for traffic, status, veto, anti-pattern, story, relation, theme-swimlane, and audience-transfer cases. | pass. | pass |
 | EVID-058 | inspection | `docs/validation/theme-swimlane-leadership-pilot-ledger.md`, `docs/theory/theme-swimlane-leadership-worksheet.md`, `docs/theory/theme-swimlane-role-review.md`, `docs/theory/theme-swimlane-extraction.md` | Theme-swimlane pilot ledger exists, records no real pilot evidence yet, and links from worksheet/review/extraction docs. | pass. | pass |
 | EVID-059 | inspection | `docs/theory/frame-acquisition-method.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md` | Frame acquisition method exists with intake, screening, promotion, lifecycle, and backlog guidance; growth gap audit advances to domain pack strategy. | pass. | pass |
+| EVID-060 | inspection | `docs/theory/domain-pack-roadmap.md`, `docs/theory/application-pack-templates.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md` | Domain pack roadmap exists with expansion order, coverage goals, hold conditions, drift warnings, and links from application-pack templates. | pass. | pass |
 
 ## Evidence Rules
 

@@ -62,6 +62,7 @@ unless product requirements explicitly define them as user-facing behavior.
 | WP-048 | Apply portability bands to starter fixtures. | Starter fixtures carry portability bands and safer fallbacks. | REQ-052 / SPEC-051 / IF-054 | `docs/eval/starter-fixtures.json`, `docs/theory/cultural-portability-application-fixtures.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-047 complete and cultural portability taxonomy exists. | Portability profiles cover all starter fixtures, applied review exists, roadmap updated, docs and VTRACE pass. | L0: JSON parse; `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: theme-swimlane worksheet pilot or frame acquisition method | evidence / trace / review / status rows | complete |
 | WP-049 | Add theme-swimlane leadership pilot ledger. | Real Theme Swimlane worksheet pilots have a ledger before evidence claims. | REQ-053 / SPEC-052 / IF-055 | `docs/validation/theme-swimlane-leadership-pilot-ledger.md`, `docs/theory/theme-swimlane-*`, `README.md`, `docs/vtrace/*` | WP-048 complete and worksheet exists. | Pilot ledger exists, dry-run is marked not evidence, linked docs updated, docs and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: run a real pilot and record changed decisions | evidence / trace / review / status rows | complete |
 | WP-050 | Define frame acquisition method. | New frame candidates have intake and screening gates before catalog growth. | REQ-054 / SPEC-053 / IF-056 | `docs/theory/frame-acquisition-method.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md`, `docs/vtrace/*` | WP-049 complete or external pilot blocked. | Acquisition method exists, roadmap updated, docs and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: define domain pack strategy and plain-language fallback theory | evidence / trace / review / status rows | complete |
+| WP-051 | Define domain pack roadmap. | Application packs have expansion order, coverage goals, and hold conditions. | REQ-055 / SPEC-054 / IF-057 | `docs/theory/domain-pack-roadmap.md`, `docs/theory/application-pack-templates.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md`, `docs/vtrace/*` | WP-050 complete and application-pack templates exist. | Roadmap exists, pack templates link it, growth gap audit advances, docs and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: define plain-language fallback theory | evidence / trace / review / status rows | complete |
 
 ## Work Package Details
 
@@ -1930,3 +1931,40 @@ V closure:
 | Implementation | `docs/theory/frame-acquisition-method.md` | closed | Candidate acquisition method added. |
 | Verification | EVID-059 | closed | Inspection covers acquisition method and roadmap updates. |
 | Validation | VAL-051 | closed | Maintainers can capture candidates without premature catalog/search inclusion. |
+
+### WP-051: Define domain pack roadmap
+
+Objective: define application-pack expansion order, coverage goals, hold
+conditions, and drift warnings before domain-specific catalog growth.
+
+Parent IDs: REQ-055, SPEC-054, IF-057.
+
+Affected files/modules:
+
+- `docs/theory/domain-pack-roadmap.md`
+- `docs/theory/application-pack-templates.md`
+- `docs/theory/theory-gap-audit.md`
+- `docs/theory/theory-roadmap.md`
+- `README.md`
+- `docs/vtrace/*`
+
+Verification commands:
+
+```powershell
+cargo fmt --check
+cargo test
+cargo run --example lookup
+cargo run --example ai_response_contract
+git diff --check
+cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .
+```
+
+V closure:
+
+| V Area | IDs / Evidence | Status | Notes |
+|---|---|---|---|
+| Requirements | REQ-055 | closed | Domain pack roadmap required before pack-specific catalog growth. |
+| Specification / Interface | SPEC-054, IF-057 | closed | Pack growth rule, expansion order, coverage, gates, and drift controls defined. |
+| Implementation | `docs/theory/domain-pack-roadmap.md` | closed | Roadmap added and linked from pack templates. |
+| Verification | EVID-060 | closed | Inspection covers domain pack roadmap and roadmap updates. |
+| Validation | VAL-052 | closed | Maintainers can choose pack expansion without opportunistic growth. |
