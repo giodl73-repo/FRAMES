@@ -25,6 +25,7 @@ Repo or feature: `frames-core`
 | REQ-015 | inspection / role review | inspect `docs/theory/source-domain-taxonomy.md` and `.roles/parliament/research-grounding-reviewer.md` | Source-domain dimensions, families, authority models, temporal shapes, risk bands, and review lens are present. | pass | EVID-020 |
 | REQ-016 | inspection | inspect `docs/theory/application-pack-templates.md` | Pack shape, pack defaults, authority checks, evidence defaults, alternates, rejection rules, and selection procedure are present. | pass | EVID-021 |
 | REQ-017 | inspection | inspect `docs/theory/perspective-metadata.md` | Perspective fields, roles, fit test, conflicts, examples, and anti-patterns are present. | pass | EVID-022 |
+| REQ-018 | inspection | inspect `docs/theory/story-job-taxonomy.md` and `docs/theory/fit-rubric.md` | Story-job categories, selection procedure, examples, hard stops, and rubric overlay are present. | pass | EVID-023 |
 
 ## Commands
 
@@ -61,6 +62,7 @@ git diff --check
 | EVID-020 | inspection / role review | `docs/theory/source-domain-taxonomy.md`, `.roles/parliament/research-grounding-reviewer.md` | REQ-015, SPEC-014, IF-017, VAL-012 | pass |
 | EVID-021 | inspection | `docs/theory/application-pack-templates.md` | REQ-016, SPEC-015, IF-018, VAL-013 | pass |
 | EVID-022 | inspection | `docs/theory/perspective-metadata.md` | REQ-017, SPEC-016, IF-019, VAL-014 | pass |
+| EVID-023 | inspection | `docs/theory/story-job-taxonomy.md`, `docs/theory/fit-rubric.md` | REQ-018, SPEC-017, IF-020, VAL-015 | pass |
 
 ## Gaps
 

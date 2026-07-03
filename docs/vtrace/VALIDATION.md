@@ -22,6 +22,7 @@ Repo or feature: `frames-core`
 | VAL-012 | Methodology maintainer | Choose a source domain before adding a frame pack. | Apply `source-domain-taxonomy.md` and research-grounding review. | Source family, authority model, temporal shape, risk band, and audience portability are clear. | EVID-020 | pass |
 | VAL-013 | Methodology maintainer or AI tool builder | Choose context-specific defaults for frame suggestions. | Apply `application-pack-templates.md`. | Pack choice identifies audience, target situations, default jobs, source families, authority checks, evidence obligations, risk defaults, alternates, and rejection rules. | EVID-021 | pass |
 | VAL-014 | Methodology maintainer | Check whether a frame assigns the right listener role and duty. | Apply `perspective-metadata.md`. | Implied role, counterparty role, agency, duty, authority, vulnerability, and perspective risk are visible. | EVID-022 | pass |
+| VAL-015 | Methodology maintainer or communicator | Check what narrative purpose a frame is serving. | Apply `story-job-taxonomy.md` and the fit-rubric overlay. | Story job, audience role, vividness/evidence balance, hard stops, and alternates are visible. | EVID-023 | pass |
 
 ## Deferred Validation
 

@@ -67,6 +67,8 @@ Use [application-pack-templates.md](application-pack-templates.md) when tailorin
 frame defaults for product, operations, leadership, learning, or AI-agent use.
 Use [perspective-metadata.md](perspective-metadata.md) when checking what role,
 duty, agency, or authority a frame assigns to the listener.
+Use [story-job-taxonomy.md](story-job-taxonomy.md) when checking what the
+narrative layer is trying to do for the audience.
 
 ## Audience Levels
 
@@ -112,11 +114,13 @@ Use this order when choosing a frame:
 
 1. Name the target situation in one direct sentence.
 2. Name the job: status, coordination, momentum, risk, priority, or learning.
-3. Choose two or three candidate frames from the same job.
-4. Compare action cues.
-5. Compare failure modes.
-6. Pick the frame with the clearest action and least harmful distortion.
-7. Attach the evidence boundary.
+3. Name the story job: trust, motive, vision, values, teaching, objection,
+   decision, warning, repair, or change.
+4. Choose two or three candidate frames from the same job.
+5. Compare action cues.
+6. Compare failure modes.
+7. Pick the frame with the clearest action and least harmful distortion.
+8. Attach the evidence boundary.
 
 ## Design Consequence for `frames-core`
 
@@ -136,3 +140,5 @@ The Rust index should stay close to this theory:
   evidence, or misuse review.
 - Perspective metadata should be reviewed before any frame is accepted for a
   high-stakes, asymmetric, or authority-sensitive situation.
+- Story-job metadata should distinguish narrative purpose from analogy source
+  and frame kind.

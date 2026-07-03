@@ -17,6 +17,10 @@ Each dimension gets 0, 1, or 2 points.
 
 Maximum score: 14.
 
+Use [story-job-taxonomy.md](story-job-taxonomy.md) after the base score when a
+frame is being used as a narrative, example, leadership story, conflict-repair
+story, teaching story, or persuasion-sensitive communication.
+
 ## Dimensions
 
 | Dimension | 0 | 1 | 2 |
@@ -47,6 +51,23 @@ Reject or rewrite immediately if any hard stop appears:
 - The frame replaces evidence, thresholds, or review.
 - The frame pressures agreement instead of clarifying tradeoffs.
 - The source scene is likely unfamiliar to the intended audience.
+- The story layer claims to teach, repair, or warn while actually hiding motive,
+  authority, evidence, or accountability.
+
+## Story Job Overlay
+
+The story-job overlay does not change the 14-point base score. It blocks
+acceptance when the narrative purpose is unsafe or unclear.
+
+| Overlay Check | Ready | Revise | Hold |
+|---|---|---|---|
+| Story-job clarity | Narrative purpose is explicit and matches the use case. | Purpose is implied but vague. | Claimed purpose conflicts with actual persuasive effect. |
+| Audience-role alignment | Audience role, duty, and agency are fair. | Role is mostly fair but needs qualification. | Story assigns manipulative, false, or unsafe duty. |
+| Vividness / evidence balance | Vividness helps recall while evidence stays visible. | Evidence boundary needs strengthening. | Story feels like proof. |
+| Alternate readiness | Alternate story job exists for contested use. | Alternate exists but is not documented. | No alternate exists for medium- or high-stakes use. |
+
+Any `Hold` result keeps the frame out of accepted catalog/index use for
+medium- or high-stakes contexts.
 
 ## Worked Example: Four-Way Stop
 
@@ -90,4 +111,3 @@ handoff failure.
 4. Revise the frame entry.
 5. Re-score only the changed dimensions.
 6. Record accepted risks in the frame note or role review.
-

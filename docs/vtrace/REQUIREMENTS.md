@@ -25,6 +25,7 @@ Repo or feature: `frames-core`
 | REQ-015 | The repo shall define a source-domain taxonomy for everyday frame sources, authority models, temporal shapes, and risk bands. | NEED-001 / CON-003 | Frame selection needs controlled source-domain structure before broad catalog expansion. | must | FRAMES | inspection / role review | accepted |
 | REQ-016 | The repo shall define application-pack templates for product, operations, leadership, learning, and AI-agent frame use. | NEED-001 / CON-001 / CON-003 | Different contexts need different frame defaults, authority checks, evidence obligations, and rejection rules. | must | FRAMES | inspection | accepted |
 | REQ-017 | The repo shall define perspective metadata guidance for listener role, agency, duty, authority, and perspective risk. | NEED-001 / CON-003 | Frames can mislead by assigning the wrong role or duty even when the analogy is familiar. | must | FRAMES | inspection | accepted |
+| REQ-018 | The repo shall define story-job taxonomy guidance for narrative purpose, audience effect, evidence boundary, and misuse risk. | NEED-001 / CON-003 | Frame selection needs to distinguish what an analogy clarifies from what the story is doing to the audience. | must | FRAMES | inspection | accepted |
 
 ## Requirement Quality Checklist
 

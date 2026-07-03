@@ -77,7 +77,7 @@ change, and leadership communication.
 
 | Concept | Source Tradition | Possible FRAMES Artifact |
 |---|---|---|
-| Story job taxonomy | Simmons / Duarte | Add story-job dimension to fit rubric. |
+| Story job taxonomy | Simmons / Duarte | Imported in [story-job-taxonomy.md](story-job-taxonomy.md). |
 | Audience-as-hero | Duarte / StoryBrand | Extend perspective metadata. |
 | Springboard story | Denning | Leadership pack example. |
 | What-is / what-could-be contrast | Duarte | Change-frame template. |

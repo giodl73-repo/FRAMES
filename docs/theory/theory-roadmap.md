@@ -29,6 +29,7 @@ frame index rather than a growing metaphor list.
 | Source-domain taxonomy | Everyday domains need controlled names and risks. | `source-domain-taxonomy.md` |
 | Application packs | Product, operations, leadership, learning, and AI-agent packs need different defaults. | `application-pack-templates.md` |
 | Perspective metadata | Frames assign listener roles, agency, duty, and authority assumptions. | `perspective-metadata.md` |
+| Story-job taxonomy | Frames need to declare what their narrative layer is doing for the audience. | `story-job-taxonomy.md` |
 | Internal source import | Local RESONANCE MANAGE patterns need structured import before catalog expansion. | `resonance-manage-import-map.md` |
 | Career source import | Local CAREER Gravity patterns need structured import before catalog expansion. | `career-gravity-import-map.md` |
 | External practitioners | Successful public frame/story writers should be benchmarked for reusable design lessons. | `external-frame-practitioners.md` |
@@ -39,9 +40,9 @@ frame index rather than a growing metaphor list.
 1. Relational transfer fields.
 2. Claim-strength labels.
 3. Role-reviewed domain examples.
-4. Practitioner-derived story-job rubric.
-5. RESONANCE MANAGE frame imports.
-6. CAREER Gravity frame imports.
+4. RESONANCE MANAGE frame imports.
+5. CAREER Gravity frame imports.
+6. Empirical validation plan.
 
 ## Role Guidance
 
