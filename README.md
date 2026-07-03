@@ -62,6 +62,7 @@ Research grounding lives in [docs/theory/research-grounding.md](docs/theory/rese
 Claim-strength labels live in [docs/theory/claim-strength-labels.md](docs/theory/claim-strength-labels.md).
 Source-domain taxonomy lives in [docs/theory/source-domain-taxonomy.md](docs/theory/source-domain-taxonomy.md).
 Relational transfer fields live in [docs/theory/relational-transfer-fields.md](docs/theory/relational-transfer-fields.md).
+Role-reviewed domain examples live in [docs/theory/role-reviewed-domain-examples.md](docs/theory/role-reviewed-domain-examples.md).
 Application pack templates live in [docs/theory/application-pack-templates.md](docs/theory/application-pack-templates.md).
 Perspective metadata guidance lives in [docs/theory/perspective-metadata.md](docs/theory/perspective-metadata.md).
 Story-job taxonomy lives in [docs/theory/story-job-taxonomy.md](docs/theory/story-job-taxonomy.md).

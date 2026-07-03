@@ -33,6 +33,7 @@ Repo or feature: `frames-core`
 | EVID-023 | inspection | `docs/theory/story-job-taxonomy.md`, `docs/theory/fit-rubric.md` | Story-job taxonomy and fit-rubric overlay exist. | pass. | pass |
 | EVID-024 | inspection | `docs/theory/relational-transfer-fields.md`, `docs/theory/fit-rubric.md` | Relational transfer fields and fit-rubric integration exist. | pass. | pass |
 | EVID-025 | inspection | `docs/theory/claim-strength-labels.md`, `docs/theory/research-grounding.md` | Claim-strength labels and research-grounding integration exist. | pass. | pass |
+| EVID-026 | inspection / role review | `docs/theory/role-reviewed-domain-examples.md`, `.roles/ROLE.md` | Role-reviewed domain examples exist for traffic coordination, status signals, conflict repair, and theme swimlanes. | pass. | pass |
 
 ## Evidence Rules
 

@@ -22,12 +22,13 @@
 | REQ-018 | NEED-001 | CON-003 | Define story-job taxonomy guidance. | SPEC-017 | DES-005 | n/a | WP-014 | `docs/theory/story-job-taxonomy.md`, `docs/theory/fit-rubric.md`, `docs/theory/frame-theory.md`, `docs/theory/external-frame-practitioners.md` | VER-016 inspection | VAL-015 | EVID-023 | validated |
 | REQ-019 | NEED-001 | CON-003 | Define relational transfer fields. | SPEC-018 | DES-005 | n/a | WP-015 | `docs/theory/relational-transfer-fields.md`, `docs/theory/fit-rubric.md`, `docs/theory/frame-theory.md`, `docs/theory/source-domain-taxonomy.md` | VER-017 inspection | VAL-016 | EVID-024 | validated |
 | REQ-020 | NEED-001 | CON-003 | Define claim-strength labels. | SPEC-019 | DES-005 | n/a | WP-016 | `docs/theory/claim-strength-labels.md`, `docs/theory/research-grounding.md`, `docs/theory/evidence-boundary-schema.md`, `docs/theory/fit-rubric.md` | VER-018 inspection | VAL-017 | EVID-025 | validated |
+| REQ-021 | NEED-001 | CON-003 | Define role-reviewed domain examples. | SPEC-020 | DES-005 | n/a | WP-017 | `docs/theory/role-reviewed-domain-examples.md`, `.roles/ROLE.md`, `.roles/parliament/*`, `docs/theory/theory-roadmap.md` | VER-019 inspection / role review | VAL-018 | EVID-026 | validated |
 
 ## ID Legend
 
 - NEED-001: mission need in `MISSION.md`.
 - CON-001..CON-003: operating scenarios in `CONOPS.md`.
-- SPEC-001..SPEC-019: specification baseline.
+- SPEC-001..SPEC-020: specification baseline.
 - DES-001..DES-005: design elements.
 - CR-001..CR-006: code-rigor constraints.
 - WP-001: frame index crate work package.
@@ -46,4 +47,5 @@
 - WP-014: story-job taxonomy work package.
 - WP-015: relational transfer fields work package.
 - WP-016: claim-strength labels work package.
+- WP-017: role-reviewed domain examples work package.
 - EVID-* evidence: `EVIDENCE.md` and `VERIFICATION.md`.

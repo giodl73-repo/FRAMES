@@ -29,6 +29,7 @@ frame index rather than a growing metaphor list.
 | Claim-strength labels | Public claims need to distinguish illustration, heuristic, theory support, local observation, role review, and validation. | `claim-strength-labels.md` |
 | Source-domain taxonomy | Everyday domains need controlled names and risks. | `source-domain-taxonomy.md` |
 | Relational transfer fields | Frames need explicit source-target relation maps, exclusions, and transfer strength. | `relational-transfer-fields.md` |
+| Role-reviewed domain examples | Theory needs concrete role-reviewed examples before broader catalog expansion. | `role-reviewed-domain-examples.md` |
 | Application packs | Product, operations, leadership, learning, and AI-agent packs need different defaults. | `application-pack-templates.md` |
 | Perspective metadata | Frames assign listener roles, agency, duty, and authority assumptions. | `perspective-metadata.md` |
 | Story-job taxonomy | Frames need to declare what their narrative layer is doing for the audience. | `story-job-taxonomy.md` |
@@ -40,12 +41,12 @@ frame index rather than a growing metaphor list.
 
 ## Priority Order
 
-1. Role-reviewed domain examples.
-2. RESONANCE MANAGE frame imports.
-3. CAREER Gravity frame imports.
-4. Theme swimlane extraction.
-5. Empirical validation plan.
-6. Catalog metadata migration plan.
+1. RESONANCE MANAGE frame imports.
+2. CAREER Gravity frame imports.
+3. Theme swimlane extraction.
+4. Empirical validation plan.
+5. Catalog metadata migration plan.
+6. AI response contract for frame suggestions.
 
 ## Role Guidance
 
