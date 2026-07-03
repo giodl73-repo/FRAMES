@@ -77,6 +77,7 @@ Repo or feature: `frames-core`
 | REQ-067 | The repo shall define a Rust relation-aware ranking implementation design before adding relation metadata or scoring APIs. | NEED-001 / CON-001 / CON-002 / CON-003 | Relation scoring needs an additive API plan, metadata migration path, hard-stop behavior, and fixture-driven test strategy before public Rust behavior changes. | must | FRAMES | inspection | accepted |
 | REQ-068 | The crate shall add private relation metadata tables and fixture-mapped tests without changing default search behavior. | NEED-001 / CON-001 / CON-002 / CON-003 | Relation-aware ranking needs compile-time metadata coverage for fixture IDs before a public relation report or scoring API is introduced. | must | FRAMES | unit test / example run / inspection | accepted |
 | REQ-069 | The crate shall expose a separate relation-aware report path without changing default search behavior. | NEED-001 / CON-001 / CON-002 / CON-003 | AI/tool callers need structural ranking, demotion, hard-stop, warning, and fallback output before relation scoring can influence ordinary lookup. | must | FRAMES | unit test / example run / inspection | accepted |
+| REQ-070 | The crate shall provide a runnable relation-aware report example. | NEED-001 / CON-001 / CON-002 / CON-003 | AI/tool callers need an executable example showing relation suggestions, scores, rank bands, warnings, and suppression channels before adopting the relation report API. | should | FRAMES | example run / inspection | accepted |
 
 ## Requirement Quality Checklist
 

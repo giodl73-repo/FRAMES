@@ -71,12 +71,13 @@
 | REQ-067 | NEED-001 | CON-001 / CON-002 / CON-003 | Define Rust relation-aware ranking design. | SPEC-066 | DES-003 / DES-005 | n/a | WP-063 | `docs/theory/rust-relation-aware-ranking-design.md`, `docs/theory/transfer-aware-search-design.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md` | VER-065 inspection | VAL-064 | EVID-072 | validated |
 | REQ-068 | NEED-001 | CON-001 / CON-002 / CON-003 | Add private relation metadata tables. | SPEC-067 | DES-003 / DES-005 | CR-006 | WP-064 | `src/lib.rs`, `README.md`, `docs/theory/rust-relation-aware-ranking-design.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md` | VER-066 unit test / example run / inspection | VAL-065 | EVID-073 | validated |
 | REQ-069 | NEED-001 | CON-001 / CON-002 / CON-003 | Add relation-aware report path. | SPEC-068 | DES-003 / DES-005 | CR-006 | WP-065 | `src/lib.rs`, `README.md`, `docs/vtrace/INTERFACES.md`, `docs/theory/rust-relation-aware-ranking-design.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md` | VER-067 unit test / example run / inspection | VAL-066 | EVID-074 | validated |
+| REQ-070 | NEED-001 | CON-001 / CON-002 / CON-003 | Add relation-aware report example. | SPEC-069 | DES-005 | CR-006 | WP-066 | `examples/relation_lookup.rs`, `README.md`, `docs/theory/rust-relation-aware-ranking-design.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md` | VER-068 example run / inspection | VAL-067 | EVID-075 | validated |
 
 ## ID Legend
 
 - NEED-001: mission need in `MISSION.md`.
 - CON-001..CON-003: operating scenarios in `CONOPS.md`.
-- SPEC-001..SPEC-068: specification baseline.
+- SPEC-001..SPEC-069: specification baseline.
 - DES-001..DES-005: design elements.
 - CR-001..CR-006: code-rigor constraints.
 - WP-001: frame index crate work package.
@@ -144,4 +145,5 @@
 - WP-063: Rust relation-aware ranking design work package.
 - WP-064: private relation metadata table work package.
 - WP-065: relation-aware report path work package.
+- WP-066: relation-aware report example work package.
 - EVID-* evidence: `EVIDENCE.md` and `VERIFICATION.md`.

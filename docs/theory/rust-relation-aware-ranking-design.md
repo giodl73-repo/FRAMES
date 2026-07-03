@@ -185,5 +185,6 @@ Before implementation can replace or influence default ranking:
   without changing `FrameIndex::search`.
 - `search_with_relations` now provides a separate relation-aware report path
   while preserving default search.
-- The next implementation step should expand relation report examples and
-  fixture coverage before considering any default-search promotion.
+- A runnable relation-aware example now shows the report shape.
+- The next implementation step should broaden fixture coverage before
+  considering any default-search promotion.

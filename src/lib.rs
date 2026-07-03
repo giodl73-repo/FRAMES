@@ -929,14 +929,14 @@ fn relation_candidate(
             matched_relations.push(protected_value_name(value));
         } else if value == ProtectedValue::CustomerSafety {
             relation_score -= 30;
-            warnings.push("protected-value warning");
+            push_unique_warning(&mut warnings, "protected-value warning");
         }
     }
 
     for exclusion in query.excluded_transfers {
         if metadata.exclusions.contains(exclusion) {
             relation_score -= transfer_exclusion_penalty(*exclusion);
-            warnings.push(transfer_exclusion_warning(*exclusion));
+            push_unique_warning(&mut warnings, transfer_exclusion_warning(*exclusion));
         }
     }
 
@@ -952,7 +952,7 @@ fn relation_candidate(
         AuthorityFit::Compatible => relation_score += 4,
         AuthorityFit::Mismatch => {
             relation_score -= 40;
-            warnings.push("authority warning");
+            push_unique_warning(&mut warnings, "authority warning");
         }
         AuthorityFit::NotAssessed => {}
     }
@@ -1146,18 +1146,24 @@ fn add_relation_warnings(
             .target_relations
             .contains(&TargetRelation::PeerTurnTaking)
     {
-        warnings.push("authority warning");
+        push_unique_warning(warnings, "authority warning");
     }
 
     if query.constraint == Some(ConstraintRelation::Coupling)
         && metadata.transfer_strength == TransferStrength::Partial
     {
-        warnings.push("coupling risk");
+        push_unique_warning(warnings, "coupling risk");
     }
 
     if query.constraint == Some(ConstraintRelation::EvidenceMissing) {
-        warnings.push("evidence boundary");
-        warnings.push("threshold required");
+        push_unique_warning(warnings, "evidence boundary");
+        push_unique_warning(warnings, "threshold required");
+    }
+}
+
+fn push_unique_warning(warnings: &mut Vec<&'static str>, warning: &'static str) {
+    if !warnings.contains(&warning) {
+        warnings.push(warning);
     }
 }
 

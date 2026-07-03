@@ -77,6 +77,7 @@ unless product requirements explicitly define them as user-facing behavior.
 | WP-063 | Define Rust relation-aware ranking design. | Relation-aware ranking implementation has an additive API and metadata plan before Rust scoring changes. | REQ-067 / SPEC-066 / IF-069 | `docs/theory/rust-relation-aware-ranking-design.md`, `docs/theory/transfer-aware-search-design.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md`, `docs/vtrace/*` | WP-062 complete and ranking fixtures exist. | Design doc exists, links fixtures, preserves default search, defines metadata and report strategy, docs and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: add private relation metadata tables and fixture-mapped tests | evidence / trace / review / status rows | complete |
 | WP-064 | Add private relation metadata tables. | Relation fixture IDs have compile-time metadata before public relation scoring APIs. | REQ-068 / SPEC-067 / IF-070 | `src/lib.rs`, `README.md`, `docs/theory/rust-relation-aware-ranking-design.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `docs/vtrace/*` | WP-063 complete and implementation design exists. | Private metadata rows and fixture-mapped tests exist, default search remains unchanged, examples and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: add separate relation-aware report path | evidence / trace / review / status rows | complete |
 | WP-065 | Add relation-aware report path. | AI/tool callers can inspect structural ranking, demotions, hard stops, warnings, and fallbacks without changing default search. | REQ-069 / SPEC-068 / IF-071 | `src/lib.rs`, `README.md`, `docs/vtrace/INTERFACES.md`, `docs/theory/rust-relation-aware-ranking-design.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `docs/vtrace/*` | WP-064 complete and private relation metadata exists. | `search_with_relations` exists, fixture-shaped tests pass, hard stops remain separate from suggestions, default search is unchanged, examples and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: expand relation report examples and fixture coverage | evidence / trace / review / status rows | complete |
+| WP-066 | Add relation-aware report example. | AI/tool callers can run and inspect relation-aware report output without reading tests. | REQ-070 / SPEC-069 / IF-071 | `examples/relation_lookup.rs`, `README.md`, `docs/theory/rust-relation-aware-ranking-design.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `docs/vtrace/*` | WP-065 complete and relation report API exists. | Example runs, prints relation report fields, docs identify the command, default search remains unchanged, and VTRACE passes. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `cargo run --example relation_lookup`; `git diff --check` / L1: VTRACE validate / L2: broaden relation fixture coverage | evidence / trace / review / status rows | complete |
 
 ## Work Package Details
 
@@ -2534,3 +2535,41 @@ V closure:
 | Implementation | `src/lib.rs` | closed | `search_with_relations` uses relation metadata and fixture-shaped hard-stop rules. |
 | Verification | EVID-074 | closed | Unit tests cover first relation-ranking fixtures and examples still run. |
 | Validation | VAL-066 | closed | API maintainers can inspect relation-aware output before any default-search promotion. |
+
+### WP-066: Add relation-aware report example
+
+Objective: add an executable example for the relation-aware report API.
+
+Parent IDs: REQ-070, SPEC-069, IF-071.
+
+Affected files/modules:
+
+- `examples/relation_lookup.rs`
+- `README.md`
+- `docs/theory/rust-relation-aware-ranking-design.md`
+- `docs/theory/catalog-metadata-migration-plan.md`
+- `docs/theory/theory-gap-audit.md`
+- `docs/theory/theory-roadmap.md`
+- `docs/vtrace/*`
+
+Verification commands:
+
+```powershell
+cargo fmt --check
+cargo test
+cargo run --example lookup
+cargo run --example ai_response_contract
+cargo run --example relation_lookup
+git diff --check
+cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .
+```
+
+V closure:
+
+| V Area | IDs / Evidence | Status | Notes |
+|---|---|---|---|
+| Requirements | REQ-070 | closed | Tool callers can run a relation-aware report example. |
+| Specification / Interface | SPEC-069, IF-071 | closed | Example uses the existing relation report API and does not add new API. |
+| Implementation | `examples/relation_lookup.rs` | closed | Example prints suggestion, relation score, rank band, decision, authority fit, warnings, suppression, and fallback fields. |
+| Verification | EVID-075 | closed | Example run is part of validation. |
+| Validation | VAL-067 | closed | API maintainers can inspect relation output without reading unit tests. |

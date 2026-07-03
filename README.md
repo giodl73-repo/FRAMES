@@ -100,6 +100,12 @@ let query = RelationQuery::new(
 let report = index.search_with_relations(&query);
 ```
 
+Runnable relation-aware example:
+
+```powershell
+cargo run --example relation_lookup
+```
+
 ## First Catalog
 
 The initial catalog lives in [docs/frame-catalog.md](docs/frame-catalog.md).
