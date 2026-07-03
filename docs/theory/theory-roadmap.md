@@ -66,13 +66,13 @@ growth gaps, implementation gaps, and deeper theory questions.
 | Frame acquisition method | New frame candidates need a repeatable intake, screening, and promotion path. | `frame-acquisition-method.md` |
 | Lifecycle filtering and rejection reporting | Tools need explicit visibility modes, status filters, suppressed-candidate explanations, and fixtures before non-accepted frames enter tool behavior. | `lifecycle-filtering-and-rejection-reporting.md`, `../eval/lifecycle-rejection-fixtures.json` |
 | Rust lifecycle filter API | The crate needs additive lifecycle report behavior before review-only rows can be loaded safely. | `rust-lifecycle-filter-api-design.md` |
-| Review-only catalog data model | Docs-catalog, draft, held, deprecated, rejected, and anti-pattern rows need a separate data model before they enter the crate. | Review-only catalog model. |
+| Review-only catalog data model | Docs-catalog, draft, held, deprecated, rejected, and anti-pattern rows need a separate data model before they enter the crate. | `review-only-catalog-data-model.md` |
 
 ## Priority Order
 
 1. Collect EVT-001 participant responses and score the locked packet.
 2. Pilot the theme-swimlane leadership worksheet and record changed decisions.
-3. Design review-only catalog data model for docs-catalog, draft, held, deprecated, rejected, and anti-pattern rows.
+3. Publish a machine-readable review-only catalog fixture before adding review-only Rust rows.
 
 ## Role Guidance
 

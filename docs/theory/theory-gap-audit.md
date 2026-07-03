@@ -50,8 +50,8 @@ These gaps block reliable tool behavior.
 | Gap | Risk | First Artifact |
 |---|---|---|
 | Relation-aware ranking | Authority, risk, and application-pack filters exist, but target-relation and protected-value ranking are not implemented. | Relation metadata plus evaluation-backed ranking design. |
-| Rejected-candidate reporting | First fixture-backed reports exist, but broader review-only catalog rows are not loaded. | Expand suppressed report coverage after review-only data model exists. |
-| Lifecycle filtering | `search_with_lifecycle` exists, but draft, held, deprecated, docs-catalog, and rejected rows are not loaded as catalogs. | Add review-only data model before broader status filtering. |
+| Rejected-candidate reporting | First fixture-backed reports exist, but broader review-only catalog rows are not loaded. | Data model exists; next publish machine-readable review-only catalog fixture. |
+| Lifecycle filtering | `search_with_lifecycle` exists, but draft, held, deprecated, docs-catalog, and rejected rows are not loaded as catalogs. | Data model exists; next publish review-only catalog fixture before Rust rows. |
 
 ## Deep Theory Gaps
 
@@ -72,7 +72,7 @@ methodology rather than a useful catalog.
 
 1. Collect EVT-001 participant responses and score the locked packet without upgrading claim strength prematurely.
 2. Pilot the theme-swimlane leadership worksheet and record changed decisions.
-3. Design review-only catalog data model for docs-catalog, draft, held, deprecated, rejected, and anti-pattern rows.
+3. Publish a machine-readable review-only catalog fixture before adding review-only Rust rows.
 
 This sequence keeps tool safety ahead of catalog growth.
 

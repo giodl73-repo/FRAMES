@@ -60,6 +60,13 @@ Review record:
 - [theory/accepted-catalog-review-veto-rule.md](theory/accepted-catalog-review-veto-rule.md)
   records the caveat, stop condition, fallback, and no-default-search boundary.
 
+Review-only row modeling:
+
+- [theory/review-only-catalog-data-model.md](theory/review-only-catalog-data-model.md)
+  defines how docs-catalog, draft, held, deprecated, rejected, and anti-pattern
+  rows can be loaded for review or suppressed-candidate explanation without
+  becoming default recommendations.
+
 ## Typed Related-Frame Application
 
 Current Rust entries expose untyped `related` IDs. The first docs-level typed

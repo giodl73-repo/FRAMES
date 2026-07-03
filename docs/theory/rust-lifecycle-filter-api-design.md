@@ -190,6 +190,9 @@ The first implementation may use fixture-derived static rejected candidates
 instead of full `FrameEntry` rows. That avoids pretending anti-patterns have the
 same shape as accepted suggestions.
 
+The review-only row model is defined in
+[review-only-catalog-data-model.md](review-only-catalog-data-model.md).
+
 ## Migration Steps
 
 1. Add tests that parse `docs/eval/lifecycle-rejection-fixtures.json`.
@@ -201,7 +204,8 @@ same shape as accepted suggestions.
 5. Add suppressed-candidate reports from fixture-backed rejected examples.
    Complete for first lifecycle fixtures.
 6. Add docs-catalog or review-only rows only after display rules prevent
-   recommendation.
+   recommendation. Start from
+   [review-only-catalog-data-model.md](review-only-catalog-data-model.md).
 7. Consider expanding `FrameStatus` in public API only when review rows are
    actually represented. Complete for report statuses; review rows remain out
    of `STARTER_CATALOG`.
