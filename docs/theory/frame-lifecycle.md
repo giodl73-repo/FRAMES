@@ -27,6 +27,9 @@ FRAMES from treating every memorable comparison as ready for AI/tool use.
 | Deprecated | Replacement or retirement rationale. |
 | Rejected | Hard stop or low score with rationale. |
 
+Detailed acceptance gates live in
+[accepted-catalog-review-process.md](accepted-catalog-review-process.md).
+
 ## Exit Criteria
 
 | From State | Exit Path |
@@ -104,4 +107,3 @@ Deprecate rather than delete when:
 `frames-core` should eventually expose lifecycle status. Until then, the starter
 index should include only accepted frames. Anti-patterns such as "team as
 roadblock" belong in theory docs, not default search results.
-

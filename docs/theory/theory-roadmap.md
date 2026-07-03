@@ -29,6 +29,7 @@ growth gaps, implementation gaps, and deeper theory questions.
 | Theory gap audit | The project needs a current account of what is still missing after the baseline theory is in place. | `theory-gap-audit.md` |
 | Audience transfer | Familiarity differs by role, region, culture, expertise, and mobility. | `audience-transfer.md` |
 | Frame lifecycle | Frames should move from candidate to accepted, revised, deprecated, or rejected. | `frame-lifecycle.md` |
+| Accepted-catalog review | Draft heuristics need a repeatable gate before accepted catalog or default search. | `accepted-catalog-review-process.md` |
 | Composition | Some situations need two frames; some frames conflict. | `composition-and-conflict.md` |
 | Evidence schema | `frames-core` stores the evidence boundary that keeps frames from replacing proof. | `evidence-boundary-schema.md` |
 | Claim-strength labels | Public claims need to distinguish illustration, heuristic, theory support, local observation, role review, and validation. | `claim-strength-labels.md` |
@@ -56,14 +57,13 @@ growth gaps, implementation gaps, and deeper theory questions.
 
 ## Priority Order
 
-1. Accepted-catalog review process.
-2. Frame anti-pattern taxonomy.
-3. Related-frame relation taxonomy.
-4. Evaluation-set design.
-5. Cultural portability guidance.
-6. Leadership-pack worksheet for theme swimlanes.
-7. Transfer-aware search filters.
-8. Run EVT-001 and record results.
+1. Frame anti-pattern taxonomy.
+2. Related-frame relation taxonomy.
+3. Evaluation-set design.
+4. Cultural portability guidance.
+5. Leadership-pack worksheet for theme swimlanes.
+6. Transfer-aware search filters.
+7. Run EVT-001 and record results.
 
 ## Role Guidance
 

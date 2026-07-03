@@ -43,6 +43,7 @@ Repo or feature: `frames-core`
 | REQ-033 | inspection | inspect `docs/theory/theory-gap-audit.md` and roadmap link | Current strengths, blocking gaps, growth gaps, implementation gaps, deep theory gaps, recommended sequence, non-goals, and decision statement are present. | pass | EVID-038 |
 | REQ-034 | example run / inspection | `cargo run --example ai_response_contract`; inspect `examples/ai_response_contract.rs` | Example prints bounded AI response fields and keeps retrieval score distinct from omitted fit score. | pass | EVID-039 |
 | REQ-035 | unit test / example run / inspection | `cargo test`; `cargo run --example ai_response_contract`; inspect `FrameEntry` | Accepted starter entries expose status, claim strength, risk band, application packs, and metadata filters. | pass | EVID-040 |
+| REQ-036 | inspection | inspect `docs/theory/accepted-catalog-review-process.md` and linked lifecycle/promotion docs | Review inputs, board lenses, decision bands, hard stops, procedure, metadata requirements, template, promotion rule, and design consequences are present. | pass | EVID-041 |
 
 ## Commands
 
@@ -98,6 +99,7 @@ git diff --check
 | EVID-038 | inspection | `docs/theory/theory-gap-audit.md` | REQ-033, SPEC-032, IF-035, VAL-030 | pass |
 | EVID-039 | command output / inspection | `cargo run --example ai_response_contract`, `examples/ai_response_contract.rs` | REQ-034, SPEC-033, IF-036, VAL-031 | pass |
 | EVID-040 | command output / inspection | `cargo test`, `cargo run --example ai_response_contract`, `src/lib.rs` | REQ-035, SPEC-034, IF-037, VAL-032 | pass |
+| EVID-041 | inspection | `docs/theory/accepted-catalog-review-process.md` | REQ-036, SPEC-035, IF-038, VAL-033 | pass |
 
 ## Gaps
 

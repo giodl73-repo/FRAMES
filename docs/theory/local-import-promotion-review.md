@@ -149,8 +149,11 @@ The lanes must help say yes and no. The dedicated acceptance gate lives in
 - Promoted local imports become draft heuristics, not accepted starter entries.
 - They stay out of default Rust search until lifecycle, claim-strength, and risk
   metadata exist in the crate.
-- Each promoted import needs a future fit score before catalog acceptance.
+- Each promoted import needs accepted-catalog review before catalog acceptance.
 - Held imports should be used only as draft examples with explicit warnings.
+
+Acceptance review process lives in
+[accepted-catalog-review-process.md](accepted-catalog-review-process.md).
 
 ## Next Catalog Candidates
 

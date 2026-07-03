@@ -29,7 +29,7 @@ These gaps can cause wrong recommendations or premature catalog acceptance.
 |---|---|---|
 | Controlled frame ontology | Tags and relation names drift as the catalog grows. | `frame-ontology.md` |
 | Anti-pattern taxonomy | Bad frames are rejected case by case, not through reusable failure classes. | `frame-antipattern-taxonomy.md` |
-| Acceptance review board | Promoted draft heuristics do not yet have a repeatable accepted-catalog gate. | `accepted-catalog-review-process.md` |
+| Acceptance review board | Promoted draft heuristics need the accepted-catalog gate applied before default search. | `accepted-catalog-review-process.md` |
 | Evaluation set | Search and AI outputs cannot be compared against known good/bad examples. | `evaluation-set-design.md` |
 | Related-frame relation types | `related` is currently one undifferentiated link type. | `related-frame-taxonomy.md` |
 
@@ -76,7 +76,7 @@ methodology rather than a useful catalog.
 
 1. Add AI response contract examples in Rust.
 2. Add first Rust metadata migration for accepted starter entries.
-3. Define the accepted-catalog review process.
+3. Apply the accepted-catalog review process to first promoted candidates.
 4. Define frame anti-pattern taxonomy.
 5. Define related-frame relation taxonomy.
 6. Define evaluation-set design with positive, near-miss, and hard-stop cases.

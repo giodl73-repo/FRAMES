@@ -43,6 +43,7 @@ unless product requirements explicitly define them as user-facing behavior.
 | WP-029 | Add theory gap audit. | Remaining theory gaps are visible before catalog growth or AI selection scale. | REQ-033 / SPEC-032 / IF-035 | `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md`, `docs/vtrace/*` | WP-028 complete and current theory set inspected. | Gap audit exists, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: role review before major roadmap pivot | evidence / trace / review / status rows | complete |
 | WP-030 | Add AI response contract Rust example. | Tool builders can see bounded frame suggestions using current `FrameIndex` output. | REQ-034 / SPEC-033 / IF-036 | `examples/ai_response_contract.rs`, `docs/theory/ai-response-contract.md`, `README.md`, `docs/theory/theory-roadmap.md`, `docs/vtrace/*` | WP-029 complete and AI response contract exists. | Example runs, docs updated, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: API review before contract structs | evidence / trace / review / status rows | complete |
 | WP-031 | Add accepted starter Rust metadata migration. | Accepted starter frames expose basic display-safety metadata and filters. | REQ-035 / SPEC-034 / IF-037 | `src/lib.rs`, `examples/ai_response_contract.rs`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-030 complete and accepted starter metadata table exists. | Metadata fields and filters exist, examples run, docs updated, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: API review before transfer-aware ranking | evidence / trace / review / status rows | complete |
+| WP-032 | Add accepted-catalog review process. | Draft heuristics have a repeatable gate before accepted catalog or default search. | REQ-036 / SPEC-035 / IF-038 | `docs/theory/accepted-catalog-review-process.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-031 complete and lifecycle/promotion docs exist. | Process exists, linked docs updated, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: apply process to first promoted candidate | evidence / trace / review / status rows | complete |
 
 ## Work Package Details
 
@@ -1179,3 +1180,41 @@ V closure:
 | Implementation | `src/lib.rs`, `examples/ai_response_contract.rs` | closed | Status, claim strength, risk band, application packs, and filters added. |
 | Verification | EVID-040 | closed | Tests and example cover metadata presence and display. |
 | Validation | VAL-032 | closed | Tool builders can filter and display accepted starter metadata. |
+
+### WP-032: Add accepted-catalog review process
+
+Objective: define the repeatable gate for moving draft heuristics into accepted
+catalog entries or default Rust search.
+
+Parent IDs: REQ-036, SPEC-035, IF-038.
+
+Affected files/modules:
+
+- `docs/theory/accepted-catalog-review-process.md`
+- `docs/theory/frame-lifecycle.md`
+- `docs/theory/local-import-promotion-review.md`
+- `docs/theory/theory-gap-audit.md`
+- `docs/theory/theory-roadmap.md`
+- `README.md`
+- `docs/vtrace/*`
+
+Verification commands:
+
+```powershell
+cargo fmt --check
+cargo test
+cargo run --example lookup
+cargo run --example ai_response_contract
+git diff --check
+cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .
+```
+
+V closure:
+
+| V Area | IDs / Evidence | Status | Notes |
+|---|---|---|---|
+| Requirements | REQ-036 | closed | Accepted-catalog review process required. |
+| Specification / Interface | SPEC-035, IF-038 | closed | Acceptance gates, hard stops, and metadata requirements defined. |
+| Implementation | `docs/theory/accepted-catalog-review-process.md` | closed | Inputs, role lenses, decision bands, procedure, template, and promotion rule added. |
+| Verification | EVID-041 | closed | Inspection covers accepted-catalog review process. |
+| Validation | VAL-033 | closed | Process supports draft-to-accepted catalog decisions. |
