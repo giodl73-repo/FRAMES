@@ -21,12 +21,13 @@
 | REQ-017 | NEED-001 | CON-003 | Define perspective metadata guidance. | SPEC-016 | DES-005 | n/a | WP-013 | `docs/theory/perspective-metadata.md`, `docs/theory/frame-theory.md`, `docs/theory/source-domain-taxonomy.md`, `docs/theory/application-pack-templates.md` | VER-015 inspection | VAL-014 | EVID-022 | validated |
 | REQ-018 | NEED-001 | CON-003 | Define story-job taxonomy guidance. | SPEC-017 | DES-005 | n/a | WP-014 | `docs/theory/story-job-taxonomy.md`, `docs/theory/fit-rubric.md`, `docs/theory/frame-theory.md`, `docs/theory/external-frame-practitioners.md` | VER-016 inspection | VAL-015 | EVID-023 | validated |
 | REQ-019 | NEED-001 | CON-003 | Define relational transfer fields. | SPEC-018 | DES-005 | n/a | WP-015 | `docs/theory/relational-transfer-fields.md`, `docs/theory/fit-rubric.md`, `docs/theory/frame-theory.md`, `docs/theory/source-domain-taxonomy.md` | VER-017 inspection | VAL-016 | EVID-024 | validated |
+| REQ-020 | NEED-001 | CON-003 | Define claim-strength labels. | SPEC-019 | DES-005 | n/a | WP-016 | `docs/theory/claim-strength-labels.md`, `docs/theory/research-grounding.md`, `docs/theory/evidence-boundary-schema.md`, `docs/theory/fit-rubric.md` | VER-018 inspection | VAL-017 | EVID-025 | validated |
 
 ## ID Legend
 
 - NEED-001: mission need in `MISSION.md`.
 - CON-001..CON-003: operating scenarios in `CONOPS.md`.
-- SPEC-001..SPEC-018: specification baseline.
+- SPEC-001..SPEC-019: specification baseline.
 - DES-001..DES-005: design elements.
 - CR-001..CR-006: code-rigor constraints.
 - WP-001: frame index crate work package.
@@ -44,4 +45,5 @@
 - WP-013: perspective metadata work package.
 - WP-014: story-job taxonomy work package.
 - WP-015: relational transfer fields work package.
+- WP-016: claim-strength labels work package.
 - EVID-* evidence: `EVIDENCE.md` and `VERIFICATION.md`.

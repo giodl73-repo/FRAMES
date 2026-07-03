@@ -27,6 +27,7 @@ Repo or feature: `frames-core`
 | REQ-017 | The repo shall define perspective metadata guidance for listener role, agency, duty, authority, and perspective risk. | NEED-001 / CON-003 | Frames can mislead by assigning the wrong role or duty even when the analogy is familiar. | must | FRAMES | inspection | accepted |
 | REQ-018 | The repo shall define story-job taxonomy guidance for narrative purpose, audience effect, evidence boundary, and misuse risk. | NEED-001 / CON-003 | Frame selection needs to distinguish what an analogy clarifies from what the story is doing to the audience. | must | FRAMES | inspection | accepted |
 | REQ-019 | The repo shall define relational transfer fields for source-target relation mapping, transfer exclusions, and transfer strength. | NEED-001 / CON-003 | Frame selection needs to prefer relational structure over surface similarity. | must | FRAMES | inspection | accepted |
+| REQ-020 | The repo shall define claim-strength labels for frame claims, practitioner observations, local observations, role review, and empirical validation. | NEED-001 / CON-003 | Public and AI-facing frame guidance needs to avoid overstating evidence. | must | FRAMES | inspection | accepted |
 
 ## Requirement Quality Checklist
 

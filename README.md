@@ -59,6 +59,7 @@ Frame lifecycle guidance lives in [docs/theory/frame-lifecycle.md](docs/theory/f
 Composition and conflict guidance lives in [docs/theory/composition-and-conflict.md](docs/theory/composition-and-conflict.md).
 Evidence boundary schema lives in [docs/theory/evidence-boundary-schema.md](docs/theory/evidence-boundary-schema.md).
 Research grounding lives in [docs/theory/research-grounding.md](docs/theory/research-grounding.md).
+Claim-strength labels live in [docs/theory/claim-strength-labels.md](docs/theory/claim-strength-labels.md).
 Source-domain taxonomy lives in [docs/theory/source-domain-taxonomy.md](docs/theory/source-domain-taxonomy.md).
 Relational transfer fields live in [docs/theory/relational-transfer-fields.md](docs/theory/relational-transfer-fields.md).
 Application pack templates live in [docs/theory/application-pack-templates.md](docs/theory/application-pack-templates.md).

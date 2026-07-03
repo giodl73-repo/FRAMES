@@ -26,6 +26,7 @@ Repo or feature: `frames-core`
 | SPEC-016 | REQ-017 | theory / docs | target | Perspective metadata guide defines perspective fields, roles, fit test, conflicts, examples, and anti-patterns. | inspection | VAL-014 | FRAMES | medium | accepted |
 | SPEC-017 | REQ-018 | theory / docs | target | Story-job taxonomy defines narrative-purpose categories, selection procedure, examples, hard stops, fit-rubric overlay, and design consequences. | inspection | VAL-015 | FRAMES | medium | accepted |
 | SPEC-018 | REQ-019 | theory / docs | target | Relational transfer guide defines source relation, target relation, actor roles, authority, constraints, signals, thresholds, sequence, feedback, protected value, exclusions, distortion risk, transfer strength, examples, and design consequences. | inspection | VAL-016 | FRAMES | medium | accepted |
+| SPEC-019 | REQ-020 | theory / docs | target | Claim-strength guide defines labels, default assignments, promotion rules, required claim shape, hard stops, integration points, and design consequences. | inspection | VAL-017 | FRAMES | medium | accepted |
 
 ## Contract Table
 
@@ -47,3 +48,4 @@ Repo or feature: `frames-core`
 | IF-019 | SPEC-016 | Perspective metadata terms | Perspective roles, duty types, agency levels, and perspective-risk terms should remain stable enough for future catalog metadata. | Adding/removing perspective fields or role categories. | EVID-022 |
 | IF-020 | SPEC-017 | Story-job taxonomy terms | Story-job categories and overlay checks should remain stable enough for catalog review and future metadata. | Adding/removing story-job categories or changing overlay gates. | EVID-023 |
 | IF-021 | SPEC-018 | Relational transfer terms | Transfer fields and strength labels should remain stable enough for catalog review and future metadata. | Adding/removing transfer fields or strength labels. | EVID-024 |
+| IF-022 | SPEC-019 | Claim-strength labels | Claim-strength label names and promotion rules should remain stable enough for public docs and future metadata. | Adding/removing labels or changing promotion requirements. | EVID-025 |

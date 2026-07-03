@@ -22,6 +22,8 @@ frame is being used as a narrative, example, leadership story, conflict-repair
 story, teaching story, or persuasion-sensitive communication.
 Use [relational-transfer-fields.md](relational-transfer-fields.md) when scoring
 `Transfer clarity`; surface similarity is not enough.
+Use [claim-strength-labels.md](claim-strength-labels.md) before presenting a
+passing score as stronger than a heuristic.
 
 ## Dimensions
 

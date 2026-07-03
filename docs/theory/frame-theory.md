@@ -61,6 +61,9 @@ Use [evidence-boundary-schema.md](evidence-boundary-schema.md) when adding or
 reviewing evidence-boundary fields in docs or `frames-core`.
 Use [research-grounding.md](research-grounding.md) when making public claims
 about metaphor, analogy, cognition, persuasion, or human decision behavior.
+Use [claim-strength-labels.md](claim-strength-labels.md) when deciding whether a
+frame claim is illustrative, heuristic, theory-informed, practitioner-observed,
+locally observed, role-reviewed, empirically validated, or an anti-pattern.
 Use [source-domain-taxonomy.md](source-domain-taxonomy.md) when choosing source
 families, authority models, temporal shapes, and risk bands.
 Use [relational-transfer-fields.md](relational-transfer-fields.md) when

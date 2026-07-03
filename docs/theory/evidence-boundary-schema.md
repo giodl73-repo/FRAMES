@@ -3,6 +3,10 @@
 Evidence boundary is the field that keeps a frame from pretending to be proof.
 It answers: after this frame is used, what still has to be checked?
 
+Use [claim-strength-labels.md](claim-strength-labels.md) when the question is
+not "what still needs checking?" but "how strongly are we allowed to state this
+claim?"
+
 ## Schema Rule
 
 Every accepted indexed frame should carry an evidence boundary.
@@ -66,4 +70,3 @@ Example:
 `frames-core::FrameEntry` includes `evidence_boundary` as a required static
 field. Search results should display it near `action_cue` and `failure_mode` so
 AI/tool callers do not use a frame without its evidence obligation.
-

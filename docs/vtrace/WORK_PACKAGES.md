@@ -27,6 +27,7 @@ unless product requirements explicitly define them as user-facing behavior.
 | WP-013 | Add perspective metadata theory. | Frame selection exposes the listener role, agency, duty, authority, and perspective risk implied by a source scene. | REQ-017 / SPEC-016 / IF-019 | `docs/theory/perspective-metadata.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-012 complete. | Perspective metadata guide exists, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: role review before encoding perspective in crate metadata | evidence / trace / review / status rows | complete |
 | WP-014 | Add story-job taxonomy. | Narrative frame use distinguishes analogy function from audience story purpose. | REQ-018 / SPEC-017 / IF-020 | `docs/theory/story-job-taxonomy.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-013 complete and external practitioner benchmark exists. | Story-job taxonomy exists, fit-rubric overlay exists, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: role review before encoding story jobs in crate metadata | evidence / trace / review / status rows | complete |
 | WP-015 | Add relational transfer fields. | Frame selection maps source-target relations, exclusions, and transfer strength before catalog acceptance. | REQ-019 / SPEC-018 / IF-021 | `docs/theory/relational-transfer-fields.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-014 complete. | Relational transfer guide exists, fit-rubric integration exists, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: role review before encoding transfer fields in crate metadata | evidence / trace / review / status rows | complete |
+| WP-016 | Add claim-strength labels. | Frame claims declare whether they are illustrative, heuristic, theory-informed, observed, reviewed, validated, or anti-patterns. | REQ-020 / SPEC-019 / IF-022 | `docs/theory/claim-strength-labels.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-015 complete. | Claim-strength guide exists, research-grounding integration exists, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: role review before encoding claim strength in crate metadata | evidence / trace / review / status rows | complete |
 
 ## Work Package Details
 
@@ -582,3 +583,40 @@ V closure:
 | Implementation | `docs/theory/relational-transfer-fields.md`, `docs/theory/fit-rubric.md` | closed | Fields, procedure, examples, and scoring integration added. |
 | Verification | EVID-024 | closed | Inspection covers relational transfer guide and rubric integration. |
 | Validation | VAL-016 | closed | Guide supports structure-first frame review. |
+
+### WP-016: Add claim-strength labels
+
+Objective: define how strongly FRAMES may present frame claims and guidance.
+
+Parent IDs: REQ-020, SPEC-019, IF-022.
+
+Affected files/modules:
+
+- `docs/theory/claim-strength-labels.md`
+- `docs/theory/research-grounding.md`
+- `docs/theory/evidence-boundary-schema.md`
+- `docs/theory/frame-theory.md`
+- `docs/theory/fit-rubric.md`
+- `docs/theory/theory-roadmap.md`
+- `README.md`
+- `docs/vtrace/*`
+
+Verification commands:
+
+```powershell
+cargo fmt --check
+cargo test
+cargo run --example lookup
+git diff --check
+cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .
+```
+
+V closure:
+
+| V Area | IDs / Evidence | Status | Notes |
+|---|---|---|---|
+| Requirements | REQ-020 | closed | Claim-strength labels required. |
+| Specification / Interface | SPEC-019, IF-022 | closed | Labels, promotion rules, and claim shape defined. |
+| Implementation | `docs/theory/claim-strength-labels.md`, `docs/theory/research-grounding.md` | closed | Claim labels and research-grounding integration added. |
+| Verification | EVID-025 | closed | Inspection covers claim-strength guide and integration. |
+| Validation | VAL-017 | closed | Guide supports public and AI-facing claim review. |

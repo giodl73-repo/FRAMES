@@ -38,6 +38,10 @@ FRAMES should not claim without direct validation:
 - A research finding about one domain transfers unchanged to business, product,
   clinical, legal, or public-policy contexts.
 
+Use [claim-strength-labels.md](claim-strength-labels.md) before publishing any
+claim about a frame's effect, evidence status, practitioner precedent, or
+research support.
+
 ## Design Rules From Research
 
 ### Prefer Relational Fit
@@ -112,6 +116,8 @@ Catalog review should ask:
 | Alternates for sensitive domains | High-stakes frames need non-persuasive alternates and plain-language fallback. |
 
 The first taxonomy artifact is [source-domain-taxonomy.md](source-domain-taxonomy.md).
+Claim-strength labeling is defined in
+[claim-strength-labels.md](claim-strength-labels.md).
 
 ## Starter Bibliography
 

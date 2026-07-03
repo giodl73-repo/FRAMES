@@ -24,6 +24,7 @@ Repo or feature: `frames-core`
 | VAL-014 | Methodology maintainer | Check whether a frame assigns the right listener role and duty. | Apply `perspective-metadata.md`. | Implied role, counterparty role, agency, duty, authority, vulnerability, and perspective risk are visible. | EVID-022 | pass |
 | VAL-015 | Methodology maintainer or communicator | Check what narrative purpose a frame is serving. | Apply `story-job-taxonomy.md` and the fit-rubric overlay. | Story job, audience role, vividness/evidence balance, hard stops, and alternates are visible. | EVID-023 | pass |
 | VAL-016 | Methodology maintainer or AI tool builder | Check whether a frame transfers by structure rather than surface similarity. | Apply `relational-transfer-fields.md` before scoring transfer clarity. | Source relation, target relation, actor roles, authority, constraints, signals, thresholds, exclusions, distortion risk, and transfer strength are visible. | EVID-024 | pass |
+| VAL-017 | Methodology maintainer or public writer | Check whether a frame claim overstates its evidence. | Apply `claim-strength-labels.md` before publishing or agent output. | Label, applies-when scope, evidence, boundary, and risk are visible. | EVID-025 | pass |
 
 ## Deferred Validation
 
