@@ -1,0 +1,11 @@
+[package]
+name = "frames-core"
+version = "0.1.0"
+edition = "2021"
+description = "Frame index for finding useful analogies for goals, risk, and coordination."
+license = "MIT"
+
+[lib]
+name = "frames_core"
+path = "src/lib.rs"
+

@@ -23,6 +23,17 @@ FRAMES starts with ordinary human activities:
 - Building: foundations, scaffolds, load, fit, inspection, punch lists.
 - Sports and games: field position, timeouts, fouls, advantage, reset.
 
+## Rust Frame Index
+
+FRAMES also includes `frames-core`, a small Rust library for AI tools and other
+software that need a structured frame index. It provides a starter catalog,
+query types, ranked candidates, related-frame lookup, action cues, and failure
+mode warnings.
+
+```powershell
+cargo test
+```
+
 ## First Catalog
 
 The initial catalog lives in [docs/frame-catalog.md](docs/frame-catalog.md).
@@ -52,8 +63,9 @@ Each frame should name:
 
 ## Validation
 
-This is a docs-first scaffold. Current validation:
+Current validation:
 
 ```powershell
+cargo test
 git diff --check
 ```
