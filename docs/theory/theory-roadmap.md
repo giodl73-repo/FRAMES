@@ -27,6 +27,7 @@ frame index rather than a growing metaphor list.
 | Composition | Some situations need two frames; some frames conflict. | `composition-and-conflict.md` |
 | Evidence schema | `frames-core` stores the evidence boundary that keeps frames from replacing proof. | `evidence-boundary-schema.md` |
 | Source-domain taxonomy | Everyday domains need controlled names and risks. | `source-domain-taxonomy.md` |
+| Relational transfer fields | Frames need explicit source-target relation maps, exclusions, and transfer strength. | `relational-transfer-fields.md` |
 | Application packs | Product, operations, leadership, learning, and AI-agent packs need different defaults. | `application-pack-templates.md` |
 | Perspective metadata | Frames assign listener roles, agency, duty, and authority assumptions. | `perspective-metadata.md` |
 | Story-job taxonomy | Frames need to declare what their narrative layer is doing for the audience. | `story-job-taxonomy.md` |
@@ -37,12 +38,12 @@ frame index rather than a growing metaphor list.
 
 ## Priority Order
 
-1. Relational transfer fields.
-2. Claim-strength labels.
-3. Role-reviewed domain examples.
-4. RESONANCE MANAGE frame imports.
-5. CAREER Gravity frame imports.
-6. Empirical validation plan.
+1. Claim-strength labels.
+2. Role-reviewed domain examples.
+3. RESONANCE MANAGE frame imports.
+4. CAREER Gravity frame imports.
+5. Empirical validation plan.
+6. Catalog metadata migration plan.
 
 ## Role Guidance
 

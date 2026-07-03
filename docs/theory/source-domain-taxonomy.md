@@ -102,6 +102,8 @@ Use [application-pack-templates.md](application-pack-templates.md) to choose
 context-specific defaults after selecting source-domain structure.
 Use [perspective-metadata.md](perspective-metadata.md) to check whether the
 source domain assigns the listener the correct role and duty.
+Use [relational-transfer-fields.md](relational-transfer-fields.md) to record the
+specific source-target relations that are allowed to transfer.
 
 ## Anti-Patterns
 

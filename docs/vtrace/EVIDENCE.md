@@ -31,6 +31,7 @@ Repo or feature: `frames-core`
 | EVID-021 | inspection | `docs/theory/application-pack-templates.md` | Application-pack templates exist for product, operations, leadership, learning, and AI-agent contexts. | pass. | pass |
 | EVID-022 | inspection | `docs/theory/perspective-metadata.md` | Perspective metadata guide exists with fields, roles, fit test, conflicts, examples, and anti-patterns. | pass. | pass |
 | EVID-023 | inspection | `docs/theory/story-job-taxonomy.md`, `docs/theory/fit-rubric.md` | Story-job taxonomy and fit-rubric overlay exist. | pass. | pass |
+| EVID-024 | inspection | `docs/theory/relational-transfer-fields.md`, `docs/theory/fit-rubric.md` | Relational transfer fields and fit-rubric integration exist. | pass. | pass |
 
 ## Evidence Rules
 

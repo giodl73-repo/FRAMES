@@ -26,6 +26,7 @@ unless product requirements explicitly define them as user-facing behavior.
 | WP-012 | Add application-pack templates. | Product, operations, leadership, learning, and AI-agent contexts have explicit frame-selection defaults and rejection rules. | REQ-016 / SPEC-015 / IF-018 | `docs/theory/application-pack-templates.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-011 complete. | Pack templates exist, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: role review before encoding packs in crate metadata | evidence / trace / review / status rows | complete |
 | WP-013 | Add perspective metadata theory. | Frame selection exposes the listener role, agency, duty, authority, and perspective risk implied by a source scene. | REQ-017 / SPEC-016 / IF-019 | `docs/theory/perspective-metadata.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-012 complete. | Perspective metadata guide exists, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: role review before encoding perspective in crate metadata | evidence / trace / review / status rows | complete |
 | WP-014 | Add story-job taxonomy. | Narrative frame use distinguishes analogy function from audience story purpose. | REQ-018 / SPEC-017 / IF-020 | `docs/theory/story-job-taxonomy.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-013 complete and external practitioner benchmark exists. | Story-job taxonomy exists, fit-rubric overlay exists, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: role review before encoding story jobs in crate metadata | evidence / trace / review / status rows | complete |
+| WP-015 | Add relational transfer fields. | Frame selection maps source-target relations, exclusions, and transfer strength before catalog acceptance. | REQ-019 / SPEC-018 / IF-021 | `docs/theory/relational-transfer-fields.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-014 complete. | Relational transfer guide exists, fit-rubric integration exists, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: role review before encoding transfer fields in crate metadata | evidence / trace / review / status rows | complete |
 
 ## Work Package Details
 
@@ -545,3 +546,39 @@ V closure:
 | Implementation | `docs/theory/story-job-taxonomy.md`, `docs/theory/fit-rubric.md` | closed | Taxonomy, examples, hard stops, and rubric overlay added. |
 | Verification | EVID-023 | closed | Inspection covers story-job taxonomy and overlay. |
 | Validation | VAL-015 | closed | Guide supports narrative-purpose review for frame selection. |
+
+### WP-015: Add relational transfer fields
+
+Objective: define how source-target relations transfer and where they must stop.
+
+Parent IDs: REQ-019, SPEC-018, IF-021.
+
+Affected files/modules:
+
+- `docs/theory/relational-transfer-fields.md`
+- `docs/theory/fit-rubric.md`
+- `docs/theory/frame-theory.md`
+- `docs/theory/source-domain-taxonomy.md`
+- `docs/theory/theory-roadmap.md`
+- `README.md`
+- `docs/vtrace/*`
+
+Verification commands:
+
+```powershell
+cargo fmt --check
+cargo test
+cargo run --example lookup
+git diff --check
+cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .
+```
+
+V closure:
+
+| V Area | IDs / Evidence | Status | Notes |
+|---|---|---|---|
+| Requirements | REQ-019 | closed | Relational transfer guidance required. |
+| Specification / Interface | SPEC-018, IF-021 | closed | Transfer fields and strength labels defined. |
+| Implementation | `docs/theory/relational-transfer-fields.md`, `docs/theory/fit-rubric.md` | closed | Fields, procedure, examples, and scoring integration added. |
+| Verification | EVID-024 | closed | Inspection covers relational transfer guide and rubric integration. |
+| Validation | VAL-016 | closed | Guide supports structure-first frame review. |

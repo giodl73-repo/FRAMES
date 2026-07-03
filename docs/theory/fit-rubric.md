@@ -20,6 +20,8 @@ Maximum score: 14.
 Use [story-job-taxonomy.md](story-job-taxonomy.md) after the base score when a
 frame is being used as a narrative, example, leadership story, conflict-repair
 story, teaching story, or persuasion-sensitive communication.
+Use [relational-transfer-fields.md](relational-transfer-fields.md) when scoring
+`Transfer clarity`; surface similarity is not enough.
 
 ## Dimensions
 

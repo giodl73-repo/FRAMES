@@ -63,6 +63,9 @@ Use [research-grounding.md](research-grounding.md) when making public claims
 about metaphor, analogy, cognition, persuasion, or human decision behavior.
 Use [source-domain-taxonomy.md](source-domain-taxonomy.md) when choosing source
 families, authority models, temporal shapes, and risk bands.
+Use [relational-transfer-fields.md](relational-transfer-fields.md) when
+checking exactly which relations transfer and which source details must be
+excluded.
 Use [application-pack-templates.md](application-pack-templates.md) when tailoring
 frame defaults for product, operations, leadership, learning, or AI-agent use.
 Use [perspective-metadata.md](perspective-metadata.md) when checking what role,
@@ -116,11 +119,14 @@ Use this order when choosing a frame:
 2. Name the job: status, coordination, momentum, risk, priority, or learning.
 3. Name the story job: trust, motive, vision, values, teaching, objection,
    decision, warning, repair, or change.
-4. Choose two or three candidate frames from the same job.
-5. Compare action cues.
-6. Compare failure modes.
-7. Pick the frame with the clearest action and least harmful distortion.
-8. Attach the evidence boundary.
+4. Name the target relation before choosing a source scene.
+5. Choose two or three candidate frames from the same job.
+6. Compare relational transfer, especially authority, constraint, signal,
+   threshold, sequence, feedback, protected value, and exclusions.
+7. Compare action cues.
+8. Compare failure modes.
+9. Pick the frame with the clearest action and least harmful distortion.
+10. Attach the evidence boundary.
 
 ## Design Consequence for `frames-core`
 
@@ -136,6 +142,8 @@ The Rust index should stay close to this theory:
   before they are treated as stable method guidance.
 - Future catalog metadata should expose source family, authority model,
   temporal shape, risk band, and implied perspective.
+- Future transfer metadata should expose source relation, target relation,
+  authority relation, protected value, transfer exclusions, and strength.
 - Application packs should select defaults without bypassing fit, audience,
   evidence, or misuse review.
 - Perspective metadata should be reviewed before any frame is accepted for a
