@@ -271,6 +271,31 @@
         "docs/frame-catalog.md"
       ],
       "review_status": "accepted-fixture"
+    },
+    {
+      "id": "REL-RANK-010",
+      "title": "Recovery pause requires restart condition",
+      "query": {
+        "target_situation": "A team needs a deliberate recovery pause before fatigue causes mistakes, with a named restart condition.",
+        "frame_job": "momentum",
+        "target_relation": "recovery_pause",
+        "authority_term": "steward",
+        "risk_band": "low",
+        "application_pack": "learning",
+        "protected_value": "decision quality"
+      },
+      "expected_order": ["rest-stop", "shoulder-pull-off"],
+      "must_demote": ["shoulder-pull-off"],
+      "must_suppress": [],
+      "expected_decision": "recommend-boundary-frame",
+      "expected_relation_behavior": "boundary_frame",
+      "expected_warnings": ["restart condition required"],
+      "plain_language_fallback": "Pause deliberately, name the recovery purpose, and define the restart condition.",
+      "source_docs": [
+        "docs/theory/transfer-aware-search-design.md",
+        "docs/frame-catalog.md"
+      ],
+      "review_status": "accepted-fixture"
     }
   ]
 }

@@ -190,5 +190,7 @@ Before implementation can replace or influence default ranking:
   pace-plus-buffer composition cases.
 - Relation fixture coverage now also includes stabilization-before-reentry
   sequencing.
+- Relation fixture coverage now includes recovery-pause restart boundary
+  behavior.
 - The next implementation step should continue deepening fixture coverage
   before considering any default-search promotion.

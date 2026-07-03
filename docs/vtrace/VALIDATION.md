@@ -77,6 +77,7 @@ Repo or feature: `frames-core`
 | VAL-067 | Rust API maintainer or AI tool builder | Inspect relation-aware report output from an executable example. | Run `cargo run --example relation_lookup`. | Example output exposes relation score, rank band, decision, authority fit, matched relations, warnings, and separate suppression/fallback channels. | EVID-075 | pass |
 | VAL-068 | Rust API maintainer or AI tool builder | Check broader relation-aware fixture behavior before default-search promotion. | Parse relation fixtures and run relation report tests. | Accepted-starter visibility/dependency and pace/buffer composition cases are covered without changing default search. | EVID-076 | pass |
 | VAL-069 | Rust API maintainer or AI tool builder | Check stabilization and re-entry sequencing before default-search promotion. | Parse relation fixtures and run relation report tests. | `shoulder-pull-off` ranks before `merge-lane` for stabilization/re-entry without changing default search. | EVID-077 | pass |
+| VAL-070 | Rust API maintainer or AI tool builder | Check recovery-pause restart boundaries before default-search promotion. | Parse relation fixtures and run relation report tests. | `rest-stop` ranks before demoted `shoulder-pull-off` for recovery-pause queries without changing default search. | EVID-078 | pass |
 
 ## Deferred Validation
 

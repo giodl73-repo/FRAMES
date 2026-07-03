@@ -356,6 +356,7 @@ pub enum TargetRelation {
     DependencyIntegrity,
     PaceAdjustment,
     StabilizationReentry,
+    RecoveryPause,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -392,6 +393,7 @@ pub enum TransferExclusion {
     UnsupportedAuthorityGate,
     StoryAfterFactsKnown,
     UnknownTreatedAsStructural,
+    PauseWithoutRestartCondition,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -864,6 +866,8 @@ fn relation_composes_with_target(
             .contains(&ConstraintRelation::Coupling)
         || target_relation == TargetRelation::StabilizationReentry
             && metadata.frame_id == "merge-lane"
+        || target_relation == TargetRelation::RecoveryPause
+            && metadata.frame_id == "shoulder-pull-off"
 }
 
 fn score_entry(
@@ -1133,6 +1137,7 @@ fn relation_rank_band(score: i16, warnings: &[&str]) -> RankBand {
             || warning.contains("buffer")
             || warning.contains("coupling")
             || warning.contains("structural evidence")
+            || warning.contains("restart condition")
     }) {
         RankBand::Demoted
     } else if score < 0 {
@@ -1216,6 +1221,7 @@ fn target_relation_name(relation: TargetRelation) -> &'static str {
         TargetRelation::DependencyIntegrity => "dependency_integrity",
         TargetRelation::PaceAdjustment => "pace_adjustment",
         TargetRelation::StabilizationReentry => "stabilization_reentry",
+        TargetRelation::RecoveryPause => "recovery_pause",
     }
 }
 
@@ -1248,6 +1254,7 @@ fn transfer_exclusion_warning(exclusion: TransferExclusion) -> &'static str {
         TransferExclusion::UnsupportedAuthorityGate => "false authority transfer",
         TransferExclusion::StoryAfterFactsKnown => "repair required",
         TransferExclusion::UnknownTreatedAsStructural => "structural evidence required",
+        TransferExclusion::PauseWithoutRestartCondition => "restart condition required",
     }
 }
 
@@ -1255,6 +1262,7 @@ fn transfer_exclusion_penalty(exclusion: TransferExclusion) -> i16 {
     match exclusion {
         TransferExclusion::StatusWithoutEvidence => 0,
         TransferExclusion::UnknownTreatedAsStructural => 60,
+        TransferExclusion::PauseWithoutRestartCondition => 60,
         TransferExclusion::PeerTurnsUnderOwnerAuthority
         | TransferExclusion::StrongActorDutyShiftedToProtectedParty
         | TransferExclusion::SpeedWithoutSafetyGate => 60,
@@ -1559,6 +1567,14 @@ const RELATION_METADATA: &[RelationMetadata] = &[
         target_relations: &[TargetRelation::StabilizationReentry],
         constraint_relations: &[],
         protected_values: &[ProtectedValue::SystemStability],
+        transfer_strength: TransferStrength::Structural,
+        exclusions: &[TransferExclusion::PauseWithoutRestartCondition],
+    },
+    RelationMetadata {
+        frame_id: "rest-stop",
+        target_relations: &[TargetRelation::RecoveryPause],
+        constraint_relations: &[],
+        protected_values: &[ProtectedValue::DecisionQuality],
         transfer_strength: TransferStrength::Structural,
         exclusions: &[],
     },
@@ -2346,6 +2362,7 @@ mod tests {
             "load-bearing-wall",
             "speed-limit",
             "shoulder-pull-off",
+            "rest-stop",
             "veto-rule",
             "bag-of-chips-as-excuse",
         ];
@@ -2398,6 +2415,7 @@ mod tests {
         let load_bearing_wall = relation_metadata_by_id("load-bearing-wall").unwrap();
         let speed_limit = relation_metadata_by_id("speed-limit").unwrap();
         let shoulder_pull_off = relation_metadata_by_id("shoulder-pull-off").unwrap();
+        let rest_stop = relation_metadata_by_id("rest-stop").unwrap();
         assert!(blind_spot
             .target_relations
             .contains(&TargetRelation::AttentionLimit));
@@ -2410,6 +2428,9 @@ mod tests {
         assert!(shoulder_pull_off
             .target_relations
             .contains(&TargetRelation::StabilizationReentry));
+        assert!(rest_stop
+            .target_relations
+            .contains(&TargetRelation::RecoveryPause));
     }
 
     #[test]
@@ -2711,6 +2732,41 @@ mod tests {
         );
         assert!(report.suggestions[0].warnings.is_empty());
         assert!(report.suggestions[1].warnings.is_empty());
+    }
+
+    #[test]
+    fn relation_report_prefers_recovery_pause_with_restart_condition() {
+        let index = FrameIndex::new();
+        let query = RelationQuery::new(
+            FrameQuery::new(
+                "deliberate recovery pause before fatigue causes mistakes with a restart condition",
+            )
+            .with_kind(FrameKind::Momentum)
+            .with_authority_model(AuthorityModel::Steward)
+            .with_risk_band(RiskBand::Low)
+            .with_application_pack(ApplicationPack::Learning),
+        )
+        .with_target_relation(TargetRelation::RecoveryPause)
+        .with_protected_value(ProtectedValue::DecisionQuality)
+        .with_excluded_transfers(&[TransferExclusion::PauseWithoutRestartCondition]);
+
+        let report = index.search_with_relations(&query);
+        let ids: Vec<_> = report
+            .suggestions
+            .iter()
+            .take(2)
+            .map(|candidate| candidate.candidate.entry.id)
+            .collect();
+
+        assert_eq!(ids, vec!["rest-stop", "shoulder-pull-off"]);
+        assert_eq!(
+            report.suggestions[0].decision,
+            RelationDecision::RecommendBoundaryFrame
+        );
+        assert_eq!(report.suggestions[1].rank_band, RankBand::Demoted);
+        assert!(report.suggestions[1]
+            .warnings
+            .contains(&"restart condition required"));
     }
 
     #[test]

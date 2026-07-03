@@ -79,6 +79,7 @@ Repo or feature: `frames-core`
 | SPEC-069 | REQ-070 | example / behavior | target | `examples/relation_lookup.rs` runs against `search_with_relations` and prints relation suggestions with scores, rank bands, decisions, authority fit, matched relations, warnings, suppressed candidates, and fallbacks. | example run / inspection | VAL-067 | FRAMES | low | accepted |
 | SPEC-070 | REQ-071 | evaluation / ranking | target | Relation-aware ranking fixtures and Rust tests cover accepted-starter visibility-before-dependency and pace-plus-buffer composition cases while preserving default search behavior. | JSON parse / unit test / example run / inspection | VAL-068 | FRAMES | medium | accepted |
 | SPEC-071 | REQ-072 | evaluation / ranking | target | Relation-aware ranking fixtures and Rust tests cover stabilization-before-reentry sequencing with `shoulder-pull-off` before `merge-lane` while preserving default search behavior. | JSON parse / unit test / example run / inspection | VAL-069 | FRAMES | medium | accepted |
+| SPEC-072 | REQ-073 | evaluation / ranking | target | Relation-aware ranking fixtures and Rust tests cover recovery-pause restart-condition behavior with `rest-stop` before demoted `shoulder-pull-off` while preserving default search behavior. | JSON parse / unit test / example run / inspection | VAL-070 | FRAMES | medium | accepted |
 
 ## Contract Table
 
