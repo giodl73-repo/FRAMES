@@ -20,6 +20,7 @@ Repo or feature: `frames-core`
 | IF-010 | `FrameStatus`, `ClaimStrength`, `RiskBand`, `AuthorityModel`, `ApplicationPack` | Compact display and filtering metadata. | target |
 | IF-011 | `LifecycleFilter`, `VisibilityMode`, `ResultClass`, `DisplayRule` | Lifecycle visibility and output classification. | target |
 | IF-012 | `FrameIndex::search_with_lifecycle`, `FrameSearchReport`, `SuppressedCandidate` | Lifecycle-aware report lookup with separate suggestions, fallbacks, and suppressed candidates. | target |
+| IF-013 | `ReviewFamily`, `ReviewFrameEntry`, `REVIEW_CATALOG`, `FrameIndex::review_entries`, `review_entry`, `review_by_family` | Review-only catalog rows and lookup helpers separate from accepted starter search. | target |
 
 ## Non-Interfaces
 

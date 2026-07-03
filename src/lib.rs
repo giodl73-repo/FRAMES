@@ -222,6 +222,31 @@ impl DisplayRule {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum ReviewFamily {
+    DocsCatalogCandidate,
+    Candidate,
+    Draft,
+    Held,
+    Deprecated,
+    Rejected,
+    AntiPattern,
+}
+
+impl ReviewFamily {
+    pub const fn as_str(self) -> &'static str {
+        match self {
+            Self::DocsCatalogCandidate => "docs_catalog_candidate",
+            Self::Candidate => "candidate",
+            Self::Draft => "draft",
+            Self::Held => "held",
+            Self::Deprecated => "deprecated",
+            Self::Rejected => "rejected",
+            Self::AntiPattern => "anti_pattern",
+        }
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct FrameEntry {
     pub id: &'static str,
     pub name: &'static str,
@@ -238,6 +263,37 @@ pub struct FrameEntry {
     pub evidence_boundary: &'static str,
     pub failure_mode: &'static str,
     pub related: &'static [&'static str],
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct ReviewFrameEntry {
+    pub id: &'static str,
+    pub name: &'static str,
+    pub status: FrameStatus,
+    pub review_family: ReviewFamily,
+    pub claim_strength: &'static str,
+    pub risk_band: Option<RiskBand>,
+    pub authority_model: Option<AuthorityModel>,
+    pub application_packs: &'static [ApplicationPack],
+    pub source_family: &'static str,
+    pub relation_term: &'static str,
+    pub target_situations: &'static [&'static str],
+    pub tags: &'static [&'static str],
+    pub matched_terms: &'static [&'static str],
+    pub action_cue: &'static str,
+    pub evidence_boundary: &'static str,
+    pub misuse_warning: &'static str,
+    pub review_decision: &'static str,
+    pub decision_reason: &'static str,
+    pub rejection_class: &'static str,
+    pub violated_boundary: &'static str,
+    pub plain_language_fallback: &'static str,
+    pub safer_frame: Option<&'static str>,
+    pub source_docs: &'static [&'static str],
+    pub display_rule: DisplayRule,
+    pub review_status: &'static str,
+    pub review_date: &'static str,
+    pub revisit_trigger: &'static str,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Default)]
@@ -346,8 +402,23 @@ impl FrameIndex {
         self.entries
     }
 
+    pub const fn review_entries(&self) -> &'static [ReviewFrameEntry] {
+        REVIEW_CATALOG
+    }
+
     pub fn get(&self, id: &str) -> Option<&'static FrameEntry> {
         self.entries.iter().find(|entry| entry.id == id)
+    }
+
+    pub fn review_entry(&self, id: &str) -> Option<&'static ReviewFrameEntry> {
+        review_entry_by_id(id)
+    }
+
+    pub fn review_by_family(&self, family: ReviewFamily) -> Vec<&'static ReviewFrameEntry> {
+        REVIEW_CATALOG
+            .iter()
+            .filter(|entry| entry.review_family == family)
+            .collect()
     }
 
     pub fn by_kind(&self, kind: FrameKind) -> Vec<&'static FrameEntry> {
@@ -552,22 +623,58 @@ fn unique_fallbacks(suppressed: &[SuppressedCandidate<'static>]) -> Vec<&'static
 }
 
 fn suppressed_for_query(query: &FrameQuery<'_>) -> Vec<SuppressedCandidate<'static>> {
-    SUPPRESSED_FIXTURES
+    let mut suppressed: Vec<_> = REVIEW_SUPPRESSION_RULES
         .iter()
-        .filter(|fixture| fixture.matches(query))
-        .map(|fixture| fixture.report)
-        .collect()
+        .filter_map(|rule| rule.to_suppressed(query))
+        .collect();
+
+    suppressed.extend(
+        ACCEPTED_SUPPRESSION_RULES
+            .iter()
+            .filter(|rule| rule.matches(query))
+            .map(|rule| rule.report),
+    );
+
+    suppressed
 }
 
 #[derive(Debug, Clone, Copy)]
-struct SuppressedFixture {
+struct ReviewSuppressionRule {
+    review_id: &'static str,
     terms: &'static [&'static str],
     authority_model: Option<AuthorityModel>,
     application_pack: Option<ApplicationPack>,
-    report: SuppressedCandidate<'static>,
+    matched_reason: &'static str,
+    rejection_class: Option<&'static str>,
+    violated_boundary: Option<&'static str>,
+    plain_language_fallback: Option<&'static str>,
+    source_docs: Option<&'static [&'static str]>,
+    display_rule: Option<DisplayRule>,
 }
 
-impl SuppressedFixture {
+impl ReviewSuppressionRule {
+    fn to_suppressed(self, query: &FrameQuery<'_>) -> Option<SuppressedCandidate<'static>> {
+        if !self.matches(query) {
+            return None;
+        }
+
+        let entry = review_entry_by_id(self.review_id)?;
+        Some(SuppressedCandidate {
+            candidate_id: entry.id,
+            candidate_name: entry.name,
+            status: entry.status,
+            matched_reason: self.matched_reason,
+            rejection_class: self.rejection_class.unwrap_or(entry.rejection_class),
+            violated_boundary: self.violated_boundary.unwrap_or(entry.violated_boundary),
+            safer_frame: entry.safer_frame,
+            plain_language_fallback: self
+                .plain_language_fallback
+                .unwrap_or(entry.plain_language_fallback),
+            source_docs: self.source_docs.unwrap_or(entry.source_docs),
+            display_rule: self.display_rule.unwrap_or(entry.display_rule),
+        })
+    }
+
     fn matches(self, query: &FrameQuery<'_>) -> bool {
         if self
             .authority_model
@@ -589,8 +696,43 @@ impl SuppressedFixture {
     }
 }
 
-const SUPPRESSED_FIXTURES: &[SuppressedFixture] = &[
-    SuppressedFixture {
+#[derive(Debug, Clone, Copy)]
+struct AcceptedSuppressionRule {
+    terms: &'static [&'static str],
+    authority_model: Option<AuthorityModel>,
+    application_pack: Option<ApplicationPack>,
+    report: SuppressedCandidate<'static>,
+}
+
+impl AcceptedSuppressionRule {
+    fn matches(self, query: &FrameQuery<'_>) -> bool {
+        if self
+            .authority_model
+            .is_some_and(|model| query.authority_model != Some(model))
+        {
+            return false;
+        }
+
+        if self
+            .application_pack
+            .is_some_and(|pack| query.application_pack != Some(pack))
+        {
+            return false;
+        }
+
+        self.terms
+            .iter()
+            .any(|term| contains_word(query.situation, term))
+    }
+}
+
+fn review_entry_by_id(id: &str) -> Option<&'static ReviewFrameEntry> {
+    REVIEW_CATALOG.iter().find(|entry| entry.id == id)
+}
+
+const REVIEW_SUPPRESSION_RULES: &[ReviewSuppressionRule] = &[
+    ReviewSuppressionRule {
+        review_id: "veto-rule",
         terms: &[
             "privacy approval",
             "required approval",
@@ -598,119 +740,270 @@ const SUPPRESSED_FIXTURES: &[SuppressedFixture] = &[
         ],
         authority_model: Some(AuthorityModel::Reviewer),
         application_pack: Some(ApplicationPack::Product),
-        report: SuppressedCandidate {
-            candidate_id: "veto-rule",
-            candidate_name: "Veto Rule",
-            status: FrameStatus::AcceptedWithCaveat,
-            matched_reason: "required approval gate matches the query",
-            rejection_class: "docs_catalog_not_default_search",
-            violated_boundary: "lifecycle status",
-            safer_frame: None,
-            plain_language_fallback:
-                "The launch is blocked until the required approval is cleared or waived.",
-            source_docs: &[
-                "docs/theory/accepted-catalog-review-veto-rule.md",
-                "docs/frame-catalog.md",
-            ],
-            display_rule: DisplayRule::SuppressByDefault,
-        },
+        matched_reason: "required approval gate matches the query",
+        rejection_class: Some("docs_catalog_not_default_search"),
+        violated_boundary: Some("lifecycle status"),
+        plain_language_fallback: None,
+        source_docs: Some(&[
+            "docs/theory/accepted-catalog-review-veto-rule.md",
+            "docs/frame-catalog.md",
+        ]),
+        display_rule: Some(DisplayRule::SuppressByDefault),
     },
-    SuppressedFixture {
+    ReviewSuppressionRule {
+        review_id: "veto-rule",
         terms: &["vetoed", "veto"],
         authority_model: None,
         application_pack: Some(ApplicationPack::Leadership),
-        report: SuppressedCandidate {
-            candidate_id: "veto-rule",
-            candidate_name: "Veto Rule",
-            status: FrameStatus::AcceptedWithCaveat,
-            matched_reason: "veto wording and required-gate relation match the query",
-            rejection_class: "false_authority_transfer",
-            violated_boundary: "authority and evidence",
-            safer_frame: None,
-            plain_language_fallback: "This is an unresolved preference or decision-rights issue.",
-            source_docs: &["docs/theory/frame-antipattern-application-veto-rule.md"],
-            display_rule: DisplayRule::ExplainWhenRequested,
-        },
+        matched_reason: "veto wording and required-gate relation match the query",
+        rejection_class: None,
+        violated_boundary: Some("authority and evidence"),
+        plain_language_fallback: Some("This is an unresolved preference or decision-rights issue."),
+        source_docs: Some(&["docs/theory/frame-antipattern-application-veto-rule.md"]),
+        display_rule: Some(DisplayRule::ExplainWhenRequested),
     },
-    SuppressedFixture {
+    ReviewSuppressionRule {
+        review_id: "team-as-roadblock",
         terms: &["roadblock"],
         authority_model: Some(AuthorityModel::Owner),
         application_pack: Some(ApplicationPack::Operations),
-        report: SuppressedCandidate {
-            candidate_id: "team-as-roadblock",
-            candidate_name: "Team as roadblock",
-            status: FrameStatus::AntiPattern,
-            matched_reason: "roadblock wording directly matches the query",
-            rejection_class: "people_as_obstacles",
-            violated_boundary: "human safety and ownership",
-            safer_frame: Some("load-bearing-wall"),
-            plain_language_fallback:
-                "The dependency is blocked by unresolved ownership or a decision path.",
-            source_docs: &[
-                "docs/theory/frame-antipattern-taxonomy.md",
-                "docs/theory/related-frame-application-starter.md",
-            ],
-            display_rule: DisplayRule::ExplainWhenRequested,
-        },
+        matched_reason: "roadblock wording directly matches the query",
+        rejection_class: None,
+        violated_boundary: None,
+        plain_language_fallback: None,
+        source_docs: None,
+        display_rule: None,
     },
-    SuppressedFixture {
+    ReviewSuppressionRule {
+        review_id: "veto-rule",
         terms: &["veto rule", "requirement authority"],
         authority_model: None,
         application_pack: Some(ApplicationPack::AiAgent),
-        report: SuppressedCandidate {
-            candidate_id: "veto-rule",
-            candidate_name: "Veto Rule",
-            status: FrameStatus::AcceptedWithCaveat,
-            matched_reason: "required-gate relation and veto wording match the query",
-            rejection_class: "rejected_near_miss",
-            violated_boundary: "authority and evidence",
-            safer_frame: None,
-            plain_language_fallback:
-                "Name the decision owner, tradeoff, and evidence before treating this as blocking.",
-            source_docs: &[
-                "docs/theory/related-frame-application-starter.md",
-                "docs/theory/frame-antipattern-application-veto-rule.md",
-            ],
-            display_rule: DisplayRule::ExplainWhenRequested,
-        },
+        matched_reason: "required-gate relation and veto wording match the query",
+        rejection_class: Some("rejected_near_miss"),
+        violated_boundary: Some("authority and evidence"),
+        plain_language_fallback: Some(
+            "Name the decision owner, tradeoff, and evidence before treating this as blocking.",
+        ),
+        source_docs: Some(&[
+            "docs/theory/related-frame-application-starter.md",
+            "docs/theory/frame-antipattern-application-veto-rule.md",
+        ]),
+        display_rule: Some(DisplayRule::ExplainWhenRequested),
     },
-    SuppressedFixture {
-        terms: &["incident response", "direct the next action"],
-        authority_model: Some(AuthorityModel::Owner),
-        application_pack: Some(ApplicationPack::Operations),
-        report: SuppressedCandidate {
-            candidate_id: "four-way-stop",
-            candidate_name: "Four-way stop",
-            status: FrameStatus::Accepted,
-            matched_reason: "turn-order wording matches the query",
-            rejection_class: "false_authority_transfer",
-            violated_boundary: "authority",
-            safer_frame: None,
-            plain_language_fallback:
-                "The incident owner should state the decision path and next action.",
-            source_docs: &[
-                "docs/theory/related-frame-taxonomy.md",
-                "docs/theory/transfer-aware-search-design.md",
-            ],
-            display_rule: DisplayRule::ExplainWhenRequested,
-        },
-    },
-    SuppressedFixture {
+    ReviewSuppressionRule {
+        review_id: "bag-of-chips-as-excuse",
         terms: &["bag-of-chips", "facts establish harm"],
         authority_model: Some(AuthorityModel::Peer),
         application_pack: Some(ApplicationPack::Leadership),
-        report: SuppressedCandidate {
-            candidate_id: "bag-of-chips-as-excuse",
-            candidate_name: "Bag-of-chips story as excuse",
-            status: FrameStatus::AntiPattern,
-            matched_reason: "story source and conflict-empathy job match the query",
-            rejection_class: "empathy_eraser",
-            violated_boundary: "repair and accountability",
-            safer_frame: None,
-            plain_language_fallback: "Facts are now known; name harm, repair, and ownership.",
-            source_docs: &["docs/theory/frame-antipattern-taxonomy.md"],
-            display_rule: DisplayRule::ExplainWhenRequested,
-        },
+        matched_reason: "story source and conflict-empathy job match the query",
+        rejection_class: None,
+        violated_boundary: None,
+        plain_language_fallback: None,
+        source_docs: None,
+        display_rule: None,
+    },
+];
+
+const ACCEPTED_SUPPRESSION_RULES: &[AcceptedSuppressionRule] = &[AcceptedSuppressionRule {
+    terms: &["incident response", "direct the next action"],
+    authority_model: Some(AuthorityModel::Owner),
+    application_pack: Some(ApplicationPack::Operations),
+    report: SuppressedCandidate {
+        candidate_id: "four-way-stop",
+        candidate_name: "Four-way stop",
+        status: FrameStatus::Accepted,
+        matched_reason: "turn-order wording matches the query",
+        rejection_class: "false_authority_transfer",
+        violated_boundary: "authority",
+        safer_frame: None,
+        plain_language_fallback:
+            "The incident owner should state the decision path and next action.",
+        source_docs: &[
+            "docs/theory/related-frame-taxonomy.md",
+            "docs/theory/transfer-aware-search-design.md",
+        ],
+        display_rule: DisplayRule::ExplainWhenRequested,
+    },
+}];
+
+pub const REVIEW_CATALOG: &[ReviewFrameEntry] = &[
+    ReviewFrameEntry {
+        id: "veto-rule",
+        name: "Veto Rule",
+        status: FrameStatus::AcceptedWithCaveat,
+        review_family: ReviewFamily::DocsCatalogCandidate,
+        claim_strength: "heuristic",
+        risk_band: Some(RiskBand::Medium),
+        authority_model: Some(AuthorityModel::Reviewer),
+        application_packs: &[
+            ApplicationPack::Product,
+            ApplicationPack::Operations,
+            ApplicationPack::Leadership,
+            ApplicationPack::AiAgent,
+        ],
+        source_family: "gates and locks",
+        relation_term: "required_gate",
+        target_situations: &[
+            "a required approval or non-negotiable requirement blocks launch",
+            "an apparently strong option misses a mandatory gate",
+        ],
+        tags: &["risk", "gate", "approval", "requirement"],
+        matched_terms: &[
+            "veto",
+            "required approval",
+            "approval is missing",
+            "requirement authority",
+        ],
+        action_cue: "Name the requirement, owner, evidence, and clearance or waiver condition.",
+        evidence_boundary:
+            "Name the requirement, accountable owner, evidence, and clearance or waiver condition.",
+        misuse_warning:
+            "Can turn preferences into false hard stops when authority and evidence are missing.",
+        review_decision: "accepted_with_caveat_for_docs_catalog",
+        decision_reason:
+            "Useful for true required gates, but unsafe for default search until caveat display is guaranteed.",
+        rejection_class: "false_authority_transfer",
+        violated_boundary: "authority and evidence when unsupported",
+        plain_language_fallback:
+            "The launch is blocked until the required approval is cleared or waived.",
+        safer_frame: None,
+        source_docs: &[
+            "docs/theory/accepted-catalog-review-veto-rule.md",
+            "docs/theory/frame-antipattern-application-veto-rule.md",
+            "docs/frame-catalog.md",
+        ],
+        display_rule: DisplayRule::SuppressByDefault,
+        review_status: "accepted-fixture",
+        review_date: "2026-07-03",
+        revisit_trigger:
+            "Caveat display and lifecycle filters are implemented for docs-catalog preview.",
+    },
+    ReviewFrameEntry {
+        id: "team-as-roadblock",
+        name: "Team as roadblock",
+        status: FrameStatus::AntiPattern,
+        review_family: ReviewFamily::AntiPattern,
+        claim_strength: "anti_pattern",
+        risk_band: Some(RiskBand::Medium),
+        authority_model: Some(AuthorityModel::Owner),
+        application_packs: &[
+            ApplicationPack::Operations,
+            ApplicationPack::Leadership,
+            ApplicationPack::AiAgent,
+        ],
+        source_family: "motion and navigation",
+        relation_term: "dependency_integrity",
+        target_situations: &[
+            "a team is described as blocking another team",
+            "dependency language turns people into obstacles",
+        ],
+        tags: &["anti-pattern", "dependency", "ownership", "blame"],
+        matched_terms: &["roadblock", "blocking team", "team is blocking"],
+        action_cue: "",
+        evidence_boundary: "Name the blocked dependency, owner, and decision path.",
+        misuse_warning: "Turns people into obstacles and hides ownership or system design.",
+        review_decision: "reject_as_anti_pattern",
+        decision_reason: "People-as-obstacles framing dehumanizes teams and launders blame.",
+        rejection_class: "people_as_obstacles",
+        violated_boundary: "human safety and ownership",
+        plain_language_fallback:
+            "The dependency is blocked by unresolved ownership or a decision path.",
+        safer_frame: Some("load-bearing-wall"),
+        source_docs: &[
+            "docs/theory/frame-antipattern-taxonomy.md",
+            "docs/theory/related-frame-application-starter.md",
+        ],
+        display_rule: DisplayRule::ExplainWhenRequested,
+        review_status: "accepted-fixture",
+        review_date: "2026-07-03",
+        revisit_trigger: "Only reopen if the target is a non-human structural dependency.",
+    },
+    ReviewFrameEntry {
+        id: "bag-of-chips-as-excuse",
+        name: "Bag-of-chips story as excuse",
+        status: FrameStatus::AntiPattern,
+        review_family: ReviewFamily::AntiPattern,
+        claim_strength: "anti_pattern",
+        risk_band: Some(RiskBand::Medium),
+        authority_model: Some(AuthorityModel::Peer),
+        application_packs: &[
+            ApplicationPack::Leadership,
+            ApplicationPack::Learning,
+            ApplicationPack::AiAgent,
+        ],
+        source_family: "social scripts",
+        relation_term: "perspective_repair",
+        target_situations: &[
+            "an empathy story is used after facts establish harm",
+            "a perspective-taking story is used to avoid repair",
+        ],
+        tags: &["anti-pattern", "story", "empathy", "repair"],
+        matched_terms: &["bag-of-chips", "chips story", "facts establish harm"],
+        action_cue: "",
+        evidence_boundary: "Use uncertainty stories only while intent and facts are unresolved.",
+        misuse_warning: "Can erase established harm and delay repair or ownership.",
+        review_decision: "reject_as_anti_pattern_after_facts_known",
+        decision_reason:
+            "Perspective stories are useful before facts are known; after harm is established they can become empathy erasers.",
+        rejection_class: "empathy_eraser",
+        violated_boundary: "repair and accountability",
+        plain_language_fallback: "Facts are now known; name harm, repair, and ownership.",
+        safer_frame: None,
+        source_docs: &["docs/theory/frame-antipattern-taxonomy.md"],
+        display_rule: DisplayRule::ExplainWhenRequested,
+        review_status: "accepted-fixture",
+        review_date: "2026-07-03",
+        revisit_trigger: "Use only when facts and intent are still unresolved.",
+    },
+    ReviewFrameEntry {
+        id: "theme-swimlanes",
+        name: "Theme Swimlanes",
+        status: FrameStatus::Held,
+        review_family: ReviewFamily::Held,
+        claim_strength: "locally_observed",
+        risk_band: Some(RiskBand::Medium),
+        authority_model: Some(AuthorityModel::Steward),
+        application_packs: &[ApplicationPack::Leadership, ApplicationPack::Operations],
+        source_family: "work organization",
+        relation_term: "route_adjustment",
+        target_situations: &[
+            "a program leader wants three contribution lanes under one customer promise",
+            "teams need to map work into a few themes without losing ownership",
+        ],
+        tags: &["theme", "swimlane", "promise", "ownership", "measure"],
+        matched_terms: &[
+            "swimlane",
+            "three themes",
+            "run one",
+            "run lean",
+            "run fast",
+            "run safe",
+        ],
+        action_cue:
+            "Name one customer promise, two to four contribution lanes, each lane owner, each measure, and explicit exclusions.",
+        evidence_boundary: "Check whether each theme has an owner, measure, and customer promise.",
+        misuse_warning:
+            "Can become slogan compression when ownership, measures, or tradeoffs are missing.",
+        review_decision: "hold_for_pilot_evidence",
+        decision_reason:
+            "Locally useful pattern needs real pilot records and role gates before accepted catalog or default search.",
+        rejection_class: "slogan_compression",
+        violated_boundary: "ownership and measurement",
+        plain_language_fallback:
+            "These are slogans until ownership and measures make them decision lanes.",
+        safer_frame: None,
+        source_docs: &[
+            "docs/theory/theme-swimlane-extraction.md",
+            "docs/theory/theme-swimlane-role-review.md",
+            "docs/theory/theme-swimlane-leadership-worksheet.md",
+            "docs/validation/theme-swimlane-leadership-pilot-ledger.md",
+        ],
+        display_rule: DisplayRule::ReviewOnly,
+        review_status: "role-reviewed",
+        review_date: "2026-07-03",
+        revisit_trigger:
+            "A real pilot records changed or explicitly unchanged decisions with role-gate closeout.",
     },
 ];
 
@@ -1089,6 +1382,39 @@ mod tests {
     }
 
     #[test]
+    fn review_catalog_exposes_review_only_rows() {
+        let index = FrameIndex::new();
+
+        assert_eq!(index.review_entries().len(), 4);
+        let veto_rule = index.review_entry("veto-rule").unwrap();
+        assert_eq!(veto_rule.status, FrameStatus::AcceptedWithCaveat);
+        assert_eq!(veto_rule.review_family, ReviewFamily::DocsCatalogCandidate);
+        assert_eq!(veto_rule.display_rule, DisplayRule::SuppressByDefault);
+        assert!(veto_rule.matched_terms.contains(&"required approval"));
+
+        let anti_patterns = index.review_by_family(ReviewFamily::AntiPattern);
+        assert_eq!(anti_patterns.len(), 2);
+        assert!(anti_patterns
+            .iter()
+            .any(|entry| entry.id == "team-as-roadblock"));
+    }
+
+    #[test]
+    fn review_rows_do_not_enter_starter_catalog_or_default_search() {
+        let index = FrameIndex::new();
+        let query = FrameQuery::new("privacy approval is missing")
+            .with_authority_model(AuthorityModel::Reviewer)
+            .with_application_pack(ApplicationPack::Product);
+
+        assert!(index.get("veto-rule").is_none());
+        assert!(index.review_entry("veto-rule").is_some());
+        assert!(index
+            .search(&query)
+            .iter()
+            .all(|candidate| candidate.entry.id != "veto-rule"));
+    }
+
+    #[test]
     fn lifecycle_default_search_matches_existing_search() {
         let index = FrameIndex::new();
         let query = FrameQuery::new("two teams need turn order around constrained attention")
@@ -1145,6 +1471,13 @@ mod tests {
         assert_eq!(suppressed.rejection_class, "people_as_obstacles");
         assert_eq!(suppressed.display_rule, DisplayRule::ExplainWhenRequested);
         assert_eq!(suppressed.safer_frame, Some("load-bearing-wall"));
+        assert_eq!(
+            suppressed.plain_language_fallback,
+            index
+                .review_entry("team-as-roadblock")
+                .unwrap()
+                .plain_language_fallback
+        );
     }
 
     #[test]

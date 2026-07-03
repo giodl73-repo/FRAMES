@@ -68,12 +68,14 @@ growth gaps, implementation gaps, and deeper theory questions.
 | Rust lifecycle filter API | The crate needs additive lifecycle report behavior before review-only rows can be loaded safely. | `rust-lifecycle-filter-api-design.md` |
 | Review-only catalog data model | Docs-catalog, draft, held, deprecated, rejected, and anti-pattern rows need a separate data model before they enter the crate. | `review-only-catalog-data-model.md` |
 | Review-only catalog fixtures | The review-only data model needs machine-readable rows before Rust loads them. | `../eval/review-only-catalog-fixtures.json` |
+| Rust review-only catalog rows | The crate needs separate review rows before catalog review modes can list non-default entries safely. | `../src/lib.rs` |
+| Catalog review mode output | Review-only rows need explicit listing behavior before broader non-default catalog use. | Start from `rust-lifecycle-filter-api-design.md` and `review-only-catalog-data-model.md` |
 
 ## Priority Order
 
 1. Collect EVT-001 participant responses and score the locked packet.
 2. Pilot the theme-swimlane leadership worksheet and record changed decisions.
-3. Add Rust review-only rows and convert them into suppressed reports without changing default search.
+3. Add catalog review mode output for review-only rows without changing default search.
 
 ## Role Guidance
 

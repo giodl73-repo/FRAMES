@@ -32,7 +32,8 @@ mode warnings. Accepted starter entries also expose compact metadata for status,
 claim strength, authority model, risk band, application packs, and first
 transfer-aware query filters. Lifecycle report APIs add explicit visibility
 filters, fallbacks, and suppressed-candidate explanations while keeping default
-search accepted-starter only.
+search accepted-starter only. Review-only catalog helpers expose docs-catalog,
+held, and anti-pattern rows separately from accepted search.
 
 ```powershell
 cargo test

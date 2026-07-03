@@ -181,8 +181,11 @@ Review-only matching should be simpler and stricter than accepted search:
 1. Define `ReviewFamily` and `ReviewFrameEntry` in docs.
 2. Add a machine-readable review-only catalog fixture. Complete in
    [../eval/review-only-catalog-fixtures.json](../eval/review-only-catalog-fixtures.json).
-3. Add Rust static review rows for the first small set.
+3. Add Rust static review rows for the first small set. Complete in
+   `src/lib.rs`.
 4. Convert review rows to `SuppressedCandidate` in `search_with_lifecycle`.
+   Complete for the first suppression examples, with wrong-authority accepted
+   frames remaining separate.
 5. Add catalog review mode output only after suppressed behavior is tested.
 6. Keep `STARTER_CATALOG` accepted-only.
 
@@ -199,11 +202,11 @@ A review-only row can become a default-search candidate only when:
 
 ## Design Consequences
 
-- Suppressed fixtures should eventually be backed by review-only catalog rows
-  instead of ad hoc static reports.
+- Suppressed reports for review-only rows are backed by `REVIEW_CATALOG`; accepted
+  wrong-authority reports remain separate from review rows.
 - Review-only data gives tools a memory of rejected near-misses without making
   them suggestions.
 - Default search remains accepted-starter only until a row is explicitly
   promoted.
-- The next implementation step should publish a machine-readable review-only
-  catalog fixture before adding `ReviewFrameEntry` to Rust.
+- The next implementation step should add catalog review mode output for
+  `REVIEW_CATALOG` rows without changing default search.

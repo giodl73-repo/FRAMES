@@ -71,6 +71,7 @@ Repo or feature: `frames-core`
 | REQ-061 | unit test / example run | run `cargo test`, `cargo run --example lookup`, and `cargo run --example ai_response_contract` | Lifecycle API tests pass, default search behavior is preserved, suppressed candidates are separate from suggestions, and existing examples still run. | pass | EVID-066 |
 | REQ-062 | inspection | inspect `docs/theory/review-only-catalog-data-model.md` | Row families, minimal row shape, required fields by status, display rules, Rust loading boundary, review family enum, conversion rules, matching rules, first rows to model, migration steps, acceptance gate, and design consequences are present. | pass | EVID-067 |
 | REQ-063 | inspection / JSON parse | inspect and parse `docs/eval/review-only-catalog-fixtures.json` | Default loading rule, row shape, docs-catalog candidate row, anti-pattern rows, held row, display rules, matched terms, source docs, fallback text, review status, and revisit triggers are present. | pass | EVID-068 |
+| REQ-064 | unit test / example run / inspection | run `cargo test`, examples, and inspect `src/lib.rs` | Review-only rows are loaded separately, review helpers expose them, suppressed reports derive from review rows, and default search remains accepted-only. | pass | EVID-069 |
 
 ## Commands
 
@@ -154,6 +155,7 @@ git diff --check
 | EVID-066 | command output / inspection | `cargo test`, `cargo run --example lookup`, `cargo run --example ai_response_contract`, `src/lib.rs`, `docs/vtrace/INTERFACES.md`, `docs/theory/rust-lifecycle-filter-api-design.md` | REQ-061, SPEC-060, IF-063, VAL-058 | pass |
 | EVID-067 | inspection | `docs/theory/review-only-catalog-data-model.md`, `docs/theory/rust-lifecycle-filter-api-design.md`, `docs/frame-catalog.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md` | REQ-062, SPEC-061, IF-064, VAL-059 | pass |
 | EVID-068 | inspection / JSON parse | `docs/eval/review-only-catalog-fixtures.json`, `docs/eval/README.md`, `docs/theory/review-only-catalog-data-model.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md` | REQ-063, SPEC-062, IF-065, VAL-060 | pass |
+| EVID-069 | command output / inspection | `cargo test`, `cargo run --example lookup`, `cargo run --example ai_response_contract`, `src/lib.rs`, `docs/vtrace/INTERFACES.md`, `docs/theory/review-only-catalog-data-model.md`, `docs/theory/rust-lifecycle-filter-api-design.md` | REQ-064, SPEC-063, IF-066, VAL-061 | pass |
 
 ## Gaps
 

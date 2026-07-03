@@ -24,7 +24,10 @@ silently expanding `FrameIndex::search`.
 - `FrameCandidate` for suggested accepted entries;
 - `LifecycleFilter`, `VisibilityMode`, `ResultClass`, `DisplayRule`,
   `SuppressedCandidate`, and `FrameSearchReport`;
-- fixture-backed suppressed reports for selected rejected/docs-catalog cases.
+- `ReviewFamily`, `ReviewFrameEntry`, `REVIEW_CATALOG`, and helper lookups for
+  the first review-only rows;
+- review-catalog-backed suppressed reports for selected rejected/docs-catalog
+  cases, plus a separate accepted-frame wrong-authority suppression rule.
 
 This boundary is correct. The API adds expression power before catalog breadth.
 Review-only rows still do not live in `STARTER_CATALOG`.
@@ -178,17 +181,16 @@ suggestion behavior.
 
 Do not mix review-only rows into `STARTER_CATALOG`.
 
-Prefer separate static slices or loaders:
+Use separate static slices or loaders:
 
 ```rust
 pub const STARTER_CATALOG: &[FrameEntry] = &[/* accepted */];
-pub const REVIEW_CATALOG: &[FrameEntry] = &[/* docs-catalog, draft, held */];
-pub const REJECTED_CATALOG: &[RejectedFrameEntry] = &[/* anti-patterns */];
+pub const REVIEW_CATALOG: &[ReviewFrameEntry] = &[/* non-default rows */];
 ```
 
-The first implementation may use fixture-derived static rejected candidates
-instead of full `FrameEntry` rows. That avoids pretending anti-patterns have the
-same shape as accepted suggestions.
+The first implementation loads review rows into `REVIEW_CATALOG` and converts
+matched rows into `SuppressedCandidate` reports. It still avoids pretending
+anti-patterns have the same shape as accepted suggestions.
 
 The review-only row model is defined in
 [review-only-catalog-data-model.md](review-only-catalog-data-model.md).
@@ -206,9 +208,11 @@ The review-only row model is defined in
 6. Add docs-catalog or review-only rows only after display rules prevent
    recommendation. Start from
    [review-only-catalog-data-model.md](review-only-catalog-data-model.md).
+   Complete for the first `REVIEW_CATALOG` rows and suppressed-report
+   conversion.
 7. Consider expanding `FrameStatus` in public API only when review rows are
-   actually represented. Complete for report statuses; review rows remain out
-   of `STARTER_CATALOG`.
+   actually represented. Complete for report statuses and first review rows;
+   review rows remain out of `STARTER_CATALOG`.
 
 ## Fixture Coverage
 

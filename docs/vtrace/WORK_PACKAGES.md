@@ -71,6 +71,7 @@ unless product requirements explicitly define them as user-facing behavior.
 | WP-057 | Add Rust lifecycle report API. | Lifecycle-aware reports expose suggestions, fallbacks, and suppressed candidates without changing default search. | REQ-061 / SPEC-060 / IF-063 | `src/lib.rs`, `README.md`, `docs/vtrace/INTERFACES.md`, `docs/theory/rust-lifecycle-filter-api-design.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/ai-response-contract.md`, `docs/theory/lifecycle-filtering-and-rejection-reporting.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `docs/vtrace/*` | WP-056 complete and API design exists. | New lifecycle API types and tests exist, examples still run, docs updated, default search preserved, VTRACE passes. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: design review-only catalog data model | evidence / trace / review / status rows | complete |
 | WP-058 | Define review-only catalog data model. | Non-default catalog rows have a separate model before Rust loading. | REQ-062 / SPEC-061 / IF-064 | `docs/theory/review-only-catalog-data-model.md`, `docs/theory/rust-lifecycle-filter-api-design.md`, `docs/frame-catalog.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md`, `docs/vtrace/*` | WP-057 complete and lifecycle report API exists. | Data model exists, linked docs updated, roadmap advances to review-only fixture package, docs and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: publish review-only catalog fixture | evidence / trace / review / status rows | complete |
 | WP-059 | Publish review-only catalog fixtures. | Review-only catalog rows are machine-readable before Rust loading. | REQ-063 / SPEC-062 / IF-065 | `docs/eval/review-only-catalog-fixtures.json`, `docs/eval/README.md`, `docs/theory/review-only-catalog-data-model.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md`, `docs/vtrace/*` | WP-058 complete and review-only model exists. | JSON package parses, first review-only rows are represented, roadmap advances to Rust review rows, docs and VTRACE pass. | L0: JSON parse; `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: add Rust review-only rows | evidence / trace / review / status rows | complete |
+| WP-060 | Add Rust review-only catalog rows. | Review-only catalog rows are inspectable and can back suppressed reports without becoming default suggestions. | REQ-064 / SPEC-063 / IF-066 | `src/lib.rs`, `README.md`, `docs/vtrace/INTERFACES.md`, `docs/theory/review-only-catalog-data-model.md`, `docs/theory/rust-lifecycle-filter-api-design.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `docs/vtrace/*` | WP-059 complete and review-only fixture package exists. | `REVIEW_CATALOG` and review helpers exist, suppressed reports derive from review rows, default search remains accepted-only, docs and VTRACE pass. | L0: JSON parse; `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: add catalog review mode output | evidence / trace / review / status rows | complete |
 
 ## Work Package Details
 
@@ -2292,3 +2293,42 @@ V closure:
 | Implementation | `docs/eval/review-only-catalog-fixtures.json` | closed | Review-only fixture package added and linked. |
 | Verification | EVID-068 | closed | JSON parse and inspection cover review-only fixture package. |
 | Validation | VAL-060 | closed | Catalog and API maintainers can inspect review-only rows before Rust loading. |
+
+### WP-060: Add Rust review-only catalog rows
+
+Objective: add the first Rust review-only catalog rows and use them to back
+suppressed-candidate reports without adding them to accepted starter search.
+
+Parent IDs: REQ-064, SPEC-063, IF-066.
+
+Affected files/modules:
+
+- `src/lib.rs`
+- `README.md`
+- `docs/theory/review-only-catalog-data-model.md`
+- `docs/theory/rust-lifecycle-filter-api-design.md`
+- `docs/theory/theory-gap-audit.md`
+- `docs/theory/theory-roadmap.md`
+- `docs/vtrace/*`
+
+Verification commands:
+
+```powershell
+Get-Content docs\eval\review-only-catalog-fixtures.json -Raw | ConvertFrom-Json | Out-Null
+cargo fmt --check
+cargo test
+cargo run --example lookup
+cargo run --example ai_response_contract
+git diff --check
+cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .
+```
+
+V closure:
+
+| V Area | IDs / Evidence | Status | Notes |
+|---|---|---|---|
+| Requirements | REQ-064 | closed | Rust review rows must stay separate from accepted starter search. |
+| Specification / Interface | SPEC-063, IF-066 | closed | Review family, review entry, review helpers, row loading, and suppressed conversion boundary implemented. |
+| Implementation | `src/lib.rs` | closed | `REVIEW_CATALOG` contains first review-only rows and suppression rules resolve through review entries. |
+| Verification | EVID-069 | closed | Unit tests, examples, inspection, and VTRACE validation cover the review-only API boundary. |
+| Validation | VAL-061 | closed | API maintainers can inspect review rows and request explanations without default recommendations. |
