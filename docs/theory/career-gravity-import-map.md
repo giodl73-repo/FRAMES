@@ -69,6 +69,9 @@ whole CAREER set:
 6. **Advocacy Bandwidth**: useful for managers allocating attention and political
    capital.
 
+The first structured draft imports are in
+[career-gravity-frame-imports.md](career-gravity-frame-imports.md).
+
 ## Transfer Maps
 
 ### Veto Rule

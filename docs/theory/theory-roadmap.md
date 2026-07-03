@@ -36,18 +36,19 @@ frame index rather than a growing metaphor list.
 | Internal source import | Local RESONANCE MANAGE patterns need structured import before catalog expansion. | `resonance-manage-import-map.md` |
 | RESONANCE structured imports | High-value MANAGE candidates need FRAMES-native draft entries before catalog acceptance. | `resonance-manage-frame-imports.md` |
 | Career source import | Local CAREER Gravity patterns need structured import before catalog expansion. | `career-gravity-import-map.md` |
+| CAREER structured imports | High-value Gravity candidates need FRAMES-native draft entries before catalog acceptance. | `career-gravity-frame-imports.md` |
 | External practitioners | Successful public frame/story writers should be benchmarked for reusable design lessons. | `external-frame-practitioners.md` |
 | Research grounding | Public claims about cognition, metaphor, or pedagogy need citations and claim-strength limits. | `research-grounding.md` |
 | Theme swimlanes | Local program patterns such as `Run One`, `Run Lean`, `Run Fast`, `Run Safe`, and three-lane promises need structured extraction. | future artifact |
 
 ## Priority Order
 
-1. CAREER Gravity frame imports.
-2. Theme swimlane extraction.
-3. Empirical validation plan.
-4. Catalog metadata migration plan.
-5. AI response contract for frame suggestions.
-6. First metadata-backed catalog migration.
+1. Theme swimlane extraction.
+2. Empirical validation plan.
+3. Catalog metadata migration plan.
+4. AI response contract for frame suggestions.
+5. First metadata-backed catalog migration.
+6. Role-reviewed promotion of local imports.
 
 ## Role Guidance
 

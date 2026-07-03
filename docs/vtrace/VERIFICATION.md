@@ -30,6 +30,7 @@ Repo or feature: `frames-core`
 | REQ-020 | inspection | inspect `docs/theory/claim-strength-labels.md` and `docs/theory/research-grounding.md` | Label set, defaults, promotion rules, required claim shape, hard stops, and integration points are present. | pass | EVID-025 |
 | REQ-021 | inspection / role review | inspect `docs/theory/role-reviewed-domain-examples.md` and `.roles/` | Review shape, domain examples, role pressure, review outcomes, and method lessons are present. | pass | EVID-026 |
 | REQ-022 | inspection | inspect `docs/theory/resonance-manage-frame-imports.md` and `docs/theory/resonance-manage-import-map.md` | Import status, draft entries, evidence boundaries, transfer exclusions, failure modes, and promotion criteria are present. | pass | EVID-027 |
+| REQ-023 | inspection | inspect `docs/theory/career-gravity-frame-imports.md` and `docs/theory/career-gravity-import-map.md` | Import status, draft entries, evidence boundaries, transfer exclusions, failure modes, and promotion criteria are present. | pass | EVID-028 |
 
 ## Commands
 
@@ -71,6 +72,7 @@ git diff --check
 | EVID-025 | inspection | `docs/theory/claim-strength-labels.md`, `docs/theory/research-grounding.md` | REQ-020, SPEC-019, IF-022, VAL-017 | pass |
 | EVID-026 | inspection / role review | `docs/theory/role-reviewed-domain-examples.md`, `.roles/ROLE.md` | REQ-021, SPEC-020, IF-023, VAL-018 | pass |
 | EVID-027 | inspection | `docs/theory/resonance-manage-frame-imports.md`, `docs/theory/resonance-manage-import-map.md` | REQ-022, SPEC-021, IF-024, VAL-019 | pass |
+| EVID-028 | inspection | `docs/theory/career-gravity-frame-imports.md`, `docs/theory/career-gravity-import-map.md` | REQ-023, SPEC-022, IF-025, VAL-020 | pass |
 
 ## Gaps
 

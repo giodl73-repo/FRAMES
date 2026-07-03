@@ -35,6 +35,7 @@ Repo or feature: `frames-core`
 | EVID-025 | inspection | `docs/theory/claim-strength-labels.md`, `docs/theory/research-grounding.md` | Claim-strength labels and research-grounding integration exist. | pass. | pass |
 | EVID-026 | inspection / role review | `docs/theory/role-reviewed-domain-examples.md`, `.roles/ROLE.md` | Role-reviewed domain examples exist for traffic coordination, status signals, conflict repair, and theme swimlanes. | pass. | pass |
 | EVID-027 | inspection | `docs/theory/resonance-manage-frame-imports.md`, `docs/theory/resonance-manage-import-map.md` | Structured RESONANCE MANAGE imports exist for high-value local patterns. | pass. | pass |
+| EVID-028 | inspection | `docs/theory/career-gravity-frame-imports.md`, `docs/theory/career-gravity-import-map.md` | Structured CAREER Gravity imports exist for high-value local patterns. | pass. | pass |
 
 ## Evidence Rules
 
