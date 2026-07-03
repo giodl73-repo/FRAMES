@@ -345,6 +345,31 @@
         "docs/frame-catalog.md"
       ],
       "review_status": "accepted-fixture"
+    },
+    {
+      "id": "REL-RANK-013",
+      "title": "Downshift requires named load and control goal",
+      "query": {
+        "target_situation": "A team needs to reduce scope under load to regain control without losing system stability.",
+        "frame_job": "momentum",
+        "target_relation": "pace_adjustment",
+        "authority_term": "operator",
+        "risk_band": "low",
+        "application_pack": "product",
+        "protected_value": "system stability"
+      },
+      "expected_order": ["downshift", "speed-limit"],
+      "must_demote": ["speed-limit"],
+      "must_suppress": [],
+      "expected_decision": "recommend-boundary-frame",
+      "expected_relation_behavior": "boundary_frame",
+      "expected_warnings": ["load required"],
+      "plain_language_fallback": "Name the load, the control goal, and the scope or pace reduction.",
+      "source_docs": [
+        "docs/theory/transfer-aware-search-design.md",
+        "docs/frame-catalog.md"
+      ],
+      "review_status": "accepted-fixture"
     }
   ]
 }

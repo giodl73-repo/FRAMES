@@ -83,6 +83,7 @@ Repo or feature: `frames-core`
 | REQ-073 | The repo shall add recovery-pause boundary coverage without changing default search behavior. | NEED-001 / CON-001 / CON-002 / CON-003 | Relation-aware scoring needs restart-condition checks so recovery pauses are not confused with indefinite stopping or operational pull-offs. | must | FRAMES | JSON parse / unit test / example run / inspection | accepted |
 | REQ-074 | The repo shall add route-adjustment boundary coverage without changing default search behavior. | NEED-001 / CON-001 / CON-002 / CON-003 | Relation-aware scoring needs destination-stability checks so route adjustment frames are not confused with temporary stop or pull-off frames. | must | FRAMES | JSON parse / unit test / example run / inspection | accepted |
 | REQ-075 | The repo shall add reserve-tracking boundary coverage without changing default search behavior. | NEED-001 / CON-001 / CON-002 / CON-003 | Relation-aware scoring needs scarce-resource checks so reserve and runway frames are not confused with generic status colors. | must | FRAMES | JSON parse / unit test / example run / inspection | accepted |
+| REQ-076 | The repo shall add downshift load-control boundary coverage without changing default search behavior. | NEED-001 / CON-001 / CON-002 / CON-003 | Relation-aware scoring needs load and control-goal checks so downshift frames are not confused with generic speed caps. | must | FRAMES | JSON parse / unit test / example run / inspection | accepted |
 
 ## Requirement Quality Checklist
 

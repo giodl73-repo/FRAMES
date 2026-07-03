@@ -398,6 +398,7 @@ pub enum TransferExclusion {
     PauseWithoutRestartCondition,
     StopWithoutDestination,
     ScarceResourceMissing,
+    LoadMissing,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -1148,6 +1149,7 @@ fn relation_rank_band(score: i16, warnings: &[&str]) -> RankBand {
             || warning.contains("restart condition")
             || warning.contains("destination")
             || warning.contains("scarce resource")
+            || warning.contains("load")
     }) {
         RankBand::Demoted
     } else if score < 0 {
@@ -1269,6 +1271,7 @@ fn transfer_exclusion_warning(exclusion: TransferExclusion) -> &'static str {
         TransferExclusion::PauseWithoutRestartCondition => "restart condition required",
         TransferExclusion::StopWithoutDestination => "destination required",
         TransferExclusion::ScarceResourceMissing => "scarce resource required",
+        TransferExclusion::LoadMissing => "load required",
     }
 }
 
@@ -1279,6 +1282,7 @@ fn transfer_exclusion_penalty(exclusion: TransferExclusion) -> i16 {
         TransferExclusion::PauseWithoutRestartCondition => 60,
         TransferExclusion::StopWithoutDestination => 60,
         TransferExclusion::ScarceResourceMissing => 60,
+        TransferExclusion::LoadMissing => 60,
         TransferExclusion::PeerTurnsUnderOwnerAuthority
         | TransferExclusion::StrongActorDutyShiftedToProtectedParty
         | TransferExclusion::SpeedWithoutSafetyGate => 60,
@@ -1585,6 +1589,14 @@ const RELATION_METADATA: &[RelationMetadata] = &[
         frame_id: "speed-limit",
         target_relations: &[TargetRelation::PaceAdjustment],
         constraint_relations: &[ConstraintRelation::Coupling],
+        protected_values: &[ProtectedValue::SystemStability],
+        transfer_strength: TransferStrength::Structural,
+        exclusions: &[TransferExclusion::LoadMissing],
+    },
+    RelationMetadata {
+        frame_id: "downshift",
+        target_relations: &[TargetRelation::PaceAdjustment],
+        constraint_relations: &[],
         protected_values: &[ProtectedValue::SystemStability],
         transfer_strength: TransferStrength::Structural,
         exclusions: &[],
@@ -2403,6 +2415,7 @@ mod tests {
             "rest-stop",
             "detour",
             "fuel-gauge",
+            "downshift",
             "veto-rule",
             "bag-of-chips-as-excuse",
         ];
@@ -2458,6 +2471,7 @@ mod tests {
         let rest_stop = relation_metadata_by_id("rest-stop").unwrap();
         let detour = relation_metadata_by_id("detour").unwrap();
         let fuel_gauge = relation_metadata_by_id("fuel-gauge").unwrap();
+        let downshift = relation_metadata_by_id("downshift").unwrap();
         assert!(blind_spot
             .target_relations
             .contains(&TargetRelation::AttentionLimit));
@@ -2479,6 +2493,12 @@ mod tests {
         assert!(fuel_gauge
             .target_relations
             .contains(&TargetRelation::ReserveTracking));
+        assert!(downshift
+            .target_relations
+            .contains(&TargetRelation::PaceAdjustment));
+        assert!(speed_limit
+            .exclusions
+            .contains(&TransferExclusion::LoadMissing));
     }
 
     #[test]
@@ -2880,6 +2900,37 @@ mod tests {
         assert!(report.suggestions[1]
             .warnings
             .contains(&"scarce resource required"));
+    }
+
+    #[test]
+    fn relation_report_prefers_downshift_with_named_load() {
+        let index = FrameIndex::new();
+        let query = RelationQuery::new(
+            FrameQuery::new("reduce scope under load to regain control and stability")
+                .with_kind(FrameKind::Momentum)
+                .with_authority_model(AuthorityModel::Operator)
+                .with_risk_band(RiskBand::Low)
+                .with_application_pack(ApplicationPack::Product),
+        )
+        .with_target_relation(TargetRelation::PaceAdjustment)
+        .with_protected_value(ProtectedValue::SystemStability)
+        .with_excluded_transfers(&[TransferExclusion::LoadMissing]);
+
+        let report = index.search_with_relations(&query);
+        let ids: Vec<_> = report
+            .suggestions
+            .iter()
+            .take(2)
+            .map(|candidate| candidate.candidate.entry.id)
+            .collect();
+
+        assert_eq!(ids, vec!["downshift", "speed-limit"]);
+        assert_eq!(
+            report.suggestions[0].decision,
+            RelationDecision::RecommendBoundaryFrame
+        );
+        assert_eq!(report.suggestions[1].rank_band, RankBand::Demoted);
+        assert!(report.suggestions[1].warnings.contains(&"load required"));
     }
 
     #[test]

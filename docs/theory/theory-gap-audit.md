@@ -49,7 +49,7 @@ These gaps block reliable tool behavior.
 
 | Gap | Risk | First Artifact |
 |---|---|---|
-| Relation-aware ranking | Authority, risk, application-pack filters, ranking fixtures, Rust design, private metadata tables, first relation-aware report output, a runnable example, broadened accepted-starter coverage, re-entry sequencing, recovery-pause boundary coverage, route-adjustment boundary coverage, and reserve-tracking boundary coverage exist, but fixture depth is still narrow. | Continue deepening relation fixture coverage before changing default search. |
+| Relation-aware ranking | Authority, risk, application-pack filters, ranking fixtures, Rust design, private metadata tables, first relation-aware report output, a runnable example, broadened accepted-starter coverage, re-entry sequencing, recovery-pause boundary coverage, route-adjustment boundary coverage, reserve-tracking boundary coverage, and downshift load-control boundary coverage exist, but fixture depth is still narrow. | Continue deepening relation fixture coverage before changing default search. |
 | Rejected-candidate reporting | First review-only rows back suppressed reports and explicit review modes, but broader rejected-candidate scoring is not implemented. | Use relation-aware ranking fixtures before expanding rows. |
 | Lifecycle filtering | `search_with_lifecycle` separates suggestions, fallbacks, suppressed reports, and review-only rows, but relation-aware review ordering is not implemented. | Implement relation-aware ordering only after fixture-backed design. |
 
