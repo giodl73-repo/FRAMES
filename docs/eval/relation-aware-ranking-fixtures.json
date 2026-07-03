@@ -321,6 +321,30 @@
         "docs/frame-catalog.md"
       ],
       "review_status": "accepted-fixture"
+    },
+    {
+      "id": "REL-RANK-012",
+      "title": "Reserve tracking requires named scarce resource",
+      "query": {
+        "target_situation": "A team needs to track remaining runway and capacity before committing to more work.",
+        "frame_job": "status",
+        "target_relation": "reserve_tracking",
+        "authority_term": "operator",
+        "application_pack": "product",
+        "protected_value": "decision quality"
+      },
+      "expected_order": ["fuel-gauge", "red-yellow-green"],
+      "must_demote": ["red-yellow-green"],
+      "must_suppress": [],
+      "expected_decision": "recommend-boundary-frame",
+      "expected_relation_behavior": "boundary_frame",
+      "expected_warnings": ["scarce resource required"],
+      "plain_language_fallback": "Name the scarce resource, current reserve, burn rate, and refill or reduction action.",
+      "source_docs": [
+        "docs/theory/transfer-aware-search-design.md",
+        "docs/frame-catalog.md"
+      ],
+      "review_status": "accepted-fixture"
     }
   ]
 }

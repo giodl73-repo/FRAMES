@@ -79,6 +79,7 @@ Repo or feature: `frames-core`
 | VAL-069 | Rust API maintainer or AI tool builder | Check stabilization and re-entry sequencing before default-search promotion. | Parse relation fixtures and run relation report tests. | `shoulder-pull-off` ranks before `merge-lane` for stabilization/re-entry without changing default search. | EVID-077 | pass |
 | VAL-070 | Rust API maintainer or AI tool builder | Check recovery-pause restart boundaries before default-search promotion. | Parse relation fixtures and run relation report tests. | `rest-stop` ranks before demoted `shoulder-pull-off` for recovery-pause queries without changing default search. | EVID-078 | pass |
 | VAL-071 | Rust API maintainer or AI tool builder | Check route-adjustment destination boundaries before default-search promotion. | Parse relation fixtures and run relation report tests. | `detour` ranks before demoted `shoulder-pull-off` for route-adjustment queries without changing default search. | EVID-079 | pass |
+| VAL-072 | Rust API maintainer or AI tool builder | Check reserve-tracking scarce-resource boundaries before default-search promotion. | Parse relation fixtures and run relation report tests. | `fuel-gauge` ranks before demoted `red-yellow-green` for reserve-tracking queries without changing default search. | EVID-080 | pass |
 
 ## Deferred Validation
 

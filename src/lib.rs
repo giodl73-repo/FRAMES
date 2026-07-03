@@ -358,6 +358,7 @@ pub enum TargetRelation {
     StabilizationReentry,
     RecoveryPause,
     RouteAdjustment,
+    ReserveTracking,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -396,6 +397,7 @@ pub enum TransferExclusion {
     UnknownTreatedAsStructural,
     PauseWithoutRestartCondition,
     StopWithoutDestination,
+    ScarceResourceMissing,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -872,6 +874,8 @@ fn relation_composes_with_target(
             && metadata.frame_id == "shoulder-pull-off"
         || target_relation == TargetRelation::RouteAdjustment
             && metadata.frame_id == "shoulder-pull-off"
+        || target_relation == TargetRelation::ReserveTracking
+            && metadata.frame_id == "red-yellow-green"
 }
 
 fn score_entry(
@@ -1143,6 +1147,7 @@ fn relation_rank_band(score: i16, warnings: &[&str]) -> RankBand {
             || warning.contains("structural evidence")
             || warning.contains("restart condition")
             || warning.contains("destination")
+            || warning.contains("scarce resource")
     }) {
         RankBand::Demoted
     } else if score < 0 {
@@ -1228,6 +1233,7 @@ fn target_relation_name(relation: TargetRelation) -> &'static str {
         TargetRelation::StabilizationReentry => "stabilization_reentry",
         TargetRelation::RecoveryPause => "recovery_pause",
         TargetRelation::RouteAdjustment => "route_adjustment",
+        TargetRelation::ReserveTracking => "reserve_tracking",
     }
 }
 
@@ -1262,6 +1268,7 @@ fn transfer_exclusion_warning(exclusion: TransferExclusion) -> &'static str {
         TransferExclusion::UnknownTreatedAsStructural => "structural evidence required",
         TransferExclusion::PauseWithoutRestartCondition => "restart condition required",
         TransferExclusion::StopWithoutDestination => "destination required",
+        TransferExclusion::ScarceResourceMissing => "scarce resource required",
     }
 }
 
@@ -1271,6 +1278,7 @@ fn transfer_exclusion_penalty(exclusion: TransferExclusion) -> i16 {
         TransferExclusion::UnknownTreatedAsStructural => 60,
         TransferExclusion::PauseWithoutRestartCondition => 60,
         TransferExclusion::StopWithoutDestination => 60,
+        TransferExclusion::ScarceResourceMissing => 60,
         TransferExclusion::PeerTurnsUnderOwnerAuthority
         | TransferExclusion::StrongActorDutyShiftedToProtectedParty
         | TransferExclusion::SpeedWithoutSafetyGate => 60,
@@ -1547,12 +1555,23 @@ const RELATION_METADATA: &[RelationMetadata] = &[
         exclusions: &[],
     },
     RelationMetadata {
+        frame_id: "fuel-gauge",
+        target_relations: &[TargetRelation::ReserveTracking],
+        constraint_relations: &[],
+        protected_values: &[ProtectedValue::DecisionQuality],
+        transfer_strength: TransferStrength::Partial,
+        exclusions: &[],
+    },
+    RelationMetadata {
         frame_id: "red-yellow-green",
         target_relations: &[TargetRelation::ThresholdSignal],
         constraint_relations: &[ConstraintRelation::EvidenceMissing],
         protected_values: &[ProtectedValue::DecisionQuality],
         transfer_strength: TransferStrength::Structural,
-        exclusions: &[TransferExclusion::StatusWithoutEvidence],
+        exclusions: &[
+            TransferExclusion::StatusWithoutEvidence,
+            TransferExclusion::ScarceResourceMissing,
+        ],
     },
     RelationMetadata {
         frame_id: "dashboard-warning-light",
@@ -2383,6 +2402,7 @@ mod tests {
             "shoulder-pull-off",
             "rest-stop",
             "detour",
+            "fuel-gauge",
             "veto-rule",
             "bag-of-chips-as-excuse",
         ];
@@ -2437,6 +2457,7 @@ mod tests {
         let shoulder_pull_off = relation_metadata_by_id("shoulder-pull-off").unwrap();
         let rest_stop = relation_metadata_by_id("rest-stop").unwrap();
         let detour = relation_metadata_by_id("detour").unwrap();
+        let fuel_gauge = relation_metadata_by_id("fuel-gauge").unwrap();
         assert!(blind_spot
             .target_relations
             .contains(&TargetRelation::AttentionLimit));
@@ -2455,6 +2476,9 @@ mod tests {
         assert!(detour
             .target_relations
             .contains(&TargetRelation::RouteAdjustment));
+        assert!(fuel_gauge
+            .target_relations
+            .contains(&TargetRelation::ReserveTracking));
     }
 
     #[test]
@@ -2824,6 +2848,38 @@ mod tests {
         assert!(report.suggestions[1]
             .warnings
             .contains(&"destination required"));
+    }
+
+    #[test]
+    fn relation_report_prefers_reserve_tracking_with_named_resource() {
+        let index = FrameIndex::new();
+        let query = RelationQuery::new(
+            FrameQuery::new("remaining runway and capacity before committing to more work")
+                .with_kind(FrameKind::Status)
+                .with_authority_model(AuthorityModel::Operator)
+                .with_application_pack(ApplicationPack::Product),
+        )
+        .with_target_relation(TargetRelation::ReserveTracking)
+        .with_protected_value(ProtectedValue::DecisionQuality)
+        .with_excluded_transfers(&[TransferExclusion::ScarceResourceMissing]);
+
+        let report = index.search_with_relations(&query);
+        let ids: Vec<_> = report
+            .suggestions
+            .iter()
+            .take(2)
+            .map(|candidate| candidate.candidate.entry.id)
+            .collect();
+
+        assert_eq!(ids, vec!["fuel-gauge", "red-yellow-green"]);
+        assert_eq!(
+            report.suggestions[0].decision,
+            RelationDecision::RecommendBoundaryFrame
+        );
+        assert_eq!(report.suggestions[1].rank_band, RankBand::Demoted);
+        assert!(report.suggestions[1]
+            .warnings
+            .contains(&"scarce resource required"));
     }
 
     #[test]

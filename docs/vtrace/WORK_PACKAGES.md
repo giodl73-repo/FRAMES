@@ -82,6 +82,7 @@ unless product requirements explicitly define them as user-facing behavior.
 | WP-068 | Deepen relation-aware sequencing coverage. | Relation-aware ranking covers stabilization-before-reentry sequencing. | REQ-072 / SPEC-071 / IF-068 | `docs/eval/relation-aware-ranking-fixtures.json`, `src/lib.rs`, `docs/eval/README.md`, `docs/theory/rust-relation-aware-ranking-design.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `docs/vtrace/*` | WP-067 complete and broader relation fixtures exist. | New relation fixture parses, Rust metadata/tests rank `shoulder-pull-off` before `merge-lane`, default search remains unchanged, examples and VTRACE pass. | L0: JSON parse; `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `cargo run --example relation_lookup`; `git diff --check` / L1: VTRACE validate / L2: continue deepening relation fixture coverage | evidence / trace / review / status rows | complete |
 | WP-069 | Add recovery-pause boundary coverage. | Relation-aware ranking checks restart-condition boundaries for recovery pauses. | REQ-073 / SPEC-072 / IF-068 | `docs/eval/relation-aware-ranking-fixtures.json`, `src/lib.rs`, `docs/eval/README.md`, `docs/theory/rust-relation-aware-ranking-design.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/theory-gap-audit.md`, `docs/vtrace/*` | WP-068 complete and re-entry sequencing coverage exists. | New relation fixture parses, Rust metadata/tests rank `rest-stop` before demoted `shoulder-pull-off`, default search remains unchanged, examples and VTRACE pass. | L0: JSON parse; `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `cargo run --example relation_lookup`; `git diff --check` / L1: VTRACE validate / L2: continue deepening relation fixture coverage | evidence / trace / review / status rows | complete |
 | WP-070 | Add route-adjustment boundary coverage. | Relation-aware ranking checks stable-destination boundaries for route changes. | REQ-074 / SPEC-073 / IF-068 | `docs/eval/relation-aware-ranking-fixtures.json`, `src/lib.rs`, `docs/eval/README.md`, `docs/theory/rust-relation-aware-ranking-design.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/theory-gap-audit.md`, `docs/vtrace/*` | WP-069 complete and recovery-pause boundary coverage exists. | New relation fixture parses, Rust metadata/tests rank `detour` before demoted `shoulder-pull-off`, default search remains unchanged, examples and VTRACE pass. | L0: JSON parse; `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `cargo run --example relation_lookup`; `git diff --check` / L1: VTRACE validate / L2: continue deepening relation fixture coverage | evidence / trace / review / status rows | complete |
+| WP-071 | Add reserve-tracking boundary coverage. | Relation-aware ranking checks scarce-resource boundaries for runway and reserve frames. | REQ-075 / SPEC-074 / IF-068 | `docs/eval/relation-aware-ranking-fixtures.json`, `src/lib.rs`, `docs/eval/README.md`, `docs/theory/rust-relation-aware-ranking-design.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/theory-gap-audit.md`, `docs/vtrace/*` | WP-070 complete and route-adjustment boundary coverage exists. | New relation fixture parses, Rust metadata/tests rank `fuel-gauge` before demoted `red-yellow-green`, default search remains unchanged, examples and VTRACE pass. | L0: JSON parse; `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `cargo run --example relation_lookup`; `git diff --check` / L1: VTRACE validate / L2: continue deepening relation fixture coverage | evidence / trace / review / status rows | complete |
 
 ## Work Package Details
 
@@ -2738,3 +2739,43 @@ V closure:
 | Implementation | `docs/eval/relation-aware-ranking-fixtures.json`, `src/lib.rs` | closed | Rust metadata and tests cover the new fixture expectation. |
 | Verification | EVID-079 | closed | JSON parse, unit tests, examples, and inspection cover the route-adjustment case. |
 | Validation | VAL-071 | closed | API maintainers can evaluate route-adjustment boundaries before default-search promotion. |
+
+### WP-071: Add reserve-tracking boundary coverage
+
+Objective: add a reserve-tracking relation fixture and Rust test that preserve
+scarce-resource boundaries.
+
+Parent IDs: REQ-075, SPEC-074, IF-068.
+
+Affected files/modules:
+
+- `docs/eval/relation-aware-ranking-fixtures.json`
+- `src/lib.rs`
+- `docs/eval/README.md`
+- `docs/theory/rust-relation-aware-ranking-design.md`
+- `docs/theory/catalog-metadata-migration-plan.md`
+- `docs/theory/theory-gap-audit.md`
+- `docs/vtrace/*`
+
+Verification commands:
+
+```powershell
+Get-Content docs\eval\relation-aware-ranking-fixtures.json -Raw | ConvertFrom-Json | Out-Null
+cargo fmt --check
+cargo test
+cargo run --example lookup
+cargo run --example ai_response_contract
+cargo run --example relation_lookup
+git diff --check
+cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .
+```
+
+V closure:
+
+| V Area | IDs / Evidence | Status | Notes |
+|---|---|---|---|
+| Requirements | REQ-075 | closed | Relation-aware fixture coverage includes reserve-tracking scarce-resource boundaries. |
+| Specification / Interface | SPEC-074, IF-068 | closed | Fixture package adds `fuel-gauge` before demoted `red-yellow-green` expectations. |
+| Implementation | `docs/eval/relation-aware-ranking-fixtures.json`, `src/lib.rs` | closed | Rust metadata and tests cover the new fixture expectation. |
+| Verification | EVID-080 | closed | JSON parse, unit tests, examples, and inspection cover the reserve-tracking case. |
+| Validation | VAL-072 | closed | API maintainers can evaluate reserve-tracking boundaries before default-search promotion. |

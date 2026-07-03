@@ -138,8 +138,9 @@ exist for the first fixture IDs. A runnable relation-aware example now shows
 the report shape. The fixture package now also covers visibility-before-
 dependency, pace-plus-buffer composition, and stabilization-before-reentry
 sequencing. It also covers recovery-pause restart boundaries and
-route-adjustment destination boundaries. The next Rust step should continue
-deepening fixture coverage before changing default search.
+route-adjustment destination boundaries. It now covers reserve-tracking scarce
+resource boundaries. The next Rust step should continue deepening fixture
+coverage before changing default search.
 
 ### Stage 4: Validation Scope
 
@@ -192,6 +193,7 @@ Do not promote a field when:
 | M14 | Deepen relation-aware sequencing coverage. | Cover stabilization-before-reentry sequencing before default-search promotion. | Complete. |
 | M15 | Add recovery-pause boundary coverage. | Cover restart-condition demotion before default-search promotion. | Complete. |
 | M16 | Add route-adjustment boundary coverage. | Cover stable-destination demotion before default-search promotion. | Complete. |
+| M17 | Add reserve-tracking boundary coverage. | Cover scarce-resource demotion before default-search promotion. | Complete. |
 
 ## Starter Catalog Migration Target
 

@@ -81,6 +81,7 @@ Repo or feature: `frames-core`
 | SPEC-071 | REQ-072 | evaluation / ranking | target | Relation-aware ranking fixtures and Rust tests cover stabilization-before-reentry sequencing with `shoulder-pull-off` before `merge-lane` while preserving default search behavior. | JSON parse / unit test / example run / inspection | VAL-069 | FRAMES | medium | accepted |
 | SPEC-072 | REQ-073 | evaluation / ranking | target | Relation-aware ranking fixtures and Rust tests cover recovery-pause restart-condition behavior with `rest-stop` before demoted `shoulder-pull-off` while preserving default search behavior. | JSON parse / unit test / example run / inspection | VAL-070 | FRAMES | medium | accepted |
 | SPEC-073 | REQ-074 | evaluation / ranking | target | Relation-aware ranking fixtures and Rust tests cover route-adjustment destination-stability behavior with `detour` before demoted `shoulder-pull-off` while preserving default search behavior. | JSON parse / unit test / example run / inspection | VAL-071 | FRAMES | medium | accepted |
+| SPEC-074 | REQ-075 | evaluation / ranking | target | Relation-aware ranking fixtures and Rust tests cover reserve-tracking scarce-resource behavior with `fuel-gauge` before demoted `red-yellow-green` while preserving default search behavior. | JSON parse / unit test / example run / inspection | VAL-072 | FRAMES | medium | accepted |
 
 ## Contract Table
 

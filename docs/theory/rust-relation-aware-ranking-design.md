@@ -194,5 +194,7 @@ Before implementation can replace or influence default ranking:
   behavior.
 - Relation fixture coverage now includes route-adjustment destination boundary
   behavior.
+- Relation fixture coverage now includes reserve-tracking scarce-resource
+  boundary behavior.
 - The next implementation step should continue deepening fixture coverage
   before considering any default-search promotion.
