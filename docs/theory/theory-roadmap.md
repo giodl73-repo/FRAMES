@@ -12,6 +12,7 @@ frame index rather than a growing metaphor list.
 - fit tests,
 - audience levels,
 - evidence boundaries,
+- research-grounding boundaries,
 - misuse patterns,
 - selection procedure,
 - design consequences for `frames-core`.
@@ -27,16 +28,16 @@ frame index rather than a growing metaphor list.
 | Evidence schema | `frames-core` stores the evidence boundary that keeps frames from replacing proof. | `evidence-boundary-schema.md` |
 | Source-domain taxonomy | Everyday domains need controlled names and risks. | source-domain map |
 | Application packs | Product, operations, leadership, learning, and AI-agent packs need different defaults. | pack templates |
-| Research grounding | Public claims about cognition, metaphor, or pedagogy need citations. | research notes |
+| Research grounding | Public claims about cognition, metaphor, or pedagogy need citations and claim-strength limits. | `research-grounding.md` |
 
 ## Priority Order
 
-1. Fit scoring.
-2. Audience transfer.
-3. Frame lifecycle.
-4. Source-domain taxonomy.
-5. Application-pack templates.
-6. Research grounding for public claims.
+1. Research grounding for public claims.
+2. Source-domain taxonomy.
+3. Application-pack templates.
+4. Perspective metadata.
+5. Relational transfer fields.
+6. Claim-strength labels.
 
 ## Role Guidance
 
@@ -47,5 +48,6 @@ frame index rather than a growing metaphor list.
 | Journeyman Practitioner | Make artifacts usable in a normal meeting. |
 | Business Leader | Preserve accountability, tradeoff, and decision value. |
 | Evidence Boundary Reviewer | Keep frames from replacing proof. |
+| Research Grounding Reviewer | Separate literature-informed guidance from validated claims. |
 | Misuse Risk Reviewer | Reject people-as-obstacles and coercive framing. |
 | Catalog Structure Reviewer | Keep theory reflected in catalog shape and `frames-core`. |

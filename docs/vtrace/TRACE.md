@@ -15,12 +15,13 @@
 | REQ-011 | NEED-001 | CON-003 | Define frame lifecycle states and indexing rules. | SPEC-010 | DES-005 | n/a | WP-007 | `docs/theory/frame-lifecycle.md`, `docs/theory/frame-theory.md`, `docs/theory/theory-roadmap.md` | VER-009 inspection | VAL-008 | EVID-015 | validated |
 | REQ-012 | NEED-001 | CON-003 | Define composition and conflict guidance. | SPEC-011 | DES-005 | n/a | WP-008 | `docs/theory/composition-and-conflict.md`, `docs/theory/frame-theory.md`, `docs/theory/theory-roadmap.md` | VER-010 inspection | VAL-009 | EVID-016 | validated |
 | REQ-013 | NEED-001 | CON-001 / CON-003 | Preserve evidence boundary in indexed entries. | SPEC-012 | DES-004 / DES-005 | CR-003 / CR-005 | WP-009 | `src/lib.rs`, `examples/lookup.rs`, `docs/theory/evidence-boundary-schema.md` | VER-011 unit test / inspection | VAL-010 | EVID-017 / EVID-018 | validated |
+| REQ-014 | NEED-001 | CON-003 | Define research grounding for cognitive-science claims. | SPEC-013 | DES-005 | n/a | WP-010 | `docs/theory/research-grounding.md`, `docs/theory/frame-theory.md`, `docs/theory/theory-roadmap.md` | VER-012 inspection | VAL-011 | EVID-019 | validated |
 
 ## ID Legend
 
 - NEED-001: mission need in `MISSION.md`.
 - CON-001..CON-003: operating scenarios in `CONOPS.md`.
-- SPEC-001..SPEC-012: specification baseline.
+- SPEC-001..SPEC-013: specification baseline.
 - DES-001..DES-005: design elements.
 - CR-001..CR-006: code-rigor constraints.
 - WP-001: frame index crate work package.
@@ -32,4 +33,5 @@
 - WP-007: frame lifecycle model work package.
 - WP-008: composition and conflict theory work package.
 - WP-009: evidence-boundary schema work package.
+- WP-010: research-grounding theory work package.
 - EVID-* evidence: `EVIDENCE.md` and `VERIFICATION.md`.

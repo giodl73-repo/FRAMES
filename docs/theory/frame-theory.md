@@ -59,6 +59,8 @@ Use [composition-and-conflict.md](composition-and-conflict.md) when more than
 one frame seems useful for the same situation.
 Use [evidence-boundary-schema.md](evidence-boundary-schema.md) when adding or
 reviewing evidence-boundary fields in docs or `frames-core`.
+Use [research-grounding.md](research-grounding.md) when making public claims
+about metaphor, analogy, cognition, persuasion, or human decision behavior.
 
 ## Audience Levels
 
@@ -120,3 +122,5 @@ The Rust index should stay close to this theory:
 - Every indexed entry should preserve `failure_mode`.
 - Future scoring should reward action-cue and evidence-boundary alignment before
   source-domain similarity.
+- Public claims should carry research-grounding and claim-strength boundaries
+  before they are treated as stable method guidance.

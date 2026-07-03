@@ -21,6 +21,7 @@ Repo or feature: `frames-core`
 | REQ-011 | inspection | inspect `docs/theory/frame-lifecycle.md` | Lifecycle states, criteria, triggers, status fields, indexing rules, and deprecation rules are present. | pass | EVID-015 |
 | REQ-012 | inspection | inspect `docs/theory/composition-and-conflict.md` | Composition rules, conflict types, sequencing, conflict resolution, and index implications are present. | pass | EVID-016 |
 | REQ-013 | unit test / inspection | `cargo test`; inspect `FrameEntry` and starter catalog | Evidence boundary is required and populated for indexed entries. | pass | EVID-017 / EVID-018 |
+| REQ-014 | inspection | inspect `docs/theory/research-grounding.md` | Research pillars, claim limits, design rules, backlog, and bibliography are present. | pass | EVID-019 |
 
 ## Commands
 
@@ -53,6 +54,7 @@ git diff --check
 | EVID-016 | inspection | `docs/theory/composition-and-conflict.md` | REQ-012, SPEC-011, VAL-009 | pass |
 | EVID-017 | command output | `cargo test` | REQ-013, SPEC-012, IF-015 | pass |
 | EVID-018 | inspection | `src/lib.rs`, `examples/lookup.rs`, `docs/theory/evidence-boundary-schema.md` | REQ-013, VAL-010 | pass |
+| EVID-019 | inspection | `docs/theory/research-grounding.md` | REQ-014, SPEC-013, IF-016, VAL-011 | pass |
 
 ## Gaps
 

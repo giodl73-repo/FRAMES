@@ -58,6 +58,7 @@ Audience transfer guidance lives in [docs/theory/audience-transfer.md](docs/theo
 Frame lifecycle guidance lives in [docs/theory/frame-lifecycle.md](docs/theory/frame-lifecycle.md).
 Composition and conflict guidance lives in [docs/theory/composition-and-conflict.md](docs/theory/composition-and-conflict.md).
 Evidence boundary schema lives in [docs/theory/evidence-boundary-schema.md](docs/theory/evidence-boundary-schema.md).
+Research grounding lives in [docs/theory/research-grounding.md](docs/theory/research-grounding.md).
 Project review roles live in [.roles/ROLE.md](.roles/ROLE.md).
 
 ## Frame Shape

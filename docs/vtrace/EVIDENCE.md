@@ -26,6 +26,7 @@ Repo or feature: `frames-core`
 | EVID-016 | inspection | `docs/theory/composition-and-conflict.md` | Composition and conflict guide exists. | pass. | pass |
 | EVID-017 | command | `cargo test` | Evidence-boundary unit test passes. | pass. | pass |
 | EVID-018 | inspection | `src/lib.rs`, `examples/lookup.rs`, `docs/theory/evidence-boundary-schema.md` | Evidence-boundary field, example display, and schema doc exist. | pass. | pass |
+| EVID-019 | inspection | `docs/theory/research-grounding.md` | Research grounding guide exists with cognitive-science pillars, claim limits, design rules, and bibliography. | pass. | pass |
 
 ## Evidence Rules
 
