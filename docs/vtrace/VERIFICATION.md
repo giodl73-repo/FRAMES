@@ -22,6 +22,7 @@ Repo or feature: `frames-core`
 | REQ-012 | inspection | inspect `docs/theory/composition-and-conflict.md` | Composition rules, conflict types, sequencing, conflict resolution, and index implications are present. | pass | EVID-016 |
 | REQ-013 | unit test / inspection | `cargo test`; inspect `FrameEntry` and starter catalog | Evidence boundary is required and populated for indexed entries. | pass | EVID-017 / EVID-018 |
 | REQ-014 | inspection | inspect `docs/theory/research-grounding.md` | Research pillars, claim limits, design rules, backlog, and bibliography are present. | pass | EVID-019 |
+| REQ-015 | inspection / role review | inspect `docs/theory/source-domain-taxonomy.md` and `.roles/parliament/research-grounding-reviewer.md` | Source-domain dimensions, families, authority models, temporal shapes, risk bands, and review lens are present. | pass | EVID-020 |
 
 ## Commands
 
@@ -55,6 +56,7 @@ git diff --check
 | EVID-017 | command output | `cargo test` | REQ-013, SPEC-012, IF-015 | pass |
 | EVID-018 | inspection | `src/lib.rs`, `examples/lookup.rs`, `docs/theory/evidence-boundary-schema.md` | REQ-013, VAL-010 | pass |
 | EVID-019 | inspection | `docs/theory/research-grounding.md` | REQ-014, SPEC-013, IF-016, VAL-011 | pass |
+| EVID-020 | inspection / role review | `docs/theory/source-domain-taxonomy.md`, `.roles/parliament/research-grounding-reviewer.md` | REQ-015, SPEC-014, IF-017, VAL-012 | pass |
 
 ## Gaps
 

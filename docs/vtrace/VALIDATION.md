@@ -19,6 +19,7 @@ Repo or feature: `frames-core`
 | VAL-009 | Methodology maintainer | Decide whether two frames should be composed, sequenced, or kept separate. | Apply `composition-and-conflict.md`. | Primary/secondary/boundary roles and conflict resolution are clear. | EVID-016 | pass |
 | VAL-010 | AI tool builder | Display frame suggestion with action, evidence boundary, and warning. | Query `FrameIndex` and inspect `FrameEntry`. | Each returned frame carries `action_cue`, `evidence_boundary`, and `failure_mode`. | EVID-017 / EVID-018 | pass |
 | VAL-011 | Methodology maintainer | Decide whether a cognitive-science claim is safe to publish. | Apply `research-grounding.md`. | The claim is either supported with a citation and bounded scope or downgraded to an internal hypothesis. | EVID-019 | pass |
+| VAL-012 | Methodology maintainer | Choose a source domain before adding a frame pack. | Apply `source-domain-taxonomy.md` and research-grounding review. | Source family, authority model, temporal shape, risk band, and audience portability are clear. | EVID-020 | pass |
 
 ## Deferred Validation
 

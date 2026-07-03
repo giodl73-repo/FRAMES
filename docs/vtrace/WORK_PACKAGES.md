@@ -22,6 +22,7 @@ unless product requirements explicitly define them as user-facing behavior.
 | WP-008 | Add composition and conflict theory. | Related frames can be composed or rejected based on action, authority, evidence, audience, and safety rules. | REQ-012 / SPEC-011 / IF-014 | `docs/theory/composition-and-conflict.md`, `docs/theory/frame-theory.md`, `docs/theory/theory-roadmap.md`, `README.md`, `docs/vtrace/*` | WP-007 complete. | Composition guide exists, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: role review before encoding composition metadata in crate | evidence / trace / review / status rows | complete |
 | WP-009 | Add evidence-boundary schema to frame index. | AI/tool callers receive the evidence obligation with each indexed frame. | REQ-013 / SPEC-012 / IF-015 | `src/lib.rs`, `examples/lookup.rs`, `docs/theory/evidence-boundary-schema.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-008 complete. | `FrameEntry` has required evidence boundary, starter catalog populated, tests and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: role review before publishing API | evidence / trace / review / status rows | complete |
 | WP-010 | Add research-grounding theory. | Public FRAMES claims about cognition, metaphor, analogy, and persuasion are bounded by research-grounding rules. | REQ-014 / SPEC-013 / IF-016 | `docs/theory/research-grounding.md`, `docs/theory/frame-theory.md`, `docs/theory/theory-roadmap.md`, `README.md`, `docs/vtrace/*` | WP-009 complete and first research sources identified. | Research-grounding guide exists, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: literature review before public research claims | evidence / trace / review / status rows | complete |
+| WP-011 | Add source-domain taxonomy. | Frame source domains are classified by embodied schema, social script, authority model, temporal shape, risk band, and portability. | REQ-015 / SPEC-014 / IF-017 | `docs/theory/source-domain-taxonomy.md`, `.roles/*`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-010 complete. | Source-domain taxonomy exists, research-grounding role lens exists, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: role review before encoding taxonomy in crate metadata | evidence / trace / review / status rows | complete |
 
 ## Work Package Details
 
@@ -394,3 +395,41 @@ V closure:
 | Implementation | `docs/theory/research-grounding.md` | closed | Research guide added and linked. |
 | Verification | EVID-019 | closed | Inspection covers research guide. |
 | Validation | VAL-011 | closed | Guide supports safer public cognitive-science claims. |
+
+### WP-011: Add source-domain taxonomy
+
+Objective: classify everyday source domains so frame selection is based on
+relational structure, authority, time, risk, and audience portability.
+
+Parent IDs: REQ-015, SPEC-014, IF-017.
+
+Affected files/modules:
+
+- `docs/theory/source-domain-taxonomy.md`
+- `.roles/ROLE.md`
+- `.roles/parliament/research-grounding-reviewer.md`
+- `docs/theory/frame-theory.md`
+- `docs/theory/research-grounding.md`
+- `docs/theory/theory-roadmap.md`
+- `README.md`
+- `docs/vtrace/*`
+
+Verification commands:
+
+```powershell
+cargo fmt --check
+cargo test
+cargo run --example lookup
+git diff --check
+cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .
+```
+
+V closure:
+
+| V Area | IDs / Evidence | Status | Notes |
+|---|---|---|---|
+| Requirements | REQ-015 | closed | Source-domain taxonomy guidance required. |
+| Specification / Interface | SPEC-014, IF-017 | closed | Taxonomy terms and change triggers defined. |
+| Implementation | `docs/theory/source-domain-taxonomy.md`, `.roles/parliament/research-grounding-reviewer.md` | closed | Taxonomy and role lens added. |
+| Verification | EVID-020 | closed | Inspection covers taxonomy and role lens. |
+| Validation | VAL-012 | closed | Guide supports source-domain selection before frame-pack expansion. |

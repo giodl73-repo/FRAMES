@@ -59,6 +59,7 @@ Frame lifecycle guidance lives in [docs/theory/frame-lifecycle.md](docs/theory/f
 Composition and conflict guidance lives in [docs/theory/composition-and-conflict.md](docs/theory/composition-and-conflict.md).
 Evidence boundary schema lives in [docs/theory/evidence-boundary-schema.md](docs/theory/evidence-boundary-schema.md).
 Research grounding lives in [docs/theory/research-grounding.md](docs/theory/research-grounding.md).
+Source-domain taxonomy lives in [docs/theory/source-domain-taxonomy.md](docs/theory/source-domain-taxonomy.md).
 Project review roles live in [.roles/ROLE.md](.roles/ROLE.md).
 
 ## Frame Shape

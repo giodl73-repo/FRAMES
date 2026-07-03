@@ -61,6 +61,8 @@ Use [evidence-boundary-schema.md](evidence-boundary-schema.md) when adding or
 reviewing evidence-boundary fields in docs or `frames-core`.
 Use [research-grounding.md](research-grounding.md) when making public claims
 about metaphor, analogy, cognition, persuasion, or human decision behavior.
+Use [source-domain-taxonomy.md](source-domain-taxonomy.md) when choosing source
+families, authority models, temporal shapes, and risk bands.
 
 ## Audience Levels
 
@@ -124,3 +126,5 @@ The Rust index should stay close to this theory:
   source-domain similarity.
 - Public claims should carry research-grounding and claim-strength boundaries
   before they are treated as stable method guidance.
+- Future catalog metadata should expose source family, authority model,
+  temporal shape, risk band, and implied perspective.

@@ -21,6 +21,7 @@ Repo or feature: `frames-core`
 | SPEC-011 | REQ-012 | theory / docs | target | Composition guide defines composition rules, composition roles, conflict types, sequencing, conflict resolution order, and index implications. | inspection | VAL-009 | FRAMES | low | accepted |
 | SPEC-012 | REQ-013 | API / data model | target | `FrameEntry` exposes `evidence_boundary`, and every starter catalog entry provides a non-empty boundary distinct from failure mode. | unit test / inspection | VAL-010 | FRAMES | medium | accepted |
 | SPEC-013 | REQ-014 | theory / docs | target | Research grounding guide defines relevant cognitive-science pillars, safe claims, unsafe claims, design rules, and bibliography. | inspection | VAL-011 | FRAMES | medium | accepted |
+| SPEC-014 | REQ-015 | theory / docs | target | Source-domain taxonomy defines domain dimensions, source families, authority models, temporal shapes, risk bands, selection procedure, and catalog implications. | inspection / role review | VAL-012 | FRAMES | medium | accepted |
 
 ## Contract Table
 
@@ -37,3 +38,4 @@ Repo or feature: `frames-core`
 | IF-014 | SPEC-011 | Composition terms | Composition and conflict terms should stay stable enough for future index metadata. | Adding/removing composition roles or conflict types. | EVID-016 |
 | IF-015 | SPEC-012 | `FrameEntry::evidence_boundary` | Evidence boundary remains a required indexed field. | Removing or making evidence boundary optional. | EVID-017 |
 | IF-016 | SPEC-013 | Research claim boundaries | Public cognitive-science claims should distinguish theory-informed guidance from validated effect claims. | Adding public claims about cognition, persuasion, analogy effectiveness, or universality. | EVID-019 |
+| IF-017 | SPEC-014 | Source-domain taxonomy terms | Source family, authority model, temporal shape, and risk band names should remain stable enough for catalog metadata. | Adding/removing source families, authority models, temporal shapes, or risk bands. | EVID-020 |

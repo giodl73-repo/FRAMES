@@ -22,6 +22,7 @@ Repo or feature: `frames-core`
 | REQ-012 | The repo shall define composition and conflict guidance for using multiple frames in one situation. | NEED-001 / CON-003 | Related frames can clarify or contradict each other; selection needs rules. | must | FRAMES | inspection | accepted |
 | REQ-013 | Indexed frame entries shall preserve an evidence boundary distinct from failure mode. | NEED-001 / CON-001 / CON-003 | AI/tool callers need to know what must still be checked after a frame is suggested. | must | FRAMES | unit test / inspection | accepted |
 | REQ-014 | The repo shall define research-grounding guidance for cognitive-science claims and frame-design implications. | NEED-001 / CON-003 | FRAMES needs defensible theory boundaries before making public claims about metaphor, analogy, persuasion, or cognition. | must | FRAMES | inspection | accepted |
+| REQ-015 | The repo shall define a source-domain taxonomy for everyday frame sources, authority models, temporal shapes, and risk bands. | NEED-001 / CON-003 | Frame selection needs controlled source-domain structure before broad catalog expansion. | must | FRAMES | inspection / role review | accepted |
 
 ## Requirement Quality Checklist
 

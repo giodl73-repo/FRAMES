@@ -111,6 +111,8 @@ Catalog review should ask:
 | Claim-strength labels | Public docs should distinguish theory-informed guidance from empirically validated effects. |
 | Alternates for sensitive domains | High-stakes frames need non-persuasive alternates and plain-language fallback. |
 
+The first taxonomy artifact is [source-domain-taxonomy.md](source-domain-taxonomy.md).
+
 ## Starter Bibliography
 
 - George Lakoff and Mark Johnson, *Metaphors We Live By*, 1980.
