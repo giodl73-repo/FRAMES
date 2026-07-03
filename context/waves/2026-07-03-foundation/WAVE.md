@@ -22,6 +22,7 @@ the repo does not become a loose metaphor list.
 | 04 | Fit rubric | pending | Score frame clarity, action cue quality, audience fit, and misuse risk. |
 | 05 | Frame index crate | complete | Added dependency-free Rust frame index with search and related-frame lookup. |
 | 06 | Frame index ergonomics | complete | Added query builder helpers, filters, top-N lookup, and runnable example. |
+| 07 | Theory baseline | complete | Added role-reviewed frame theory for jobs, fit, evidence boundaries, and misuse. |
 
 ## Success Criteria
 
@@ -31,6 +32,7 @@ the repo does not become a loose metaphor list.
 - Skills exist for future wave, pulse, and research execution.
 - `frames-core` exposes a structured frame index for AI/tool lookup.
 - Frame index usage is visible through a runnable example.
+- Theory defines frame jobs, fit tests, evidence boundaries, and misuse checks.
 - Traffic and motion examples cover red/yellow/green, four-way stops, yielding,
   merging, detours, and downshifting.
 - `cargo test` passes.

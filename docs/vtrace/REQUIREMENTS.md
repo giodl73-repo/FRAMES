@@ -15,6 +15,7 @@ Repo or feature: `frames-core`
 | REQ-005 | The first crate shall remain dependency-free. | NEED-001 | Keeps the index easy to audit and embed. | should | FRAMES | inspection / cargo test | accepted |
 | REQ-006 | The library shall provide ergonomic query and filtering helpers for common AI/tool lookup flows. | NEED-001 / CON-001 / CON-002 | Callers should not need to construct every query and filter manually. | should | FRAMES | unit test / example run | accepted |
 | REQ-007 | Traffic frame docs and starter index entries shall stay aligned for accepted traffic-pack frames. | NEED-001 / CON-001 / CON-003 | AI/tool lookup should reflect the documented frame pack. | must | FRAMES | unit test / inspection | accepted |
+| REQ-008 | The repo shall define role-reviewed theory for frame jobs, fit tests, evidence boundaries, and misuse patterns before broad catalog expansion. | NEED-001 / CON-003 | Catalog growth needs selection theory, not just examples. | must | FRAMES | inspection / role review | accepted |
 
 ## Requirement Quality Checklist
 

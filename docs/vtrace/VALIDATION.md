@@ -12,6 +12,7 @@ Repo or feature: `frames-core`
 | VAL-002 | Methodology maintainer | Explore adjacent frame alternatives. | Call `FrameIndex::related_to` for a stable frame ID. | Related entries resolve from IDs. | EVID-001 | pass |
 | VAL-003 | Business or product lead | Review whether a suggested frame is safe to use. | Inspect candidate `action_cue` and `failure_mode`. | Warning remains visible with the frame entry. | EVID-004 | pass |
 | VAL-004 | AI tool builder | Try the index from a runnable example. | Run `cargo run --example lookup`. | Example prints ranked candidates and warnings. | EVID-007 | pass |
+| VAL-005 | Methodology maintainer | Choose whether a new frame belongs in the catalog. | Apply the theory fit test and role review. | Selection procedure identifies action cue, evidence boundary, and misuse risk. | EVID-010 / EVID-011 | pass |
 
 ## Deferred Validation
 

@@ -52,6 +52,7 @@ let candidates = index.search_top(&query, 3);
 The initial catalog lives in [docs/frame-catalog.md](docs/frame-catalog.md).
 The first worked examples live in
 [docs/examples/traffic-and-motion.md](docs/examples/traffic-and-motion.md).
+The operating theory lives in [docs/theory/frame-theory.md](docs/theory/frame-theory.md).
 Project review roles live in [.roles/ROLE.md](.roles/ROLE.md).
 
 ## Frame Shape

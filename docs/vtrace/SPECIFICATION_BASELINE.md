@@ -14,6 +14,7 @@ Repo or feature: `frames-core`
 | SPEC-004 | REQ-005 | package boundary | target | `frames-core` has no third-party runtime dependencies. | manifest inspection / cargo test | VAL-001 | FRAMES | low | accepted |
 | SPEC-005 | REQ-006 | API / behavior | target | Query builder helpers, top-N search, kind filtering, and tag filtering support common lookup flows. | unit test / example run | VAL-001 / VAL-002 | FRAMES | low | accepted |
 | SPEC-006 | REQ-007 | catalog / docs | target | Accepted traffic-pack frames are represented in both docs and the starter Rust index. | unit test / inspection | VAL-003 / VAL-004 | FRAMES | low | accepted |
+| SPEC-007 | REQ-008 | theory / docs | target | Frame theory defines core parts, jobs, fit tests, audience levels, evidence boundaries, misuse patterns, and selection procedure. | inspection / role review | VAL-005 | FRAMES | low | accepted |
 
 ## Contract Table
 
@@ -23,3 +24,4 @@ Repo or feature: `frames-core`
 | IF-002 | SPEC-001 | Starter catalog IDs | IDs are stable once published. | Renaming or deleting an ID. | EVID-001 / EVID-004 |
 | IF-003 | SPEC-005 | Rust helper API | Helper names should remain frame-index oriented and deterministic. | Renaming/removing helpers or adding nondeterministic behavior. | EVID-006 |
 | IF-009 | SPEC-006 | Traffic frame IDs | Traffic-pack additions get stable IDs before tool use. | Adding, renaming, or removing traffic-pack IDs. | EVID-008 |
+| IF-010 | SPEC-007 | Theory terms | Theory terms should remain consistent with catalog and `frames-core` vocabulary. | Renaming frame jobs or core parts. | EVID-010 |

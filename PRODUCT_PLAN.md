@@ -44,6 +44,7 @@ mapping, and get a usable communication frame with explicit limits.
 | 03 | Walking frame pack | Add pace, footing, stride, crowding, wayfinding, and fatigue frames. |
 | 04 | Fit rubric | Add frame selection and misuse checks. |
 | 05 | Frame index crate | Add `frames-core` for AI/tool lookup of related frames and warnings. |
+| 06 | Theory baseline | Define frame jobs, fit tests, evidence boundaries, and misuse patterns. |
 
 ## Dependency Placement
 
