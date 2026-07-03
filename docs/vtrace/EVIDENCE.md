@@ -28,6 +28,7 @@ Repo or feature: `frames-core`
 | EVID-018 | inspection | `src/lib.rs`, `examples/lookup.rs`, `docs/theory/evidence-boundary-schema.md` | Evidence-boundary field, example display, and schema doc exist. | pass. | pass |
 | EVID-019 | inspection | `docs/theory/research-grounding.md` | Research grounding guide exists with cognitive-science pillars, claim limits, design rules, and bibliography. | pass. | pass |
 | EVID-020 | inspection / role review | `docs/theory/source-domain-taxonomy.md`, `.roles/parliament/research-grounding-reviewer.md` | Source-domain taxonomy and research-grounding role lens exist. | pass. | pass |
+| EVID-021 | inspection | `docs/theory/application-pack-templates.md` | Application-pack templates exist for product, operations, leadership, learning, and AI-agent contexts. | pass. | pass |
 
 ## Evidence Rules
 

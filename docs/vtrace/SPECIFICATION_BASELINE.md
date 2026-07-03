@@ -22,6 +22,7 @@ Repo or feature: `frames-core`
 | SPEC-012 | REQ-013 | API / data model | target | `FrameEntry` exposes `evidence_boundary`, and every starter catalog entry provides a non-empty boundary distinct from failure mode. | unit test / inspection | VAL-010 | FRAMES | medium | accepted |
 | SPEC-013 | REQ-014 | theory / docs | target | Research grounding guide defines relevant cognitive-science pillars, safe claims, unsafe claims, design rules, and bibliography. | inspection | VAL-011 | FRAMES | medium | accepted |
 | SPEC-014 | REQ-015 | theory / docs | target | Source-domain taxonomy defines domain dimensions, source families, authority models, temporal shapes, risk bands, selection procedure, and catalog implications. | inspection / role review | VAL-012 | FRAMES | medium | accepted |
+| SPEC-015 | REQ-016 | theory / docs | target | Application-pack templates define pack shape, defaults, authority checks, evidence defaults, risk defaults, alternates, rejection rules, and pack selection procedure. | inspection | VAL-013 | FRAMES | medium | accepted |
 
 ## Contract Table
 
@@ -39,3 +40,4 @@ Repo or feature: `frames-core`
 | IF-015 | SPEC-012 | `FrameEntry::evidence_boundary` | Evidence boundary remains a required indexed field. | Removing or making evidence boundary optional. | EVID-017 |
 | IF-016 | SPEC-013 | Research claim boundaries | Public cognitive-science claims should distinguish theory-informed guidance from validated effect claims. | Adding public claims about cognition, persuasion, analogy effectiveness, or universality. | EVID-019 |
 | IF-017 | SPEC-014 | Source-domain taxonomy terms | Source family, authority model, temporal shape, and risk band names should remain stable enough for catalog metadata. | Adding/removing source families, authority models, temporal shapes, or risk bands. | EVID-020 |
+| IF-018 | SPEC-015 | Application-pack template terms | Pack names, output obligations, and rejection rules should remain stable enough for downstream docs and tool design. | Adding/removing application packs or changing required outputs. | EVID-021 |

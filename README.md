@@ -60,6 +60,7 @@ Composition and conflict guidance lives in [docs/theory/composition-and-conflict
 Evidence boundary schema lives in [docs/theory/evidence-boundary-schema.md](docs/theory/evidence-boundary-schema.md).
 Research grounding lives in [docs/theory/research-grounding.md](docs/theory/research-grounding.md).
 Source-domain taxonomy lives in [docs/theory/source-domain-taxonomy.md](docs/theory/source-domain-taxonomy.md).
+Application pack templates live in [docs/theory/application-pack-templates.md](docs/theory/application-pack-templates.md).
 Project review roles live in [.roles/ROLE.md](.roles/ROLE.md).
 
 ## Frame Shape

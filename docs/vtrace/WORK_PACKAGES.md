@@ -23,6 +23,7 @@ unless product requirements explicitly define them as user-facing behavior.
 | WP-009 | Add evidence-boundary schema to frame index. | AI/tool callers receive the evidence obligation with each indexed frame. | REQ-013 / SPEC-012 / IF-015 | `src/lib.rs`, `examples/lookup.rs`, `docs/theory/evidence-boundary-schema.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-008 complete. | `FrameEntry` has required evidence boundary, starter catalog populated, tests and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: role review before publishing API | evidence / trace / review / status rows | complete |
 | WP-010 | Add research-grounding theory. | Public FRAMES claims about cognition, metaphor, analogy, and persuasion are bounded by research-grounding rules. | REQ-014 / SPEC-013 / IF-016 | `docs/theory/research-grounding.md`, `docs/theory/frame-theory.md`, `docs/theory/theory-roadmap.md`, `README.md`, `docs/vtrace/*` | WP-009 complete and first research sources identified. | Research-grounding guide exists, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: literature review before public research claims | evidence / trace / review / status rows | complete |
 | WP-011 | Add source-domain taxonomy. | Frame source domains are classified by embodied schema, social script, authority model, temporal shape, risk band, and portability. | REQ-015 / SPEC-014 / IF-017 | `docs/theory/source-domain-taxonomy.md`, `.roles/*`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-010 complete. | Source-domain taxonomy exists, research-grounding role lens exists, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: role review before encoding taxonomy in crate metadata | evidence / trace / review / status rows | complete |
+| WP-012 | Add application-pack templates. | Product, operations, leadership, learning, and AI-agent contexts have explicit frame-selection defaults and rejection rules. | REQ-016 / SPEC-015 / IF-018 | `docs/theory/application-pack-templates.md`, `docs/theory/*`, `README.md`, `docs/vtrace/*` | WP-011 complete. | Pack templates exist, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: role review before encoding packs in crate metadata | evidence / trace / review / status rows | complete |
 
 ## Work Package Details
 
@@ -433,3 +434,39 @@ V closure:
 | Implementation | `docs/theory/source-domain-taxonomy.md`, `.roles/parliament/research-grounding-reviewer.md` | closed | Taxonomy and role lens added. |
 | Verification | EVID-020 | closed | Inspection covers taxonomy and role lens. |
 | Validation | VAL-012 | closed | Guide supports source-domain selection before frame-pack expansion. |
+
+### WP-012: Add application-pack templates
+
+Objective: define context-specific frame-selection defaults for product,
+operations, leadership, learning, and AI-agent use.
+
+Parent IDs: REQ-016, SPEC-015, IF-018.
+
+Affected files/modules:
+
+- `docs/theory/application-pack-templates.md`
+- `docs/theory/frame-theory.md`
+- `docs/theory/source-domain-taxonomy.md`
+- `docs/theory/theory-roadmap.md`
+- `README.md`
+- `docs/vtrace/*`
+
+Verification commands:
+
+```powershell
+cargo fmt --check
+cargo test
+cargo run --example lookup
+git diff --check
+cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .
+```
+
+V closure:
+
+| V Area | IDs / Evidence | Status | Notes |
+|---|---|---|---|
+| Requirements | REQ-016 | closed | Application-pack template guidance required. |
+| Specification / Interface | SPEC-015, IF-018 | closed | Pack terms and change triggers defined. |
+| Implementation | `docs/theory/application-pack-templates.md` | closed | Product, operations, leadership, learning, and AI-agent packs added. |
+| Verification | EVID-021 | closed | Inspection covers application-pack templates. |
+| Validation | VAL-013 | closed | Guide supports context-specific frame defaults and rejection rules. |

@@ -98,6 +98,8 @@ Future catalog entries should eventually expose:
 
 The first Rust crate does not need these fields yet. Until the API changes,
 store the most important domain signals in tags, docs, and review notes.
+Use [application-pack-templates.md](application-pack-templates.md) to choose
+context-specific defaults after selecting source-domain structure.
 
 ## Anti-Patterns
 

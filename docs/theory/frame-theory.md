@@ -63,6 +63,8 @@ Use [research-grounding.md](research-grounding.md) when making public claims
 about metaphor, analogy, cognition, persuasion, or human decision behavior.
 Use [source-domain-taxonomy.md](source-domain-taxonomy.md) when choosing source
 families, authority models, temporal shapes, and risk bands.
+Use [application-pack-templates.md](application-pack-templates.md) when tailoring
+frame defaults for product, operations, leadership, learning, or AI-agent use.
 
 ## Audience Levels
 
@@ -128,3 +130,5 @@ The Rust index should stay close to this theory:
   before they are treated as stable method guidance.
 - Future catalog metadata should expose source family, authority model,
   temporal shape, risk band, and implied perspective.
+- Application packs should select defaults without bypassing fit, audience,
+  evidence, or misuse review.

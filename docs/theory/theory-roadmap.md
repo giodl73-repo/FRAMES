@@ -27,17 +27,17 @@ frame index rather than a growing metaphor list.
 | Composition | Some situations need two frames; some frames conflict. | `composition-and-conflict.md` |
 | Evidence schema | `frames-core` stores the evidence boundary that keeps frames from replacing proof. | `evidence-boundary-schema.md` |
 | Source-domain taxonomy | Everyday domains need controlled names and risks. | `source-domain-taxonomy.md` |
-| Application packs | Product, operations, leadership, learning, and AI-agent packs need different defaults. | pack templates |
+| Application packs | Product, operations, leadership, learning, and AI-agent packs need different defaults. | `application-pack-templates.md` |
 | Research grounding | Public claims about cognition, metaphor, or pedagogy need citations and claim-strength limits. | `research-grounding.md` |
 
 ## Priority Order
 
-1. Application-pack templates.
-2. Perspective metadata.
-3. Relational transfer fields.
-4. Claim-strength labels.
-5. Role-reviewed domain examples.
-6. Empirical validation plan.
+1. Perspective metadata.
+2. Relational transfer fields.
+3. Claim-strength labels.
+4. Role-reviewed domain examples.
+5. Empirical validation plan.
+6. Pack-specific catalog trials.
 
 ## Role Guidance
 
