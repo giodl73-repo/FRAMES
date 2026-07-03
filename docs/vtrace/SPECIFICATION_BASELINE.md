@@ -64,6 +64,7 @@ Repo or feature: `frames-core`
 | SPEC-054 | REQ-055 | theory / application packs | target | Domain pack roadmap defines pack growth rule, expansion order, coverage matrix, candidate sources by pack, promotion gates, drift warnings, roadmap phases, and design consequences. | inspection | VAL-052 | FRAMES | medium | accepted |
 | SPEC-055 | REQ-056 | theory / fallback | target | Plain-language fallback theory defines fallback rule, fallback shape, fallback types, examples, selection procedure, tool behavior, evaluation implications, and design consequences. | inspection | VAL-053 | FRAMES | medium | accepted |
 | SPEC-056 | REQ-057 | theory / learning | target | Learning progression defines progression rule, learner levels, novice path, journeyman path, expert path, AI-tool builder path, teaching anti-patterns, release criteria, and design consequences. | inspection | VAL-054 | FRAMES | medium | accepted |
+| SPEC-057 | REQ-058 | theory / tool behavior | target | Lifecycle filtering and rejection reporting design defines visibility modes, status filters, result classes, rejected-candidate report shape, default behavior, fixture gates, Rust migration gates, and design consequences. | inspection | VAL-055 | FRAMES | medium | accepted |
 
 ## Contract Table
 
@@ -123,3 +124,4 @@ Repo or feature: `frames-core`
 | IF-057 | SPEC-054 | Domain pack roadmap | Pack growth should be tied to coverage goals, fixtures, hold conditions, and lifecycle boundaries. | Expanding product, operations, leadership, learning, or AI-agent packs by volume without pack-specific gates. | EVID-060 |
 | IF-058 | SPEC-055 | Plain-language fallback theory | Fallbacks should name action, owner or authority, evidence, and boundary without reintroducing metaphor. | Treating fallback text as decorative copy, omitting owner/evidence, or using metaphor again when direct language is required. | EVID-061 |
 | IF-059 | SPEC-056 | Learning progression | Learning paths should separate novice comprehension, journeyman meeting use, expert review, and AI-tool behavior. | Teaching full taxonomy before action/failure basics or using learning frames that infantilize professional users. | EVID-062 |
+| IF-060 | SPEC-057 | Lifecycle and rejection reporting boundary | Tool behavior should suppress draft, held, docs-catalog, deprecated, rejected, and anti-pattern candidates by default until lifecycle filters and explanation modes are explicit. | Adding non-accepted starter frames to default search or explaining rejected candidates without opt-in and fixtures. | EVID-063 |

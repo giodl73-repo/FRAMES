@@ -65,6 +65,7 @@ Repo or feature: `frames-core`
 | REQ-055 | inspection | inspect `docs/theory/domain-pack-roadmap.md` and `docs/theory/application-pack-templates.md` | Domain pack growth rule, expansion order, coverage matrix, hold conditions, and drift warnings are present. | pass | EVID-060 |
 | REQ-056 | inspection | inspect `docs/theory/plain-language-fallbacks.md` and linked response/evaluation docs | Fallback rule, shape, types, examples, selection procedure, tool behavior, evaluation implications, and design consequences are present. | pass | EVID-061 |
 | REQ-057 | inspection | inspect `docs/theory/learning-progression.md` | Learner levels, paths, teaching anti-patterns, release criteria, and design consequences are present. | pass | EVID-062 |
+| REQ-058 | inspection | inspect `docs/theory/lifecycle-filtering-and-rejection-reporting.md` | Visibility modes, status filters, result classes, rejected-candidate report shape, default behavior, fixture gates, Rust migration gates, and design consequences are present. | pass | EVID-063 |
 
 ## Commands
 
@@ -142,6 +143,7 @@ git diff --check
 | EVID-060 | inspection | `docs/theory/domain-pack-roadmap.md`, `docs/theory/application-pack-templates.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md` | REQ-055, SPEC-054, IF-057, VAL-052 | pass |
 | EVID-061 | inspection | `docs/theory/plain-language-fallbacks.md`, `docs/theory/ai-response-contract.md`, `docs/theory/evaluation-set-design.md`, `docs/theory/frame-acquisition-method.md` | REQ-056, SPEC-055, IF-058, VAL-053 | pass |
 | EVID-062 | inspection | `docs/theory/learning-progression.md`, `docs/theory/application-pack-templates.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md` | REQ-057, SPEC-056, IF-059, VAL-054 | pass |
+| EVID-063 | inspection | `docs/theory/lifecycle-filtering-and-rejection-reporting.md`, `docs/theory/frame-lifecycle.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md` | REQ-058, SPEC-057, IF-060, VAL-055 | pass |
 
 ## Gaps
 

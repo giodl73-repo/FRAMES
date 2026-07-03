@@ -78,6 +78,10 @@ Held, deprecated, and rejected frames can remain in docs as examples, but tools
 should not suggest them unless the caller explicitly asks for anti-patterns or
 rejected comparisons.
 
+Detailed tool behavior for status filters, docs-catalog visibility, and
+suppressed-candidate explanations lives in
+[lifecycle-filtering-and-rejection-reporting.md](lifecycle-filtering-and-rejection-reporting.md).
+
 ## Deprecation Rule
 
 Deprecation is not failure. It is how FRAMES preserves learning without forcing
@@ -104,6 +108,7 @@ Deprecate rather than delete when:
 
 ## Design Consequence for `frames-core`
 
-`frames-core` should eventually expose lifecycle status. Until then, the starter
-index should include only accepted frames. Anti-patterns such as "team as
-roadblock" belong in theory docs, not default search results.
+`frames-core` should eventually expose lifecycle status filters and rejected
+candidate reporting. Until then, the starter index should include only accepted
+frames. Anti-patterns such as "team as roadblock" belong in theory docs, not
+default search results.

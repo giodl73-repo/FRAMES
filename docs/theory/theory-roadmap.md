@@ -64,12 +64,13 @@ growth gaps, implementation gaps, and deeper theory questions.
 | Metadata-backed catalog | Accepted starter frames need docs-level status, claim strength, risk band, application pack, authority, and transfer metadata. | `../frame-catalog.md` |
 | Local import promotion | Local imports need role-reviewed promotion decisions before catalog acceptance. | `local-import-promotion-review.md` |
 | Frame acquisition method | New frame candidates need a repeatable intake, screening, and promotion path. | `frame-acquisition-method.md` |
+| Lifecycle filtering and rejection reporting | Tools need explicit visibility modes, status filters, and suppressed-candidate explanations before non-accepted frames enter tool behavior. | `lifecycle-filtering-and-rejection-reporting.md` |
 
 ## Priority Order
 
 1. Collect EVT-001 participant responses and score the locked packet.
 2. Pilot the theme-swimlane leadership worksheet and record changed decisions.
-3. Plan lifecycle filtering and rejected-candidate reporting.
+3. Add machine-readable lifecycle and rejected-candidate fixtures before Rust filtering.
 
 ## Role Guidance
 

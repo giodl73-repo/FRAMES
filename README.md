@@ -63,6 +63,7 @@ Audience transfer guidance lives in [docs/theory/audience-transfer.md](docs/theo
 Cultural portability guidance lives in [docs/theory/cultural-portability.md](docs/theory/cultural-portability.md).
 The first applied portability review lives in [docs/theory/cultural-portability-application-fixtures.md](docs/theory/cultural-portability-application-fixtures.md).
 Frame lifecycle guidance lives in [docs/theory/frame-lifecycle.md](docs/theory/frame-lifecycle.md).
+Lifecycle filtering and rejection reporting guidance lives in [docs/theory/lifecycle-filtering-and-rejection-reporting.md](docs/theory/lifecycle-filtering-and-rejection-reporting.md).
 Controlled ontology guidance lives in [docs/theory/frame-ontology.md](docs/theory/frame-ontology.md).
 Accepted-catalog review process lives in [docs/theory/accepted-catalog-review-process.md](docs/theory/accepted-catalog-review-process.md).
 The first applied accepted-catalog review lives in [docs/theory/accepted-catalog-review-veto-rule.md](docs/theory/accepted-catalog-review-veto-rule.md).

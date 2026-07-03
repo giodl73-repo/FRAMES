@@ -65,6 +65,7 @@ unless product requirements explicitly define them as user-facing behavior.
 | WP-051 | Define domain pack roadmap. | Application packs have expansion order, coverage goals, and hold conditions. | REQ-055 / SPEC-054 / IF-057 | `docs/theory/domain-pack-roadmap.md`, `docs/theory/application-pack-templates.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md`, `docs/vtrace/*` | WP-050 complete and application-pack templates exist. | Roadmap exists, pack templates link it, growth gap audit advances, docs and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: define plain-language fallback theory | evidence / trace / review / status rows | complete |
 | WP-052 | Define plain-language fallback theory. | High-risk and low-transfer frame uses have direct non-metaphor fallback rules. | REQ-056 / SPEC-055 / IF-058 | `docs/theory/plain-language-fallbacks.md`, `docs/theory/ai-response-contract.md`, `docs/theory/evaluation-set-design.md`, `docs/theory/frame-acquisition-method.md`, `README.md`, `docs/vtrace/*` | WP-051 complete and fallback expectations exist in response/eval docs. | Fallback theory exists, linked docs updated, growth gap audit advances, docs and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: define teaching progression | evidence / trace / review / status rows | complete |
 | WP-053 | Define learning progression. | Novice, journeyman, expert, and AI-tool users have staged learning paths. | REQ-057 / SPEC-056 / IF-059 | `docs/theory/learning-progression.md`, `docs/theory/application-pack-templates.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md`, `docs/vtrace/*` | WP-052 complete and learning pack exists. | Learning progression exists, linked docs updated, growth gap audit advances, docs and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: plan lifecycle filtering and rejected-candidate reporting | evidence / trace / review / status rows | complete |
+| WP-054 | Define lifecycle filtering and rejection reporting. | Non-accepted and rejected frames have visibility, suppression, and explanation rules before tool suggestions expand. | REQ-058 / SPEC-057 / IF-060 | `docs/theory/lifecycle-filtering-and-rejection-reporting.md`, `docs/theory/frame-lifecycle.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md`, `docs/vtrace/*` | WP-053 complete and lifecycle, anti-pattern, relation, fallback, and fixture docs exist. | Design exists, linked docs updated, implementation gap advances to machine-readable lifecycle/rejection fixtures, docs and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: add machine-readable lifecycle and rejected-candidate fixtures | evidence / trace / review / status rows | complete |
 
 ## Work Package Details
 
@@ -2046,3 +2047,41 @@ V closure:
 | Implementation | `docs/theory/learning-progression.md` | closed | Learning progression added and linked. |
 | Verification | EVID-062 | closed | Inspection covers learning progression and roadmap updates. |
 | Validation | VAL-054 | closed | Maintainers can teach frame use at the right depth for the user's role. |
+
+### WP-054: Define lifecycle filtering and rejection reporting
+
+Objective: define visibility modes, lifecycle filters, result classes, and
+suppressed-candidate reporting before non-accepted frames can enter tool-facing
+behavior.
+
+Parent IDs: REQ-058, SPEC-057, IF-060.
+
+Affected files/modules:
+
+- `docs/theory/lifecycle-filtering-and-rejection-reporting.md`
+- `docs/theory/frame-lifecycle.md`
+- `docs/theory/theory-gap-audit.md`
+- `docs/theory/theory-roadmap.md`
+- `README.md`
+- `docs/vtrace/*`
+
+Verification commands:
+
+```powershell
+cargo fmt --check
+cargo test
+cargo run --example lookup
+cargo run --example ai_response_contract
+git diff --check
+cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .
+```
+
+V closure:
+
+| V Area | IDs / Evidence | Status | Notes |
+|---|---|---|---|
+| Requirements | REQ-058 | closed | Lifecycle filtering and rejected-candidate reporting required before non-accepted frames enter tool suggestions. |
+| Specification / Interface | SPEC-057, IF-060 | closed | Visibility modes, filters, result classes, report shape, fixture gates, and Rust migration gates defined. |
+| Implementation | `docs/theory/lifecycle-filtering-and-rejection-reporting.md` | closed | Design artifact added and linked from lifecycle, roadmap, gap audit, and README. |
+| Verification | EVID-063 | closed | Inspection covers lifecycle/rejection design and accepted-starter default boundary. |
+| Validation | VAL-055 | closed | Tool builders and catalog reviewers can decide whether a non-accepted candidate is shown, suppressed, or explained. |
