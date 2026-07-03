@@ -55,6 +55,8 @@ Use [fit-rubric.md](fit-rubric.md) when a frame needs a scored accept, revise,
 hold, or reject decision.
 Use [frame-lifecycle.md](frame-lifecycle.md) to decide whether a frame belongs
 in the index, remains in draft, or should be deprecated.
+Use [composition-and-conflict.md](composition-and-conflict.md) when more than
+one frame seems useful for the same situation.
 
 ## Audience Levels
 

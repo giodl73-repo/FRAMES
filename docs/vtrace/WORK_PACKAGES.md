@@ -19,6 +19,7 @@ unless product requirements explicitly define them as user-facing behavior.
 | WP-005 | Add fit rubric and theory roadmap. | Frame candidates can be scored before catalog/index acceptance, and future theory work is prioritized. | REQ-009 / SPEC-008 / IF-011 | `docs/theory/*`, `README.md`, `context/waves/*`, `docs/vtrace/*` | WP-004 complete. | Fit rubric and roadmap exist, pulse 04 closed, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: role review before publishing rubric as stable | evidence / trace / review / status rows | complete |
 | WP-006 | Add audience transfer guide. | Frame selection accounts for role, expertise, region, culture, mobility, stakes, and power differences. | REQ-010 / SPEC-009 / IF-012 | `docs/theory/audience-transfer.md`, `docs/theory/theory-roadmap.md`, `README.md`, `docs/vtrace/*` | WP-005 complete. | Audience transfer guide exists, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: role review before adding audience metadata to crate | evidence / trace / review / status rows | complete |
 | WP-007 | Add frame lifecycle model. | Frame catalog entries have controlled status transitions and indexing rules. | REQ-011 / SPEC-010 / IF-013 | `docs/theory/frame-lifecycle.md`, `docs/theory/frame-theory.md`, `docs/theory/theory-roadmap.md`, `README.md`, `docs/vtrace/*` | WP-006 complete. | Lifecycle guide exists, roadmap fixed, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: role review before encoding lifecycle in crate | evidence / trace / review / status rows | complete |
+| WP-008 | Add composition and conflict theory. | Related frames can be composed or rejected based on action, authority, evidence, audience, and safety rules. | REQ-012 / SPEC-011 / IF-014 | `docs/theory/composition-and-conflict.md`, `docs/theory/frame-theory.md`, `docs/theory/theory-roadmap.md`, `README.md`, `docs/vtrace/*` | WP-007 complete. | Composition guide exists, roadmap updated, docs checks and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `git diff --check` / L1: VTRACE validate / L2: role review before encoding composition metadata in crate | evidence / trace / review / status rows | complete |
 
 ## Work Package Details
 
@@ -285,3 +286,38 @@ V closure:
 | Implementation | `docs/theory/frame-lifecycle.md` | closed | Lifecycle model added and linked. |
 | Verification | EVID-015 | closed | Inspection covers lifecycle guide. |
 | Validation | VAL-008 | closed | Lifecycle supports catalog/index status decisions. |
+
+### WP-008: Add composition and conflict theory
+
+Objective: define when multiple frames clarify a situation and when they
+conflict.
+
+Parent IDs: REQ-012, SPEC-011, IF-014.
+
+Affected files/modules:
+
+- `docs/theory/composition-and-conflict.md`
+- `docs/theory/frame-theory.md`
+- `docs/theory/theory-roadmap.md`
+- `README.md`
+- `docs/vtrace/*`
+
+Verification commands:
+
+```powershell
+cargo fmt --check
+cargo test
+cargo run --example lookup
+git diff --check
+cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .
+```
+
+V closure:
+
+| V Area | IDs / Evidence | Status | Notes |
+|---|---|---|---|
+| Requirements | REQ-012 | closed | Composition/conflict guidance required. |
+| Specification / Interface | SPEC-011, IF-014 | closed | Composition roles and conflict types defined. |
+| Implementation | `docs/theory/composition-and-conflict.md` | closed | Composition and conflict guide added and linked. |
+| Verification | EVID-016 | closed | Inspection covers composition guide. |
+| Validation | VAL-009 | closed | Guide supports multi-frame selection decisions. |

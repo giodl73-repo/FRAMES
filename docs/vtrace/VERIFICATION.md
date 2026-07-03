@@ -19,6 +19,7 @@ Repo or feature: `frames-core`
 | REQ-009 | inspection | inspect `docs/theory/fit-rubric.md` and `docs/theory/theory-roadmap.md` | Rubric and roadmap are present and usable. | pass | EVID-012 / EVID-013 |
 | REQ-010 | inspection | inspect `docs/theory/audience-transfer.md` | Audience transfer dimensions, bands, tests, alternates, and future fields are present. | pass | EVID-014 |
 | REQ-011 | inspection | inspect `docs/theory/frame-lifecycle.md` | Lifecycle states, criteria, triggers, status fields, indexing rules, and deprecation rules are present. | pass | EVID-015 |
+| REQ-012 | inspection | inspect `docs/theory/composition-and-conflict.md` | Composition rules, conflict types, sequencing, conflict resolution, and index implications are present. | pass | EVID-016 |
 
 ## Commands
 
@@ -48,6 +49,7 @@ git diff --check
 | EVID-013 | inspection | `docs/theory/theory-roadmap.md` | REQ-009, VAL-006 | pass |
 | EVID-014 | inspection | `docs/theory/audience-transfer.md` | REQ-010, SPEC-009, VAL-007 | pass |
 | EVID-015 | inspection | `docs/theory/frame-lifecycle.md` | REQ-011, SPEC-010, VAL-008 | pass |
+| EVID-016 | inspection | `docs/theory/composition-and-conflict.md` | REQ-012, SPEC-011, VAL-009 | pass |
 
 ## Gaps
 

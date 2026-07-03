@@ -18,6 +18,7 @@ Repo or feature: `frames-core`
 | SPEC-008 | REQ-009 | theory / docs | target | Fit rubric scores recognition, target specificity, transfer clarity, action cue, evidence boundary, human safety, and stop condition; roadmap prioritizes remaining theory. | inspection | VAL-006 | FRAMES | low | accepted |
 | SPEC-009 | REQ-010 | theory / docs | target | Audience transfer guide defines transfer dimensions, bands, tests, alternates, and future catalog fields. | inspection | VAL-007 | FRAMES | low | accepted |
 | SPEC-010 | REQ-011 | theory / docs | target | Frame lifecycle guide defines states, entry/exit criteria, change triggers, status fields, indexing rules, and deprecation rules. | inspection | VAL-008 | FRAMES | low | accepted |
+| SPEC-011 | REQ-012 | theory / docs | target | Composition guide defines composition rules, composition roles, conflict types, sequencing, conflict resolution order, and index implications. | inspection | VAL-009 | FRAMES | low | accepted |
 
 ## Contract Table
 
@@ -31,3 +32,4 @@ Repo or feature: `frames-core`
 | IF-011 | SPEC-008 | Rubric dimensions | Rubric dimensions should stay stable enough for catalog decisions. | Adding/removing dimensions or changing decision bands. | EVID-012 |
 | IF-012 | SPEC-009 | Audience transfer terms | Audience bands and transfer dimensions should stay stable enough for catalog review. | Adding/removing audience bands or transfer dimensions. | EVID-014 |
 | IF-013 | SPEC-010 | Lifecycle states | Lifecycle state names should stay stable enough for docs and future index metadata. | Adding/removing lifecycle states or changing indexing rules. | EVID-015 |
+| IF-014 | SPEC-011 | Composition terms | Composition and conflict terms should stay stable enough for future index metadata. | Adding/removing composition roles or conflict types. | EVID-016 |

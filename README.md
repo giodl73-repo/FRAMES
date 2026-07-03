@@ -56,6 +56,7 @@ The operating theory lives in [docs/theory/frame-theory.md](docs/theory/frame-th
 The first scoring rubric lives in [docs/theory/fit-rubric.md](docs/theory/fit-rubric.md).
 Audience transfer guidance lives in [docs/theory/audience-transfer.md](docs/theory/audience-transfer.md).
 Frame lifecycle guidance lives in [docs/theory/frame-lifecycle.md](docs/theory/frame-lifecycle.md).
+Composition and conflict guidance lives in [docs/theory/composition-and-conflict.md](docs/theory/composition-and-conflict.md).
 Project review roles live in [.roles/ROLE.md](.roles/ROLE.md).
 
 ## Frame Shape

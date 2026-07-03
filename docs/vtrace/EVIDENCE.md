@@ -23,6 +23,7 @@ Repo or feature: `frames-core`
 | EVID-013 | inspection | `docs/theory/theory-roadmap.md` | Remaining theory work is prioritized. | pass. | pass |
 | EVID-014 | inspection | `docs/theory/audience-transfer.md` | Audience transfer guide exists. | pass. | pass |
 | EVID-015 | inspection | `docs/theory/frame-lifecycle.md` | Frame lifecycle model exists. | pass. | pass |
+| EVID-016 | inspection | `docs/theory/composition-and-conflict.md` | Composition and conflict guide exists. | pass. | pass |
 
 ## Evidence Rules
 

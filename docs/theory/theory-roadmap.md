@@ -23,7 +23,7 @@ frame index rather than a growing metaphor list.
 | Fit scoring | Catalog entries need comparable readiness, not just prose review. | `fit-rubric.md` |
 | Audience transfer | Familiarity differs by role, region, culture, expertise, and mobility. | `audience-transfer.md` |
 | Frame lifecycle | Frames should move from candidate to accepted, revised, deprecated, or rejected. | `frame-lifecycle.md` |
-| Composition | Some situations need two frames; some frames conflict. | composition and conflict rules |
+| Composition | Some situations need two frames; some frames conflict. | `composition-and-conflict.md` |
 | Evidence schema | `frames-core` currently stores failure mode but not evidence boundary. | crate schema extension |
 | Source-domain taxonomy | Everyday domains need controlled names and risks. | source-domain map |
 | Application packs | Product, operations, leadership, learning, and AI-agent packs need different defaults. | pack templates |
@@ -34,8 +34,8 @@ frame index rather than a growing metaphor list.
 1. Fit scoring.
 2. Audience transfer.
 3. Frame lifecycle.
-4. Composition and conflict.
-5. Evidence-boundary schema.
+4. Evidence-boundary schema.
+5. Source-domain taxonomy.
 6. Application-pack templates.
 7. Research grounding for public claims.
 
