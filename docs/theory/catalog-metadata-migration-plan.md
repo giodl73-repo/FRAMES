@@ -198,3 +198,5 @@ These are too detailed or too unstable for the first API migration.
   sophistication.
 - Local imports should stay draft docs until promoted by fit score and role
   review.
+- The AI response contract should drive which fields are promoted first, because
+  tool callers need display safety before richer ranking.

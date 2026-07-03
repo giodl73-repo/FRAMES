@@ -33,6 +33,7 @@ Repo or feature: `frames-core`
 | SPEC-023 | REQ-024 | theory / docs | target | Theme-swimlane extraction defines pattern shape, draft frame, local variants, extraction procedure, fit checks, promotion criteria, and design consequences. | inspection | VAL-021 | FRAMES | medium | accepted |
 | SPEC-024 | REQ-025 | theory / docs | target | Empirical validation plan defines validation boundary, study levels, measurement targets, minimal protocol, test templates, candidate backlog, reporting shape, hard stops, and design consequences. | inspection | VAL-022 | FRAMES | medium | accepted |
 | SPEC-025 | REQ-026 | theory / docs | target | Catalog metadata migration plan defines current indexed shape, metadata families, migration stages, field promotion rules, initial backlog, starter migration target, compatibility rules, and design consequences. | inspection | VAL-023 | FRAMES | medium | accepted |
+| SPEC-026 | REQ-027 | theory / docs | target | AI response contract defines required inputs, required output fields, JSON shape, selection rules, scoring interpretation, gating rules, language rules, examples, and implementation implications. | inspection | VAL-024 | FRAMES | medium | accepted |
 
 ## Contract Table
 
@@ -61,3 +62,4 @@ Repo or feature: `frames-core`
 | IF-026 | SPEC-023 | Theme-swimlane extraction shape | Promise, lane, owner, measure, tradeoff, and exclusion fields should remain stable enough for leadership templates. | Adding/removing theme-swimlane extraction fields or fit checks. | EVID-029 |
 | IF-027 | SPEC-024 | Empirical validation terms | Study levels, measurement targets, reporting fields, and validation-scope terms should remain stable enough for claim-strength upgrades. | Adding/removing study levels, required reporting fields, or upgrade gates. | EVID-030 |
 | IF-028 | SPEC-025 | Catalog metadata migration stages | Migration stages, promotion rules, and first API candidate fields should remain stable enough to guide future catalog and Rust changes. | Changing migration stages, promotion gates, or first API migration field set. | EVID-031 |
+| IF-029 | SPEC-026 | AI response contract fields | Required inputs, output fields, gating rules, and scoring terminology should remain stable enough for downstream tool callers. | Adding/removing required response fields or changing score semantics. | EVID-032 |

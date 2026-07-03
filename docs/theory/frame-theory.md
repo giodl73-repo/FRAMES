@@ -70,6 +70,9 @@ recall, or misuse detection for a defined audience.
 Use [catalog-metadata-migration-plan.md](catalog-metadata-migration-plan.md)
 when deciding whether a theory field is ready to become catalog metadata or a
 `frames-core` API field.
+Use [ai-response-contract.md](ai-response-contract.md) when an AI/tool caller
+needs to return frame suggestions with action, evidence, warning, fit rationale,
+claim strength, and alternates.
 Use [source-domain-taxonomy.md](source-domain-taxonomy.md) when choosing source
 families, authority models, temporal shapes, and risk bands.
 Use [relational-transfer-fields.md](relational-transfer-fields.md) when

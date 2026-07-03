@@ -39,6 +39,7 @@ Repo or feature: `frames-core`
 | EVID-029 | inspection | `docs/theory/theme-swimlane-extraction.md` | Theme-swimlane extraction exists for local program theme patterns. | pass. | pass |
 | EVID-030 | inspection | `docs/theory/empirical-validation-plan.md` | Empirical validation plan exists with study levels, measures, templates, and hard stops. | pass. | pass |
 | EVID-031 | inspection | `docs/theory/catalog-metadata-migration-plan.md`, `src/lib.rs` | Catalog metadata migration plan exists and reflects the current indexed shape. | pass. | pass |
+| EVID-032 | inspection | `docs/theory/ai-response-contract.md` | AI response contract exists with required fields, scoring distinction, gates, language rules, and examples. | pass. | pass |
 
 ## Evidence Rules
 

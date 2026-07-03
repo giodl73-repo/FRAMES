@@ -31,6 +31,7 @@ Repo or feature: `frames-core`
 | VAL-021 | Methodology maintainer or business leader | Extract a local theme-swimlane pattern without turning it into a slogan. | Apply `theme-swimlane-extraction.md` to a program promise. | Promise, lanes, owners, measures, tradeoffs, exclusions, evidence boundaries, and misuse risks are visible. | EVID-029 | pass |
 | VAL-022 | Methodology maintainer or researcher | Decide whether a frame claim can be upgraded to empirically validated. | Apply `empirical-validation-plan.md` before changing claim strength. | Audience, context, task, comparison, measure, result, boundary, and adverse effects are visible. | EVID-030 | pass |
 | VAL-023 | Methodology maintainer or tool builder | Decide whether a theory field is ready for catalog or Rust metadata. | Apply `catalog-metadata-migration-plan.md` before changing catalog or `frames-core`. | Field family, stage, promotion rule, compatibility impact, and first migration target are visible. | EVID-031 | pass |
+| VAL-024 | AI tool builder | Return frame suggestions without overstating fit, evidence, or authority. | Apply `ai-response-contract.md` to suggestion outputs. | Response includes action cue, evidence boundary, misuse warning, fit reason, claim strength, risk/authority gate, plain-language fallback, and alternates when required. | EVID-032 | pass |
 
 ## Deferred Validation
 

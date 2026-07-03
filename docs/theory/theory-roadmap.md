@@ -42,15 +42,16 @@ frame index rather than a growing metaphor list.
 | Theme swimlanes | Local program patterns such as `Run One`, `Run Lean`, `Run Fast`, `Run Safe`, and three-lane promises need structured extraction. | `theme-swimlane-extraction.md` |
 | Empirical validation | Claim upgrades need task-specific tests with comparison conditions and narrow scope. | `empirical-validation-plan.md` |
 | Catalog metadata migration | Theory fields need a staged path into catalog rows and `frames-core` without premature API churn. | `catalog-metadata-migration-plan.md` |
+| AI response contract | Tool callers need a safe output shape for suggestions, alternates, scores, warnings, and evidence boundaries. | `ai-response-contract.md` |
 
 ## Priority Order
 
-1. AI response contract for frame suggestions.
-2. First metadata-backed catalog migration.
-3. Role-reviewed promotion of local imports.
-4. Theme-swimlane role review.
-5. First empirical validation trial.
-6. Transfer-aware search design.
+1. First metadata-backed catalog migration.
+2. Role-reviewed promotion of local imports.
+3. Theme-swimlane role review.
+4. First empirical validation trial.
+5. Transfer-aware search design.
+6. AI response contract examples in Rust.
 
 ## Role Guidance
 

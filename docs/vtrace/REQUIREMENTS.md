@@ -34,6 +34,7 @@ Repo or feature: `frames-core`
 | REQ-024 | The repo shall define theme-swimlane extraction guidance for program promises, contribution lanes, owners, measures, tradeoffs, and exclusions. | NEED-001 / CON-003 | Local program theme patterns need structure before becoming leadership templates or catalog entries. | must | FRAMES | inspection | accepted |
 | REQ-025 | The repo shall define empirical validation guidance for testing frame effects by audience, context, task, comparison, measure, and boundary. | NEED-001 / CON-003 | Claim-strength upgrades need narrow validation methods that do not overstate persuasion or universality. | must | FRAMES | inspection | accepted |
 | REQ-026 | The repo shall define a staged catalog metadata migration plan for moving theory fields into catalog rows and `frames-core` API fields. | NEED-001 / CON-001 / CON-003 | Selection, indexing, and scoring metadata need a controlled path from docs to tool-readable fields. | must | FRAMES | inspection | accepted |
+| REQ-027 | The repo shall define an AI response contract for safe frame suggestions with action cues, evidence boundaries, warnings, fit rationale, claim strength, and alternates. | NEED-001 / CON-001 / CON-003 | AI/tool callers need bounded outputs that distinguish retrieval score, fit score, draft status, and evidence confidence. | must | FRAMES | inspection | accepted |
 
 ## Requirement Quality Checklist
 
