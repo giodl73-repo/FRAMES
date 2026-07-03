@@ -73,6 +73,7 @@ unless product requirements explicitly define them as user-facing behavior.
 | WP-059 | Publish review-only catalog fixtures. | Review-only catalog rows are machine-readable before Rust loading. | REQ-063 / SPEC-062 / IF-065 | `docs/eval/review-only-catalog-fixtures.json`, `docs/eval/README.md`, `docs/theory/review-only-catalog-data-model.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md`, `docs/vtrace/*` | WP-058 complete and review-only model exists. | JSON package parses, first review-only rows are represented, roadmap advances to Rust review rows, docs and VTRACE pass. | L0: JSON parse; `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: add Rust review-only rows | evidence / trace / review / status rows | complete |
 | WP-060 | Add Rust review-only catalog rows. | Review-only catalog rows are inspectable and can back suppressed reports without becoming default suggestions. | REQ-064 / SPEC-063 / IF-066 | `src/lib.rs`, `README.md`, `docs/vtrace/INTERFACES.md`, `docs/theory/review-only-catalog-data-model.md`, `docs/theory/rust-lifecycle-filter-api-design.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `docs/vtrace/*` | WP-059 complete and review-only fixture package exists. | `REVIEW_CATALOG` and review helpers exist, suppressed reports derive from review rows, default search remains accepted-only, docs and VTRACE pass. | L0: JSON parse; `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: add catalog review mode output | evidence / trace / review / status rows | complete |
 | WP-061 | Add catalog review-mode output. | Review-only rows can be listed through explicit lifecycle review modes without becoming recommendations. | REQ-065 / SPEC-064 / IF-067 | `src/lib.rs`, `README.md`, `docs/vtrace/INTERFACES.md`, `docs/theory/review-only-catalog-data-model.md`, `docs/theory/rust-lifecycle-filter-api-design.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `docs/vtrace/*` | WP-060 complete and review-only rows exist. | `FrameSearchReport::review_only` and review-mode constructors exist, tests prove default search does not return review rows, docs and VTRACE pass. | L0: JSON parse; `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: define relation-aware ranking fixtures | evidence / trace / review / status rows | complete |
+| WP-062 | Publish relation-aware ranking fixtures. | Relation-aware scoring expectations are machine-readable before Rust ranking changes. | REQ-066 / SPEC-065 / IF-068 | `docs/eval/relation-aware-ranking-fixtures.json`, `docs/eval/README.md`, `docs/theory/evaluation-set-design.md`, `docs/theory/transfer-aware-search-design.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md`, `docs/vtrace/*` | WP-061 complete and review-mode output exists. | JSON package parses, ranking order and hard-stop fixtures exist, roadmap advances to Rust relation-ranking design, docs and VTRACE pass. | L0: JSON parse; `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: design Rust relation-aware ranking implementation | evidence / trace / review / status rows | complete |
 
 ## Work Package Details
 
@@ -2372,3 +2373,46 @@ V closure:
 | Implementation | `src/lib.rs` | closed | Catalog, anti-pattern, and docs-catalog preview modes populate `review_only` only. |
 | Verification | EVID-070 | closed | Unit tests, examples, inspection, and VTRACE validation cover review-mode output. |
 | Validation | VAL-062 | closed | Catalog reviewers can inspect review-only rows through lifecycle reports. |
+
+### WP-062: Publish relation-aware ranking fixtures
+
+Objective: publish machine-readable ranking expectations before implementing
+relation-aware scoring in Rust.
+
+Parent IDs: REQ-066, SPEC-065, IF-068.
+
+Affected files/modules:
+
+- `docs/eval/relation-aware-ranking-fixtures.json`
+- `docs/eval/README.md`
+- `docs/theory/evaluation-set-design.md`
+- `docs/theory/transfer-aware-search-design.md`
+- `docs/theory/theory-gap-audit.md`
+- `docs/theory/theory-roadmap.md`
+- `README.md`
+- `docs/vtrace/*`
+
+Verification commands:
+
+```powershell
+Get-Content docs\eval\starter-fixtures.json -Raw | ConvertFrom-Json | Out-Null
+Get-Content docs\eval\lifecycle-rejection-fixtures.json -Raw | ConvertFrom-Json | Out-Null
+Get-Content docs\eval\review-only-catalog-fixtures.json -Raw | ConvertFrom-Json | Out-Null
+Get-Content docs\eval\relation-aware-ranking-fixtures.json -Raw | ConvertFrom-Json | Out-Null
+cargo fmt --check
+cargo test
+cargo run --example lookup
+cargo run --example ai_response_contract
+git diff --check
+cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .
+```
+
+V closure:
+
+| V Area | IDs / Evidence | Status | Notes |
+|---|---|---|---|
+| Requirements | REQ-066 | closed | Relation-aware ranking needs fixture-backed expectations before scoring changes. |
+| Specification / Interface | SPEC-065, IF-068 | closed | Fixture shape covers scoring order, expected order, demotion, suppression, warnings, fallbacks, and sources. |
+| Implementation | `docs/eval/relation-aware-ranking-fixtures.json` | closed | Ranking fixture package added and linked. |
+| Verification | EVID-071 | closed | JSON parse and inspection cover relation-aware ranking fixtures. |
+| Validation | VAL-063 | closed | API maintainers can inspect ranking expectations before changing Rust scoring. |

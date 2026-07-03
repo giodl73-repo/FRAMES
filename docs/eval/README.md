@@ -14,8 +14,12 @@ docs-catalog, rejected, anti-pattern, and wrong-authority candidates out of
 recommendations while preserving opt-in explanations.
 
 `review-only-catalog-fixtures.json` adds the first machine-readable rows for
-docs-catalog, anti-pattern, and held entries. It is a catalog-shape fixture, not
-a Rust data source yet.
+docs-catalog, anti-pattern, and held entries. It remains the review fixture
+source for the first Rust `REVIEW_CATALOG` rows.
+
+`relation-aware-ranking-fixtures.json` adds the first ordering and hard-stop
+fixtures for future relation-aware scoring. It does not change current Rust
+search; it defines the expected behavior before implementation.
 
 ## Fixture Package Rules
 
@@ -33,6 +37,9 @@ a Rust data source yet.
 - Use review-only catalog fixtures to check row family, required fields,
   display rules, conversion rules, and promotion gates before loading
   `ReviewFrameEntry` rows into Rust.
+- Use relation-aware ranking fixtures to check scoring order, hard-stop
+  suppression, demotion, and expected ordering before implementing relation
+  scoring.
 - Do not treat these fixtures as empirical validation; they are specification
   checks for expected tool behavior.
 
@@ -42,4 +49,5 @@ a Rust data source yet.
 Get-Content docs\eval\starter-fixtures.json -Raw | ConvertFrom-Json | Out-Null
 Get-Content docs\eval\lifecycle-rejection-fixtures.json -Raw | ConvertFrom-Json | Out-Null
 Get-Content docs\eval\review-only-catalog-fixtures.json -Raw | ConvertFrom-Json | Out-Null
+Get-Content docs\eval\relation-aware-ranking-fixtures.json -Raw | ConvertFrom-Json | Out-Null
 ```

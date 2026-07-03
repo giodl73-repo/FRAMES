@@ -70,6 +70,7 @@ Repo or feature: `frames-core`
 | VAL-060 | Catalog structure reviewer or Rust API maintainer | Check review-only row examples before Rust review catalog loading. | Parse and inspect `docs/eval/review-only-catalog-fixtures.json`. | Docs-catalog, anti-pattern, and held rows have required fields, display rules, fallbacks, source docs, and revisit triggers. | EVID-068 | pass |
 | VAL-061 | Rust API maintainer or AI tool builder | Inspect review-only rows and request explanation reports without default recommendations. | Call review catalog helpers and `search_with_lifecycle` explanation mode. | Review-only rows are discoverable for review and suppression, but do not appear in `FrameIndex::search` suggestions. | EVID-069 | pass |
 | VAL-062 | Catalog reviewer or AI tool builder | List review-only rows through lifecycle reports without treating them as recommendations. | Call `search_with_lifecycle` with catalog review, anti-pattern review, or docs-catalog preview filters. | Review rows appear only in `review_only` with `ResultClass::ReviewOnly`; suggestions remain accepted-starter only. | EVID-070 | pass |
+| VAL-063 | Rust API maintainer or AI tool builder | Check relation-aware ranking expectations before changing scoring. | Parse and inspect `docs/eval/relation-aware-ranking-fixtures.json`. | Ranking fixtures distinguish expected order, demotion, suppression, warnings, fallbacks, and relation behavior before implementation. | EVID-071 | pass |
 
 ## Deferred Validation
 

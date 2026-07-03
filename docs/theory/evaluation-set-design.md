@@ -88,6 +88,8 @@ fixtures are applied in
 [cultural-portability-application-fixtures.md](cultural-portability-application-fixtures.md).
 Lifecycle and rejected-candidate reporting fixtures live in
 [../eval/lifecycle-rejection-fixtures.json](../eval/lifecycle-rejection-fixtures.json).
+Relation-aware ranking fixtures live in
+[../eval/relation-aware-ranking-fixtures.json](../eval/relation-aware-ranking-fixtures.json).
 
 | ID | Fixture Type | Ontology Terms | Target Situation | Expected Behavior |
 |---|---|---|---|---|
@@ -122,6 +124,14 @@ Evaluation results should score behavior, not just frame ID match:
 | Fallback behavior | Plain language appears when frame risk is high or transfer is weak. |
 | Claim boundary | Output does not imply empirical validation unless evidence exists. |
 
+## Relation-Aware Ranking Fixtures
+
+The relation-aware ranking package is a narrower fixture set for future scoring
+changes. It focuses on expected order, demotion, hard-stop suppression, and
+plain-language fallback after structural fit checks. It should be used before
+changing Rust ranking so implementation can be judged against stable examples
+rather than whatever the current lexical score happens to return.
+
 ## Pass Bands
 
 | Band | Meaning |
@@ -155,6 +165,8 @@ Evaluation results should score behavior, not just frame ID match:
 
 - Future tool tests should check selected frame IDs, suppressed frames, warning
   fields, evidence boundary, fallback text, and relation behavior separately.
+- Relation-aware ranking tests should check expected order and hard-stop
+  suppression before they compare numeric scores.
 - Lifecycle/rejection fixtures should check allowed statuses, opt-in
   suppressed explanations, result classes, and display rules separately from
   ordinary recommendation fixtures.

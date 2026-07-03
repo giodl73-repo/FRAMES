@@ -49,9 +49,9 @@ These gaps block reliable tool behavior.
 
 | Gap | Risk | First Artifact |
 |---|---|---|
-| Relation-aware ranking | Authority, risk, and application-pack filters exist, but target-relation and protected-value ranking are not implemented. | Relation metadata plus evaluation-backed ranking design. |
-| Rejected-candidate reporting | First review-only rows back suppressed reports and explicit review modes, but broader rejected-candidate scoring is not implemented. | Add evaluation-backed review scoring before expanding rows. |
-| Lifecycle filtering | `search_with_lifecycle` separates suggestions, fallbacks, suppressed reports, and review-only rows, but relation-aware review ordering is not implemented. | Add relation-aware ranking design and fixtures before scoring review rows. |
+| Relation-aware ranking | Authority, risk, and application-pack filters exist, and ranking fixtures now define target-relation/protected-value expectations, but scoring is not implemented. | Rust relation-ranking implementation design. |
+| Rejected-candidate reporting | First review-only rows back suppressed reports and explicit review modes, but broader rejected-candidate scoring is not implemented. | Use relation-aware ranking fixtures before expanding rows. |
+| Lifecycle filtering | `search_with_lifecycle` separates suggestions, fallbacks, suppressed reports, and review-only rows, but relation-aware review ordering is not implemented. | Implement relation-aware ordering only after fixture-backed design. |
 
 ## Deep Theory Gaps
 
@@ -72,7 +72,7 @@ methodology rather than a useful catalog.
 
 1. Collect EVT-001 participant responses and score the locked packet without upgrading claim strength prematurely.
 2. Pilot the theme-swimlane leadership worksheet and record changed decisions.
-3. Define relation-aware ranking fixtures before scoring accepted or review-only rows beyond metadata filters.
+3. Design the Rust relation-aware ranking implementation against the new ranking fixtures.
 
 This sequence keeps tool safety ahead of catalog growth.
 

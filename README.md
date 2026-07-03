@@ -109,6 +109,7 @@ Evaluation-set design lives in [docs/theory/evaluation-set-design.md](docs/theor
 The first machine-readable evaluation package lives in [docs/eval/starter-fixtures.json](docs/eval/starter-fixtures.json).
 Lifecycle and rejection-reporting fixtures live in [docs/eval/lifecycle-rejection-fixtures.json](docs/eval/lifecycle-rejection-fixtures.json).
 Review-only catalog fixtures live in [docs/eval/review-only-catalog-fixtures.json](docs/eval/review-only-catalog-fixtures.json).
+Relation-aware ranking fixtures live in [docs/eval/relation-aware-ranking-fixtures.json](docs/eval/relation-aware-ranking-fixtures.json).
 Role-reviewed domain examples live in [docs/theory/role-reviewed-domain-examples.md](docs/theory/role-reviewed-domain-examples.md).
 Application pack templates live in [docs/theory/application-pack-templates.md](docs/theory/application-pack-templates.md).
 Domain pack roadmap lives in [docs/theory/domain-pack-roadmap.md](docs/theory/domain-pack-roadmap.md).

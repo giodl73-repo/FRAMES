@@ -9,7 +9,8 @@ This began as a design artifact. `frames-core` now implements the first
 nonbreaking transfer-aware filters over accepted starter metadata:
 `authority_model`, `risk_band`, and `application_pack`. Full relation-aware
 ranking remains deferred until enough accepted catalog entries have stable
-relation metadata.
+relation metadata. The first machine-readable ranking expectations live in
+[../eval/relation-aware-ranking-fixtures.json](../eval/relation-aware-ranking-fixtures.json).
 
 ## Current Search Shape
 
@@ -135,7 +136,7 @@ instead of returning a bare metaphor name.
 3. Use the implemented authority, risk, and application-pack filters as strict
    gates before lexical scoring.
 4. Add relation-aware ranking only after accepted entries have enough stable
-   relation metadata.
+   relation metadata and ranking fixtures.
 5. Keep draft, held, and local-import frames out of default search until
    lifecycle filtering exists.
 
@@ -153,6 +154,8 @@ instead of returning a bare metaphor name.
 
 - The first Rust filter migration now covers `risk_band`, `application_packs`,
   and `authority_model`; full relation scoring remains deferred.
+- Relation-aware ranking fixtures now define expected order, demotion, and
+  suppression before the crate changes scoring.
 - Accepted catalog rows need stable transfer metadata before the crate can rank
   by transfer fit.
 - Related-frame lookup should eventually use

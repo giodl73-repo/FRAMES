@@ -1,0 +1,197 @@
+{
+  "package_id": "frames-relation-aware-ranking-001",
+  "review_status": "role-reviewed",
+  "source_design": "docs/theory/transfer-aware-search-design.md",
+  "purpose": "Define relation-aware ranking expectations before changing Rust scoring.",
+  "default_loading_rule": {
+    "current_rust_search_changes": false,
+    "default_search_may_use_after_implementation": true,
+    "review_only_rows_may_be_ranked_as_recommendations": false,
+    "retrieval_score_is_fit_score": false
+  },
+  "scoring_order": [
+    "hard_stop_rejection",
+    "frame_kind",
+    "target_relation",
+    "authority_compatibility",
+    "constraint_compatibility",
+    "protected_value_compatibility",
+    "transfer_strength",
+    "application_pack_fit",
+    "text_and_tag_match",
+    "name_hit"
+  ],
+  "required_output_fields": [
+    "candidate_id",
+    "result_class",
+    "expected_rank_band",
+    "matched_relations",
+    "authority_fit",
+    "evidence_boundary",
+    "transfer_exclusions",
+    "misuse_warning",
+    "plain_language_fallback"
+  ],
+  "fixtures": [
+    {
+      "id": "REL-RANK-001",
+      "title": "Protected-party duty outranks peer turn-taking",
+      "query": {
+        "target_situation": "One team must slow down to protect vulnerable customers during rollout.",
+        "frame_job": "coordination",
+        "target_relation": "protected_party_duty",
+        "authority_term": "protected_party",
+        "risk_band": "medium",
+        "application_pack": "product",
+        "protected_value": "customer safety"
+      },
+      "expected_order": ["crosswalk-yield", "four-way-stop"],
+      "must_demote": ["four-way-stop"],
+      "must_suppress": [],
+      "expected_decision": "recommend-boundary-frame",
+      "expected_relation_behavior": "boundary_frame",
+      "expected_warnings": ["protected-value warning", "authority warning"],
+      "plain_language_fallback": "One side has a duty to slow down to protect the customer value.",
+      "source_docs": [
+        "docs/theory/transfer-aware-search-design.md",
+        "docs/theory/related-frame-application-starter.md",
+        "docs/frame-catalog.md"
+      ],
+      "review_status": "accepted-fixture"
+    },
+    {
+      "id": "REL-RANK-002",
+      "title": "Owner authority hard-stops peer coordination",
+      "query": {
+        "target_situation": "An incident owner must direct the next action, but the words say teams need turns.",
+        "frame_job": "coordination",
+        "target_relation": "directed_authority",
+        "authority_term": "owner",
+        "risk_band": "medium",
+        "application_pack": "operations",
+        "protected_value": "incident control"
+      },
+      "expected_order": [],
+      "must_demote": [],
+      "must_suppress": ["four-way-stop", "merge-lane"],
+      "expected_decision": "fallback-only",
+      "expected_relation_behavior": "conflicts_with",
+      "expected_warnings": ["authority warning", "relation conflict"],
+      "plain_language_fallback": "The incident owner should state the decision path and next action.",
+      "source_docs": [
+        "docs/theory/related-frame-taxonomy.md",
+        "docs/theory/related-frame-application-starter.md",
+        "docs/eval/starter-fixtures.json"
+      ],
+      "review_status": "accepted-fixture"
+    },
+    {
+      "id": "REL-RANK-003",
+      "title": "Buffer relation precedes merge relation",
+      "query": {
+        "target_situation": "A team wants to merge work into an active system with tight coupling and little reaction time.",
+        "frame_job": "coordination",
+        "target_relation": "flow_joining",
+        "authority_term": "operator",
+        "risk_band": "medium",
+        "application_pack": "operations",
+        "constraint": "coupling",
+        "protected_value": "system stability"
+      },
+      "expected_order": ["following-distance", "merge-lane"],
+      "must_demote": ["merge-lane"],
+      "must_suppress": [],
+      "expected_decision": "recommend-sequence",
+      "expected_relation_behavior": "sequence_before",
+      "expected_warnings": ["buffer evidence required", "coupling risk"],
+      "plain_language_fallback": "Create enough buffer before integrating work into the active system.",
+      "source_docs": [
+        "docs/theory/related-frame-application-starter.md",
+        "docs/theory/transfer-aware-search-design.md",
+        "docs/frame-catalog.md"
+      ],
+      "review_status": "accepted-fixture"
+    },
+    {
+      "id": "REL-RANK-004",
+      "title": "Evidence boundary blocks status color overclaim",
+      "query": {
+        "target_situation": "The report says green, but no threshold or evidence is named.",
+        "frame_job": "status",
+        "target_relation": "threshold_signal",
+        "authority_term": "operator",
+        "risk_band": "medium",
+        "application_pack": "product",
+        "constraint": "evidence_missing",
+        "protected_value": "decision quality"
+      },
+      "expected_order": ["red-yellow-green", "dashboard-warning-light"],
+      "must_demote": [],
+      "must_suppress": ["green-means-done"],
+      "expected_decision": "recommend-with-evidence-warning",
+      "expected_relation_behavior": "safer_fallback",
+      "expected_warnings": ["evidence boundary", "threshold required"],
+      "plain_language_fallback": "The status cannot be accepted until the threshold and evidence are named.",
+      "source_docs": [
+        "docs/theory/evaluation-set-design.md",
+        "docs/eval/starter-fixtures.json",
+        "docs/frame-catalog.md"
+      ],
+      "review_status": "accepted-fixture"
+    },
+    {
+      "id": "REL-RANK-005",
+      "title": "Unsupported veto becomes suppressed near-miss",
+      "query": {
+        "target_situation": "A senior stakeholder says the option is vetoed but gives no requirement, evidence, or accountable owner.",
+        "frame_job": "risk",
+        "target_relation": "required_gate",
+        "authority_term": "mixed",
+        "risk_band": "medium",
+        "application_pack": "leadership",
+        "constraint": "authority_missing",
+        "protected_value": "decision legitimacy"
+      },
+      "expected_order": [],
+      "must_demote": [],
+      "must_suppress": ["veto-rule"],
+      "expected_decision": "explain-rejection",
+      "expected_relation_behavior": "rejected_near_miss",
+      "expected_warnings": ["false authority transfer", "evidence replacement"],
+      "plain_language_fallback": "This is an unresolved preference or decision-rights issue.",
+      "source_docs": [
+        "docs/theory/frame-antipattern-application-veto-rule.md",
+        "docs/theory/review-only-catalog-data-model.md",
+        "docs/eval/review-only-catalog-fixtures.json"
+      ],
+      "review_status": "accepted-fixture"
+    },
+    {
+      "id": "REL-RANK-006",
+      "title": "Story appeal loses after facts establish harm",
+      "query": {
+        "target_situation": "A bag-of-chips story is suggested after facts establish harm and ownership.",
+        "frame_job": "trust",
+        "target_relation": "perspective_repair",
+        "authority_term": "peer",
+        "risk_band": "medium",
+        "application_pack": "leadership",
+        "constraint": "facts_known",
+        "protected_value": "repair accountability"
+      },
+      "expected_order": [],
+      "must_demote": [],
+      "must_suppress": ["bag-of-chips-as-excuse"],
+      "expected_decision": "fallback-only",
+      "expected_relation_behavior": "plain_language_fallback",
+      "expected_warnings": ["empathy eraser", "repair required"],
+      "plain_language_fallback": "Facts are now known; name harm, repair, and ownership.",
+      "source_docs": [
+        "docs/theory/frame-antipattern-taxonomy.md",
+        "docs/eval/review-only-catalog-fixtures.json",
+        "docs/eval/starter-fixtures.json"
+      ],
+      "review_status": "accepted-fixture"
+    }
+  ]
+}
