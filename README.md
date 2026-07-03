@@ -62,6 +62,7 @@ Research grounding lives in [docs/theory/research-grounding.md](docs/theory/rese
 Source-domain taxonomy lives in [docs/theory/source-domain-taxonomy.md](docs/theory/source-domain-taxonomy.md).
 Application pack templates live in [docs/theory/application-pack-templates.md](docs/theory/application-pack-templates.md).
 Perspective metadata guidance lives in [docs/theory/perspective-metadata.md](docs/theory/perspective-metadata.md).
+The local RESONANCE MANAGE import map lives in [docs/theory/resonance-manage-import-map.md](docs/theory/resonance-manage-import-map.md).
 Project review roles live in [.roles/ROLE.md](.roles/ROLE.md).
 
 ## Frame Shape

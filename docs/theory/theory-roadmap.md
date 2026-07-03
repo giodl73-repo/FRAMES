@@ -29,6 +29,7 @@ frame index rather than a growing metaphor list.
 | Source-domain taxonomy | Everyday domains need controlled names and risks. | `source-domain-taxonomy.md` |
 | Application packs | Product, operations, leadership, learning, and AI-agent packs need different defaults. | `application-pack-templates.md` |
 | Perspective metadata | Frames assign listener roles, agency, duty, and authority assumptions. | `perspective-metadata.md` |
+| Internal source import | Local RESONANCE MANAGE patterns need structured import before catalog expansion. | `resonance-manage-import-map.md` |
 | Research grounding | Public claims about cognition, metaphor, or pedagogy need citations and claim-strength limits. | `research-grounding.md` |
 
 ## Priority Order
@@ -36,9 +37,9 @@ frame index rather than a growing metaphor list.
 1. Relational transfer fields.
 2. Claim-strength labels.
 3. Role-reviewed domain examples.
-4. Empirical validation plan.
-5. Pack-specific catalog trials.
-6. Perspective-tag trials in `frames-core`.
+4. RESONANCE MANAGE frame imports.
+5. Empirical validation plan.
+6. Pack-specific catalog trials.
 
 ## Role Guidance
 
