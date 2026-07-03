@@ -76,6 +76,7 @@ unless product requirements explicitly define them as user-facing behavior.
 | WP-062 | Publish relation-aware ranking fixtures. | Relation-aware scoring expectations are machine-readable before Rust ranking changes. | REQ-066 / SPEC-065 / IF-068 | `docs/eval/relation-aware-ranking-fixtures.json`, `docs/eval/README.md`, `docs/theory/evaluation-set-design.md`, `docs/theory/transfer-aware-search-design.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md`, `docs/vtrace/*` | WP-061 complete and review-mode output exists. | JSON package parses, ranking order and hard-stop fixtures exist, roadmap advances to Rust relation-ranking design, docs and VTRACE pass. | L0: JSON parse; `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: design Rust relation-aware ranking implementation | evidence / trace / review / status rows | complete |
 | WP-063 | Define Rust relation-aware ranking design. | Relation-aware ranking implementation has an additive API and metadata plan before Rust scoring changes. | REQ-067 / SPEC-066 / IF-069 | `docs/theory/rust-relation-aware-ranking-design.md`, `docs/theory/transfer-aware-search-design.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md`, `docs/vtrace/*` | WP-062 complete and ranking fixtures exist. | Design doc exists, links fixtures, preserves default search, defines metadata and report strategy, docs and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: add private relation metadata tables and fixture-mapped tests | evidence / trace / review / status rows | complete |
 | WP-064 | Add private relation metadata tables. | Relation fixture IDs have compile-time metadata before public relation scoring APIs. | REQ-068 / SPEC-067 / IF-070 | `src/lib.rs`, `README.md`, `docs/theory/rust-relation-aware-ranking-design.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `docs/vtrace/*` | WP-063 complete and implementation design exists. | Private metadata rows and fixture-mapped tests exist, default search remains unchanged, examples and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: add separate relation-aware report path | evidence / trace / review / status rows | complete |
+| WP-065 | Add relation-aware report path. | AI/tool callers can inspect structural ranking, demotions, hard stops, warnings, and fallbacks without changing default search. | REQ-069 / SPEC-068 / IF-071 | `src/lib.rs`, `README.md`, `docs/vtrace/INTERFACES.md`, `docs/theory/rust-relation-aware-ranking-design.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `docs/vtrace/*` | WP-064 complete and private relation metadata exists. | `search_with_relations` exists, fixture-shaped tests pass, hard stops remain separate from suggestions, default search is unchanged, examples and VTRACE pass. | L0: `cargo fmt --check`; `cargo test`; `cargo run --example lookup`; `cargo run --example ai_response_contract`; `git diff --check` / L1: VTRACE validate / L2: expand relation report examples and fixture coverage | evidence / trace / review / status rows | complete |
 
 ## Work Package Details
 
@@ -2494,3 +2495,42 @@ V closure:
 | Implementation | `src/lib.rs` | closed | Private relation metadata covers accepted and review-only fixture IDs. |
 | Verification | EVID-073 | closed | Unit tests and examples prove metadata coverage and unchanged default search. |
 | Validation | VAL-065 | closed | API maintainers can prepare relation-aware output from private metadata safely. |
+
+### WP-065: Add relation-aware report path
+
+Objective: expose an opt-in relation-aware report API before relation scoring
+can affect default search.
+
+Parent IDs: REQ-069, SPEC-068, IF-071.
+
+Affected files/modules:
+
+- `src/lib.rs`
+- `README.md`
+- `docs/vtrace/INTERFACES.md`
+- `docs/theory/rust-relation-aware-ranking-design.md`
+- `docs/theory/catalog-metadata-migration-plan.md`
+- `docs/theory/theory-gap-audit.md`
+- `docs/theory/theory-roadmap.md`
+- `docs/vtrace/*`
+
+Verification commands:
+
+```powershell
+cargo fmt --check
+cargo test
+cargo run --example lookup
+cargo run --example ai_response_contract
+git diff --check
+cargo run --manifest-path ..\..\standards-protocols\vtrace\Cargo.toml -- validate .
+```
+
+V closure:
+
+| V Area | IDs / Evidence | Status | Notes |
+|---|---|---|---|
+| Requirements | REQ-069 | closed | Relation-aware report output is opt-in and does not change ordinary search. |
+| Specification / Interface | SPEC-068, IF-071 | closed | Relation query/report types expose suggestions, demotions, suppressed hard stops, warnings, and fallbacks separately. |
+| Implementation | `src/lib.rs` | closed | `search_with_relations` uses relation metadata and fixture-shaped hard-stop rules. |
+| Verification | EVID-074 | closed | Unit tests cover first relation-ranking fixtures and examples still run. |
+| Validation | VAL-066 | closed | API maintainers can inspect relation-aware output before any default-search promotion. |

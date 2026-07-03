@@ -34,8 +34,8 @@ transfer-aware query filters. Lifecycle report APIs add explicit visibility
 filters, fallbacks, and suppressed-candidate explanations while keeping default
 search accepted-starter only. Review-only catalog helpers and review modes
 expose docs-catalog, held, and anti-pattern rows separately from accepted
-search. Private relation metadata tables now stage relation-aware ranking
-without changing default search.
+search. Relation-aware report APIs now rank fixture-backed structural matches
+and hard stops separately from default search.
 
 ```powershell
 cargo test
@@ -77,6 +77,27 @@ use frames_core::{FrameIndex, FrameQuery, LifecycleFilter};
 let index = FrameIndex::new();
 let report = index.search_with_lifecycle(&FrameQuery::new(""), &LifecycleFilter::catalog_review());
 let review_rows = report.review_only;
+```
+
+Relation-aware lookup:
+
+```rust
+use frames_core::{
+    ApplicationPack, AuthorityModel, FrameIndex, FrameKind, FrameQuery, ProtectedValue,
+    RelationQuery, RiskBand, TargetRelation,
+};
+
+let index = FrameIndex::new();
+let query = RelationQuery::new(
+    FrameQuery::new("slow down to protect vulnerable customers")
+        .with_kind(FrameKind::Coordination)
+        .with_authority_model(AuthorityModel::ProtectedParty)
+        .with_risk_band(RiskBand::Medium)
+        .with_application_pack(ApplicationPack::Product),
+)
+.with_target_relation(TargetRelation::ProtectedPartyDuty)
+.with_protected_value(ProtectedValue::CustomerSafety);
+let report = index.search_with_relations(&query);
 ```
 
 ## First Catalog

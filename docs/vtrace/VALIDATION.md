@@ -73,6 +73,7 @@ Repo or feature: `frames-core`
 | VAL-063 | Rust API maintainer or AI tool builder | Check relation-aware ranking expectations before changing scoring. | Parse and inspect `docs/eval/relation-aware-ranking-fixtures.json`. | Ranking fixtures distinguish expected order, demotion, suppression, warnings, fallbacks, and relation behavior before implementation. | EVID-071 | pass |
 | VAL-064 | Rust API maintainer or AI tool builder | Plan relation-aware ranking implementation without changing current search. | Apply `rust-relation-aware-ranking-design.md` to the relation fixture package. | Additive API shape, metadata table strategy, scoring procedure, compatibility boundary, and next implementation step are explicit. | EVID-072 | pass |
 | VAL-065 | Rust API maintainer or AI tool builder | Prepare relation-aware ranking metadata without exposing public scoring behavior. | Run metadata tests and compare default search outputs. | Fixture IDs have private relation metadata, and ordinary search still returns the same accepted starter results. | EVID-073 | pass |
+| VAL-066 | Rust API maintainer or AI tool builder | Request relation-aware ranking output without changing ordinary accepted-frame lookup. | Use `search_with_relations` and compare `FrameIndex::search` outputs. | Relation suggestions, demotions, hard stops, warnings, and fallbacks are separate from default search behavior. | EVID-074 | pass |
 
 ## Deferred Validation
 

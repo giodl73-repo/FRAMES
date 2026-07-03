@@ -133,9 +133,9 @@ Search scoring can then prefer:
 Do not rank by vividness, story appeal, or source-family familiarity alone.
 
 Current status: relation-aware ranking fixtures, Rust implementation design,
-and private relation metadata tables exist for the first fixture IDs. The next
-Rust step should add a separate relation-aware report path before changing
-default search.
+private relation metadata tables, and a separate relation-aware report path
+exist for the first fixture IDs. The next Rust step should expand report
+examples and fixture coverage before changing default search.
 
 ### Stage 4: Validation Scope
 
@@ -182,6 +182,7 @@ Do not promote a field when:
 | M8 | Add first lifecycle filter and suppressed-candidate report API. | Let tool callers request explicit lifecycle reports without changing default search. | Complete. |
 | M9 | Publish relation-aware ranking fixtures and Rust implementation design. | Keep scoring changes fixture-backed and additive. | Complete. |
 | M10 | Add private relation metadata tables and fixture-mapped tests. | Prepare relation-aware scoring without changing default search or `FrameEntry`. | Complete. |
+| M11 | Add a separate relation-aware report path. | Let AI/tool callers inspect structural ranking, demotions, hard stops, warnings, and fallbacks without changing default search. | Complete. |
 
 ## Starter Catalog Migration Target
 

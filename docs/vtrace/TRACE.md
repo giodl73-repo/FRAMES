@@ -70,12 +70,13 @@
 | REQ-066 | NEED-001 | CON-001 / CON-002 / CON-003 | Publish relation-aware ranking fixtures. | SPEC-065 | DES-003 / DES-005 | n/a | WP-062 | `docs/eval/relation-aware-ranking-fixtures.json`, `docs/eval/README.md`, `docs/theory/evaluation-set-design.md`, `docs/theory/transfer-aware-search-design.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md` | VER-064 inspection / JSON parse | VAL-063 | EVID-071 | validated |
 | REQ-067 | NEED-001 | CON-001 / CON-002 / CON-003 | Define Rust relation-aware ranking design. | SPEC-066 | DES-003 / DES-005 | n/a | WP-063 | `docs/theory/rust-relation-aware-ranking-design.md`, `docs/theory/transfer-aware-search-design.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md`, `README.md` | VER-065 inspection | VAL-064 | EVID-072 | validated |
 | REQ-068 | NEED-001 | CON-001 / CON-002 / CON-003 | Add private relation metadata tables. | SPEC-067 | DES-003 / DES-005 | CR-006 | WP-064 | `src/lib.rs`, `README.md`, `docs/theory/rust-relation-aware-ranking-design.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md` | VER-066 unit test / example run / inspection | VAL-065 | EVID-073 | validated |
+| REQ-069 | NEED-001 | CON-001 / CON-002 / CON-003 | Add relation-aware report path. | SPEC-068 | DES-003 / DES-005 | CR-006 | WP-065 | `src/lib.rs`, `README.md`, `docs/vtrace/INTERFACES.md`, `docs/theory/rust-relation-aware-ranking-design.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md` | VER-067 unit test / example run / inspection | VAL-066 | EVID-074 | validated |
 
 ## ID Legend
 
 - NEED-001: mission need in `MISSION.md`.
 - CON-001..CON-003: operating scenarios in `CONOPS.md`.
-- SPEC-001..SPEC-067: specification baseline.
+- SPEC-001..SPEC-068: specification baseline.
 - DES-001..DES-005: design elements.
 - CR-001..CR-006: code-rigor constraints.
 - WP-001: frame index crate work package.
@@ -142,4 +143,5 @@
 - WP-062: relation-aware ranking fixture work package.
 - WP-063: Rust relation-aware ranking design work package.
 - WP-064: private relation metadata table work package.
+- WP-065: relation-aware report path work package.
 - EVID-* evidence: `EVIDENCE.md` and `VERIFICATION.md`.

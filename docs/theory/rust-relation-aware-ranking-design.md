@@ -152,6 +152,7 @@ recommendations.
 2. Add tests that map the fixture package into hand-written Rust scenarios.
    Complete for the first relation metadata expectations.
 3. Add `search_with_relations` or `rank_with_relations` as a separate method.
+   Complete for the first fixture-backed report path.
 4. Keep `FrameIndex::search` unchanged.
 5. Consider default-search promotion only after relation-aware output passes
    fixtures and examples show the boundary clearly.
@@ -182,5 +183,7 @@ Before implementation can replace or influence default ranking:
 - Fixture behavior should drive ranking decisions before numeric score tuning.
 - Private relation metadata tables now cover the first ranking fixture IDs
   without changing `FrameIndex::search`.
-- The next implementation step should design or add the separate
-  relation-aware report path while preserving default search.
+- `search_with_relations` now provides a separate relation-aware report path
+  while preserving default search.
+- The next implementation step should expand relation report examples and
+  fixture coverage before considering any default-search promotion.

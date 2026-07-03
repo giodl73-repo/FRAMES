@@ -344,7 +344,7 @@ pub struct ReviewFrameEntry {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-enum TargetRelation {
+pub enum TargetRelation {
     PeerTurnTaking,
     ProtectedPartyDuty,
     DirectedAuthority,
@@ -355,7 +355,7 @@ enum TargetRelation {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-enum ConstraintRelation {
+pub enum ConstraintRelation {
     Coupling,
     EvidenceMissing,
     AuthorityMissing,
@@ -363,7 +363,7 @@ enum ConstraintRelation {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-enum ProtectedValue {
+pub enum ProtectedValue {
     CustomerSafety,
     IncidentControl,
     SystemStability,
@@ -373,14 +373,14 @@ enum ProtectedValue {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-enum TransferStrength {
+pub enum TransferStrength {
     Structural,
     Partial,
     Dangerous,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-enum TransferExclusion {
+pub enum TransferExclusion {
     PeerTurnsUnderOwnerAuthority,
     StrongActorDutyShiftedToProtectedParty,
     SpeedWithoutSafetyGate,
@@ -397,6 +397,106 @@ struct RelationMetadata {
     protected_values: &'static [ProtectedValue],
     transfer_strength: TransferStrength,
     exclusions: &'static [TransferExclusion],
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum RankBand {
+    Strong,
+    UsableWithWarning,
+    Demoted,
+    Suppressed,
+}
+
+impl RankBand {
+    pub const fn as_str(self) -> &'static str {
+        match self {
+            Self::Strong => "strong",
+            Self::UsableWithWarning => "usable_with_warning",
+            Self::Demoted => "demoted",
+            Self::Suppressed => "suppressed",
+        }
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum AuthorityFit {
+    Matches,
+    Compatible,
+    Mismatch,
+    NotAssessed,
+}
+
+impl AuthorityFit {
+    pub const fn as_str(self) -> &'static str {
+        match self {
+            Self::Matches => "matches",
+            Self::Compatible => "compatible",
+            Self::Mismatch => "mismatch",
+            Self::NotAssessed => "not_assessed",
+        }
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum RelationDecision {
+    RecommendBoundaryFrame,
+    RecommendSequence,
+    RecommendWithEvidenceWarning,
+    ExplainRejection,
+    FallbackOnly,
+}
+
+impl RelationDecision {
+    pub const fn as_str(self) -> &'static str {
+        match self {
+            Self::RecommendBoundaryFrame => "recommend-boundary-frame",
+            Self::RecommendSequence => "recommend-sequence",
+            Self::RecommendWithEvidenceWarning => "recommend-with-evidence-warning",
+            Self::ExplainRejection => "explain-rejection",
+            Self::FallbackOnly => "fallback-only",
+        }
+    }
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct RelationQuery<'a> {
+    pub base: FrameQuery<'a>,
+    pub target_relation: Option<TargetRelation>,
+    pub constraint: Option<ConstraintRelation>,
+    pub protected_value: Option<ProtectedValue>,
+    pub excluded_transfers: &'a [TransferExclusion],
+}
+
+impl<'a> RelationQuery<'a> {
+    pub const fn new(base: FrameQuery<'a>) -> Self {
+        Self {
+            base,
+            target_relation: None,
+            constraint: None,
+            protected_value: None,
+            excluded_transfers: &[],
+        }
+    }
+
+    pub const fn with_target_relation(mut self, relation: TargetRelation) -> Self {
+        self.target_relation = Some(relation);
+        self
+    }
+
+    pub const fn with_constraint(mut self, constraint: ConstraintRelation) -> Self {
+        self.constraint = Some(constraint);
+        self
+    }
+
+    pub const fn with_protected_value(mut self, value: ProtectedValue) -> Self {
+        self.protected_value = Some(value);
+        self
+    }
+
+    pub const fn with_excluded_transfers(mut self, exclusions: &'a [TransferExclusion]) -> Self {
+        self.excluded_transfers = exclusions;
+        self
+    }
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Default)]
@@ -480,6 +580,25 @@ pub struct FrameSearchReport<'a> {
     pub fallbacks: Vec<&'a str>,
     pub suppressed: Vec<SuppressedCandidate<'a>>,
     pub review_only: Vec<ReviewCandidate<'a>>,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, Default)]
+pub struct RelationSearchReport<'a> {
+    pub suggestions: Vec<RelationCandidate<'a>>,
+    pub fallbacks: Vec<&'a str>,
+    pub suppressed: Vec<SuppressedCandidate<'a>>,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct RelationCandidate<'a> {
+    pub candidate: FrameCandidate<'a>,
+    pub relation_score: i16,
+    pub rank_band: RankBand,
+    pub matched_relations: Vec<&'a str>,
+    pub authority_fit: AuthorityFit,
+    pub decision: RelationDecision,
+    pub warnings: Vec<&'a str>,
+    pub plain_language_fallback: Option<&'a str>,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -639,6 +758,83 @@ impl FrameIndex {
             review_only,
         }
     }
+
+    pub fn search_with_relations(
+        &self,
+        query: &RelationQuery<'_>,
+    ) -> RelationSearchReport<'static> {
+        let suppressed = relation_suppressed_for_query(query);
+        let hard_stop_ids: Vec<_> = suppressed
+            .iter()
+            .map(|candidate| candidate.candidate_id)
+            .collect();
+        let loose_base = FrameQuery {
+            authority_model: None,
+            ..query.base.clone()
+        };
+
+        let mut suggestions: Vec<_> = self
+            .entries
+            .iter()
+            .filter_map(|entry| relation_candidate_for_entry(entry, &loose_base, query))
+            .into_iter()
+            .filter(|candidate| !hard_stop_ids.contains(&candidate.entry.id))
+            .filter_map(|candidate| relation_candidate(candidate, query))
+            .collect();
+
+        suggestions.sort_by(|left, right| {
+            right
+                .relation_score
+                .cmp(&left.relation_score)
+                .then_with(|| right.candidate.score.cmp(&left.candidate.score))
+                .then_with(|| left.candidate.entry.name.cmp(right.candidate.entry.name))
+        });
+
+        let fallbacks = if suggestions.is_empty() {
+            relation_fallbacks(query, &suppressed)
+        } else {
+            Vec::new()
+        };
+
+        RelationSearchReport {
+            suggestions,
+            fallbacks,
+            suppressed,
+        }
+    }
+}
+
+fn relation_candidate_for_entry(
+    entry: &'static FrameEntry,
+    loose_base: &FrameQuery<'_>,
+    query: &RelationQuery<'_>,
+) -> Option<FrameCandidate<'static>> {
+    let metadata = relation_metadata_by_id(entry.id)?;
+    if !relation_metadata_relevant(metadata, query) {
+        return None;
+    }
+
+    Some(score_entry(entry, loose_base).unwrap_or(FrameCandidate {
+        entry,
+        score: 0,
+        match_notes: MatchNotes::default(),
+    }))
+}
+
+fn relation_metadata_relevant(metadata: &RelationMetadata, query: &RelationQuery<'_>) -> bool {
+    query
+        .target_relation
+        .is_some_and(|relation| metadata.target_relations.contains(&relation))
+        || query
+            .constraint
+            .is_some_and(|constraint| metadata.constraint_relations.contains(&constraint))
+        || query
+            .protected_value
+            .is_some_and(|value| metadata.protected_values.contains(&value))
+        || query
+            .excluded_transfers
+            .iter()
+            .any(|exclusion| metadata.exclusions.contains(exclusion))
 }
 
 fn score_entry(
@@ -702,6 +898,322 @@ fn score_entry(
         score,
         match_notes: notes,
     })
+}
+
+fn relation_candidate(
+    candidate: FrameCandidate<'static>,
+    query: &RelationQuery<'_>,
+) -> Option<RelationCandidate<'static>> {
+    let metadata = relation_metadata_by_id(candidate.entry.id)?;
+    let mut relation_score = candidate.score as i16;
+    let mut matched_relations = Vec::new();
+    let mut warnings = Vec::new();
+
+    if let Some(relation) = query.target_relation {
+        if metadata.target_relations.contains(&relation) {
+            relation_score += 40;
+            matched_relations.push(target_relation_name(relation));
+        }
+    }
+
+    if let Some(constraint) = query.constraint {
+        if metadata.constraint_relations.contains(&constraint) {
+            relation_score += 24;
+            matched_relations.push(constraint_relation_name(constraint));
+        }
+    }
+
+    if let Some(value) = query.protected_value {
+        if metadata.protected_values.contains(&value) {
+            relation_score += 20;
+            matched_relations.push(protected_value_name(value));
+        } else if value == ProtectedValue::CustomerSafety {
+            relation_score -= 30;
+            warnings.push("protected-value warning");
+        }
+    }
+
+    for exclusion in query.excluded_transfers {
+        if metadata.exclusions.contains(exclusion) {
+            relation_score -= transfer_exclusion_penalty(*exclusion);
+            warnings.push(transfer_exclusion_warning(*exclusion));
+        }
+    }
+
+    relation_score += match metadata.transfer_strength {
+        TransferStrength::Structural => 12,
+        TransferStrength::Partial => 4,
+        TransferStrength::Dangerous => -80,
+    };
+
+    let authority_fit = relation_authority_fit(candidate.entry.authority_model, query);
+    match authority_fit {
+        AuthorityFit::Matches => relation_score += 10,
+        AuthorityFit::Compatible => relation_score += 4,
+        AuthorityFit::Mismatch => {
+            relation_score -= 40;
+            warnings.push("authority warning");
+        }
+        AuthorityFit::NotAssessed => {}
+    }
+
+    add_relation_warnings(&mut warnings, metadata, query);
+
+    let rank_band = relation_rank_band(relation_score, &warnings);
+    let decision = relation_decision(metadata, query, rank_band);
+
+    Some(RelationCandidate {
+        candidate,
+        relation_score,
+        rank_band,
+        matched_relations,
+        authority_fit,
+        decision,
+        warnings,
+        plain_language_fallback: relation_static_fallback(query),
+    })
+}
+
+fn relation_suppressed_for_query(query: &RelationQuery<'_>) -> Vec<SuppressedCandidate<'static>> {
+    let mut suppressed = suppressed_for_query(&query.base);
+
+    if query.base.authority_model == Some(AuthorityModel::Owner)
+        && query.target_relation == Some(TargetRelation::DirectedAuthority)
+    {
+        suppress_accepted_relation_candidate(
+            &mut suppressed,
+            "four-way-stop",
+            "Four-way stop",
+            "peer turn-taking conflicts with owner-directed action",
+            "false_authority_transfer",
+            "authority",
+            "The incident owner should state the decision path and next action.",
+        );
+        suppress_accepted_relation_candidate(
+            &mut suppressed,
+            "merge-lane",
+            "Merge lane",
+            "flow-joining wording conflicts with owner-directed action",
+            "false_authority_transfer",
+            "authority",
+            "The incident owner should state the decision path and next action.",
+        );
+    }
+
+    suppressed
+}
+
+fn suppress_accepted_relation_candidate(
+    suppressed: &mut Vec<SuppressedCandidate<'static>>,
+    candidate_id: &'static str,
+    candidate_name: &'static str,
+    matched_reason: &'static str,
+    rejection_class: &'static str,
+    violated_boundary: &'static str,
+    plain_language_fallback: &'static str,
+) {
+    if suppressed
+        .iter()
+        .any(|candidate| candidate.candidate_id == candidate_id)
+    {
+        return;
+    }
+
+    suppressed.push(SuppressedCandidate {
+        candidate_id,
+        candidate_name,
+        status: FrameStatus::Accepted,
+        matched_reason,
+        rejection_class,
+        violated_boundary,
+        safer_frame: None,
+        plain_language_fallback,
+        source_docs: &[
+            "docs/theory/related-frame-taxonomy.md",
+            "docs/theory/transfer-aware-search-design.md",
+        ],
+        display_rule: DisplayRule::ExplainWhenRequested,
+    });
+}
+
+fn relation_fallbacks(
+    query: &RelationQuery<'_>,
+    suppressed: &[SuppressedCandidate<'static>],
+) -> Vec<&'static str> {
+    if let Some(fallback) = relation_static_fallback(query) {
+        return vec![fallback];
+    }
+
+    unique_fallbacks(suppressed)
+}
+
+fn relation_static_fallback(query: &RelationQuery<'_>) -> Option<&'static str> {
+    match (
+        query.target_relation,
+        query.constraint,
+        query.protected_value,
+    ) {
+        (Some(TargetRelation::DirectedAuthority), _, Some(ProtectedValue::IncidentControl)) => {
+            Some("The incident owner should state the decision path and next action.")
+        }
+        (
+            Some(TargetRelation::RequiredGate),
+            Some(ConstraintRelation::AuthorityMissing),
+            Some(ProtectedValue::DecisionLegitimacy),
+        ) => Some("This is an unresolved preference or decision-rights issue."),
+        (
+            Some(TargetRelation::PerspectiveRepair),
+            Some(ConstraintRelation::FactsKnown),
+            Some(ProtectedValue::RepairAccountability),
+        ) => Some("Facts are now known; name harm, repair, and ownership."),
+        _ => None,
+    }
+}
+
+fn relation_authority_fit(
+    candidate_authority: AuthorityModel,
+    query: &RelationQuery<'_>,
+) -> AuthorityFit {
+    let Some(authority) = query.base.authority_model else {
+        return AuthorityFit::NotAssessed;
+    };
+
+    if candidate_authority == authority {
+        return AuthorityFit::Matches;
+    }
+
+    if query.target_relation == Some(TargetRelation::ProtectedPartyDuty)
+        && candidate_authority == AuthorityModel::Peer
+    {
+        return AuthorityFit::Mismatch;
+    }
+
+    if query.target_relation == Some(TargetRelation::DirectedAuthority)
+        && candidate_authority == AuthorityModel::Peer
+    {
+        return AuthorityFit::Mismatch;
+    }
+
+    AuthorityFit::Compatible
+}
+
+fn relation_rank_band(score: i16, warnings: &[&str]) -> RankBand {
+    if warnings.iter().any(|warning| {
+        warning.contains("authority")
+            || warning.contains("protected-value")
+            || warning.contains("buffer")
+            || warning.contains("coupling")
+    }) {
+        RankBand::Demoted
+    } else if score < 0 {
+        RankBand::Suppressed
+    } else if score >= 80 {
+        RankBand::Strong
+    } else {
+        RankBand::UsableWithWarning
+    }
+}
+
+fn relation_decision(
+    metadata: &RelationMetadata,
+    query: &RelationQuery<'_>,
+    rank_band: RankBand,
+) -> RelationDecision {
+    if rank_band == RankBand::Suppressed
+        || metadata.transfer_strength == TransferStrength::Dangerous
+    {
+        if query.target_relation == Some(TargetRelation::RequiredGate) {
+            RelationDecision::ExplainRejection
+        } else {
+            RelationDecision::FallbackOnly
+        }
+    } else if query.constraint == Some(ConstraintRelation::Coupling) {
+        RelationDecision::RecommendSequence
+    } else if query.constraint == Some(ConstraintRelation::EvidenceMissing) {
+        RelationDecision::RecommendWithEvidenceWarning
+    } else {
+        RelationDecision::RecommendBoundaryFrame
+    }
+}
+
+fn add_relation_warnings(
+    warnings: &mut Vec<&'static str>,
+    metadata: &RelationMetadata,
+    query: &RelationQuery<'_>,
+) {
+    if query.target_relation == Some(TargetRelation::ProtectedPartyDuty)
+        && metadata
+            .target_relations
+            .contains(&TargetRelation::PeerTurnTaking)
+    {
+        warnings.push("authority warning");
+    }
+
+    if query.constraint == Some(ConstraintRelation::Coupling)
+        && metadata.transfer_strength == TransferStrength::Partial
+    {
+        warnings.push("coupling risk");
+    }
+
+    if query.constraint == Some(ConstraintRelation::EvidenceMissing) {
+        warnings.push("evidence boundary");
+        warnings.push("threshold required");
+    }
+}
+
+fn target_relation_name(relation: TargetRelation) -> &'static str {
+    match relation {
+        TargetRelation::PeerTurnTaking => "peer_turn_taking",
+        TargetRelation::ProtectedPartyDuty => "protected_party_duty",
+        TargetRelation::DirectedAuthority => "directed_authority",
+        TargetRelation::FlowJoining => "flow_joining",
+        TargetRelation::RequiredGate => "required_gate",
+        TargetRelation::ThresholdSignal => "threshold_signal",
+        TargetRelation::PerspectiveRepair => "perspective_repair",
+    }
+}
+
+fn constraint_relation_name(relation: ConstraintRelation) -> &'static str {
+    match relation {
+        ConstraintRelation::Coupling => "coupling",
+        ConstraintRelation::EvidenceMissing => "evidence_missing",
+        ConstraintRelation::AuthorityMissing => "authority_missing",
+        ConstraintRelation::FactsKnown => "facts_known",
+    }
+}
+
+fn protected_value_name(value: ProtectedValue) -> &'static str {
+    match value {
+        ProtectedValue::CustomerSafety => "customer safety",
+        ProtectedValue::IncidentControl => "incident control",
+        ProtectedValue::SystemStability => "system stability",
+        ProtectedValue::DecisionQuality => "decision quality",
+        ProtectedValue::DecisionLegitimacy => "decision legitimacy",
+        ProtectedValue::RepairAccountability => "repair accountability",
+    }
+}
+
+fn transfer_exclusion_warning(exclusion: TransferExclusion) -> &'static str {
+    match exclusion {
+        TransferExclusion::PeerTurnsUnderOwnerAuthority => "relation conflict",
+        TransferExclusion::StrongActorDutyShiftedToProtectedParty => "protected-value warning",
+        TransferExclusion::SpeedWithoutSafetyGate => "buffer evidence required",
+        TransferExclusion::StatusWithoutEvidence => "evidence boundary",
+        TransferExclusion::UnsupportedAuthorityGate => "false authority transfer",
+        TransferExclusion::StoryAfterFactsKnown => "repair required",
+    }
+}
+
+fn transfer_exclusion_penalty(exclusion: TransferExclusion) -> i16 {
+    match exclusion {
+        TransferExclusion::StatusWithoutEvidence => 0,
+        TransferExclusion::PeerTurnsUnderOwnerAuthority
+        | TransferExclusion::StrongActorDutyShiftedToProtectedParty
+        | TransferExclusion::SpeedWithoutSafetyGate => 60,
+        TransferExclusion::UnsupportedAuthorityGate | TransferExclusion::StoryAfterFactsKnown => {
+            100
+        }
+    }
 }
 
 fn contains_ignore_ascii_case(haystack: &[&str], needle: &str) -> bool {
@@ -1813,6 +2325,194 @@ mod tests {
 
         assert_eq!(results[0].entry.id, "four-way-stop");
         assert!(relation_metadata_by_id(results[0].entry.id).is_some());
+    }
+
+    #[test]
+    fn relation_report_prefers_protected_party_duty_over_peer_turns() {
+        let index = FrameIndex::new();
+        let query = RelationQuery::new(
+            FrameQuery::new(
+                "one team must slow down to protect vulnerable customers during rollout",
+            )
+            .with_kind(FrameKind::Coordination)
+            .with_authority_model(AuthorityModel::ProtectedParty)
+            .with_risk_band(RiskBand::Medium)
+            .with_application_pack(ApplicationPack::Product),
+        )
+        .with_target_relation(TargetRelation::ProtectedPartyDuty)
+        .with_protected_value(ProtectedValue::CustomerSafety)
+        .with_excluded_transfers(&[TransferExclusion::StrongActorDutyShiftedToProtectedParty]);
+
+        let report = index.search_with_relations(&query);
+        let ids: Vec<_> = report
+            .suggestions
+            .iter()
+            .take(2)
+            .map(|candidate| candidate.candidate.entry.id)
+            .collect();
+
+        assert_eq!(ids, vec!["crosswalk-yield", "four-way-stop"]);
+        assert_eq!(
+            report.suggestions[0].decision,
+            RelationDecision::RecommendBoundaryFrame
+        );
+        assert_eq!(report.suggestions[1].rank_band, RankBand::Demoted);
+        assert!(report.suggestions[1]
+            .warnings
+            .contains(&"protected-value warning"));
+    }
+
+    #[test]
+    fn relation_report_hard_stops_peer_frames_under_owner_authority() {
+        let index = FrameIndex::new();
+        let query = RelationQuery::new(
+            FrameQuery::new(
+                "an incident owner must direct the next action but the words say teams need turns",
+            )
+            .with_kind(FrameKind::Coordination)
+            .with_authority_model(AuthorityModel::Owner)
+            .with_risk_band(RiskBand::Medium)
+            .with_application_pack(ApplicationPack::Operations),
+        )
+        .with_target_relation(TargetRelation::DirectedAuthority)
+        .with_protected_value(ProtectedValue::IncidentControl);
+
+        let report = index.search_with_relations(&query);
+
+        assert!(report.suggestions.is_empty());
+        assert_eq!(
+            report.fallbacks,
+            vec!["The incident owner should state the decision path and next action."]
+        );
+        assert!(report
+            .suppressed
+            .iter()
+            .any(|candidate| candidate.candidate_id == "four-way-stop"));
+        assert!(report
+            .suppressed
+            .iter()
+            .any(|candidate| candidate.candidate_id == "merge-lane"));
+    }
+
+    #[test]
+    fn relation_report_ranks_buffer_before_merge_under_coupling() {
+        let index = FrameIndex::new();
+        let query = RelationQuery::new(
+            FrameQuery::new(
+                "merge work into an active system with tight coupling and little reaction time",
+            )
+            .with_kind(FrameKind::Risk)
+            .with_authority_model(AuthorityModel::Operator)
+            .with_risk_band(RiskBand::Medium)
+            .with_application_pack(ApplicationPack::Operations),
+        )
+        .with_target_relation(TargetRelation::FlowJoining)
+        .with_constraint(ConstraintRelation::Coupling)
+        .with_protected_value(ProtectedValue::SystemStability)
+        .with_excluded_transfers(&[TransferExclusion::SpeedWithoutSafetyGate]);
+
+        let report = index.search_with_relations(&query);
+        let ids: Vec<_> = report
+            .suggestions
+            .iter()
+            .take(2)
+            .map(|candidate| candidate.candidate.entry.id)
+            .collect();
+
+        assert_eq!(ids, vec!["following-distance", "merge-lane"]);
+        assert_eq!(
+            report.suggestions[0].decision,
+            RelationDecision::RecommendSequence
+        );
+        assert_eq!(report.suggestions[1].rank_band, RankBand::Demoted);
+    }
+
+    #[test]
+    fn relation_report_preserves_status_frame_with_evidence_warning() {
+        let index = FrameIndex::new();
+        let query = RelationQuery::new(
+            FrameQuery::new("the report says green but no threshold or evidence is named")
+                .with_kind(FrameKind::Status)
+                .with_authority_model(AuthorityModel::Operator)
+                .with_risk_band(RiskBand::Medium)
+                .with_application_pack(ApplicationPack::Product),
+        )
+        .with_target_relation(TargetRelation::ThresholdSignal)
+        .with_constraint(ConstraintRelation::EvidenceMissing)
+        .with_protected_value(ProtectedValue::DecisionQuality)
+        .with_excluded_transfers(&[TransferExclusion::StatusWithoutEvidence]);
+
+        let report = index.search_with_relations(&query);
+        let ids: Vec<_> = report
+            .suggestions
+            .iter()
+            .take(2)
+            .map(|candidate| candidate.candidate.entry.id)
+            .collect();
+
+        assert_eq!(ids, vec!["red-yellow-green", "dashboard-warning-light"]);
+        assert_eq!(
+            report.suggestions[0].decision,
+            RelationDecision::RecommendWithEvidenceWarning
+        );
+        assert!(report.suggestions[0]
+            .warnings
+            .contains(&"evidence boundary"));
+    }
+
+    #[test]
+    fn relation_report_suppresses_unsupported_veto_near_miss() {
+        let index = FrameIndex::new();
+        let query = RelationQuery::new(
+            FrameQuery::new("a senior stakeholder says the option is vetoed without evidence")
+                .with_kind(FrameKind::Risk)
+                .with_authority_model(AuthorityModel::Reviewer)
+                .with_risk_band(RiskBand::Medium)
+                .with_application_pack(ApplicationPack::Leadership),
+        )
+        .with_target_relation(TargetRelation::RequiredGate)
+        .with_constraint(ConstraintRelation::AuthorityMissing)
+        .with_protected_value(ProtectedValue::DecisionLegitimacy)
+        .with_excluded_transfers(&[TransferExclusion::UnsupportedAuthorityGate]);
+
+        let report = index.search_with_relations(&query);
+
+        assert!(report.suggestions.is_empty());
+        assert_eq!(
+            report.fallbacks,
+            vec!["This is an unresolved preference or decision-rights issue."]
+        );
+        assert!(report
+            .suppressed
+            .iter()
+            .any(|candidate| candidate.candidate_id == "veto-rule"));
+    }
+
+    #[test]
+    fn relation_report_suppresses_story_after_facts_known() {
+        let index = FrameIndex::new();
+        let query = RelationQuery::new(
+            FrameQuery::new("a bag-of-chips story is suggested after facts establish harm")
+                .with_authority_model(AuthorityModel::Peer)
+                .with_risk_band(RiskBand::Medium)
+                .with_application_pack(ApplicationPack::Leadership),
+        )
+        .with_target_relation(TargetRelation::PerspectiveRepair)
+        .with_constraint(ConstraintRelation::FactsKnown)
+        .with_protected_value(ProtectedValue::RepairAccountability)
+        .with_excluded_transfers(&[TransferExclusion::StoryAfterFactsKnown]);
+
+        let report = index.search_with_relations(&query);
+
+        assert!(report.suggestions.is_empty());
+        assert_eq!(
+            report.fallbacks,
+            vec!["Facts are now known; name harm, repair, and ownership."]
+        );
+        assert!(report
+            .suppressed
+            .iter()
+            .any(|candidate| candidate.candidate_id == "bag-of-chips-as-excuse"));
     }
 
     #[test]
