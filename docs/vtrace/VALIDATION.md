@@ -75,6 +75,7 @@ Repo or feature: `frames-core`
 | VAL-065 | Rust API maintainer or AI tool builder | Prepare relation-aware ranking metadata without exposing public scoring behavior. | Run metadata tests and compare default search outputs. | Fixture IDs have private relation metadata, and ordinary search still returns the same accepted starter results. | EVID-073 | pass |
 | VAL-066 | Rust API maintainer or AI tool builder | Request relation-aware ranking output without changing ordinary accepted-frame lookup. | Use `search_with_relations` and compare `FrameIndex::search` outputs. | Relation suggestions, demotions, hard stops, warnings, and fallbacks are separate from default search behavior. | EVID-074 | pass |
 | VAL-067 | Rust API maintainer or AI tool builder | Inspect relation-aware report output from an executable example. | Run `cargo run --example relation_lookup`. | Example output exposes relation score, rank band, decision, authority fit, matched relations, warnings, and separate suppression/fallback channels. | EVID-075 | pass |
+| VAL-068 | Rust API maintainer or AI tool builder | Check broader relation-aware fixture behavior before default-search promotion. | Parse relation fixtures and run relation report tests. | Accepted-starter visibility/dependency and pace/buffer composition cases are covered without changing default search. | EVID-076 | pass |
 
 ## Deferred Validation
 

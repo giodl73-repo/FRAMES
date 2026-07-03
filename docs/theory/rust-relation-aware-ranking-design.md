@@ -186,5 +186,7 @@ Before implementation can replace or influence default ranking:
 - `search_with_relations` now provides a separate relation-aware report path
   while preserving default search.
 - A runnable relation-aware example now shows the report shape.
-- The next implementation step should broaden fixture coverage before
+- Relation fixture coverage now includes visibility-before-dependency and
+  pace-plus-buffer composition cases.
+- The next implementation step should deepen fixture coverage before
   considering any default-search promotion.

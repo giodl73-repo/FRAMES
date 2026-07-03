@@ -352,6 +352,9 @@ pub enum TargetRelation {
     RequiredGate,
     ThresholdSignal,
     PerspectiveRepair,
+    AttentionLimit,
+    DependencyIntegrity,
+    PaceAdjustment,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -387,6 +390,7 @@ pub enum TransferExclusion {
     StatusWithoutEvidence,
     UnsupportedAuthorityGate,
     StoryAfterFactsKnown,
+    UnknownTreatedAsStructural,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -822,12 +826,18 @@ fn relation_candidate_for_entry(
 }
 
 fn relation_metadata_relevant(metadata: &RelationMetadata, query: &RelationQuery<'_>) -> bool {
+    if let Some(target_relation) = query.target_relation {
+        return metadata.target_relations.contains(&target_relation)
+            || query
+                .excluded_transfers
+                .iter()
+                .any(|exclusion| metadata.exclusions.contains(exclusion))
+            || relation_composes_with_target(metadata, target_relation, query);
+    }
+
     query
-        .target_relation
-        .is_some_and(|relation| metadata.target_relations.contains(&relation))
-        || query
-            .constraint
-            .is_some_and(|constraint| metadata.constraint_relations.contains(&constraint))
+        .constraint
+        .is_some_and(|constraint| metadata.constraint_relations.contains(&constraint))
         || query
             .protected_value
             .is_some_and(|value| metadata.protected_values.contains(&value))
@@ -835,6 +845,22 @@ fn relation_metadata_relevant(metadata: &RelationMetadata, query: &RelationQuery
             .excluded_transfers
             .iter()
             .any(|exclusion| metadata.exclusions.contains(exclusion))
+}
+
+fn relation_composes_with_target(
+    metadata: &RelationMetadata,
+    target_relation: TargetRelation,
+    query: &RelationQuery<'_>,
+) -> bool {
+    target_relation == TargetRelation::PaceAdjustment
+        && query.constraint == Some(ConstraintRelation::Coupling)
+        && query.protected_value == Some(ProtectedValue::SystemStability)
+        && metadata
+            .target_relations
+            .contains(&TargetRelation::FlowJoining)
+        && metadata
+            .constraint_relations
+            .contains(&ConstraintRelation::Coupling)
 }
 
 fn score_entry(
@@ -1103,6 +1129,7 @@ fn relation_rank_band(score: i16, warnings: &[&str]) -> RankBand {
             || warning.contains("protected-value")
             || warning.contains("buffer")
             || warning.contains("coupling")
+            || warning.contains("structural evidence")
     }) {
         RankBand::Demoted
     } else if score < 0 {
@@ -1157,7 +1184,11 @@ fn add_relation_warnings(
 
     if query.constraint == Some(ConstraintRelation::EvidenceMissing) {
         push_unique_warning(warnings, "evidence boundary");
-        push_unique_warning(warnings, "threshold required");
+        if query.target_relation == Some(TargetRelation::AttentionLimit) {
+            push_unique_warning(warnings, "missing signal");
+        } else {
+            push_unique_warning(warnings, "threshold required");
+        }
     }
 }
 
@@ -1176,6 +1207,9 @@ fn target_relation_name(relation: TargetRelation) -> &'static str {
         TargetRelation::RequiredGate => "required_gate",
         TargetRelation::ThresholdSignal => "threshold_signal",
         TargetRelation::PerspectiveRepair => "perspective_repair",
+        TargetRelation::AttentionLimit => "attention_limit",
+        TargetRelation::DependencyIntegrity => "dependency_integrity",
+        TargetRelation::PaceAdjustment => "pace_adjustment",
     }
 }
 
@@ -1207,12 +1241,14 @@ fn transfer_exclusion_warning(exclusion: TransferExclusion) -> &'static str {
         TransferExclusion::StatusWithoutEvidence => "evidence boundary",
         TransferExclusion::UnsupportedAuthorityGate => "false authority transfer",
         TransferExclusion::StoryAfterFactsKnown => "repair required",
+        TransferExclusion::UnknownTreatedAsStructural => "structural evidence required",
     }
 }
 
 fn transfer_exclusion_penalty(exclusion: TransferExclusion) -> i16 {
     match exclusion {
         TransferExclusion::StatusWithoutEvidence => 0,
+        TransferExclusion::UnknownTreatedAsStructural => 60,
         TransferExclusion::PeerTurnsUnderOwnerAuthority
         | TransferExclusion::StrongActorDutyShiftedToProtectedParty
         | TransferExclusion::SpeedWithoutSafetyGate => 60,
@@ -1503,6 +1539,30 @@ const RELATION_METADATA: &[RelationMetadata] = &[
         protected_values: &[ProtectedValue::DecisionQuality],
         transfer_strength: TransferStrength::Partial,
         exclusions: &[],
+    },
+    RelationMetadata {
+        frame_id: "speed-limit",
+        target_relations: &[TargetRelation::PaceAdjustment],
+        constraint_relations: &[ConstraintRelation::Coupling],
+        protected_values: &[ProtectedValue::SystemStability],
+        transfer_strength: TransferStrength::Structural,
+        exclusions: &[],
+    },
+    RelationMetadata {
+        frame_id: "blind-spot",
+        target_relations: &[TargetRelation::AttentionLimit],
+        constraint_relations: &[ConstraintRelation::EvidenceMissing],
+        protected_values: &[ProtectedValue::DecisionQuality],
+        transfer_strength: TransferStrength::Structural,
+        exclusions: &[],
+    },
+    RelationMetadata {
+        frame_id: "load-bearing-wall",
+        target_relations: &[TargetRelation::DependencyIntegrity],
+        constraint_relations: &[ConstraintRelation::EvidenceMissing],
+        protected_values: &[ProtectedValue::SystemStability],
+        transfer_strength: TransferStrength::Structural,
+        exclusions: &[TransferExclusion::UnknownTreatedAsStructural],
     },
     RelationMetadata {
         frame_id: "veto-rule",
@@ -2268,6 +2328,9 @@ mod tests {
             "following-distance",
             "red-yellow-green",
             "dashboard-warning-light",
+            "blind-spot",
+            "load-bearing-wall",
+            "speed-limit",
             "veto-rule",
             "bag-of-chips-as-excuse",
         ];
@@ -2315,6 +2378,19 @@ mod tests {
         assert!(chips
             .constraint_relations
             .contains(&ConstraintRelation::FactsKnown));
+
+        let blind_spot = relation_metadata_by_id("blind-spot").unwrap();
+        let load_bearing_wall = relation_metadata_by_id("load-bearing-wall").unwrap();
+        let speed_limit = relation_metadata_by_id("speed-limit").unwrap();
+        assert!(blind_spot
+            .target_relations
+            .contains(&TargetRelation::AttentionLimit));
+        assert!(load_bearing_wall
+            .exclusions
+            .contains(&TransferExclusion::UnknownTreatedAsStructural));
+        assert!(speed_limit
+            .target_relations
+            .contains(&TargetRelation::PaceAdjustment));
     }
 
     #[test]
@@ -2519,6 +2595,72 @@ mod tests {
             .suppressed
             .iter()
             .any(|candidate| candidate.candidate_id == "bag-of-chips-as-excuse"));
+    }
+
+    #[test]
+    fn relation_report_checks_visibility_before_structural_dependency() {
+        let index = FrameIndex::new();
+        let query = RelationQuery::new(
+            FrameQuery::new("unknown stakeholder or dependency before changing the system")
+                .with_kind(FrameKind::Risk)
+                .with_authority_model(AuthorityModel::Reviewer)
+                .with_risk_band(RiskBand::Medium)
+                .with_application_pack(ApplicationPack::Product),
+        )
+        .with_target_relation(TargetRelation::AttentionLimit)
+        .with_constraint(ConstraintRelation::EvidenceMissing)
+        .with_protected_value(ProtectedValue::DecisionQuality)
+        .with_excluded_transfers(&[TransferExclusion::UnknownTreatedAsStructural]);
+
+        let report = index.search_with_relations(&query);
+        let ids: Vec<_> = report
+            .suggestions
+            .iter()
+            .take(2)
+            .map(|candidate| candidate.candidate.entry.id)
+            .collect();
+
+        assert_eq!(ids, vec!["blind-spot", "load-bearing-wall"]);
+        assert_eq!(
+            report.suggestions[0].decision,
+            RelationDecision::RecommendWithEvidenceWarning
+        );
+        assert!(report.suggestions[0].warnings.contains(&"missing signal"));
+        assert_eq!(report.suggestions[1].rank_band, RankBand::Demoted);
+        assert!(report.suggestions[1]
+            .warnings
+            .contains(&"structural evidence required"));
+    }
+
+    #[test]
+    fn relation_report_composes_pace_constraint_with_buffer_spacing() {
+        let index = FrameIndex::new();
+        let query = RelationQuery::new(
+            FrameQuery::new("maximum safe pace with reaction buffer between coupled work")
+                .with_kind(FrameKind::Status)
+                .with_authority_model(AuthorityModel::Steward)
+                .with_risk_band(RiskBand::Medium)
+                .with_application_pack(ApplicationPack::Operations),
+        )
+        .with_target_relation(TargetRelation::PaceAdjustment)
+        .with_constraint(ConstraintRelation::Coupling)
+        .with_protected_value(ProtectedValue::SystemStability);
+
+        let report = index.search_with_relations(&query);
+        let ids: Vec<_> = report
+            .suggestions
+            .iter()
+            .take(2)
+            .map(|candidate| candidate.candidate.entry.id)
+            .collect();
+
+        assert_eq!(ids, vec!["speed-limit", "following-distance"]);
+        assert_eq!(
+            report.suggestions[0].decision,
+            RelationDecision::RecommendSequence
+        );
+        assert!(report.suggestions[0].warnings.is_empty());
+        assert!(report.suggestions[1].warnings.is_empty());
     }
 
     #[test]

@@ -77,6 +77,7 @@ Repo or feature: `frames-core`
 | SPEC-067 | REQ-068 | Rust implementation / metadata | target | `frames-core` contains private relation metadata types, private metadata rows for the first relation-ranking fixture IDs, and tests that map fixture expectations to metadata while preserving `FrameIndex::search` output. | unit test / example run / inspection | VAL-065 | FRAMES | medium | accepted |
 | SPEC-068 | REQ-069 | Rust API / behavior | target | `frames-core` exposes `RelationQuery`, relation enums, `RelationSearchReport`, `RelationCandidate`, and `FrameIndex::search_with_relations` as a separate relation-aware report path while preserving `FrameIndex::search` output and keeping review-only rows out of recommendations. | unit test / example run / inspection | VAL-066 | FRAMES | medium | accepted |
 | SPEC-069 | REQ-070 | example / behavior | target | `examples/relation_lookup.rs` runs against `search_with_relations` and prints relation suggestions with scores, rank bands, decisions, authority fit, matched relations, warnings, suppressed candidates, and fallbacks. | example run / inspection | VAL-067 | FRAMES | low | accepted |
+| SPEC-070 | REQ-071 | evaluation / ranking | target | Relation-aware ranking fixtures and Rust tests cover accepted-starter visibility-before-dependency and pace-plus-buffer composition cases while preserving default search behavior. | JSON parse / unit test / example run / inspection | VAL-068 | FRAMES | medium | accepted |
 
 ## Contract Table
 

@@ -192,6 +192,60 @@
         "docs/eval/starter-fixtures.json"
       ],
       "review_status": "accepted-fixture"
+    },
+    {
+      "id": "REL-RANK-007",
+      "title": "Visibility check precedes structural dependency claim",
+      "query": {
+        "target_situation": "The team suspects an unknown stakeholder or dependency before changing the system.",
+        "frame_job": "risk",
+        "target_relation": "attention_limit",
+        "authority_term": "reviewer",
+        "risk_band": "medium",
+        "application_pack": "product",
+        "constraint": "evidence_missing",
+        "protected_value": "decision quality"
+      },
+      "expected_order": ["blind-spot", "load-bearing-wall"],
+      "must_demote": ["load-bearing-wall"],
+      "must_suppress": [],
+      "expected_decision": "recommend-with-evidence-warning",
+      "expected_relation_behavior": "sequence_before",
+      "expected_warnings": ["missing signal", "structural evidence required"],
+      "plain_language_fallback": "Identify the missing dependency or stakeholder before calling it structural.",
+      "source_docs": [
+        "docs/theory/related-frame-application-starter.md",
+        "docs/theory/transfer-aware-search-design.md",
+        "docs/frame-catalog.md"
+      ],
+      "review_status": "accepted-fixture"
+    },
+    {
+      "id": "REL-RANK-008",
+      "title": "Pace constraint composes with buffer spacing",
+      "query": {
+        "target_situation": "A team needs a maximum safe pace while preserving reaction buffer between coupled work.",
+        "frame_job": "status",
+        "target_relation": "pace_adjustment",
+        "authority_term": "steward",
+        "risk_band": "medium",
+        "application_pack": "operations",
+        "constraint": "coupling",
+        "protected_value": "system stability"
+      },
+      "expected_order": ["speed-limit", "following-distance"],
+      "must_demote": [],
+      "must_suppress": [],
+      "expected_decision": "recommend-sequence",
+      "expected_relation_behavior": "compatible_with",
+      "expected_warnings": [],
+      "plain_language_fallback": "Set a maximum safe pace and keep enough buffer for coupled work.",
+      "source_docs": [
+        "docs/theory/related-frame-application-starter.md",
+        "docs/theory/transfer-aware-search-design.md",
+        "docs/frame-catalog.md"
+      ],
+      "review_status": "accepted-fixture"
     }
   ]
 }

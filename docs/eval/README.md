@@ -17,9 +17,9 @@ recommendations while preserving opt-in explanations.
 docs-catalog, anti-pattern, and held entries. It remains the review fixture
 source for the first Rust `REVIEW_CATALOG` rows.
 
-`relation-aware-ranking-fixtures.json` adds the first ordering and hard-stop
-fixtures for future relation-aware scoring. It does not change current Rust
-search; it defines the expected behavior before implementation.
+`relation-aware-ranking-fixtures.json` adds ordering, demotion, composition,
+and hard-stop fixtures for relation-aware scoring. It does not change default
+Rust search; it defines expected behavior for the opt-in relation report path.
 
 ## Fixture Package Rules
 
