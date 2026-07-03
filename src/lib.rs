@@ -357,6 +357,7 @@ pub enum TargetRelation {
     PaceAdjustment,
     StabilizationReentry,
     RecoveryPause,
+    RouteAdjustment,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -394,6 +395,7 @@ pub enum TransferExclusion {
     StoryAfterFactsKnown,
     UnknownTreatedAsStructural,
     PauseWithoutRestartCondition,
+    StopWithoutDestination,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -868,6 +870,8 @@ fn relation_composes_with_target(
             && metadata.frame_id == "merge-lane"
         || target_relation == TargetRelation::RecoveryPause
             && metadata.frame_id == "shoulder-pull-off"
+        || target_relation == TargetRelation::RouteAdjustment
+            && metadata.frame_id == "shoulder-pull-off"
 }
 
 fn score_entry(
@@ -1138,6 +1142,7 @@ fn relation_rank_band(score: i16, warnings: &[&str]) -> RankBand {
             || warning.contains("coupling")
             || warning.contains("structural evidence")
             || warning.contains("restart condition")
+            || warning.contains("destination")
     }) {
         RankBand::Demoted
     } else if score < 0 {
@@ -1222,6 +1227,7 @@ fn target_relation_name(relation: TargetRelation) -> &'static str {
         TargetRelation::PaceAdjustment => "pace_adjustment",
         TargetRelation::StabilizationReentry => "stabilization_reentry",
         TargetRelation::RecoveryPause => "recovery_pause",
+        TargetRelation::RouteAdjustment => "route_adjustment",
     }
 }
 
@@ -1255,6 +1261,7 @@ fn transfer_exclusion_warning(exclusion: TransferExclusion) -> &'static str {
         TransferExclusion::StoryAfterFactsKnown => "repair required",
         TransferExclusion::UnknownTreatedAsStructural => "structural evidence required",
         TransferExclusion::PauseWithoutRestartCondition => "restart condition required",
+        TransferExclusion::StopWithoutDestination => "destination required",
     }
 }
 
@@ -1263,6 +1270,7 @@ fn transfer_exclusion_penalty(exclusion: TransferExclusion) -> i16 {
         TransferExclusion::StatusWithoutEvidence => 0,
         TransferExclusion::UnknownTreatedAsStructural => 60,
         TransferExclusion::PauseWithoutRestartCondition => 60,
+        TransferExclusion::StopWithoutDestination => 60,
         TransferExclusion::PeerTurnsUnderOwnerAuthority
         | TransferExclusion::StrongActorDutyShiftedToProtectedParty
         | TransferExclusion::SpeedWithoutSafetyGate => 60,
@@ -1568,7 +1576,18 @@ const RELATION_METADATA: &[RelationMetadata] = &[
         constraint_relations: &[],
         protected_values: &[ProtectedValue::SystemStability],
         transfer_strength: TransferStrength::Structural,
-        exclusions: &[TransferExclusion::PauseWithoutRestartCondition],
+        exclusions: &[
+            TransferExclusion::PauseWithoutRestartCondition,
+            TransferExclusion::StopWithoutDestination,
+        ],
+    },
+    RelationMetadata {
+        frame_id: "detour",
+        target_relations: &[TargetRelation::RouteAdjustment],
+        constraint_relations: &[],
+        protected_values: &[ProtectedValue::DecisionQuality],
+        transfer_strength: TransferStrength::Structural,
+        exclusions: &[],
     },
     RelationMetadata {
         frame_id: "rest-stop",
@@ -2363,6 +2382,7 @@ mod tests {
             "speed-limit",
             "shoulder-pull-off",
             "rest-stop",
+            "detour",
             "veto-rule",
             "bag-of-chips-as-excuse",
         ];
@@ -2416,6 +2436,7 @@ mod tests {
         let speed_limit = relation_metadata_by_id("speed-limit").unwrap();
         let shoulder_pull_off = relation_metadata_by_id("shoulder-pull-off").unwrap();
         let rest_stop = relation_metadata_by_id("rest-stop").unwrap();
+        let detour = relation_metadata_by_id("detour").unwrap();
         assert!(blind_spot
             .target_relations
             .contains(&TargetRelation::AttentionLimit));
@@ -2431,6 +2452,9 @@ mod tests {
         assert!(rest_stop
             .target_relations
             .contains(&TargetRelation::RecoveryPause));
+        assert!(detour
+            .target_relations
+            .contains(&TargetRelation::RouteAdjustment));
     }
 
     #[test]
@@ -2767,6 +2791,39 @@ mod tests {
         assert!(report.suggestions[1]
             .warnings
             .contains(&"restart condition required"));
+    }
+
+    #[test]
+    fn relation_report_prefers_route_adjustment_with_stable_destination() {
+        let index = FrameIndex::new();
+        let query = RelationQuery::new(
+            FrameQuery::new("blocked route needs a different path while preserving destination")
+                .with_kind(FrameKind::Momentum)
+                .with_authority_model(AuthorityModel::Operator)
+                .with_risk_band(RiskBand::Medium)
+                .with_application_pack(ApplicationPack::Product),
+        )
+        .with_target_relation(TargetRelation::RouteAdjustment)
+        .with_protected_value(ProtectedValue::DecisionQuality)
+        .with_excluded_transfers(&[TransferExclusion::StopWithoutDestination]);
+
+        let report = index.search_with_relations(&query);
+        let ids: Vec<_> = report
+            .suggestions
+            .iter()
+            .take(2)
+            .map(|candidate| candidate.candidate.entry.id)
+            .collect();
+
+        assert_eq!(ids, vec!["detour", "shoulder-pull-off"]);
+        assert_eq!(
+            report.suggestions[0].decision,
+            RelationDecision::RecommendBoundaryFrame
+        );
+        assert_eq!(report.suggestions[1].rank_band, RankBand::Demoted);
+        assert!(report.suggestions[1]
+            .warnings
+            .contains(&"destination required"));
     }
 
     #[test]

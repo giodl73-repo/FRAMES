@@ -192,5 +192,7 @@ Before implementation can replace or influence default ranking:
   sequencing.
 - Relation fixture coverage now includes recovery-pause restart boundary
   behavior.
+- Relation fixture coverage now includes route-adjustment destination boundary
+  behavior.
 - The next implementation step should continue deepening fixture coverage
   before considering any default-search promotion.

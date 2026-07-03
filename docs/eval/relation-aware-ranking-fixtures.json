@@ -296,6 +296,31 @@
         "docs/frame-catalog.md"
       ],
       "review_status": "accepted-fixture"
+    },
+    {
+      "id": "REL-RANK-011",
+      "title": "Route adjustment requires stable destination",
+      "query": {
+        "target_situation": "A team has a blocked route and needs a different path while preserving the destination.",
+        "frame_job": "momentum",
+        "target_relation": "route_adjustment",
+        "authority_term": "operator",
+        "risk_band": "medium",
+        "application_pack": "product",
+        "protected_value": "decision quality"
+      },
+      "expected_order": ["detour", "shoulder-pull-off"],
+      "must_demote": ["shoulder-pull-off"],
+      "must_suppress": [],
+      "expected_decision": "recommend-boundary-frame",
+      "expected_relation_behavior": "boundary_frame",
+      "expected_warnings": ["destination required"],
+      "plain_language_fallback": "Confirm the destination, then choose a different path.",
+      "source_docs": [
+        "docs/theory/transfer-aware-search-design.md",
+        "docs/frame-catalog.md"
+      ],
+      "review_status": "accepted-fixture"
     }
   ]
 }

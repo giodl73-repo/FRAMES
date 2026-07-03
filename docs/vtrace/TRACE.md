@@ -75,12 +75,13 @@
 | REQ-071 | NEED-001 | CON-001 / CON-002 / CON-003 | Broaden relation-aware fixture coverage. | SPEC-070 | DES-003 / DES-005 | CR-006 | WP-067 | `docs/eval/relation-aware-ranking-fixtures.json`, `src/lib.rs`, `docs/eval/README.md`, `docs/theory/rust-relation-aware-ranking-design.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md` | VER-069 JSON parse / unit test / example run / inspection | VAL-068 | EVID-076 | validated |
 | REQ-072 | NEED-001 | CON-001 / CON-002 / CON-003 | Deepen relation-aware sequencing coverage. | SPEC-071 | DES-003 / DES-005 | CR-006 | WP-068 | `docs/eval/relation-aware-ranking-fixtures.json`, `src/lib.rs`, `docs/eval/README.md`, `docs/theory/rust-relation-aware-ranking-design.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/theory-gap-audit.md`, `docs/theory/theory-roadmap.md` | VER-070 JSON parse / unit test / example run / inspection | VAL-069 | EVID-077 | validated |
 | REQ-073 | NEED-001 | CON-001 / CON-002 / CON-003 | Add recovery-pause boundary coverage. | SPEC-072 | DES-003 / DES-005 | CR-006 | WP-069 | `docs/eval/relation-aware-ranking-fixtures.json`, `src/lib.rs`, `docs/eval/README.md`, `docs/theory/rust-relation-aware-ranking-design.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/theory-gap-audit.md` | VER-071 JSON parse / unit test / example run / inspection | VAL-070 | EVID-078 | validated |
+| REQ-074 | NEED-001 | CON-001 / CON-002 / CON-003 | Add route-adjustment boundary coverage. | SPEC-073 | DES-003 / DES-005 | CR-006 | WP-070 | `docs/eval/relation-aware-ranking-fixtures.json`, `src/lib.rs`, `docs/eval/README.md`, `docs/theory/rust-relation-aware-ranking-design.md`, `docs/theory/catalog-metadata-migration-plan.md`, `docs/theory/theory-gap-audit.md` | VER-072 JSON parse / unit test / example run / inspection | VAL-071 | EVID-079 | validated |
 
 ## ID Legend
 
 - NEED-001: mission need in `MISSION.md`.
 - CON-001..CON-003: operating scenarios in `CONOPS.md`.
-- SPEC-001..SPEC-072: specification baseline.
+- SPEC-001..SPEC-073: specification baseline.
 - DES-001..DES-005: design elements.
 - CR-001..CR-006: code-rigor constraints.
 - WP-001: frame index crate work package.
@@ -152,4 +153,5 @@
 - WP-067: broaden relation-aware fixture coverage work package.
 - WP-068: deepen relation-aware sequencing coverage work package.
 - WP-069: recovery-pause boundary coverage work package.
+- WP-070: route-adjustment boundary coverage work package.
 - EVID-* evidence: `EVIDENCE.md` and `VERIFICATION.md`.
