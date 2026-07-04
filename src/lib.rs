@@ -2439,6 +2439,7 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
 #[cfg(test)]
 mod tests {
     use super::*;
+    use std::collections::HashSet;
 
     #[test]
     fn search_ranks_kind_and_tag_matches() {
@@ -2627,6 +2628,29 @@ mod tests {
                     related_id
                 );
             }
+        }
+    }
+
+    #[test]
+    fn starter_and_relation_metadata_ids_are_unique() {
+        let index = FrameIndex::new();
+
+        let mut starter_ids = HashSet::new();
+        for entry in index.entries() {
+            assert!(
+                starter_ids.insert(entry.id),
+                "duplicate starter catalog id: {}",
+                entry.id
+            );
+        }
+
+        let mut relation_ids = HashSet::new();
+        for metadata in RELATION_METADATA {
+            assert!(
+                relation_ids.insert(metadata.frame_id),
+                "duplicate relation metadata id: {}",
+                metadata.frame_id
+            );
         }
     }
 
