@@ -18,7 +18,7 @@ the repo does not become a loose metaphor list.
 |------:|---|---|---|
 | 01 | Workspace foundation | complete | Created repo skeleton, docs, skills, and validation contract. |
 | 02 | Traffic frame pack | complete | Expanded driving examples and indexed traffic frames for status, coordination, momentum, and risk. |
-| 03 | Walking frame pack | pending | Add pace, footing, crowding, fatigue, and wayfinding frames. |
+| 03 | Walking frame pack | complete | Added walking pace, footing, stride, crowding, wayfinding markers, and stumble/recovery guidance across examples and catalog tables. |
 | 04 | Fit rubric | complete | Added scored rubric for accept, revise, hold, and reject decisions. |
 | 05 | Frame index crate | complete | Added dependency-free Rust frame index with search and related-frame lookup. |
 | 06 | Frame index ergonomics | complete | Added query builder helpers, filters, top-N lookup, and runnable example. |

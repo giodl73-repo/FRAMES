@@ -25,10 +25,9 @@ Reviewed artifact: `docs/theory/frame-theory.md`
 | Risk | Rationale | Revisit Trigger |
 |---|---|---|
 | Theory is not yet research-cited. | This slice is internal operating theory drawn from role review and existing examples. | Before public claims about cognitive science or pedagogy. |
-| `frames-core` does not yet encode evidence boundary separately. | Current entries preserve failure mode; evidence boundary needs a schema change. | Next crate schema work package. |
+| Relation-aware fixture depth can still miss edge cases. | Core relation behavior is covered, but edge-case composition and suppression breadth should keep growing before default-search changes. | Before any relation-aware scoring affects default search. |
 
 ## Result
 
 Pass for foundation use. The theory is sufficient to guide the next frame packs
 and a future fit-rubric implementation.
-

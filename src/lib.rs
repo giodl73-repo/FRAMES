@@ -1594,6 +1594,14 @@ const RELATION_METADATA: &[RelationMetadata] = &[
         exclusions: &[TransferExclusion::LoadMissing],
     },
     RelationMetadata {
+        frame_id: "stride-length",
+        target_relations: &[TargetRelation::PaceAdjustment],
+        constraint_relations: &[],
+        protected_values: &[ProtectedValue::DecisionQuality],
+        transfer_strength: TransferStrength::Structural,
+        exclusions: &[TransferExclusion::LoadMissing],
+    },
+    RelationMetadata {
         frame_id: "downshift",
         target_relations: &[TargetRelation::PaceAdjustment],
         constraint_relations: &[],
@@ -1631,6 +1639,14 @@ const RELATION_METADATA: &[RelationMetadata] = &[
     RelationMetadata {
         frame_id: "blind-spot",
         target_relations: &[TargetRelation::AttentionLimit],
+        constraint_relations: &[ConstraintRelation::EvidenceMissing],
+        protected_values: &[ProtectedValue::DecisionQuality],
+        transfer_strength: TransferStrength::Structural,
+        exclusions: &[],
+    },
+    RelationMetadata {
+        frame_id: "footing",
+        target_relations: &[TargetRelation::DependencyIntegrity],
         constraint_relations: &[ConstraintRelation::EvidenceMissing],
         protected_values: &[ProtectedValue::DecisionQuality],
         transfer_strength: TransferStrength::Structural,
@@ -2123,7 +2139,99 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         action_cue: "Choose a pace that can continue.",
         evidence_boundary: "Check deadline pressure and whether the pace meets required outcomes.",
         failure_mode: "Can excuse low urgency if no deadline exists.",
-        related: &["rest-stop", "downshift"],
+        related: &["stride-length", "rest-stop", "downshift"],
+    },
+    FrameEntry {
+        id: "stride-length",
+        name: "Stride length",
+        kind: FrameKind::Momentum,
+        status: FrameStatus::Accepted,
+        claim_strength: ClaimStrength::Heuristic,
+        risk_band: RiskBand::Medium,
+        authority_model: AuthorityModel::Operator,
+        application_packs: &[
+            ApplicationPack::Product,
+            ApplicationPack::Learning,
+            ApplicationPack::Operations,
+        ],
+        everyday_source: "Step size during walking",
+        target_situations: &[
+            "batch size and adjustment frequency",
+            "step size under uncertain correction cost",
+        ],
+        tags: &["momentum", "pace", "batch-size", "feedback"],
+        action_cue: "Match step size to feedback speed and correction cost.",
+        evidence_boundary: "Check correction cost, feedback latency, and the current load.",
+        failure_mode: "Long strides can hide rework risk; short strides can hide avoidance.",
+        related: &["walking-pace", "downshift", "speed-limit"],
+    },
+    FrameEntry {
+        id: "crowded-sidewalk",
+        name: "Crowded sidewalk",
+        kind: FrameKind::Coordination,
+        status: FrameStatus::Accepted,
+        claim_strength: ClaimStrength::Heuristic,
+        risk_band: RiskBand::Medium,
+        authority_model: AuthorityModel::Peer,
+        application_packs: &[
+            ApplicationPack::Product,
+            ApplicationPack::Operations,
+            ApplicationPack::Leadership,
+        ],
+        everyday_source: "Shared narrow walkway",
+        target_situations: &[
+            "parallel teams with competing movement in one channel",
+            "high-traffic coordination with speed mismatch",
+        ],
+        tags: &["coordination", "flow", "shared-channel", "signal"],
+        action_cue: "Signal intent early and move long debates out of the flow lane.",
+        evidence_boundary: "Check channel capacity, role ownership, and queue pressure.",
+        failure_mode: "Can normalize congestion instead of triggering capacity decisions.",
+        related: &["merge-lane", "four-way-stop", "following-distance"],
+    },
+    FrameEntry {
+        id: "trail-marker",
+        name: "Trail marker",
+        kind: FrameKind::Coordination,
+        status: FrameStatus::Accepted,
+        claim_strength: ClaimStrength::Heuristic,
+        risk_band: RiskBand::Medium,
+        authority_model: AuthorityModel::Steward,
+        application_packs: &[
+            ApplicationPack::Product,
+            ApplicationPack::Operations,
+            ApplicationPack::Learning,
+        ],
+        everyday_source: "Route markers on uncertain paths",
+        target_situations: &[
+            "shared orientation through changing plans",
+            "decision forks where teams may diverge",
+        ],
+        tags: &["coordination", "wayfinding", "orientation", "decision-fork"],
+        action_cue: "Place clear direction markers at decision forks and refresh stale guidance.",
+        evidence_boundary: "Check marker freshness, owner, and the active destination.",
+        failure_mode: "Stale markers create confident drift.",
+        related: &["detour", "walking-pace", "shoulder-pull-off"],
+    },
+    FrameEntry {
+        id: "stumble-and-recover",
+        name: "Stumble and recover",
+        kind: FrameKind::Momentum,
+        status: FrameStatus::Accepted,
+        claim_strength: ClaimStrength::Heuristic,
+        risk_band: RiskBand::Medium,
+        authority_model: AuthorityModel::Operator,
+        application_packs: &[ApplicationPack::Product, ApplicationPack::Operations],
+        everyday_source: "Losing and regaining balance while walking",
+        target_situations: &[
+            "minor failure recovery during active delivery",
+            "stabilize after a small incident before resuming speed",
+        ],
+        tags: &["momentum", "recovery", "stability", "incident"],
+        action_cue: "Recover control first, then adapt before resuming speed.",
+        evidence_boundary: "Check impact, repair completion, and restart safety conditions.",
+        failure_mode: "Treating every stumble as a full stop can cause chronic caution.",
+        related: &["rest-stop", "shoulder-pull-off", "downshift"],
     },
     FrameEntry {
         id: "blind-spot",
@@ -2145,11 +2253,31 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
         action_cue: "Check before changing lanes.",
         evidence_boundary: "Identify the missing dependency, stakeholder, or signal.",
         failure_mode: "Can blame individuals for system visibility gaps.",
-        related: &[
-            "dashboard-warning-light",
-            "load-bearing-wall",
-            "following-distance",
+        related: &["footing", "dashboard-warning-light", "load-bearing-wall"],
+    },
+    FrameEntry {
+        id: "footing",
+        name: "Footing",
+        kind: FrameKind::Risk,
+        status: FrameStatus::Accepted,
+        claim_strength: ClaimStrength::Heuristic,
+        risk_band: RiskBand::Medium,
+        authority_model: AuthorityModel::Reviewer,
+        application_packs: &[
+            ApplicationPack::Product,
+            ApplicationPack::Operations,
+            ApplicationPack::Learning,
         ],
+        everyday_source: "Stable vs unstable walking surface",
+        target_situations: &[
+            "execution on uncertain assumptions",
+            "fragile surface before scaling a change",
+        ],
+        tags: &["risk", "assumptions", "stability", "traction"],
+        action_cue: "Stabilize assumptions before optimizing pace.",
+        evidence_boundary: "Check assumption validity, traction signals, and fallback controls.",
+        failure_mode: "Can overstate risk and block reasonable movement.",
+        related: &["blind-spot", "load-bearing-wall", "stumble-and-recover"],
     },
     FrameEntry {
         id: "dashboard-warning-light",
@@ -2311,10 +2439,10 @@ mod tests {
     fn metadata_helpers_filter_entries() {
         let index = FrameIndex::new();
 
-        assert_eq!(index.by_status(FrameStatus::Accepted).len(), 15);
-        assert_eq!(index.by_claim_strength(ClaimStrength::Heuristic).len(), 15);
+        assert_eq!(index.by_status(FrameStatus::Accepted).len(), 20);
+        assert_eq!(index.by_claim_strength(ClaimStrength::Heuristic).len(), 20);
         assert_eq!(index.by_risk_band(RiskBand::Low).len(), 4);
-        assert_eq!(index.by_authority_model(AuthorityModel::Peer).len(), 2);
+        assert_eq!(index.by_authority_model(AuthorityModel::Peer).len(), 3);
         assert_eq!(
             index.with_application_pack(ApplicationPack::AiAgent).len(),
             7
@@ -2411,11 +2539,13 @@ mod tests {
             "blind-spot",
             "load-bearing-wall",
             "speed-limit",
+            "stride-length",
             "shoulder-pull-off",
             "rest-stop",
             "detour",
             "fuel-gauge",
             "downshift",
+            "footing",
             "veto-rule",
             "bag-of-chips-as-excuse",
         ];
@@ -2465,8 +2595,10 @@ mod tests {
             .contains(&ConstraintRelation::FactsKnown));
 
         let blind_spot = relation_metadata_by_id("blind-spot").unwrap();
+        let footing = relation_metadata_by_id("footing").unwrap();
         let load_bearing_wall = relation_metadata_by_id("load-bearing-wall").unwrap();
         let speed_limit = relation_metadata_by_id("speed-limit").unwrap();
+        let stride_length = relation_metadata_by_id("stride-length").unwrap();
         let shoulder_pull_off = relation_metadata_by_id("shoulder-pull-off").unwrap();
         let rest_stop = relation_metadata_by_id("rest-stop").unwrap();
         let detour = relation_metadata_by_id("detour").unwrap();
@@ -2475,10 +2607,16 @@ mod tests {
         assert!(blind_spot
             .target_relations
             .contains(&TargetRelation::AttentionLimit));
+        assert!(footing
+            .target_relations
+            .contains(&TargetRelation::DependencyIntegrity));
         assert!(load_bearing_wall
             .exclusions
             .contains(&TransferExclusion::UnknownTreatedAsStructural));
         assert!(speed_limit
+            .target_relations
+            .contains(&TargetRelation::PaceAdjustment));
+        assert!(stride_length
             .target_relations
             .contains(&TargetRelation::PaceAdjustment));
         assert!(shoulder_pull_off
@@ -2499,6 +2637,58 @@ mod tests {
         assert!(speed_limit
             .exclusions
             .contains(&TransferExclusion::LoadMissing));
+    }
+
+    #[test]
+    fn relation_report_prioritizes_stride_length_for_pace_adjustment() {
+        let index = FrameIndex::new();
+        let query = RelationQuery::new(
+            FrameQuery::new("stride length should match feedback speed and correction cost")
+                .with_kind(FrameKind::Momentum)
+                .with_authority_model(AuthorityModel::Operator)
+                .with_risk_band(RiskBand::Medium)
+                .with_application_pack(ApplicationPack::Learning),
+        )
+        .with_target_relation(TargetRelation::PaceAdjustment)
+        .with_protected_value(ProtectedValue::DecisionQuality);
+
+        let report = index.search_with_relations(&query);
+        assert_eq!(report.suggestions[0].candidate.entry.id, "stride-length");
+        assert_eq!(
+            report.suggestions[0].decision,
+            RelationDecision::RecommendBoundaryFrame
+        );
+    }
+
+    #[test]
+    fn relation_report_checks_footing_before_structural_claim() {
+        let index = FrameIndex::new();
+        let query = RelationQuery::new(
+            FrameQuery::new(
+                "footing feels unstable because assumptions are uncertain before changing dependencies",
+            )
+            .with_kind(FrameKind::Risk)
+            .with_authority_model(AuthorityModel::Reviewer)
+            .with_risk_band(RiskBand::Medium)
+            .with_application_pack(ApplicationPack::Product),
+        )
+        .with_target_relation(TargetRelation::DependencyIntegrity)
+        .with_constraint(ConstraintRelation::EvidenceMissing)
+        .with_protected_value(ProtectedValue::DecisionQuality)
+        .with_excluded_transfers(&[]);
+
+        let report = index.search_with_relations(&query);
+        let ids: Vec<_> = report
+            .suggestions
+            .iter()
+            .take(2)
+            .map(|candidate| candidate.candidate.entry.id)
+            .collect();
+
+        assert_eq!(ids, vec!["footing", "load-bearing-wall"]);
+        assert!(report.suggestions[0]
+            .warnings
+            .contains(&"evidence boundary"));
     }
 
     #[test]

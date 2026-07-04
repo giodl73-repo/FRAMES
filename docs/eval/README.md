@@ -19,9 +19,10 @@ source for the first Rust `REVIEW_CATALOG` rows.
 
 `relation-aware-ranking-fixtures.json` adds ordering, demotion, composition,
 re-entry sequencing, recovery-pause boundary, route-adjustment boundary,
-reserve-tracking boundary, load-control boundary, and hard-stop fixtures for
-relation-aware scoring. It does not change default Rust search; it defines
-expected behavior for the opt-in relation report path.
+reserve-tracking boundary, load-control boundary, walking stride/footing
+boundary checks, and hard-stop fixtures for relation-aware scoring. It does not
+change default Rust search; it defines expected behavior for the opt-in relation
+report path.
 
 ## Fixture Package Rules
 

@@ -146,3 +146,126 @@ small mistakes.
 
 Failure mode: following distance should name the specific risk. Otherwise it can
 sound like generic slack.
+
+## Walking Pace
+
+Use when a team needs sustained movement instead of short bursts.
+
+Useful mapping:
+
+| Walking behavior | Work mapping |
+|---|---|
+| Pick a pace you can maintain | Choose a cadence that can survive the full delivery window. |
+| Keep checking your breathing and terrain | Re-evaluate against deadlines, complexity, and team capacity. |
+| Speed up only where footing is stable | Increase pace where uncertainty is low and recovery is easy. |
+
+Action cue: choose the fastest sustainable cadence, then make pace changes
+explicit.
+
+Failure mode: "walking pace" can become an excuse for drift if the required
+outcome and deadline are not named.
+
+## Footing
+
+Use when progress depends on whether the current surface can support confident
+steps.
+
+Useful mapping:
+
+| Walking behavior | Work mapping |
+|---|---|
+| Test footing before committing weight | Validate assumptions before scaling a change. |
+| Use handrails on unstable surfaces | Add controls, review, or pairing for fragile work. |
+| Shorten steps when traction is uncertain | Reduce change size under uncertainty. |
+
+Action cue: stabilize the surface before optimizing speed.
+
+Failure mode: overusing "bad footing" can overstate risk and block reasonable
+movement.
+
+## Stride Length
+
+Use when the question is not whether to move, but how big each step should be.
+
+Useful mapping:
+
+| Walking behavior | Work mapping |
+|---|---|
+| Longer stride covers distance faster | Larger increments can increase throughput. |
+| Longer stride reduces correction frequency | Bigger batches reduce opportunities to adjust course. |
+| Shorter stride increases control | Smaller slices improve feedback and correction quality. |
+
+Action cue: set step size to match feedback speed and correction cost.
+
+Failure mode: defaulting to short strides can hide fear of commitment; defaulting
+to long strides can hide avoidable rework risk.
+
+## Crowded Sidewalk
+
+Use when many actors with different speeds share a narrow decision space.
+
+Useful mapping:
+
+| Walking behavior | Work mapping |
+|---|---|
+| Keep flow without forcing collisions | Coordinate changes so teams can keep moving. |
+| Signal lane changes early | Announce ownership or priority shifts before execution. |
+| Pull aside for long conversations | Move deep debates out of high-traffic channels. |
+
+Action cue: preserve flow by making intent visible and minimizing surprise.
+
+Failure mode: this frame can normalize congestion as "just how it is" instead of
+triggering capacity or scope decisions.
+
+## Trail Marker
+
+Use when people must navigate uncertain terrain without re-solving direction at
+every step.
+
+Useful mapping:
+
+| Walking behavior | Work mapping |
+|---|---|
+| Mark the route at key forks | Publish decisions where teams are likely to diverge. |
+| Confirm marker visibility from the path | Keep guidance where the work actually happens. |
+| Refresh faded markers | Update docs and runbooks when context changes. |
+
+Action cue: place clear directional markers at decision points, not only in
+planning artifacts.
+
+Failure mode: stale markers create false confidence and can be worse than no
+marker.
+
+## Rest Stop
+
+Use when continued motion without recovery will degrade quality or safety.
+
+Useful mapping:
+
+| Walking behavior | Work mapping |
+|---|---|
+| Pause before exhaustion becomes injury | Schedule recovery before error rates spike. |
+| Refill water and check route | Use the pause to restore capacity and confirm plan. |
+| Restart with a clear next leg | Resume with a named objective and handoff condition. |
+
+Action cue: take bounded recovery pauses tied to explicit restart criteria.
+
+Failure mode: unbounded rest stops become parked work with no return plan.
+
+## Stumble and Recover
+
+Use when a minor failure happens during motion and the priority is safe recovery,
+not blame.
+
+Useful mapping:
+
+| Walking behavior | Work mapping |
+|---|---|
+| Regain balance before accelerating | Stabilize system behavior before restoring full throughput. |
+| Check for injury after a stumble | Assess impact before declaring normal operations. |
+| Adjust path to avoid repeating the trip point | Capture the cause and modify process safeguards. |
+
+Action cue: recover control first, then learn and adapt before resuming speed.
+
+Failure mode: treating every stumble as a full stop can over-rotate from normal
+error handling to chronic caution.

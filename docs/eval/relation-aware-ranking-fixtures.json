@@ -370,6 +370,59 @@
         "docs/frame-catalog.md"
       ],
       "review_status": "accepted-fixture"
+    },
+    {
+      "id": "REL-RANK-014",
+      "title": "Stride length leads pace adjustment when correction cost is explicit",
+      "query": {
+        "target_situation": "A team should tune stride length to match feedback speed and correction cost.",
+        "frame_job": "momentum",
+        "target_relation": "pace_adjustment",
+        "authority_term": "operator",
+        "risk_band": "medium",
+        "application_pack": "learning",
+        "protected_value": "decision quality"
+      },
+      "expected_order": ["stride-length"],
+      "must_demote": [],
+      "must_suppress": [],
+      "expected_decision": "recommend-boundary-frame",
+      "expected_relation_behavior": "boundary_frame",
+      "expected_warnings": [],
+      "plain_language_fallback": "Tune step size to feedback speed and correction cost before increasing pace.",
+      "source_docs": [
+        "docs/examples/traffic-and-motion.md",
+        "docs/frame-catalog.md",
+        "docs/theory/transfer-aware-search-design.md"
+      ],
+      "review_status": "accepted-fixture"
+    },
+    {
+      "id": "REL-RANK-015",
+      "title": "Footing check leads before structural claims under uncertain assumptions",
+      "query": {
+        "target_situation": "Footing feels unstable because assumptions are uncertain before changing dependencies.",
+        "frame_job": "risk",
+        "target_relation": "dependency_integrity",
+        "authority_term": "reviewer",
+        "risk_band": "medium",
+        "application_pack": "product",
+        "constraint": "evidence_missing",
+        "protected_value": "decision quality"
+      },
+      "expected_order": ["footing", "load-bearing-wall"],
+      "must_demote": [],
+      "must_suppress": [],
+      "expected_decision": "recommend-with-evidence-warning",
+      "expected_relation_behavior": "sequence_before",
+      "expected_warnings": ["evidence boundary", "threshold required"],
+      "plain_language_fallback": "Stabilize uncertain assumptions before calling a dependency structural.",
+      "source_docs": [
+        "docs/examples/traffic-and-motion.md",
+        "docs/frame-catalog.md",
+        "docs/theory/transfer-aware-search-design.md"
+      ],
+      "review_status": "accepted-fixture"
     }
   ]
 }
