@@ -2808,6 +2808,35 @@ mod tests {
     }
 
     #[test]
+    fn accepted_suppression_reports_match_starter_status() {
+        let index = FrameIndex::new();
+
+        for rule in ACCEPTED_SUPPRESSION_RULES {
+            let entry = index
+                .get(rule.report.candidate_id)
+                .expect("suppressed starter candidate should exist");
+            assert_eq!(
+                rule.report.status, entry.status,
+                "accepted suppression report status mismatch for {}",
+                rule.report.candidate_id
+            );
+        }
+    }
+
+    #[test]
+    fn accepted_suppression_candidates_do_not_overlap_review_ids() {
+        let index = FrameIndex::new();
+
+        for rule in ACCEPTED_SUPPRESSION_RULES {
+            assert!(
+                index.review_entry(rule.report.candidate_id).is_none(),
+                "accepted suppression candidate overlaps review catalog id: {}",
+                rule.report.candidate_id
+            );
+        }
+    }
+
+    #[test]
     fn accepted_suppression_reports_have_complete_explanation_fields() {
         for rule in ACCEPTED_SUPPRESSION_RULES {
             let report = rule.report;
