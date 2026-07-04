@@ -1594,6 +1594,14 @@ const RELATION_METADATA: &[RelationMetadata] = &[
         exclusions: &[TransferExclusion::LoadMissing],
     },
     RelationMetadata {
+        frame_id: "walking-pace",
+        target_relations: &[TargetRelation::PaceAdjustment],
+        constraint_relations: &[],
+        protected_values: &[ProtectedValue::DecisionQuality],
+        transfer_strength: TransferStrength::Partial,
+        exclusions: &[TransferExclusion::LoadMissing],
+    },
+    RelationMetadata {
         frame_id: "stride-length",
         target_relations: &[TargetRelation::PaceAdjustment],
         constraint_relations: &[],
@@ -2579,6 +2587,19 @@ mod tests {
 
         for id in expected_ids {
             assert!(relation_metadata_by_id(id).is_some(), "{id}");
+        }
+    }
+
+    #[test]
+    fn relation_metadata_covers_all_accepted_entries() {
+        let index = FrameIndex::new();
+
+        for entry in index.entries() {
+            assert!(
+                relation_metadata_by_id(entry.id).is_some(),
+                "missing relation metadata for accepted entry: {}",
+                entry.id
+            );
         }
     }
 
