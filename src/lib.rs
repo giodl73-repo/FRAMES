@@ -2652,6 +2652,36 @@ mod tests {
                 metadata.frame_id
             );
         }
+
+        let mut review_ids = HashSet::new();
+        for entry in index.review_entries() {
+            assert!(
+                review_ids.insert(entry.id),
+                "duplicate review catalog id: {}",
+                entry.id
+            );
+        }
+    }
+
+    #[test]
+    fn suppression_rules_reference_existing_candidates() {
+        let index = FrameIndex::new();
+
+        for rule in REVIEW_SUPPRESSION_RULES {
+            assert!(
+                index.review_entry(rule.review_id).is_some(),
+                "review suppression rule references unknown review id: {}",
+                rule.review_id
+            );
+        }
+
+        for rule in ACCEPTED_SUPPRESSION_RULES {
+            assert!(
+                index.get(rule.report.candidate_id).is_some(),
+                "accepted suppression rule references unknown starter id: {}",
+                rule.report.candidate_id
+            );
+        }
     }
 
     #[test]
