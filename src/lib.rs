@@ -2719,6 +2719,42 @@ mod tests {
         }
     }
 
+    #[test]
+    fn review_catalog_rows_have_required_operator_fields() {
+        let index = FrameIndex::new();
+
+        for entry in index.review_entries() {
+            assert!(
+                !entry.evidence_boundary.trim().is_empty(),
+                "review row missing evidence boundary: {}",
+                entry.id
+            );
+            assert!(
+                !entry.misuse_warning.trim().is_empty(),
+                "review row missing misuse warning: {}",
+                entry.id
+            );
+            assert!(
+                !entry.decision_reason.trim().is_empty(),
+                "review row missing decision reason: {}",
+                entry.id
+            );
+            assert!(
+                !entry.source_docs.is_empty(),
+                "review row missing source docs: {}",
+                entry.id
+            );
+
+            if entry.status == FrameStatus::AntiPattern {
+                assert!(
+                    !entry.plain_language_fallback.trim().is_empty(),
+                    "anti-pattern row missing plain-language fallback: {}",
+                    entry.id
+                );
+            }
+        }
+    }
+
     fn docs_accepted_starter_ids() -> HashSet<&'static str> {
         const FRAME_CATALOG_DOC: &str = include_str!("../docs/frame-catalog.md");
         let mut ids = HashSet::new();
