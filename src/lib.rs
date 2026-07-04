@@ -2624,6 +2624,23 @@ mod tests {
     }
 
     #[test]
+    fn related_frame_links_are_unique_per_entry() {
+        let index = FrameIndex::new();
+
+        for entry in index.entries() {
+            let mut related_ids = HashSet::new();
+            for related_id in entry.related {
+                assert!(
+                    related_ids.insert(*related_id),
+                    "entry contains duplicate related frame id: {} -> {}",
+                    entry.id,
+                    related_id
+                );
+            }
+        }
+    }
+
+    #[test]
     fn starter_and_relation_metadata_ids_are_unique() {
         let index = FrameIndex::new();
 
@@ -2665,6 +2682,17 @@ mod tests {
             assert!(
                 in_starter || in_review,
                 "relation metadata id does not resolve to starter or review catalog: {}",
+                metadata.frame_id
+            );
+        }
+    }
+
+    #[test]
+    fn relation_metadata_rows_declare_target_relations() {
+        for metadata in RELATION_METADATA {
+            assert!(
+                !metadata.target_relations.is_empty(),
+                "relation metadata row has no target relations: {}",
                 metadata.frame_id
             );
         }
