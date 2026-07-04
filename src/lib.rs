@@ -1602,6 +1602,30 @@ const RELATION_METADATA: &[RelationMetadata] = &[
         exclusions: &[TransferExclusion::LoadMissing],
     },
     RelationMetadata {
+        frame_id: "crowded-sidewalk",
+        target_relations: &[TargetRelation::FlowJoining],
+        constraint_relations: &[ConstraintRelation::Coupling],
+        protected_values: &[ProtectedValue::SystemStability],
+        transfer_strength: TransferStrength::Partial,
+        exclusions: &[TransferExclusion::SpeedWithoutSafetyGate],
+    },
+    RelationMetadata {
+        frame_id: "trail-marker",
+        target_relations: &[TargetRelation::RouteAdjustment],
+        constraint_relations: &[],
+        protected_values: &[ProtectedValue::DecisionQuality],
+        transfer_strength: TransferStrength::Partial,
+        exclusions: &[TransferExclusion::StopWithoutDestination],
+    },
+    RelationMetadata {
+        frame_id: "stumble-and-recover",
+        target_relations: &[TargetRelation::RecoveryPause],
+        constraint_relations: &[],
+        protected_values: &[ProtectedValue::DecisionQuality],
+        transfer_strength: TransferStrength::Partial,
+        exclusions: &[TransferExclusion::PauseWithoutRestartCondition],
+    },
+    RelationMetadata {
         frame_id: "downshift",
         target_relations: &[TargetRelation::PaceAdjustment],
         constraint_relations: &[],
@@ -2540,6 +2564,9 @@ mod tests {
             "load-bearing-wall",
             "speed-limit",
             "stride-length",
+            "crowded-sidewalk",
+            "trail-marker",
+            "stumble-and-recover",
             "shoulder-pull-off",
             "rest-stop",
             "detour",
@@ -2599,6 +2626,9 @@ mod tests {
         let load_bearing_wall = relation_metadata_by_id("load-bearing-wall").unwrap();
         let speed_limit = relation_metadata_by_id("speed-limit").unwrap();
         let stride_length = relation_metadata_by_id("stride-length").unwrap();
+        let crowded_sidewalk = relation_metadata_by_id("crowded-sidewalk").unwrap();
+        let trail_marker = relation_metadata_by_id("trail-marker").unwrap();
+        let stumble_and_recover = relation_metadata_by_id("stumble-and-recover").unwrap();
         let shoulder_pull_off = relation_metadata_by_id("shoulder-pull-off").unwrap();
         let rest_stop = relation_metadata_by_id("rest-stop").unwrap();
         let detour = relation_metadata_by_id("detour").unwrap();
@@ -2619,6 +2649,15 @@ mod tests {
         assert!(stride_length
             .target_relations
             .contains(&TargetRelation::PaceAdjustment));
+        assert!(crowded_sidewalk
+            .target_relations
+            .contains(&TargetRelation::FlowJoining));
+        assert!(trail_marker
+            .target_relations
+            .contains(&TargetRelation::RouteAdjustment));
+        assert!(stumble_and_recover
+            .target_relations
+            .contains(&TargetRelation::RecoveryPause));
         assert!(shoulder_pull_off
             .target_relations
             .contains(&TargetRelation::StabilizationReentry));
@@ -2799,7 +2838,7 @@ mod tests {
             .map(|candidate| candidate.candidate.entry.id)
             .collect();
 
-        assert_eq!(ids, vec!["following-distance", "merge-lane"]);
+        assert_eq!(ids, vec!["following-distance", "crowded-sidewalk"]);
         assert_eq!(
             report.suggestions[0].decision,
             RelationDecision::RecommendSequence
@@ -3016,7 +3055,7 @@ mod tests {
             .map(|candidate| candidate.candidate.entry.id)
             .collect();
 
-        assert_eq!(ids, vec!["rest-stop", "shoulder-pull-off"]);
+        assert_eq!(ids, vec!["rest-stop", "stumble-and-recover"]);
         assert_eq!(
             report.suggestions[0].decision,
             RelationDecision::RecommendBoundaryFrame
@@ -3049,7 +3088,7 @@ mod tests {
             .map(|candidate| candidate.candidate.entry.id)
             .collect();
 
-        assert_eq!(ids, vec!["detour", "shoulder-pull-off"]);
+        assert_eq!(ids, vec!["detour", "trail-marker"]);
         assert_eq!(
             report.suggestions[0].decision,
             RelationDecision::RecommendBoundaryFrame

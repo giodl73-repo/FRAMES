@@ -98,8 +98,8 @@
         "constraint": "coupling",
         "protected_value": "system stability"
       },
-      "expected_order": ["following-distance", "merge-lane"],
-      "must_demote": ["merge-lane"],
+      "expected_order": ["following-distance", "crowded-sidewalk"],
+      "must_demote": ["crowded-sidewalk"],
       "must_suppress": [],
       "expected_decision": "recommend-sequence",
       "expected_relation_behavior": "sequence_before",
@@ -284,8 +284,8 @@
         "application_pack": "learning",
         "protected_value": "decision quality"
       },
-      "expected_order": ["rest-stop", "shoulder-pull-off"],
-      "must_demote": ["shoulder-pull-off"],
+      "expected_order": ["rest-stop", "stumble-and-recover"],
+      "must_demote": ["stumble-and-recover"],
       "must_suppress": [],
       "expected_decision": "recommend-boundary-frame",
       "expected_relation_behavior": "boundary_frame",
@@ -309,8 +309,8 @@
         "application_pack": "product",
         "protected_value": "decision quality"
       },
-      "expected_order": ["detour", "shoulder-pull-off"],
-      "must_demote": ["shoulder-pull-off"],
+      "expected_order": ["detour", "trail-marker"],
+      "must_demote": ["trail-marker"],
       "must_suppress": [],
       "expected_decision": "recommend-boundary-frame",
       "expected_relation_behavior": "boundary_frame",
