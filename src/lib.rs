@@ -3077,6 +3077,90 @@ mod tests {
         }
     }
 
+    #[test]
+    fn review_family_status_and_display_rule_are_consistent() {
+        let index = FrameIndex::new();
+
+        for entry in index.review_entries() {
+            match entry.review_family {
+                ReviewFamily::DocsCatalogCandidate => {
+                    assert_eq!(
+                        entry.status,
+                        FrameStatus::AcceptedWithCaveat,
+                        "docs-catalog review family must use accepted-with-caveat status: {}",
+                        entry.id
+                    );
+                    assert_eq!(
+                        entry.display_rule,
+                        DisplayRule::SuppressByDefault,
+                        "docs-catalog review family must suppress by default: {}",
+                        entry.id
+                    );
+                }
+                ReviewFamily::AntiPattern => {
+                    assert_eq!(
+                        entry.status,
+                        FrameStatus::AntiPattern,
+                        "anti-pattern review family must use anti-pattern status: {}",
+                        entry.id
+                    );
+                    assert_eq!(
+                        entry.display_rule,
+                        DisplayRule::ExplainWhenRequested,
+                        "anti-pattern review family must explain when requested: {}",
+                        entry.id
+                    );
+                }
+                ReviewFamily::Held => {
+                    assert_eq!(
+                        entry.status,
+                        FrameStatus::Held,
+                        "held review family must use held status: {}",
+                        entry.id
+                    );
+                    assert_eq!(
+                        entry.display_rule,
+                        DisplayRule::ReviewOnly,
+                        "held review family must remain review-only: {}",
+                        entry.id
+                    );
+                }
+                ReviewFamily::Candidate => {
+                    assert_eq!(
+                        entry.status,
+                        FrameStatus::Candidate,
+                        "candidate review family must use candidate status: {}",
+                        entry.id
+                    );
+                }
+                ReviewFamily::Draft => {
+                    assert_eq!(
+                        entry.status,
+                        FrameStatus::Draft,
+                        "draft review family must use draft status: {}",
+                        entry.id
+                    );
+                }
+                ReviewFamily::Deprecated => {
+                    assert_eq!(
+                        entry.status,
+                        FrameStatus::Deprecated,
+                        "deprecated review family must use deprecated status: {}",
+                        entry.id
+                    );
+                }
+                ReviewFamily::Rejected => {
+                    assert_eq!(
+                        entry.status,
+                        FrameStatus::Rejected,
+                        "rejected review family must use rejected status: {}",
+                        entry.id
+                    );
+                }
+            }
+        }
+    }
+
     fn docs_accepted_starter_ids() -> HashSet<&'static str> {
         const FRAME_CATALOG_DOC: &str = include_str!("../docs/frame-catalog.md");
         let mut ids = HashSet::new();
