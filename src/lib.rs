@@ -1708,14 +1708,6 @@ const RELATION_METADATA: &[RelationMetadata] = &[
         transfer_strength: TransferStrength::Dangerous,
         exclusions: &[TransferExclusion::StoryAfterFactsKnown],
     },
-    RelationMetadata {
-        frame_id: "incident-command",
-        target_relations: &[TargetRelation::DirectedAuthority],
-        constraint_relations: &[],
-        protected_values: &[ProtectedValue::IncidentControl],
-        transfer_strength: TransferStrength::Structural,
-        exclusions: &[],
-    },
 ];
 
 const REVIEW_SUPPRESSION_RULES: &[ReviewSuppressionRule] = &[
@@ -2659,6 +2651,21 @@ mod tests {
                 review_ids.insert(entry.id),
                 "duplicate review catalog id: {}",
                 entry.id
+            );
+        }
+    }
+
+    #[test]
+    fn relation_metadata_ids_resolve_to_catalog_entries() {
+        let index = FrameIndex::new();
+
+        for metadata in RELATION_METADATA {
+            let in_starter = index.get(metadata.frame_id).is_some();
+            let in_review = index.review_entry(metadata.frame_id).is_some();
+            assert!(
+                in_starter || in_review,
+                "relation metadata id does not resolve to starter or review catalog: {}",
+                metadata.frame_id
             );
         }
     }
