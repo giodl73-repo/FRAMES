@@ -2734,6 +2734,80 @@ mod tests {
         );
     }
 
+    fn extract_fixture_ids_for_key(doc: &str, key: &str) -> HashSet<String> {
+        let mut ids = HashSet::new();
+        let key_pattern = format!("\"{key}\"");
+        let mut cursor = 0usize;
+
+        while let Some(key_pos) = doc[cursor..].find(&key_pattern) {
+            let key_abs = cursor + key_pos;
+            let after_key = &doc[key_abs + key_pattern.len()..];
+            let Some(open_rel) = after_key.find('[') else {
+                cursor = key_abs + key_pattern.len();
+                continue;
+            };
+            let array_start = key_abs + key_pattern.len() + open_rel + 1;
+            let after_open = &doc[array_start..];
+            let Some(close_rel) = after_open.find(']') else {
+                break;
+            };
+            let array_body = &doc[array_start..array_start + close_rel];
+
+            let mut in_quote = false;
+            let mut token_start = 0usize;
+            for (idx, ch) in array_body.char_indices() {
+                if ch == '"' {
+                    if in_quote {
+                        let token = &array_body[token_start..idx];
+                        if !token.is_empty() {
+                            ids.insert(token.to_string());
+                        }
+                        in_quote = false;
+                    } else {
+                        in_quote = true;
+                        token_start = idx + 1;
+                    }
+                }
+            }
+
+            cursor = array_start + close_rel + 1;
+        }
+
+        ids
+    }
+
+    #[test]
+    fn relation_fixtures_reference_existing_catalog_ids() {
+        const RELATION_FIXTURES: &str =
+            include_str!("../docs/eval/relation-aware-ranking-fixtures.json");
+        const SYNTHETIC_SUPPRESSED_IDS: &[&str] = &["green-means-done"];
+        let index = FrameIndex::new();
+        let mut ids = HashSet::new();
+        for key in ["expected_order", "must_demote"] {
+            ids.extend(extract_fixture_ids_for_key(RELATION_FIXTURES, key));
+        }
+        for id in ids {
+            let in_starter = index.get(&id).is_some();
+            let in_review = index.review_entry(&id).is_some();
+            assert!(
+                in_starter || in_review,
+                "relation fixture references unknown catalog id: {}",
+                id
+            );
+        }
+
+        for id in extract_fixture_ids_for_key(RELATION_FIXTURES, "must_suppress") {
+            let in_starter = index.get(&id).is_some();
+            let in_review = index.review_entry(&id).is_some();
+            let is_synthetic = SYNTHETIC_SUPPRESSED_IDS.contains(&id.as_str());
+            assert!(
+                in_starter || in_review || is_synthetic,
+                "relation fixture suppresses unknown id without synthetic allowlist entry: {}",
+                id
+            );
+        }
+    }
+
     #[test]
     fn relation_metadata_maps_first_ranking_fixtures() {
         let crosswalk = relation_metadata_by_id("crosswalk-yield").unwrap();
