@@ -2691,6 +2691,49 @@ mod tests {
         }
     }
 
+    fn docs_accepted_starter_ids() -> HashSet<&'static str> {
+        const FRAME_CATALOG_DOC: &str = include_str!("../docs/frame-catalog.md");
+        let mut ids = HashSet::new();
+        let mut in_accepted_section = false;
+
+        for line in FRAME_CATALOG_DOC.lines() {
+            if line.starts_with("## Accepted Starter Metadata") {
+                in_accepted_section = true;
+                continue;
+            }
+
+            if in_accepted_section && line.starts_with("## Reviewed Docs-Catalog Candidates") {
+                break;
+            }
+
+            if !in_accepted_section {
+                continue;
+            }
+
+            if line.starts_with("| `") {
+                let mut parts = line.split('`');
+                let _ = parts.next();
+                if let Some(id) = parts.next() {
+                    ids.insert(id);
+                }
+            }
+        }
+
+        ids
+    }
+
+    #[test]
+    fn docs_accepted_starter_ids_match_starter_catalog() {
+        let index = FrameIndex::new();
+        let starter_ids: HashSet<&'static str> = index.entries().iter().map(|entry| entry.id).collect();
+        let doc_ids = docs_accepted_starter_ids();
+
+        assert_eq!(
+            starter_ids, doc_ids,
+            "accepted starter IDs differ between src/lib.rs STARTER_CATALOG and docs/frame-catalog.md"
+        );
+    }
+
     #[test]
     fn relation_metadata_maps_first_ranking_fixtures() {
         let crosswalk = relation_metadata_by_id("crosswalk-yield").unwrap();
