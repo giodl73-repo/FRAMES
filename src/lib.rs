@@ -2432,6 +2432,13 @@ pub const STARTER_CATALOG: &[FrameEntry] = &[
 mod tests {
     use super::*;
     use std::collections::HashSet;
+    use std::path::Path;
+
+    fn repo_has_file(relative_path: &str) -> bool {
+        Path::new(env!("CARGO_MANIFEST_DIR"))
+            .join(relative_path.replace('/', "\\"))
+            .exists()
+    }
 
     #[test]
     fn search_ranks_kind_and_tag_matches() {
@@ -2856,6 +2863,49 @@ mod tests {
                     !source_docs.is_empty(),
                     "review suppression override has empty source_docs: {}",
                     rule.review_id
+                );
+            }
+        }
+    }
+
+    #[test]
+    fn review_catalog_source_docs_exist() {
+        let index = FrameIndex::new();
+
+        for entry in index.review_entries() {
+            for doc in entry.source_docs {
+                assert!(
+                    repo_has_file(doc),
+                    "review row references missing source_doc path: {} -> {}",
+                    entry.id,
+                    doc
+                );
+            }
+        }
+    }
+
+    #[test]
+    fn suppression_source_docs_exist_when_provided() {
+        for rule in REVIEW_SUPPRESSION_RULES {
+            if let Some(source_docs) = rule.source_docs {
+                for doc in source_docs {
+                    assert!(
+                        repo_has_file(doc),
+                        "review suppression rule references missing source_doc path: {} -> {}",
+                        rule.review_id,
+                        doc
+                    );
+                }
+            }
+        }
+
+        for rule in ACCEPTED_SUPPRESSION_RULES {
+            for doc in rule.report.source_docs {
+                assert!(
+                    repo_has_file(doc),
+                    "accepted suppression report references missing source_doc path: {} -> {}",
+                    rule.report.candidate_id,
+                    doc
                 );
             }
         }
