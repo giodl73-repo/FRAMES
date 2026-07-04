@@ -2706,6 +2706,20 @@ mod tests {
     }
 
     #[test]
+    fn relation_metadata_target_relations_are_unique_per_row() {
+        for metadata in RELATION_METADATA {
+            let mut target_relations: HashSet<&'static str> = HashSet::new();
+            for relation in metadata.target_relations {
+                assert!(
+                    target_relations.insert(target_relation_name(*relation)),
+                    "relation metadata row has duplicate target relation: {}",
+                    metadata.frame_id
+                );
+            }
+        }
+    }
+
+    #[test]
     fn suppression_rules_reference_existing_candidates() {
         let index = FrameIndex::new();
 
