@@ -2954,6 +2954,72 @@ mod tests {
         }
     }
 
+    #[test]
+    fn starter_catalog_rows_have_required_core_fields() {
+        let index = FrameIndex::new();
+
+        for entry in index.entries() {
+            assert!(
+                !entry.target_situations.is_empty(),
+                "starter entry missing target_situations: {}",
+                entry.id
+            );
+            assert!(
+                !entry.tags.is_empty(),
+                "starter entry missing tags: {}",
+                entry.id
+            );
+            assert!(
+                !entry.action_cue.trim().is_empty(),
+                "starter entry missing action_cue: {}",
+                entry.id
+            );
+            assert!(
+                !entry.everyday_source.trim().is_empty(),
+                "starter entry missing everyday_source: {}",
+                entry.id
+            );
+            assert!(
+                !entry.failure_mode.trim().is_empty(),
+                "starter entry missing failure_mode: {}",
+                entry.id
+            );
+        }
+    }
+
+    #[test]
+    fn review_catalog_rows_have_required_core_fields() {
+        let index = FrameIndex::new();
+
+        for entry in index.review_entries() {
+            assert!(
+                !entry.target_situations.is_empty(),
+                "review entry missing target_situations: {}",
+                entry.id
+            );
+            assert!(
+                !entry.tags.is_empty(),
+                "review entry missing tags: {}",
+                entry.id
+            );
+            assert!(
+                !entry.source_family.trim().is_empty(),
+                "review entry missing source_family: {}",
+                entry.id
+            );
+            assert!(
+                !entry.relation_term.trim().is_empty(),
+                "review entry missing relation_term: {}",
+                entry.id
+            );
+            assert!(
+                !entry.review_decision.trim().is_empty(),
+                "review entry missing review_decision: {}",
+                entry.id
+            );
+        }
+    }
+
     fn docs_accepted_starter_ids() -> HashSet<&'static str> {
         const FRAME_CATALOG_DOC: &str = include_str!("../docs/frame-catalog.md");
         let mut ids = HashSet::new();
