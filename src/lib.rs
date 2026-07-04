@@ -2604,6 +2604,33 @@ mod tests {
     }
 
     #[test]
+    fn related_frame_links_are_resolvable_and_not_self_referential() {
+        let index = FrameIndex::new();
+
+        for entry in index.entries() {
+            assert!(
+                !entry.related.is_empty(),
+                "accepted entry should expose at least one related frame: {}",
+                entry.id
+            );
+
+            for related_id in entry.related {
+                assert_ne!(
+                    *related_id, entry.id,
+                    "entry references itself as related: {}",
+                    entry.id
+                );
+                assert!(
+                    index.get(related_id).is_some(),
+                    "entry has unresolved related frame id: {} -> {}",
+                    entry.id,
+                    related_id
+                );
+            }
+        }
+    }
+
+    #[test]
     fn relation_metadata_maps_first_ranking_fixtures() {
         let crosswalk = relation_metadata_by_id("crosswalk-yield").unwrap();
         let four_way = relation_metadata_by_id("four-way-stop").unwrap();
