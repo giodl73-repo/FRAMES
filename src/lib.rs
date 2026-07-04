@@ -2809,6 +2809,42 @@ mod tests {
     }
 
     #[test]
+    fn accepted_relation_metadata_is_not_dangerous() {
+        let index = FrameIndex::new();
+
+        for entry in index.entries() {
+            let metadata =
+                relation_metadata_by_id(entry.id).expect("accepted entry must have relation metadata");
+            assert_ne!(
+                metadata.transfer_strength,
+                TransferStrength::Dangerous,
+                "accepted starter entry has dangerous transfer strength: {}",
+                entry.id
+            );
+        }
+    }
+
+    #[test]
+    fn fixture_ranked_starter_ids_have_relation_metadata() {
+        const RELATION_FIXTURES: &str =
+            include_str!("../docs/eval/relation-aware-ranking-fixtures.json");
+        let index = FrameIndex::new();
+        let mut ranked_ids = HashSet::new();
+        ranked_ids.extend(extract_fixture_ids_for_key(RELATION_FIXTURES, "expected_order"));
+        ranked_ids.extend(extract_fixture_ids_for_key(RELATION_FIXTURES, "must_demote"));
+
+        for id in ranked_ids {
+            if index.get(&id).is_some() {
+                assert!(
+                    relation_metadata_by_id(&id).is_some(),
+                    "fixture-ranked starter id is missing relation metadata: {}",
+                    id
+                );
+            }
+        }
+    }
+
+    #[test]
     fn relation_metadata_maps_first_ranking_fixtures() {
         let crosswalk = relation_metadata_by_id("crosswalk-yield").unwrap();
         let four_way = relation_metadata_by_id("four-way-stop").unwrap();
