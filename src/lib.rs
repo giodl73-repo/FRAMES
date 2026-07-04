@@ -2755,6 +2755,51 @@ mod tests {
         }
     }
 
+    #[test]
+    fn suppression_rules_have_required_fields() {
+        for rule in REVIEW_SUPPRESSION_RULES {
+            assert!(
+                !rule.terms.is_empty(),
+                "review suppression rule has no trigger terms: {}",
+                rule.review_id
+            );
+            assert!(
+                !rule.matched_reason.trim().is_empty(),
+                "review suppression rule missing matched reason: {}",
+                rule.review_id
+            );
+        }
+
+        for rule in ACCEPTED_SUPPRESSION_RULES {
+            assert!(
+                !rule.terms.is_empty(),
+                "accepted suppression rule has no trigger terms: {}",
+                rule.report.candidate_id
+            );
+            assert!(
+                !rule.report.matched_reason.trim().is_empty(),
+                "accepted suppression report missing matched reason: {}",
+                rule.report.candidate_id
+            );
+        }
+    }
+
+    #[test]
+    fn accepted_suppression_reports_match_starter_catalog_names() {
+        let index = FrameIndex::new();
+
+        for rule in ACCEPTED_SUPPRESSION_RULES {
+            let entry = index
+                .get(rule.report.candidate_id)
+                .expect("suppressed starter candidate should exist");
+            assert_eq!(
+                rule.report.candidate_name, entry.name,
+                "accepted suppression report candidate_name mismatch for {}",
+                rule.report.candidate_id
+            );
+        }
+    }
+
     fn docs_accepted_starter_ids() -> HashSet<&'static str> {
         const FRAME_CATALOG_DOC: &str = include_str!("../docs/frame-catalog.md");
         let mut ids = HashSet::new();
