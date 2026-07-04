@@ -3041,6 +3041,52 @@ mod tests {
     }
 
     #[test]
+    fn review_catalog_matched_terms_are_unique_per_entry() {
+        let index = FrameIndex::new();
+
+        for entry in index.review_entries() {
+            let mut terms = HashSet::new();
+            for term in entry.matched_terms {
+                assert!(
+                    terms.insert(*term),
+                    "review entry has duplicate matched_term: {} -> {}",
+                    entry.id,
+                    term
+                );
+            }
+        }
+    }
+
+    #[test]
+    fn starter_and_review_tags_are_unique_per_entry() {
+        let index = FrameIndex::new();
+
+        for entry in index.entries() {
+            let mut tags = HashSet::new();
+            for tag in entry.tags {
+                assert!(
+                    tags.insert(*tag),
+                    "starter entry has duplicate tag: {} -> {}",
+                    entry.id,
+                    tag
+                );
+            }
+        }
+
+        for entry in index.review_entries() {
+            let mut tags = HashSet::new();
+            for tag in entry.tags {
+                assert!(
+                    tags.insert(*tag),
+                    "review entry has duplicate tag: {} -> {}",
+                    entry.id,
+                    tag
+                );
+            }
+        }
+    }
+
+    #[test]
     fn suppression_rule_terms_are_unique_and_non_empty() {
         for rule in REVIEW_SUPPRESSION_RULES {
             let mut terms = HashSet::new();
