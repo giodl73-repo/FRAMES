@@ -2800,6 +2800,67 @@ mod tests {
         }
     }
 
+    #[test]
+    fn accepted_suppression_reports_have_complete_explanation_fields() {
+        for rule in ACCEPTED_SUPPRESSION_RULES {
+            let report = rule.report;
+            assert!(
+                !report.rejection_class.trim().is_empty(),
+                "accepted suppression report missing rejection_class: {}",
+                report.candidate_id
+            );
+            assert!(
+                !report.violated_boundary.trim().is_empty(),
+                "accepted suppression report missing violated_boundary: {}",
+                report.candidate_id
+            );
+            assert!(
+                !report.plain_language_fallback.trim().is_empty(),
+                "accepted suppression report missing plain_language_fallback: {}",
+                report.candidate_id
+            );
+            assert!(
+                !report.source_docs.is_empty(),
+                "accepted suppression report missing source_docs: {}",
+                report.candidate_id
+            );
+        }
+    }
+
+    #[test]
+    fn review_suppression_overrides_are_non_empty_when_present() {
+        for rule in REVIEW_SUPPRESSION_RULES {
+            if let Some(rejection_class) = rule.rejection_class {
+                assert!(
+                    !rejection_class.trim().is_empty(),
+                    "review suppression override has empty rejection_class: {}",
+                    rule.review_id
+                );
+            }
+            if let Some(violated_boundary) = rule.violated_boundary {
+                assert!(
+                    !violated_boundary.trim().is_empty(),
+                    "review suppression override has empty violated_boundary: {}",
+                    rule.review_id
+                );
+            }
+            if let Some(plain_language_fallback) = rule.plain_language_fallback {
+                assert!(
+                    !plain_language_fallback.trim().is_empty(),
+                    "review suppression override has empty fallback: {}",
+                    rule.review_id
+                );
+            }
+            if let Some(source_docs) = rule.source_docs {
+                assert!(
+                    !source_docs.is_empty(),
+                    "review suppression override has empty source_docs: {}",
+                    rule.review_id
+                );
+            }
+        }
+    }
+
     fn docs_accepted_starter_ids() -> HashSet<&'static str> {
         const FRAME_CATALOG_DOC: &str = include_str!("../docs/frame-catalog.md");
         let mut ids = HashSet::new();
