@@ -3115,6 +3115,40 @@ mod tests {
         }
     }
 
+    fn is_normalized_tag(tag: &str) -> bool {
+        !tag.is_empty()
+            && tag
+                .chars()
+                .all(|ch| ch.is_ascii_lowercase() || ch.is_ascii_digit() || ch == '-')
+    }
+
+    #[test]
+    fn starter_and_review_tags_use_normalized_tokens() {
+        let index = FrameIndex::new();
+
+        for entry in index.entries() {
+            for tag in entry.tags {
+                assert!(
+                    is_normalized_tag(tag),
+                    "starter entry tag is not normalized (lowercase/digit/hyphen): {} -> {}",
+                    entry.id,
+                    tag
+                );
+            }
+        }
+
+        for entry in index.review_entries() {
+            for tag in entry.tags {
+                assert!(
+                    is_normalized_tag(tag),
+                    "review entry tag is not normalized (lowercase/digit/hyphen): {} -> {}",
+                    entry.id,
+                    tag
+                );
+            }
+        }
+    }
+
     #[test]
     fn suppression_rule_terms_are_unique_and_non_empty() {
         for rule in REVIEW_SUPPRESSION_RULES {
