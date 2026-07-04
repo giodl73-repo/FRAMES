@@ -2911,6 +2911,49 @@ mod tests {
         }
     }
 
+    #[test]
+    fn source_doc_lists_are_unique_per_entry() {
+        let index = FrameIndex::new();
+
+        for entry in index.review_entries() {
+            let mut docs = HashSet::new();
+            for doc in entry.source_docs {
+                assert!(
+                    docs.insert(*doc),
+                    "review row has duplicate source_doc reference: {} -> {}",
+                    entry.id,
+                    doc
+                );
+            }
+        }
+
+        for rule in REVIEW_SUPPRESSION_RULES {
+            if let Some(source_docs) = rule.source_docs {
+                let mut docs = HashSet::new();
+                for doc in source_docs {
+                    assert!(
+                        docs.insert(*doc),
+                        "review suppression rule has duplicate source_doc reference: {} -> {}",
+                        rule.review_id,
+                        doc
+                    );
+                }
+            }
+        }
+
+        for rule in ACCEPTED_SUPPRESSION_RULES {
+            let mut docs = HashSet::new();
+            for doc in rule.report.source_docs {
+                assert!(
+                    docs.insert(*doc),
+                    "accepted suppression report has duplicate source_doc reference: {} -> {}",
+                    rule.report.candidate_id,
+                    doc
+                );
+            }
+        }
+    }
+
     fn docs_accepted_starter_ids() -> HashSet<&'static str> {
         const FRAME_CATALOG_DOC: &str = include_str!("../docs/frame-catalog.md");
         let mut ids = HashSet::new();
