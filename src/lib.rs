@@ -3124,6 +3124,66 @@ mod tests {
     }
 
     #[test]
+    fn relation_report_demotes_stride_length_when_load_is_unnamed() {
+        let index = FrameIndex::new();
+        let query = RelationQuery::new(
+            FrameQuery::new(
+                "stride length looks right but load and control boundary are not named",
+            )
+            .with_kind(FrameKind::Momentum)
+            .with_authority_model(AuthorityModel::Operator)
+            .with_risk_band(RiskBand::Medium)
+            .with_application_pack(ApplicationPack::Learning),
+        )
+        .with_target_relation(TargetRelation::PaceAdjustment)
+        .with_constraint(ConstraintRelation::EvidenceMissing)
+        .with_protected_value(ProtectedValue::DecisionQuality)
+        .with_excluded_transfers(&[TransferExclusion::LoadMissing]);
+
+        let report = index.search_with_relations(&query);
+        let stride = report
+            .suggestions
+            .iter()
+            .find(|candidate| candidate.candidate.entry.id == "stride-length")
+            .expect("stride-length should be present");
+        assert_eq!(stride.rank_band, RankBand::Demoted);
+        assert!(stride.warnings.contains(&"load required"));
+        assert!(stride.warnings.contains(&"evidence boundary"));
+    }
+
+    #[test]
+    fn relation_report_demotes_structural_dependency_when_unknowns_remain() {
+        let index = FrameIndex::new();
+        let query = RelationQuery::new(
+            FrameQuery::new(
+                "shaky footing and unknowns mean dependency integrity should avoid premature structural certainty",
+            )
+            .with_kind(FrameKind::Risk)
+            .with_authority_model(AuthorityModel::Reviewer)
+            .with_risk_band(RiskBand::Medium)
+            .with_application_pack(ApplicationPack::Product),
+        )
+        .with_target_relation(TargetRelation::DependencyIntegrity)
+        .with_constraint(ConstraintRelation::EvidenceMissing)
+        .with_protected_value(ProtectedValue::DecisionQuality)
+        .with_excluded_transfers(&[TransferExclusion::UnknownTreatedAsStructural]);
+
+        let report = index.search_with_relations(&query);
+        let ids: Vec<_> = report
+            .suggestions
+            .iter()
+            .take(2)
+            .map(|candidate| candidate.candidate.entry.id)
+            .collect();
+
+        assert_eq!(ids, vec!["footing", "load-bearing-wall"]);
+        assert_eq!(report.suggestions[1].rank_band, RankBand::Demoted);
+        assert!(report.suggestions[1]
+            .warnings
+            .contains(&"structural evidence required"));
+    }
+
+    #[test]
     fn lifecycle_default_search_matches_existing_search() {
         let index = FrameIndex::new();
         let query = FrameQuery::new("two teams need turn order around constrained attention")

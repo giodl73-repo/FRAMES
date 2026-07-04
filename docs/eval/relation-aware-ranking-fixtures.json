@@ -383,7 +383,7 @@
         "application_pack": "learning",
         "protected_value": "decision quality"
       },
-      "expected_order": ["stride-length"],
+      "expected_order": ["downshift", "stride-length"],
       "must_demote": [],
       "must_suppress": [],
       "expected_decision": "recommend-boundary-frame",
@@ -417,6 +417,60 @@
       "expected_relation_behavior": "sequence_before",
       "expected_warnings": ["evidence boundary", "threshold required"],
       "plain_language_fallback": "Stabilize uncertain assumptions before calling a dependency structural.",
+      "source_docs": [
+        "docs/examples/traffic-and-motion.md",
+        "docs/frame-catalog.md",
+        "docs/theory/transfer-aware-search-design.md"
+      ],
+      "review_status": "accepted-fixture"
+    },
+    {
+      "id": "REL-RANK-016",
+      "title": "Stride length is demoted when load is not named",
+      "query": {
+        "target_situation": "Stride length looks right, but the load and control boundary are not named.",
+        "frame_job": "momentum",
+        "target_relation": "pace_adjustment",
+        "authority_term": "operator",
+        "risk_band": "medium",
+        "application_pack": "learning",
+        "protected_value": "decision quality",
+        "constraint": "evidence_missing"
+      },
+      "expected_order": ["stride-length"],
+      "must_demote": ["stride-length"],
+      "must_suppress": [],
+      "expected_decision": "recommend-with-evidence-warning",
+      "expected_relation_behavior": "boundary_frame",
+      "expected_warnings": ["load required", "evidence boundary"],
+      "plain_language_fallback": "Name the load and control boundary before increasing stride length.",
+      "source_docs": [
+        "docs/examples/traffic-and-motion.md",
+        "docs/frame-catalog.md",
+        "docs/theory/transfer-aware-search-design.md"
+      ],
+      "review_status": "accepted-fixture"
+    },
+    {
+      "id": "REL-RANK-017",
+      "title": "Dependency integrity demotes structural claims when uncertainty is unresolved",
+      "query": {
+        "target_situation": "The team sees shaky footing and unknowns, so dependency integrity should avoid premature structural certainty.",
+        "frame_job": "risk",
+        "target_relation": "dependency_integrity",
+        "authority_term": "reviewer",
+        "risk_band": "medium",
+        "application_pack": "product",
+        "protected_value": "decision quality",
+        "constraint": "evidence_missing"
+      },
+      "expected_order": ["footing", "load-bearing-wall"],
+      "must_demote": ["load-bearing-wall"],
+      "must_suppress": [],
+      "expected_decision": "recommend-with-evidence-warning",
+      "expected_relation_behavior": "sequence_before",
+      "expected_warnings": ["structural evidence required", "evidence boundary"],
+      "plain_language_fallback": "Stabilize unknowns first, then classify which dependency is truly structural.",
       "source_docs": [
         "docs/examples/traffic-and-motion.md",
         "docs/frame-catalog.md",
