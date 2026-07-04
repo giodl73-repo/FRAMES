@@ -3020,6 +3020,63 @@ mod tests {
         }
     }
 
+    #[test]
+    fn review_catalog_rows_have_non_empty_matched_terms() {
+        let index = FrameIndex::new();
+
+        for entry in index.review_entries() {
+            assert!(
+                !entry.matched_terms.is_empty(),
+                "review entry missing matched_terms: {}",
+                entry.id
+            );
+            for term in entry.matched_terms {
+                assert!(
+                    !term.trim().is_empty(),
+                    "review entry has blank matched_term: {}",
+                    entry.id
+                );
+            }
+        }
+    }
+
+    #[test]
+    fn suppression_rule_terms_are_unique_and_non_empty() {
+        for rule in REVIEW_SUPPRESSION_RULES {
+            let mut terms = HashSet::new();
+            for term in rule.terms {
+                assert!(
+                    !term.trim().is_empty(),
+                    "review suppression rule has blank term: {}",
+                    rule.review_id
+                );
+                assert!(
+                    terms.insert(*term),
+                    "review suppression rule has duplicate term: {} -> {}",
+                    rule.review_id,
+                    term
+                );
+            }
+        }
+
+        for rule in ACCEPTED_SUPPRESSION_RULES {
+            let mut terms = HashSet::new();
+            for term in rule.terms {
+                assert!(
+                    !term.trim().is_empty(),
+                    "accepted suppression rule has blank term: {}",
+                    rule.report.candidate_id
+                );
+                assert!(
+                    terms.insert(*term),
+                    "accepted suppression rule has duplicate term: {} -> {}",
+                    rule.report.candidate_id,
+                    term
+                );
+            }
+        }
+    }
+
     fn docs_accepted_starter_ids() -> HashSet<&'static str> {
         const FRAME_CATALOG_DOC: &str = include_str!("../docs/frame-catalog.md");
         let mut ids = HashSet::new();
